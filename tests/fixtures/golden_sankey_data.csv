@@ -299,7 +299,7 @@ Sawmills,Export sawn wood,405771.0,2012,SSB table 08801
 Sawmills,Planingmills,1408379.07,2012,Treindustrien årsrapport
 Sawmills,Pulpmills,1204577.717278,2012,Treindustrien årsrapport
 Sawmills,Shrinkage,231649.561015,2012,Treindustrien årsrapport
-Sawmills,Timber Inventory,29678.836500000038,2012,Treindustrien årsrapport
+Sawmills,Timber Inventory,29678.836500000034,2012,Treindustrien årsrapport
 Sawmills,Wood Product processing & Logistics,1381276.873199999,2012,Treindustrien årsrapport
 Spruce,Boardmills,202000.0,2012,SSB table 07410
 Spruce,Firewood,513000.0,2012,SSB table 11181
@@ -446,7 +446,7 @@ Sawmills,Export sawn wood,463161.0,2015,SSB table 08801
 Sawmills,Planingmills,1389277.008,2015,Treindustrien årsrapport
 Sawmills,Pulpmills,1516007.068394,2015,Treindustrien årsrapport
 Sawmills,Shrinkage,291539.820845,2015,Treindustrien årsrapport
-Sawmills,Timber Inventory,187003.6013,2015,Treindustrien årsrapport
+Sawmills,Timber Inventory,187003.60129999998,2015,Treindustrien årsrapport
 Sawmills,Wood Product processing & Logistics,1829133.3076,2015,Treindustrien årsrapport
 Spruce,Boardmills,430000.0,2015,SSB table 07410
 Spruce,Firewood,346500.0,2015,SSB table 11181
@@ -462,7 +462,7 @@ Wood Product processing & Logistics,Energy,509965.83989277,2015,SSB and Treindus
 Wood Product processing & Logistics,Long-term USE,4589692.55903493,2015,SSB and Treindustrien
 Boardmills,Loss Boardmills,77782.0463636,2016,FAOSTAT | SSB table 07410 | Treindustrien årsrapport
 Boardmills,Wood Product processing & Logistics,1477858.8809084,2016,FAOSTAT | SSB table 07410 | Treindustrien årsrapport
-End-of-Life,Energy,3144.927536231884,2016,SSB table 10513
+End-of-Life,Energy,3144.9275362318836,2016,SSB table 10513
 End-of-Life,Material recovery,132.50517598343686,2016,SSB table 10513
 Firewood,Energy,2123970.0,2016,SSB various tables
 Firewood,Export Firewood,90696.0,2016,SSB table 08801
@@ -485,7 +485,7 @@ Planingmills,Boardmills,73200.84030000001,2016,Treindustrien årsrapport
 Planingmills,Impregnation,413416.364,2016,Treindustrien årsrapport
 Planingmills,Wood Product processing & Logistics,980885.356,2016,Treindustrien årsrapport
 Planingmills,planed timber inventory,16013.200000000012,2016,Treindustrien årsrapport
-Pulpmills,Energy,491840.93863584,2016,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport
+Pulpmills,Energy,491840.93863583996,2016,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport
 Pulpmills,Loss,368880.70397688,2016,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport
 Pulpmills,Short-term USE,5287290.09033528,2016,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport
 Sawmills,Boardmills,795665.0869720001,2016,Treindustrien årsrapport
@@ -547,7 +547,7 @@ Sawmills,Planingmills,1473845.667,2017,Treindustrien årsrapport
 Sawmills,Pulpmills,1574556.400404,2017,Treindustrien årsrapport
 Sawmills,Shrinkage,302799.30777,2017,Treindustrien årsrapport
 Sawmills,Timber Inventory,91450.47150000004,2017,Treindustrien årsrapport
-Sawmills,Wood Product processing & Logistics,1892469.4599,2017,Treindustrien årsrapport
+Sawmills,Wood Product processing & Logistics,1892469.4598999997,2017,Treindustrien årsrapport
 Spruce,Boardmills,371000.0,2017,SSB table 07410
 Spruce,Firewood,341500.0,2017,SSB table 11181
 Spruce,Pulpmills,3136000.0,2017,SSB table 07410
@@ -598,7 +598,7 @@ Sawmills,Planingmills,1434703.83,2018,Treindustrien årsrapport
 Sawmills,Pulpmills,1635037.460654,2018,Treindustrien årsrapport
 Sawmills,Shrinkage,314430.28089500003,2018,Treindustrien årsrapport
 Sawmills,Timber Inventory,68161.26209999999,2018,Treindustrien årsrapport
-Sawmills,Wood Product processing & Logistics,2006460.05,2018,Treindustrien årsrapport
+Sawmills,Wood Product processing & Logistics,2006460.0499999996,2018,Treindustrien årsrapport
 Spruce,Boardmills,433000.0,2018,SSB table 07410
 Spruce,Firewood,323000.0,2018,SSB table 11181
 Spruce,Pulpmills,3200000.0,2018,SSB table 07410
@@ -664,7 +664,7 @@ Wood Product processing & Logistics,Energy,602205.14210728,2019,SSB and Treindus
 Wood Product processing & Logistics,Long-term USE,5419846.27896552,2019,SSB and Treindustrien
 Boardmills,Loss Boardmills,66394.3657375,2020,FAOSTAT | SSB table 07410 | Treindustrien årsrapport
 Boardmills,Wood Product processing & Logistics,1261492.9490125,2020,FAOSTAT | SSB table 07410 | Treindustrien årsrapport
-End-of-Life,Energy,3204.9689440993798,2020,SSB table 10513
+End-of-Life,Energy,3204.9689440993793,2020,SSB table 10513
 End-of-Life,Material recovery,182.19461697722568,2020,SSB table 10513
 Firewood,Energy,2006082.0,2020,SSB various tables
 Firewood,Export Firewood,79578.0,2020,SSB table 08801
@@ -699,7 +699,7 @@ Sawmills,Export sawn wood,707024.0,2020,SSB table 08801
 Sawmills,Planingmills,1331567.16,2020,Treindustrien årsrapport
 Sawmills,Pulpmills,1535749.34825,2020,Treindustrien årsrapport
 Sawmills,Shrinkage,295336.413125,2020,Treindustrien årsrapport
-Sawmills,Timber Inventory,312625.286,2020,Treindustrien årsrapport
+Sawmills,Timber Inventory,312625.28599999996,2020,Treindustrien årsrapport
 Sawmills,Wood Product processing & Logistics,1628548.8164999995,2020,Treindustrien årsrapport
 Spruce,Boardmills,174000.0,2020,SSB table 07410
 Spruce,Firewood,314000.0,2020,SSB table 11181
@@ -792,14 +792,14 @@ Planingmills,Wood Product processing & Logistics,1225049.752,2022,Treindustrien 
 Planingmills,planed timber inventory,28985.68,2022,Treindustrien årsrapport
 Pulpmills,Energy,517145.51066464,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport
 Pulpmills,Loss,387859.13299848,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport
-Pulpmills,Short-term USE,5559314.23964488,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport
+Pulpmills,Short-term USE,5559314.2396448795,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport
 Sawmills,Boardmills,969355.091012,2022,Treindustrien årsrapport
 Sawmills,Energy,346198.24679,2022,Treindustrien årsrapport
 Sawmills,Export Sawmills,2168782.0,2022,SSB table 08801
 Sawmills,Planingmills,1242974.4684,2022,Treindustrien årsrapport
 Sawmills,Pulpmills,1800230.8833080002,2022,Treindustrien årsrapport
 Sawmills,Shrinkage,346198.24679,2022,Treindustrien årsrapport
-Sawmills,Timber Inventory,190965.2553,2022,Treindustrien årsrapport
+Sawmills,Timber Inventory,190965.25529999996,2022,Treindustrien årsrapport
 Sawmills,Wood Product processing & Logistics,2187060.8511,2022,Treindustrien årsrapport
 Spruce,Boardmills,408000.0,2022,SSB table 07410
 Spruce,Firewood,381500.0,2022,SSB table 11181
