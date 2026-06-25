@@ -1,0 +1,889 @@
+﻿Layer,Year,FlowID,Source,source_id,Target,target_id,Species,moisture content,Flow description,SSB Table / FAO STAT / Treindustrien,Volume,Carbon (kg),Co2 equivalent
+Goods,2022,F1,Standing wood,0,Mortality,7,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Mortality ,SSB Table 06289,3599250.0,727685567.3,2668180413.0
+Goods,2021,F1,Standing wood,0,Mortality,7,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Mortality ,SSB Table 06289,3607350.0,729323201.0,2674185070.0
+Goods,2020,F1,Standing wood,0,Mortality,7,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Mortality ,SSB Table 06289,3609150.0,729687119.6,2675519438.0
+Goods,2019,F1,Standing wood,0,Mortality,7,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Mortality ,SSB Table 06289,3627900.0,733477938.3,2689419107.0
+Goods,2018,F1,Standing wood,0,Mortality,7,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Mortality ,SSB Table 06289,3735900.0,755313054.3,2769481199.0
+Goods,2017,F1,Standing wood,0,Mortality,7,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Mortality ,SSB Table 06289,3813150.0,770931227.6,2826747834.0
+Goods,2016,F1,Standing wood,0,Mortality,7,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Mortality ,SSB Table 06289,3872850.0,783001194.5,2871004380.0
+Goods,2015,F1,Standing wood,0,Mortality,7,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Mortality ,SSB Table 06289,3918000.0,792129486.0,2904474782.0
+Goods,2014,F1,Standing wood,0,Mortality,7,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Mortality ,SSB Table 06289,3886800.0,785821563.6,2881345733.0
+Goods,2013,F1,Standing wood,0,Mortality,7,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Mortality ,SSB Table 06289,3839700.0,776299026.9,2846429765.0
+Goods,2012,F1,Standing wood,0,Mortality,7,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Mortality ,SSB Table 06289,3791100.0,766473224.7,2810401824.0
+Goods,2011,F1,Standing wood,0,Mortality,7,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Mortality ,SSB Table 06289,3741300.0,756404810.1,2773484304.0
+Goods,2010,F1,Standing wood,0,Mortality,7,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Mortality ,SSB Table 06289,3690900.0,746215089.3,2736121994.0
+Goods,2009,F1,Standing wood,0,Mortality,7,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Mortality ,SSB Table 06289,3725850.0,753281175.5,2762030977.0
+Goods,2008,F1,Standing wood,0,Mortality,7,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Mortality ,SSB Table 06289,3734550.0,755040115.4,2768480423.0
+Goods,2007,F1,Standing wood,0,Mortality,7,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Mortality ,SSB Table 06289,3789300.0,766109306.1,2809067456.0
+Goods,2006,F1,Standing wood,0,Mortality,7,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Mortality ,SSB Table 06289,3828900.0,774115515.3,2838423556.0
+Goods,2005,F1,Standing wood,0,Mortality,7,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Mortality ,SSB Table 06289,3851100.0,778603844.7,2854880764.0
+Goods,2004,F1,Standing wood,0,Mortality,7,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Mortality ,SSB Table 06289,3831000.0,774540087.0,2839980319.0
+Goods,2003,F1,Standing wood,0,Mortality,7,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Mortality ,SSB Table 06289,3599550.0,727746220.4,2668402808.0
+Goods,2002,F1,Standing wood,0,Mortality,7,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Mortality ,SSB Table 06289,3479550.0,703484980.4,2579444928.0
+Goods,2022,F2,Standing wood,0,Spruce,1,Spruce,100.0,Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",8832398.0,1676830760.0,6148379454.0
+Goods,2021,F2,Standing wood,0,Spruce,1,Spruce,100.0,Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",8695032.0,1650751825.0,6052756692.0
+Goods,2020,F2,Standing wood,0,Spruce,1,Spruce,100.0,Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",7477706.0,1419642484.0,5205355775.0
+Goods,2019,F2,Standing wood,0,Spruce,1,Spruce,100.0,Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",8216865.0,1559971820.0,5719896674.0
+Goods,2018,F2,Standing wood,0,Spruce,1,Spruce,100.0,Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",8349512.0,1585154853.0,5812234462.0
+Goods,2017,F2,Standing wood,0,Spruce,1,Spruce,100.0,Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",8019496.0,1522501316.0,5582504824.0
+Goods,2016,F2,Standing wood,0,Spruce,1,Spruce,100.0,Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",7925447.0,1504646113.0,5517035747.0
+Goods,2015,F2,Standing wood,0,Spruce,1,Spruce,100.0,Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",7841905.0,1488785664.0,5458880769.0
+Goods,2014,F2,Standing wood,0,Spruce,1,Spruce,100.0,Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",7620172.0,1446689654.0,5304528732.0
+Goods,2013,F2,Standing wood,0,Spruce,1,Spruce,100.0,Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",7140539.0,1355631329.0,4970648207.0
+Goods,2012,F2,Standing wood,0,Spruce,1,Spruce,100.0,Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",7137431.0,1355041275.0,4968484676.0
+Goods,2011,F2,Standing wood,0,Spruce,1,Spruce,100.0,Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",6899705.0,1309908994.0,4802999646.0
+Goods,2010,F2,Standing wood,0,Spruce,1,Spruce,100.0,Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",6988298.0,1326728375.0,4864670709.0
+Goods,2009,F2,Standing wood,0,Spruce,1,Spruce,100.0,Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",5388212.0,1022952048.0,3750824177.0
+Goods,2008,F2,Standing wood,0,Spruce,1,Spruce,100.0,Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",6516301.0,1237119745.0,4536105731.0
+Goods,2007,F2,Standing wood,0,Spruce,1,Spruce,100.0,Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",6685700.0,1269280145.0,4654027198.0
+Goods,2006,F2,Standing wood,0,Spruce,1,Spruce,100.0,Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",5482730.0,1040896291.0,3816619732.0
+Goods,2005,F2,Standing wood,0,Spruce,1,Spruce,100.0,Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",6242776.0,1185191024.0,4345700420.0
+Goods,2004,F2,Standing wood,0,Spruce,1,Spruce,100.0,Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",5601512.0,1063447053.0,3899305862.0
+Goods,2003,F2,Standing wood,0,Spruce,1,Spruce,100.0,Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",5514674.0,1046960859.0,3838856483.0
+Goods,2002,F2,Standing wood,0,Spruce,1,Spruce,100.0,Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",5514674.0,1046960859.0,3838856483.0
+Goods,2022,F4,Standing wood,0,Residues from harvest,6,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,residues,Flows,1375975.3,278190558.2,0.0
+Goods,2021,F4,Standing wood,0,Residues from harvest,6,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,residues,Flows,1357388.2,274432674.1,0.0
+Goods,2020,F4,Standing wood,0,Residues from harvest,6,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,residues,Flows,1208868.5,244405406.7,0.0
+Goods,2019,F4,Standing wood,0,Residues from harvest,6,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,residues,Flows,1270269.9,256819357.6,0.0
+Goods,2018,F4,Standing wood,0,Residues from harvest,6,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,residues,Flows,1273488.9,257470165.3,0.0
+Goods,2017,F4,Standing wood,0,Residues from harvest,6,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,residues,Flows,1254002.8,253530524.1,0.0
+Goods,2016,F4,Standing wood,0,Residues from harvest,6,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,residues,Flows,1227782.9,248229463.4,0.0
+Goods,2015,F4,Standing wood,0,Residues from harvest,6,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,residues,Flows,1215172.6,245679950.8,0.0
+Goods,2014,F4,Standing wood,0,Residues from harvest,6,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,residues,Flows,1159795.1,234483893.9,0.0
+Goods,2013,F4,Standing wood,0,Residues from harvest,6,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,residues,Flows,1106349.4,223678402.6,0.0
+Goods,2012,F4,Standing wood,0,Residues from harvest,6,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,residues,Flows,1180540.9,238678217.5,0.0
+Goods,2011,F4,Standing wood,0,Residues from harvest,6,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,residues,Flows,1100329.4,222461297.1,0.0
+Goods,2010,F4,Standing wood,0,Residues from harvest,6,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,residues,Flows,1156643.0,233846611.8,0.0
+Goods,2009,F4,Standing wood,0,Residues from harvest,6,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,residues,Flows,959582.6,194005531.3,0.0
+Goods,2008,F4,Standing wood,0,Residues from harvest,6,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,residues,Flows,1072678.0,216870820.0,0.0
+Goods,2007,F4,Standing wood,0,Residues from harvest,6,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,residues,Flows,1087091.2,219784837.5,0.0
+Goods,2006,F4,Standing wood,0,Residues from harvest,6,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,residues,Flows,728247.7,147234935.2,0.0
+Goods,2005,F4,Standing wood,0,Residues from harvest,6,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,residues,Flows,828995.9,167603904.1,0.0
+Goods,2004,F4,Standing wood,0,Residues from harvest,6,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,residues,Flows,735314.3,148663639.2,0.0
+Goods,2003,F4,Standing wood,0,Residues from harvest,6,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,residues,Flows,706957.4,142930526.3,0.0
+Goods,2002,F4,Standing wood,0,Residues from harvest,6,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,residues,Flows,726288.9,146838910.9,0.0
+Goods,2022,F42,Standing wood,0,Pine,2,Pine,100.0,Pine,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",3234401.0,696560599.4,189653513.2
+Goods,2021,F42,Standing wood,0,Pine,2,Pine,100.0,Pine,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",3179245.0,684682203.2,186419365.9
+Goods,2020,F42,Standing wood,0,Pine,2,Pine,100.0,Pine,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",3085555.0,664505124.8,180925725.0
+Goods,2019,F42,Standing wood,0,Pine,2,Pine,100.0,Pine,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",3085132.0,664414027.5,180900921.8
+Goods,2018,F42,Standing wood,0,Pine,2,Pine,100.0,Pine,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",2874112.0,618968760.3,168527476.4
+Goods,2017,F42,Standing wood,0,Pine,2,Pine,100.0,Pine,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",2911004.0,626913821.4,170690689.1
+Goods,2016,F42,Standing wood,0,Pine,2,Pine,100.0,Pine,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",2851975.0,614201336.0,167229443.2
+Goods,2015,F42,Standing wood,0,Pine,2,Pine,100.0,Pine,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",2795519.0,602042971.8,163919068.6
+Goods,2014,F42,Standing wood,0,Pine,2,Pine,100.0,Pine,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",2644401.0,569498199.4,155058058.6
+Goods,2013,F42,Standing wood,0,Pine,2,Pine,100.0,Pine,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",2361267.0,508522461.1,138456110.5
+Goods,2012,F42,Standing wood,0,Pine,2,Pine,100.0,Pine,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",2599903.0,559915110.1,152448857.7
+Goods,2011,F42,Standing wood,0,Pine,2,Pine,100.0,Pine,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",2416898.0,520503153.3,141718110.0
+Goods,2010,F42,Standing wood,0,Pine,2,Pine,100.0,Pine,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",2363638.0,509033079.7,138595137.3
+Goods,2009,F42,Standing wood,0,Pine,2,Pine,100.0,Pine,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",2147999.0,462593064.6,125950850.5
+Goods,2008,F42,Standing wood,0,Pine,2,Pine,100.0,Pine,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",2369115.0,510212606.4,138916288.6
+Goods,2007,F42,Standing wood,0,Pine,2,Pine,100.0,Pine,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",2356546.0,507505746.6,138179288.2
+Goods,2006,F42,Standing wood,0,Pine,2,Pine,100.0,Pine,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",1731641.0,372926205.8,101537131.4
+Goods,2005,F42,Standing wood,0,Pine,2,Pine,100.0,Pine,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",1984212.0,427319896.3,116346976.4
+Goods,2004,F42,Standing wood,0,Pine,2,Pine,100.0,Pine,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",1703185.0,366797921.6,99868575.0
+Goods,2003,F42,Standing wood,0,Pine,2,Pine,100.0,Pine,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",1504557.0,324021395.5,88221751.36
+Goods,2002,F42,Standing wood,0,Pine,2,Pine,100.0,Pine,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",1693355.0,364680932.8,99292179.55
+Goods,2022,F43,Standing wood,0,Non-coniferous,3,Non-coniferous,100.0,Non-coni,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",1692954.0,405530201.2,110580677.2
+Goods,2021,F43,Standing wood,0,Non-coniferous,3,Non-coniferous,100.0,Non-coni,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",1699605.0,407123381.7,111015108.4
+Goods,2020,F43,Standing wood,0,Non-coniferous,3,Non-coniferous,100.0,Non-coni,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",1525424.0,365400065.0,99637922.18
+Goods,2019,F43,Standing wood,0,Non-coniferous,3,Non-coniferous,100.0,Non-coni,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",1400702.0,335524157.1,91491307.91
+Goods,2018,F43,Standing wood,0,Non-coniferous,3,Non-coniferous,100.0,Non-coni,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",1511265.0,362008418.1,98713082.05
+Goods,2017,F43,Standing wood,0,Non-coniferous,3,Non-coniferous,100.0,Non-coni,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",1609528.0,385546337.1,105131442.5
+Goods,2016,F43,Standing wood,0,Non-coniferous,3,Non-coniferous,100.0,Non-coni,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",1500407.0,359407492.8,98003857.23
+Goods,2015,F43,Standing wood,0,Non-coniferous,3,Non-coniferous,100.0,Non-coni,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",1514302.0,362735901.1,98911453.36
+Goods,2014,F43,Standing wood,0,Non-coniferous,3,Non-coniferous,100.0,Non-coni,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",1333378.0,319397366.1,87093826.64
+Goods,2013,F43,Standing wood,0,Non-coniferous,3,Non-coniferous,100.0,Non-coni,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",1561688.0,374086743.5,102006620.7
+Goods,2012,F43,Standing wood,0,Non-coniferous,3,Non-coniferous,100.0,Non-coni,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",2068075.0,495386685.5,135082898.9
+Goods,2011,F43,Standing wood,0,Non-coniferous,3,Non-coniferous,100.0,Non-coni,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",1686691.0,404029962.1,110171589.4
+Goods,2010,F43,Standing wood,0,Non-coniferous,3,Non-coniferous,100.0,Non-coni,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",2214494.0,530459892.8,144646721.7
+Goods,2009,F43,Standing wood,0,Non-coniferous,3,Non-coniferous,100.0,Non-coni,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",2059615.0,493360177.1,134530307.0
+Goods,2008,F43,Standing wood,0,Non-coniferous,3,Non-coniferous,100.0,Non-coni,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",1841364.0,441080332.6,120274548.5
+Goods,2007,F43,Standing wood,0,Non-coniferous,3,Non-coniferous,100.0,Non-coni,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",1828666.0,438038653.6,119445138.3
+Goods,2006,F43,Standing wood,0,Non-coniferous,3,Non-coniferous,100.0,Non-coni,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",68106.0,16314111.24,4448560.09
+Goods,2005,F43,Standing wood,0,Non-coniferous,3,Non-coniferous,100.0,Non-coni,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",62971.0,15084073.34,4113151.23
+Goods,2004,F43,Standing wood,0,Non-coniferous,3,Non-coniferous,100.0,Non-coni,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",48446.0,11604754.84,3164404.64
+Goods,2003,F43,Standing wood,0,Non-coniferous,3,Non-coniferous,100.0,Non-coni,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",50343.0,12059162.22,3288313.23
+Goods,2002,F43,Standing wood,0,Non-coniferous,3,Non-coniferous,100.0,Non-coni,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",54860.0,13141164.4,3583355.46
+Goods,2022,F65,Standing wood,0,Bark,5,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Bark,Flows,1375975.3,278190558.2,72588105.62
+Goods,2021,F65,Standing wood,0,Bark,5,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Bark,Flows,1357388.2,274432674.1,71569908.34
+Goods,2020,F65,Standing wood,0,Bark,5,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Bark,Flows,1208868.5,244405406.7,63865364.02
+Goods,2019,F65,Standing wood,0,Bark,5,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Bark,Flows,1270269.9,256819357.6,67035636.42
+Goods,2018,F65,Standing wood,0,Bark,5,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Bark,Flows,1273488.9,257470165.3,67135063.02
+Goods,2017,F65,Standing wood,0,Bark,5,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Bark,Flows,1254002.8,253530524.1,66150966.6
+Goods,2016,F65,Standing wood,0,Bark,5,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Bark,Flows,1227782.9,248229463.4,64728916.09
+Goods,2015,F65,Standing wood,0,Bark,5,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Bark,Flows,1215172.6,245679950.8,64092528.5
+Goods,2014,F65,Standing wood,0,Bark,5,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Bark,Flows,1159795.1,234483893.9,61128593.95
+Goods,2013,F65,Standing wood,0,Bark,5,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Bark,Flows,1106349.4,223678402.6,58305618.93
+Goods,2012,F65,Standing wood,0,Bark,5,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Bark,Flows,1180540.9,238678217.5,62346126.81
+Goods,2011,F65,Standing wood,0,Bark,5,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Bark,Flows,1100329.4,222461297.1,58120439.1
+Goods,2010,F65,Standing wood,0,Bark,5,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Bark,Flows,1156643.0,233846611.8,61023309.76
+Goods,2009,F65,Standing wood,0,Bark,5,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Bark,Flows,959582.6,194005531.3,50709230.67
+Goods,2008,F65,Standing wood,0,Bark,5,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Bark,Flows,1072678.0,216870820.0,56667869.04
+Goods,2007,F65,Standing wood,0,Bark,5,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Bark,Flows,1087091.2,219784837.5,57405757.29
+Goods,2006,F65,Standing wood,0,Bark,5,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Bark,Flows,728247.7,147234935.2,38428517.24
+Goods,2005,F65,Standing wood,0,Bark,5,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Bark,Flows,828995.9,167603904.1,43744845.66
+Goods,2004,F65,Standing wood,0,Bark,5,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Bark,Flows,735314.3,148663639.2,38801410.92
+Goods,2003,F65,Standing wood,0,Bark,5,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Bark,Flows,706957.4,142930526.3,37305060.68
+Goods,2002,F65,Standing wood,0,Bark,5,"mix all (64% spruce, 23% pine, 13% non-conif)",100.0,Bark,Flows,726288.9,146838910.9,38325154.36
+Goods,2022,F10,Spruce,1,Boardmills,15,Spruce,100.0,Roundwood,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",485000.0,92077250.0,337616583.3
+Goods,2021,F10,Spruce,1,Boardmills,15,Spruce,100.0,Roundwood,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",312000.0,59233200.0,217188400.0
+Goods,2020,F10,Spruce,1,Boardmills,15,Spruce,100.0,Roundwood,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",222000.0,42146700.0,154537900.0
+Goods,2019,F10,Spruce,1,Boardmills,15,Spruce,100.0,Roundwood,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",387000.0,73471950.0,269397150.0
+Goods,2018,F10,Spruce,1,Boardmills,15,Spruce,100.0,Roundwood,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",516000.0,97962600.0,359196200.0
+Goods,2017,F10,Spruce,1,Boardmills,15,Spruce,100.0,Roundwood,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",455000.0,86381750.0,316733083.3
+Goods,2016,F10,Spruce,1,Boardmills,15,Spruce,100.0,Roundwood,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",499000.0,94735150.0,347362216.7
+Goods,2015,F10,Spruce,1,Boardmills,15,Spruce,100.0,Roundwood,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",485000.0,92077250.0,337616583.3
+Goods,2014,F10,Spruce,1,Boardmills,15,Spruce,100.0,Roundwood,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",439000.0,83344150.0,305595216.7
+Goods,2013,F10,Spruce,1,Boardmills,15,Spruce,100.0,Roundwood,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",184000.0,34932400.0,128085466.7
+Goods,2012,F10,Spruce,1,Boardmills,15,Spruce,100.0,Roundwood,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",221000.0,41956850.0,153841783.3
+Goods,2011,F10,Spruce,1,Boardmills,15,Spruce,100.0,Roundwood,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",484000.0,91887400.0,336920466.7
+Goods,2010,F10,Spruce,1,Boardmills,15,Spruce,100.0,Roundwood,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",355000.0,67396750.0,247121416.7
+Goods,2009,F10,Spruce,1,Boardmills,15,Spruce,100.0,Roundwood,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",187000.0,35501950.0,130173816.7
+Goods,2008,F10,Spruce,1,Boardmills,15,Spruce,100.0,Roundwood,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",296000.0,56195600.0,206050533.3
+Goods,2007,F10,Spruce,1,Boardmills,15,Spruce,100.0,Roundwood,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",364000.0,69105400.0,253386466.7
+Goods,2022,F11,Spruce,1,Pulpmills,16,Spruce,100.0,Pulp wood-Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",3223000.0,611886550.0,2243584017.0
+Goods,2021,F11,Spruce,1,Pulpmills,16,Spruce,100.0,Pulp wood-Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",3153000.0,598597050.0,2194855850.0
+Goods,2020,F11,Spruce,1,Pulpmills,16,Spruce,100.0,Pulp wood-Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",3165000.0,600875250.0,2203209250.0
+Goods,2019,F11,Spruce,1,Pulpmills,16,Spruce,100.0,Pulp wood-Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",3300000.0,626505000.0,2297185000.0
+Goods,2018,F11,Spruce,1,Pulpmills,16,Spruce,100.0,Pulp wood-Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",3202000.0,607899700.0,2228965567.0
+Goods,2017,F11,Spruce,1,Pulpmills,16,Spruce,100.0,Pulp wood-Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",3098000.0,588155300.0,2156569433.0
+Goods,2016,F11,Spruce,1,Pulpmills,16,Spruce,100.0,Pulp wood-Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",3148000.0,597647800.0,2191375267.0
+Goods,2015,F11,Spruce,1,Pulpmills,16,Spruce,100.0,Pulp wood-Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",3003000.0,570119550.0,2090438350.0
+Goods,2014,F11,Spruce,1,Pulpmills,16,Spruce,100.0,Pulp wood-Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",2966000.0,563095100.0,2064682033.0
+Goods,2013,F11,Spruce,1,Pulpmills,16,Spruce,100.0,Pulp wood-Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",3250000.0,617012500.0,2262379167.0
+Goods,2012,F11,Spruce,1,Pulpmills,16,Spruce,100.0,Pulp wood-Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",3271000.0,620999350.0,2276997617.0
+Goods,2011,F11,Spruce,1,Pulpmills,16,Spruce,100.0,Pulp wood-Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",3072000.0,583219200.0,2138470400.0
+Goods,2010,F11,Spruce,1,Pulpmills,16,Spruce,100.0,Pulp wood-Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",3014000.0,572207900.0,2098095633.0
+Goods,2009,F11,Spruce,1,Pulpmills,16,Spruce,100.0,Pulp wood-Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",2612000.0,495888200.0,1818256733.0
+Goods,2008,F11,Spruce,1,Pulpmills,16,Spruce,100.0,Pulp wood-Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",3043000.0,577713550.0,2118283017.0
+Goods,2007,F11,Spruce,1,Pulpmills,16,Spruce,100.0,Pulp wood-Spruce,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",2916000.0,553602600.0,2029876200.0
+Goods,2022,F5,Spruce,1,Sawmills,9,Spruce,15.0,Sawlogs- Spruce,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",4822000.0,979878620.0,3592888273.0
+Goods,2021,F5,Spruce,1,Sawmills,9,Spruce,15.0,Sawlogs- Spruce,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",4935000.0,1002841350.0,3677084950.0
+Goods,2020,F5,Spruce,1,Sawmills,9,Spruce,15.0,Sawlogs- Spruce,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",3825000.0,777278250.0,2850020250.0
+Goods,2019,F5,Spruce,1,Sawmills,9,Spruce,15.0,Sawlogs- Spruce,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",4302000.0,874209420.0,3205434540.0
+Goods,2018,F5,Spruce,1,Sawmills,9,Spruce,15.0,Sawlogs- Spruce,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",4364000.0,886808440.0,3251630947.0
+Goods,2017,F5,Spruce,1,Sawmills,9,Spruce,15.0,Sawlogs- Spruce,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",4210000.0,855514100.0,3136885033.0
+Goods,2016,F5,Spruce,1,Sawmills,9,Spruce,15.0,Sawlogs- Spruce,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",4062000.0,825439020.0,3026609740.0
+Goods,2015,F5,Spruce,1,Sawmills,9,Spruce,15.0,Sawlogs- Spruce,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",4063000.0,825642230.0,3027354843.0
+Goods,2014,F5,Spruce,1,Sawmills,9,Spruce,15.0,Sawlogs- Spruce,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",3997000.0,812230370.0,2978178023.0
+Goods,2013,F5,Spruce,1,Sawmills,9,Spruce,15.0,Sawlogs- Spruce,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",3478000.0,706764380.0,2591469393.0
+Goods,2012,F5,Spruce,1,Sawmills,9,Spruce,15.0,Sawlogs- Spruce,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",3150000.0,640111500.0,2347075500.0
+Goods,2011,F5,Spruce,1,Sawmills,9,Spruce,15.0,Sawlogs- Spruce,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",2949000.0,599266290.0,2197309730.0
+Goods,2010,F5,Spruce,1,Sawmills,9,Spruce,15.0,Sawlogs- Spruce,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",3098000.0,629544580.0,2308330127.0
+Goods,2009,F5,Spruce,1,Sawmills,9,Spruce,15.0,Sawlogs- Spruce,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",2119000.0,430601990.0,1578873963.0
+Goods,2008,F5,Spruce,1,Sawmills,9,Spruce,15.0,Sawlogs- Spruce,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",2753000.0,559437130.0,2051269477.0
+Goods,2007,F5,Spruce,1,Sawmills,9,Spruce,15.0,Sawlogs- Spruce,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",3052000.0,620196920.0,2274055373.0
+,2022,Firewood - Spruce,Spruce,1,Firewood,8,Spruce,100.0,Firewood - Spruce,SSB table 11181,381500.0,72427775.0,265568508.3
+,2021,Firewood - Spruce,Spruce,1,Firewood,8,Spruce,100.0,Firewood - Spruce,SSB table 11181,360500.0,68440925.0,250950058.3
+,2020,Firewood - Spruce,Spruce,1,Firewood,8,Spruce,100.0,Firewood - Spruce,SSB table 11181,314000.0,59612900.0,218580633.3
+,2019,Firewood - Spruce,Spruce,1,Firewood,8,Spruce,100.0,Firewood - Spruce,SSB table 11181,283000.0,53727550.0,197001016.7
+,2018,Firewood - Spruce,Spruce,1,Firewood,8,Spruce,100.0,Firewood - Spruce,SSB table 11181,323000.0,61321550.0,224845683.3
+,2017,Firewood - Spruce,Spruce,1,Firewood,8,Spruce,100.0,Firewood - Spruce,SSB table 11181,341500.0,64833775.0,237723841.7
+,2016,Firewood - Spruce,Spruce,1,Firewood,8,Spruce,100.0,Firewood - Spruce,SSB table 11181,335500.0,63694675.0,233547141.7
+,2015,Firewood - Spruce,Spruce,1,Firewood,8,Spruce,100.0,Firewood - Spruce,SSB table 11181,346500.0,65783025.0,241204425.0
+,2014,Firewood - Spruce,Spruce,1,Firewood,8,Spruce,100.0,Firewood - Spruce,SSB table 11181,310500.0,58948425.0,216144225.0
+,2013,Firewood - Spruce,Spruce,1,Firewood,8,Spruce,100.0,Firewood - Spruce,SSB table 11181,369500.0,70149575.0,257215108.3
+,2012,Firewood - Spruce,Spruce,1,Firewood,8,Spruce,100.0,Firewood - Spruce,SSB table 11181,513000.0,97393050.0,357107850.0
+,2011,Firewood - Spruce,Spruce,1,Firewood,8,Spruce,100.0,Firewood - Spruce,SSB table 11181,424500.0,80591325.0,295501525.0
+,2010,Firewood - Spruce,Spruce,1,Firewood,8,Spruce,100.0,Firewood - Spruce,SSB table 11181,551500.0,104702275.0,383908341.7
+,2009,Firewood - Spruce,Spruce,1,Firewood,8,Spruce,100.0,Firewood - Spruce,SSB table 11181,504000.0,95684400.0,350842800.0
+,2008,Firewood - Spruce,Spruce,1,Firewood,8,Spruce,100.0,Firewood - Spruce,SSB table 11181,451500.0,85717275.0,314296675.0
+,2007,Firewood - Spruce,Spruce,1,Firewood,8,Spruce,100.0,Firewood - Spruce,SSB table 11181,452000.0,85812200.0,314644733.3
+Goods,2022,F45,Pine,2,Sawmills,9,Pine,100.0,Sawlogs - Pine,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",1729000.0,372357440.0,101382272.7
+Goods,2021,F45,Pine,2,Sawmills,9,Pine,100.0,Sawlogs - Pine,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",1699000.0,365896640.0,99623181.82
+Goods,2020,F45,Pine,2,Sawmills,9,Pine,100.0,Sawlogs - Pine,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",1529000.0,329285440.0,89655000.0
+Goods,2019,F45,Pine,2,Sawmills,9,Pine,100.0,Sawlogs - Pine,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",1585000.0,341345600.0,92938636.36
+Goods,2018,F45,Pine,2,Sawmills,9,Pine,100.0,Sawlogs - Pine,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",1483000.0,319378880.0,86957727.27
+Goods,2017,F45,Pine,2,Sawmills,9,Pine,100.0,Sawlogs - Pine,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",1505000.0,324116800.0,88247727.27
+Goods,2016,F45,Pine,2,Sawmills,9,Pine,100.0,Sawlogs - Pine,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",1386000.0,298488960.0,81270000.0
+Goods,2015,F45,Pine,2,Sawmills,9,Pine,100.0,Sawlogs - Pine,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",1435000.0,309041600.0,84143181.82
+Goods,2014,F45,Pine,2,Sawmills,9,Pine,100.0,Sawlogs - Pine,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",1336000.0,287720960.0,78338181.82
+Goods,2013,F45,Pine,2,Sawmills,9,Pine,100.0,Sawlogs - Pine,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",1153000.0,248310080.0,67607727.27
+Goods,2012,F45,Pine,2,Sawmills,9,Pine,100.0,Sawlogs - Pine,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",1226000.0,264031360.0,71888181.82
+Goods,2011,F45,Pine,2,Sawmills,9,Pine,100.0,Sawlogs - Pine,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",1163000.0,250463680.0,68194090.91
+Goods,2010,F45,Pine,2,Sawmills,9,Pine,100.0,Sawlogs - Pine,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",1119000.0,240987840.0,65614090.91
+Goods,2009,F45,Pine,2,Sawmills,9,Pine,100.0,Sawlogs - Pine,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",864000.0,186071040.0,50661818.18
+Goods,2008,F45,Pine,2,Sawmills,9,Pine,100.0,Sawlogs - Pine,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",1097000.0,236249920.0,64324090.91
+Goods,2007,F45,Pine,2,Sawmills,9,Pine,100.0,Sawlogs - Pine,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",1180000.0,254124800.0,69190909.09
+,2023,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,1002258.0,215846282.9,839725161.0
+,2022,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,1002318.0,215859204.5,839775431.0
+,2021,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,1005107.0,216459843.5,842112148.2
+,2020,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,1129601.0,243270871.4,946417371.2
+,2019,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,1143436.0,246250377.0,958008795.3
+,2018,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,948923.0,204360057.3,795039320.2
+,2017,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,984358.0,211991338.9,824727944.3
+,2016,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,1020068.0,219681844.5,854646972.7
+,2015,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,963644.0,207530371.8,807373064.7
+,2014,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,929536.0,200184873.0,778796245.3
+,2013,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,796229.0,171475877.4,667107197.2
+,2012,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,844966.0,181971877.8,707940680.3
+,2011,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,800110.0,172311689.6,670358828.3
+,2010,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,660558.0,142257770.9,553437511.0
+,2009,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,747202.0,160917422.7,626030742.3
+,2008,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,793750.0,170942000.0,665030208.3
+,2007,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,698417.0,150411085.1,585157043.2
+,2006,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,675605.0,145498292.8,566044389.2
+,2005,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,707777.0,152426854.7,592999163.2
+,2004,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,564939.0,121665263.0,473324725.5
+,2003,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,457324.0,98489296.64,383161291.3
+,2002,F99,Pine,2,Pulpmills,16,Pine,100.0,,03895: avvirkning av for salg etter statistikk var,598403.0,128872070.1,501361980.2
+,2022,Firewood - Pine,Pine,2,Firewood,8,Spruce,100.0,Firewood - Pine,SSB table 11181,381500.0,72427775.0,265568508.3
+,2021,Firewood - Pine,Pine,2,Firewood,8,Spruce,100.0,Firewood - Pine,SSB table 11181,360500.0,68440925.0,250950058.3
+,2020,Firewood - Pine,Pine,2,Firewood,8,Spruce,100.0,Firewood - Pine,SSB table 11181,314000.0,59612900.0,218580633.3
+,2019,Firewood - Pine,Pine,2,Firewood,8,Spruce,100.0,Firewood - Pine,SSB table 11181,283000.0,53727550.0,197001016.7
+,2018,Firewood - Pine,Pine,2,Firewood,8,Spruce,100.0,Firewood - Pine,SSB table 11181,323000.0,61321550.0,224845683.3
+,2017,Firewood - Pine,Pine,2,Firewood,8,Spruce,100.0,Firewood - Pine,SSB table 11181,341500.0,64833775.0,237723841.7
+,2016,Firewood - Pine,Pine,2,Firewood,8,Spruce,100.0,Firewood - Pine,SSB table 11181,335500.0,63694675.0,233547141.7
+,2015,Firewood - Pine,Pine,2,Firewood,8,Spruce,100.0,Firewood - Pine,SSB table 11181,346500.0,65783025.0,241204425.0
+,2014,Firewood - Pine,Pine,2,Firewood,8,Spruce,100.0,Firewood - Pine,SSB table 11181,310500.0,58948425.0,216144225.0
+,2013,Firewood - Pine,Pine,2,Firewood,8,Spruce,100.0,Firewood - Pine,SSB table 11181,369500.0,70149575.0,257215108.3
+,2012,Firewood - Pine,Pine,2,Firewood,8,Spruce,100.0,Firewood - Pine,SSB table 11181,513000.0,97393050.0,357107850.0
+,2011,Firewood - Pine,Pine,2,Firewood,8,Spruce,100.0,Firewood - Pine,SSB table 11181,424500.0,80591325.0,295501525.0
+,2010,Firewood - Pine,Pine,2,Firewood,8,Spruce,100.0,Firewood - Pine,SSB table 11181,551500.0,104702275.0,383908341.7
+,2009,Firewood - Pine,Pine,2,Firewood,8,Spruce,100.0,Firewood - Pine,SSB table 11181,504000.0,95684400.0,350842800.0
+,2008,Firewood - Pine,Pine,2,Firewood,8,Spruce,100.0,Firewood - Pine,SSB table 11181,451500.0,85717275.0,314296675.0
+,2007,Firewood - Pine,Pine,2,Firewood,8,Spruce,100.0,Firewood - Pine,SSB table 11181,452000.0,85812200.0,314644733.3
+Goods,2022,F46,Non-coniferous,3,Sawmills,9,Non-coniferous,100.0,Sawlogs - Non-con,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",1000.0,239540.0,65318.18
+Goods,2021,F46,Non-coniferous,3,Sawmills,9,Non-coniferous,100.0,Sawlogs - Non-con,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",2000.0,479080.0,130636.36
+Goods,2020,F46,Non-coniferous,3,Sawmills,9,Non-coniferous,100.0,Sawlogs - Non-con,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",3000.0,718620.0,195954.55
+Goods,2019,F46,Non-coniferous,3,Sawmills,9,Non-coniferous,100.0,Sawlogs - Non-con,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",1000.0,239540.0,65318.18
+Goods,2018,F46,Non-coniferous,3,Sawmills,9,Non-coniferous,100.0,Sawlogs - Non-con,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",3000.0,718620.0,195954.55
+Goods,2017,F46,Non-coniferous,3,Sawmills,9,Non-coniferous,100.0,Sawlogs - Non-con,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",5000.0,1197700.0,326590.91
+Goods,2016,F46,Non-coniferous,3,Sawmills,9,Non-coniferous,100.0,Sawlogs - Non-con,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",6000.0,1437240.0,391909.09
+Goods,2015,F46,Non-coniferous,3,Sawmills,9,Non-coniferous,100.0,Sawlogs - Non-con,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",0.0,0.0,0.0
+Goods,2014,F46,Non-coniferous,3,Sawmills,9,Non-coniferous,100.0,Sawlogs - Non-con,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",3000.0,718620.0,195954.55
+Goods,2013,F46,Non-coniferous,3,Sawmills,9,Non-coniferous,100.0,Sawlogs - Non-con,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",2000.0,479080.0,130636.36
+Goods,2012,F46,Non-coniferous,3,Sawmills,9,Non-coniferous,100.0,Sawlogs - Non-con,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",1000.0,239540.0,65318.18
+Goods,2011,F46,Non-coniferous,3,Sawmills,9,Non-coniferous,100.0,Sawlogs - Non-con,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",4000.0,958160.0,261272.73
+Goods,2010,F46,Non-coniferous,3,Sawmills,9,Non-coniferous,100.0,Sawlogs - Non-con,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",6000.0,1437240.0,391909.09
+Goods,2009,F46,Non-coniferous,3,Sawmills,9,Non-coniferous,100.0,Sawlogs - Non-con,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",6000.0,1437240.0,391909.09
+Goods,2008,F46,Non-coniferous,3,Sawmills,9,Non-coniferous,100.0,Sawlogs - Non-con,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",5000.0,1197700.0,326590.91
+Goods,2007,F46,Non-coniferous,3,Sawmills,9,Non-coniferous,100.0,Sawlogs - Non-con,"08983: Avvirkning av industrivirke for salg (1 000 m³), etter sortiment, kvartal og statistikkvariabel",3000.0,718620.0,195954.55
+Goods,2022,F47,Non-coniferous,3,Firewood,8,Non-coniferous,100.0,Firewood -Lauv,"11181: Avvirkning av vedvirke (1m³), etter statistikkvariabel, virkesgruppe og år",1480000.0,354519200.0,96670909.09
+Goods,2021,F47,Non-coniferous,3,Firewood,8,Non-coniferous,100.0,Firewood -Lauv,"11181: Avvirkning av vedvirke (1m³), etter statistikkvariabel, virkesgruppe og år",1401000.0,335595540.0,91510772.73
+Goods,2020,F47,Non-coniferous,3,Firewood,8,Non-coniferous,100.0,Firewood -Lauv,"11181: Avvirkning av vedvirke (1m³), etter statistikkvariabel, virkesgruppe og år",1219000.0,291999260.0,79622863.64
+Goods,2019,F47,Non-coniferous,3,Firewood,8,Non-coniferous,100.0,Firewood -Lauv,"11181: Avvirkning av vedvirke (1m³), etter statistikkvariabel, virkesgruppe og år",1098000.0,263014920.0,71719363.64
+Goods,2018,F47,Non-coniferous,3,Firewood,8,Non-coniferous,100.0,Firewood -Lauv,"11181: Avvirkning av vedvirke (1m³), etter statistikkvariabel, virkesgruppe og år",1253000.0,300143620.0,81843681.82
+Goods,2017,F47,Non-coniferous,3,Firewood,8,Non-coniferous,100.0,Firewood -Lauv,"11181: Avvirkning av vedvirke (1m³), etter statistikkvariabel, virkesgruppe og år",1366000.0,327211640.0,89224636.36
+Goods,2016,F47,Non-coniferous,3,Firewood,8,Non-coniferous,100.0,Firewood -Lauv,"11181: Avvirkning av vedvirke (1m³), etter statistikkvariabel, virkesgruppe og år",1303000.0,312120620.0,85109590.91
+Goods,2015,F47,Non-coniferous,3,Firewood,8,Non-coniferous,100.0,Firewood -Lauv,"11181: Avvirkning av vedvirke (1m³), etter statistikkvariabel, virkesgruppe og år",1346000.0,322420840.0,87918272.73
+Goods,2014,F47,Non-coniferous,3,Firewood,8,Non-coniferous,100.0,Firewood -Lauv,"11181: Avvirkning av vedvirke (1m³), etter statistikkvariabel, virkesgruppe og år",1205000.0,288645700.0,78708409.09
+Goods,2013,F47,Non-coniferous,3,Firewood,8,Non-coniferous,100.0,Firewood -Lauv,"11181: Avvirkning av vedvirke (1m³), etter statistikkvariabel, virkesgruppe og år",1435000.0,343739900.0,93731590.91
+Goods,2012,F47,Non-coniferous,3,Firewood,8,Non-coniferous,100.0,Firewood -Lauv,"11181: Avvirkning av vedvirke (1m³), etter statistikkvariabel, virkesgruppe og år",1992000.0,477163680.0,130113818.2
+Goods,2011,F47,Non-coniferous,3,Firewood,8,Non-coniferous,100.0,Firewood -Lauv,"11181: Avvirkning av vedvirke (1m³), etter statistikkvariabel, virkesgruppe og år",1648000.0,394761920.0,107644363.6
+Goods,2010,F47,Non-coniferous,3,Firewood,8,Non-coniferous,100.0,Firewood -Lauv,"11181: Avvirkning av vedvirke (1m³), etter statistikkvariabel, virkesgruppe og år",2141000.0,512855140.0,139846227.3
+Goods,2009,F47,Non-coniferous,3,Firewood,8,Non-coniferous,100.0,Firewood -Lauv,"11181: Avvirkning av vedvirke (1m³), etter statistikkvariabel, virkesgruppe og år",1957000.0,468779780.0,127827681.8
+Goods,2008,F47,Non-coniferous,3,Firewood,8,Non-coniferous,100.0,Firewood -Lauv,"11181: Avvirkning av vedvirke (1m³), etter statistikkvariabel, virkesgruppe og år",1753000.0,419913620.0,114502772.7
+Goods,2007,F47,Non-coniferous,3,Firewood,8,Non-coniferous,100.0,Firewood -Lauv,"11181: Avvirkning av vedvirke (1m³), etter statistikkvariabel, virkesgruppe og år",1755000.0,420392700.0,114633409.1
+Goods,2005,F47,Non-coniferous,3,Firewood,8,Non-coniferous,100.0,Firewood -Lauv,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",777220.0,186175278.8,50766597.27
+Goods,2004,F47,Non-coniferous,3,Firewood,8,Non-coniferous,100.0,Firewood -Lauv,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",828689.0,198504163.1,54128458.77
+Goods,2003,F47,Non-coniferous,3,Firewood,8,Non-coniferous,100.0,Firewood -Lauv,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",909000.0,217741860.0,59374227.27
+Goods,2002,F47,Non-coniferous,3,Firewood,8,Non-coniferous,100.0,Firewood -Lauv,"03795: Avvirkning for salg (m³), etter region, sortiment, år og statistikkvariabel",788702.0,188925677.1,51516580.64
+,2023,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,29352.0,7030978.08,25829760.0
+,2022,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,151735.0,36346601.9,133526800.0
+,2021,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,133792.0,32048535.68,117736960.0
+,2020,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,79501.0,19043669.54,69960880.0
+,2019,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,223885.0,53629412.9,197018800.0
+,2018,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,138728.0,33230905.12,122080640.0
+,2017,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,69112.0,16555088.48,60818560.0
+,2016,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,59274.0,14198493.96,52161120.0
+,2015,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,130635.0,31292307.9,114958800.0
+,2014,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,148978.0,35686190.12,131100640.0
+,2013,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,175000.0,41919500.0,154000000.0
+,2012,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,151605.0,36315461.7,133412400.0
+,2011,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,285789.0,68457897.06,251494320.0
+,2010,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,193503.0,46351708.62,170282640.0
+,2009,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,103891.0,24886050.14,91424080.0
+,2008,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,135706.0,32507015.24,119421280.0
+,2007,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,161431.0,38669181.74,142059280.0
+,2006,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,169495.0,40600832.3,149155600.0
+,2005,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,110044.0,26359939.76,96838720.0
+,2004,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,162418.0,38905607.72,142927840.0
+,2003,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,291519.0,69830461.26,256536720.0
+,2002,Firewood,Import Firewood,4,Non-coniferous,3,Non-coniferous,100.0,,08801: Utenrikshandel med varer,147104.0,35237292.16,129451520.0
+,2022,Firewood - Mixed,Firewood,8,Energy,31,Mixed,100.0,Firewood-Mixed,SSB table 11181,2243000.0,499374750.0,627807925.7
+,2021,Firewood - Mixed,Firewood,8,Energy,31,Mixed,100.0,Firewood-Mixed,SSB table 11181,2122000.0,472477390.0,593410889.3
+,2020,Firewood - Mixed,Firewood,8,Energy,31,Mixed,100.0,Firewood-Mixed,SSB table 11181,1847000.0,411225060.0,516784130.2
+,2019,Firewood - Mixed,Firewood,8,Energy,31,Mixed,100.0,Firewood-Mixed,SSB table 11181,1664000.0,370470020.0,465721397.0
+,2018,Firewood - Mixed,Firewood,8,Energy,31,Mixed,100.0,Firewood-Mixed,SSB table 11181,1899000.0,422786720.0,531535048.4
+,2017,Firewood - Mixed,Firewood,8,Energy,31,Mixed,100.0,Firewood-Mixed,SSB table 11181,2049000.0,456879190.0,564672319.8
+,2016,Firewood - Mixed,Firewood,8,Energy,31,Mixed,100.0,Firewood-Mixed,SSB table 11181,1974000.0,439509970.0,552203874.3
+,2015,Firewood - Mixed,Firewood,8,Energy,31,Mixed,100.0,Firewood-Mixed,SSB table 11181,2039000.0,453986890.0,570327122.7
+,2014,Firewood - Mixed,Firewood,8,Energy,31,Mixed,100.0,Firewood-Mixed,SSB table 11181,1826000.0,406542550.0,510996859.1
+,2013,Firewood - Mixed,Firewood,8,Energy,31,Mixed,100.0,Firewood-Mixed,SSB table 11181,2174000.0,484039050.0,608161807.5
+,2012,Firewood - Mixed,Firewood,8,Energy,31,Mixed,100.0,Firewood-Mixed,SSB table 11181,3018000.0,671949780.0,844329518.2
+,2011,Firewood - Mixed,Firewood,8,Energy,31,Mixed,100.0,Firewood-Mixed,SSB table 11181,2497000.0,555944570.0,698647413.6
+,2010,Firewood - Mixed,Firewood,8,Energy,31,Mixed,100.0,Firewood-Mixed,SSB table 11181,3244000.0,722259690.0,907662910.7
+,2009,Firewood - Mixed,Firewood,8,Energy,31,Mixed,100.0,Firewood-Mixed,SSB table 11181,2965000.0,660148580.0,829513281.8
+,2008,Firewood - Mixed,Firewood,8,Energy,31,Mixed,100.0,Firewood-Mixed,SSB table 11181,2656000.0,591348170.0,743096122.7
+,2007,Firewood - Mixed,Firewood,8,Energy,31,Mixed,100.0,Firewood-Mixed,SSB table 11181,2659000.0,592017100.0,743922875.7
+,2005,Firewood - Mixed,Firewood,8,Energy,31,Mixed,100.0,Firewood-Mixed,SSB table 11181,777220.0,186175278.8,50766597.27
+,2004,Firewood - Mixed,Firewood,8,Energy,31,Mixed,100.0,Firewood-Mixed,SSB table 11181,828689.0,198504163.1,54128458.77
+,2003,Firewood - Mixed,Firewood,8,Energy,31,Mixed,100.0,Firewood-Mixed,SSB table 11181,909000.0,217741860.0,59374227.27
+,2002,Firewood - Mixed,Firewood,8,Energy,31,Mixed,100.0,Firewood-Mixed,SSB table 11181,788702.0,188925677.1,51516580.64
+Goods,2022,F12,Sawmills,9,Pulpmills,16,mix (75% spruce 25% pine),15.0,by- products,Flows,1800230.8833080002,377220380.9176508,1383141396.4661582
+Goods,2021,F12,Sawmills,9,Pulpmills,16,mix (75% spruce 25% pine),15.0,by- products,Flows,1771771.33016,371256965.7100754,1361275541.5693803
+Goods,2020,F12,Sawmills,9,Pulpmills,16,mix (75% spruce 25% pine),15.0,by- products,Flows,1535749.34825,321800918.35704345,1179936701.0226014
+Goods,2019,F12,Sawmills,9,Pulpmills,16,mix (75% spruce 25% pine),15.0,by- products,Flows,1605833.2294160002,336486293.691153,1233783076.9744017
+Goods,2018,F12,Sawmills,9,Pulpmills,16,mix (75% spruce 25% pine),15.0,by- products,Flows,1635037.460654,342605750.1611315,1256221083.606776
+Goods,2017,F12,Sawmills,9,Pulpmills,16,mix (75% spruce 25% pine),15.0,by- products,Flows,1574556.400404,329932549.3731325,1209752680.8339264
+Goods,2016,F12,Sawmills,9,Pulpmills,16,mix (75% spruce 25% pine),15.0,by- products,Flows,1477663.732948,309629660.47861093,1135308755.08824
+Goods,2015,F12,Sawmills,9,Pulpmills,16,mix (75% spruce 25% pine),15.0,by- products,Flows,1516007.068394,317664120.79941225,1164768442.9311783
+Goods,2014,F12,Sawmills,9,Pulpmills,16,mix (75% spruce 25% pine),15.0,by- products,Flows,1398885.332052,293122435.5038232,1074782263.584335
+Goods,2013,F12,Sawmills,9,Pulpmills,16,mix (75% spruce 25% pine),15.0,by- products,Flows,1286719.668858,269619239.1565938,988603876.8073888
+Goods,2012,F12,Sawmills,9,Pulpmills,16,mix (75% spruce 25% pine),15.0,by- products,Flows,1204577.717278,252407213.0110377,925493114.4018272
+Goods,2011,F12,Sawmills,9,Pulpmills,16,mix (75% spruce 25% pine),15.0,by- products,Flows,1145580.28,240044886.9410394,880164585.2488353
+Goods,2010,F12,Sawmills,9,Pulpmills,16,mix (75% spruce 25% pine),15.0,by- products,Flows,0.0,0.0,0.0
+Goods,2009,F12,Sawmills,9,Pulpmills,16,mix (75% spruce 25% pine),15.0,by- products,Flows,0.0,0.0,0.0
+Goods,2008,F12,Sawmills,9,Pulpmills,16,mix (75% spruce 25% pine),15.0,by- products,Flows,0.0,0.0,0.0
+Goods,2007,F12,Sawmills,9,Pulpmills,16,mix (75% spruce 25% pine),15.0,by- products,Flows,0.0,0.0,0.0
+Goods,2006,F12,Sawmills,9,Pulpmills,16,mix (75% spruce 25% pine),15.0,by- products,Flows,0.0,0.0,0.0
+Goods,2005,F12,Sawmills,9,Pulpmills,16,mix (75% spruce 25% pine),15.0,by- products,Flows,0.0,0.0,0.0
+Goods,2004,F12,Sawmills,9,Pulpmills,16,mix (75% spruce 25% pine),15.0,by- products,Flows,0.0,0.0,0.0
+Goods,2003,F12,Sawmills,9,Pulpmills,16,mix (75% spruce 25% pine),15.0,by- products,Flows,0.0,0.0,0.0
+Goods,2002,F12,Sawmills,9,Pulpmills,16,mix (75% spruce 25% pine),15.0,by- products,Flows,0.0,0.0,0.0
+Goods,2022,F21,Sawmills,9,Boardmills,15,mix (75% spruce 25% pine),15.0,by-products,Flows,969355.091012,203118669.7502465,744768455.7184386
+Goods,2021,F21,Sawmills,9,Boardmills,15,mix (75% spruce 25% pine),15.0,by-products,Flows,954030.71624,199907593.50959083,732994509.5056527
+Goods,2020,F21,Sawmills,9,Boardmills,15,mix (75% spruce 25% pine),15.0,by-products,Flows,826941.9567500001,173277411.22358492,635350507.9528494
+Goods,2019,F21,Sawmills,9,Boardmills,15,mix (75% spruce 25% pine),15.0,by-products,Flows,864679.4312240002,181184926.64197052,664344731.0205587
+Goods,2018,F21,Sawmills,9,Boardmills,15,mix (75% spruce 25% pine),15.0,by-products,Flows,880404.7865060001,184480017.1143104,676426729.2710308
+Goods,2017,F21,Sawmills,9,Boardmills,15,mix (75% spruce 25% pine),15.0,by-products,Flows,847838.061756,177655991.48504218,651405302.2243214
+Goods,2016,F21,Sawmills,9,Boardmills,15,mix (75% spruce 25% pine),15.0,by-products,Flows,795665.0869720001,166723655.2566103,611320069.2464173
+Goods,2015,F21,Sawmills,9,Boardmills,15,mix (75% spruce 25% pine),15.0,by-products,Flows,816311.498366,171049916.22993374,627183026.1467826
+Goods,2014,F21,Sawmills,9,Boardmills,15,mix (75% spruce 25% pine),15.0,by-products,Flows,753245.9480280001,157835163.02256897,578728931.0827528
+Goods,2013,F21,Sawmills,9,Boardmills,15,mix (75% spruce 25% pine),15.0,by-products,Flows,692849.052462,145179593.06510782,532325174.4599254
+Goods,2012,F21,Sawmills,9,Boardmills,15,mix (75% spruce 25% pine),15.0,by-products,Flows,648618.770842,135911585.11667445,498342478.6826776
+Goods,2011,F21,Sawmills,9,Boardmills,15,mix (75% spruce 25% pine),15.0,by-products,Flows,616850.92,129254943.15216364,473934791.727313
+Goods,2010,F21,Sawmills,9,Boardmills,15,mix (75% spruce 25% pine),15.0,by-products,Flows,0.0,0.0,0.0
+Goods,2009,F21,Sawmills,9,Boardmills,15,mix (75% spruce 25% pine),15.0,by-products,Flows,0.0,0.0,0.0
+Goods,2008,F21,Sawmills,9,Boardmills,15,mix (75% spruce 25% pine),15.0,by-products,Flows,0.0,0.0,0.0
+Goods,2007,F21,Sawmills,9,Boardmills,15,mix (75% spruce 25% pine),15.0,by-products,Flows,0.0,0.0,0.0
+Goods,2006,F21,Sawmills,9,Boardmills,15,mix (75% spruce 25% pine),15.0,by-products,Flows,0.0,0.0,0.0
+Goods,2005,F21,Sawmills,9,Boardmills,15,mix (75% spruce 25% pine),15.0,by-products,Flows,0.0,0.0,0.0
+Goods,2004,F21,Sawmills,9,Boardmills,15,mix (75% spruce 25% pine),15.0,by-products,Flows,0.0,0.0,0.0
+Goods,2003,F21,Sawmills,9,Boardmills,15,mix (75% spruce 25% pine),15.0,by-products,Flows,0.0,0.0,0.0
+Goods,2002,F21,Sawmills,9,Boardmills,15,mix (75% spruce 25% pine),15.0,by-products,Flows,0.0,0.0,0.0
+Goods,2022,F32,Sawmills,9,Export Sawn,11,mix (75% spruce 25% pine),15.0,E,SSB table 08801,2113566.0,442876619.6,117014699.5
+Goods,2021,F32,Sawmills,9,Export Sawn,11,mix (75% spruce 25% pine),15.0,E,SSB table 08801,1691590.0,354455768.6,93652573.64
+Goods,2020,F32,Sawmills,9,Export Sawn,11,mix (75% spruce 25% pine),15.0,E,SSB table 08801,1133811.0,237578756.9,62771899.91
+Goods,2019,F32,Sawmills,9,Export Sawn,11,mix (75% spruce 25% pine),15.0,E,SSB table 08801,1255125.0,262998892.5,69488284.09
+Goods,2018,F32,Sawmills,9,Export Sawn,11,mix (75% spruce 25% pine),15.0,E,SSB table 08801,1368953.0,286850411.6,75790216.09
+Goods,2017,F32,Sawmills,9,Export Sawn,11,mix (75% spruce 25% pine),15.0,E,SSB table 08801,1203613.0,252205068.0,66636392.45
+Goods,2016,F32,Sawmills,9,Export Sawn,11,mix (75% spruce 25% pine),15.0,E,SSB table 08801,1014304.0,212537260.2,56155557.82
+Goods,2015,F32,Sawmills,9,Export Sawn,11,mix (75% spruce 25% pine),15.0,E,SSB table 08801,1277745.0,267738687.3,70740609.55
+Goods,2014,F32,Sawmills,9,Export Sawn,11,mix (75% spruce 25% pine),15.0,E,SSB table 08801,895420.0,187626306.8,49573707.27
+Goods,2013,F32,Sawmills,9,Export Sawn,11,mix (75% spruce 25% pine),15.0,E,SSB table 08801,575644.0,120620443.8,31869745.09
+Goods,2012,F32,Sawmills,9,Export Sawn,11,mix (75% spruce 25% pine),15.0,E,SSB table 08801,286712.0,60077632.48,15873418.91
+Goods,2011,F32,Sawmills,9,Export Sawn,11,mix (75% spruce 25% pine),15.0,E,SSB table 08801,83679.0,17534097.66,4632773.73
+Goods,2010,F32,Sawmills,9,Export Sawn,11,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-77585.0,-16257160.9,-4295387.73
+Goods,2009,F32,Sawmills,9,Export Sawn,11,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-26186.0,-5487014.44,-1449752.18
+Goods,2008,F32,Sawmills,9,Export Sawn,11,mix (75% spruce 25% pine),15.0,E,SSB table 08801,54476.0,11414901.04,3015989.46
+Goods,2007,F32,Sawmills,9,Export Sawn,11,mix (75% spruce 25% pine),15.0,E,SSB table 08801,43743.0,9165908.22,2421771.55
+Goods,2006,F32,Sawmills,9,Export Sawn,11,mix (75% spruce 25% pine),15.0,E,SSB table 08801,12571.0,2634127.34,695976.27
+Goods,2005,F32,Sawmills,9,Export Sawn,11,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-331804.0,-69526210.16,-18369876.0
+Goods,2004,F32,Sawmills,9,Export Sawn,11,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-442311.0,-92681846.94,-24487945.36
+Goods,2003,F32,Sawmills,9,Export Sawn,11,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-348300.0,-72982782.0,-19283154.55
+Goods,2002,F32,Sawmills,9,Export Sawn,11,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-153943.0,-32257216.22,-8522844.27
+Goods,2022,F33,Sawmills,9,Planingmills,13,mix (75% spruce 25% pine),15.0,sawn timber,Treindustrien 5%Svinn,1242974.4684,260452869.1728852,68815586.21876399
+Goods,2021,F33,Sawmills,9,Planingmills,13,mix (75% spruce 25% pine),15.0,sawn timber,Treindustrien 5%Svinn,1488187.9320000005,311834899.821885,82391495.66079603
+Goods,2020,F33,Sawmills,9,Planingmills,13,mix (75% spruce 25% pine),15.0,sawn timber,Treindustrien 5%Svinn,1331567.16,279016583.2631168,73720400.16338073
+Goods,2019,F33,Sawmills,9,Planingmills,13,mix (75% spruce 25% pine),15.0,sawn timber,Treindustrien 5%Svinn,1392135.276,291708025.72315323,77073671.16902728
+Goods,2018,F33,Sawmills,9,Planingmills,13,mix (75% spruce 25% pine),15.0,sawn timber,Treindustrien 5%Svinn,1434703.83,300627840.8953831,79430421.21371129
+Goods,2017,F33,Sawmills,9,Planingmills,13,mix (75% spruce 25% pine),15.0,sawn timber,Treindustrien 5%Svinn,1473845.667,308829620.46763515,81597455.410296
+Goods,2016,F33,Sawmills,9,Planingmills,13,mix (75% spruce 25% pine),15.0,sawn timber,Treindustrien 5%Svinn,1464016.806,306770081.5193532,81053294.05884328
+Goods,2015,F33,Sawmills,9,Planingmills,13,mix (75% spruce 25% pine),15.0,sawn timber,Treindustrien 5%Svinn,1389277.008,291109103.4901829,76915426.88480508
+Goods,2014,F33,Sawmills,9,Planingmills,13,mix (75% spruce 25% pine),15.0,sawn timber,Treindustrien 5%Svinn,1373511.4050000005,287805580.1738259,76042586.05842438
+Goods,2013,F33,Sawmills,9,Planingmills,13,mix (75% spruce 25% pine),15.0,sawn timber,Treindustrien 5%Svinn,1353111.4800000002,283530978.7690615,74913171.73799455
+Goods,2012,F33,Sawmills,9,Planingmills,13,mix (75% spruce 25% pine),15.0,sawn timber,Treindustrien 5%Svinn,1408379.07,295111749.7513097,77972986.51796183
+Goods,2011,F33,Sawmills,9,Planingmills,13,mix (75% spruce 25% pine),15.0,sawn timber,Treindustrien 5%Svinn,1336258.371,279999580.3826163,73980122.89489722
+Goods,2022,F39,Sawmills,9,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Sawn timber,Treindustrien,2187060.8511,458276728.46933264,115376056.01501752
+Goods,2021,F39,Sawmills,9,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Sawn timber,Treindustrien,2332272.896299999,488704464.1169012,122971864.55377737
+Goods,2020,F39,Sawmills,9,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Sawn timber,Treindustrien,1628548.8164999995,341246117.8658468,86037366.86659421
+Goods,2019,F39,Sawmills,9,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Sawn timber,Treindustrien,2019210.3157999995,423105327.8167805,106559281.5972783
+Goods,2018,F39,Sawmills,9,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Sawn timber,Treindustrien,2006460.05,420433638.1540148,105775418.76073648
+Goods,2017,F39,Sawmills,9,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Sawn timber,Treindustrien,1892469.4599,396548049.30419606,99831263.2785912
+Goods,2016,F39,Sawmills,9,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Sawn timber,Treindustrien,1817728.6012999995,380886852.6900727,95830950.71040551
+Goods,2015,F39,Sawmills,9,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Sawn timber,Treindustrien,1829133.3076,383276595.328264,96475002.22001864
+Goods,2014,F39,Sawmills,9,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Sawn timber,Treindustrien,1893904.3962999992,396848726.3165419,99820832.62406848
+Goods,2013,F39,Sawmills,9,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Sawn timber,Treindustrien,1475950.1817999994,309270601.4549447,77783916.13186157
+Goods,2012,F39,Sawmills,9,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Sawn timber,Treindustrien,1381276.873199999,289432754.48779494,72947292.75504604
+Goods,2011,F39,Sawmills,9,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Sawn timber,Treindustrien,1331450.1289999995,278992056.2920541,70328453.55163737
+Goods,2022,F44,Sawmills,9,Shrinkage,10,Water,100.0,Shrinkage,Transfercoefficient,346198.24679,0.0010567712050976,0.0010567712050976
+Goods,2021,F44,Sawmills,9,Shrinkage,10,Water,100.0,Shrinkage,Transfercoefficient,340725.25580000004,0.0010268995051235,0.0010268995051235
+Goods,2020,F44,Sawmills,9,Shrinkage,10,Water,100.0,Shrinkage,Transfercoefficient,295336.413125,0.0011026186788314,0.0011026186788314
+Goods,2019,F44,Sawmills,9,Shrinkage,10,Water,100.0,Shrinkage,Transfercoefficient,308814.08258000005,0.0010489608783288,0.0010489608783288
+Goods,2018,F44,Sawmills,9,Shrinkage,10,Water,100.0,Shrinkage,Transfercoefficient,314430.28089500003,0.0010749753192991,0.0010749753192991
+Goods,2017,F44,Sawmills,9,Shrinkage,10,Water,100.0,Shrinkage,Transfercoefficient,302799.30777,0.0010587388383566,0.0010587388383566
+Goods,2016,F44,Sawmills,9,Shrinkage,10,Water,100.0,Shrinkage,Transfercoefficient,284166.10249,0.0010420465804547,0.0010420465804547
+Goods,2015,F44,Sawmills,9,Shrinkage,10,Water,100.0,Shrinkage,Transfercoefficient,291539.820845,0.0010605304505092,0.0010605304505092
+Goods,2014,F44,Sawmills,9,Shrinkage,10,Water,100.0,Shrinkage,Transfercoefficient,269016.41001,0.0010083073838455,0.0010083073838455
+Goods,2013,F44,Sawmills,9,Shrinkage,10,Water,100.0,Shrinkage,Transfercoefficient,247446.090165,0.0010681894675804,0.0010681894675804
+Goods,2012,F44,Sawmills,9,Shrinkage,10,Water,100.0,Shrinkage,Transfercoefficient,231649.561015,0.0010584855426776,0.0010584855426776
+Goods,2011,F44,Sawmills,9,Shrinkage,10,Water,100.0,Shrinkage,Transfercoefficient,220303.9,0.0010704757045675,0.0010704757045675
+Goods,2010,F44,Sawmills,9,Shrinkage,10,Water,100.0,Shrinkage,Transfercoefficient,211150.0,0.001,0.001
+Goods,2009,F44,Sawmills,9,Shrinkage,10,Water,100.0,Shrinkage,Transfercoefficient,149450.0,0.001,0.001
+Goods,2008,F44,Sawmills,9,Shrinkage,10,Water,100.0,Shrinkage,Transfercoefficient,192750.0,0.001,0.001
+Goods,2007,F44,Sawmills,9,Shrinkage,10,Water,100.0,Shrinkage,Transfercoefficient,211750.0,0.001,0.001
+Goods,2006,F44,Sawmills,9,Shrinkage,10,Water,100.0,Shrinkage,Transfercoefficient,0.0,0.001,0.001
+Goods,2005,F44,Sawmills,9,Shrinkage,10,Water,100.0,Shrinkage,Transfercoefficient,0.0,0.001,0.001
+Goods,2004,F44,Sawmills,9,Shrinkage,10,Water,100.0,Shrinkage,Transfercoefficient,0.0,0.001,0.001
+Goods,2003,F44,Sawmills,9,Shrinkage,10,Water,100.0,Shrinkage,Transfercoefficient,0.0,0.001,0.001
+Goods,2002,F44,Sawmills,9,Shrinkage,10,Water,100.0,Shrinkage,Transfercoefficient,0.0,0.001,0.001
+Goods,2022,F6,Sawmills,9,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,346198.24679,72542381.52061628,18263318.546710845
+Goods,2021,F6,Sawmills,9,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,340725.25580000004,71395569.07894632,17965144.37032022
+Goods,2020,F6,Sawmills,9,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,295336.413125,61884791.83781073,15602828.169513645
+Goods,2019,F6,Sawmills,9,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,308814.08258000005,64708901.87637626,16296968.262204716
+Goods,2018,F6,Sawmills,9,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,314430.28089500003,65885721.34573407,16575956.658101909
+Goods,2017,F6,Sawmills,9,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,302799.30777,63448566.13887695,15973223.220220214
+Goods,2016,F6,Sawmills,9,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,284166.10249,59544166.16711151,14981283.84555738
+Goods,2015,F6,Sawmills,9,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,291539.820845,61089254.36814361,15376848.0076814
+Goods,2014,F6,Sawmills,9,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,269016.41001,56369697.9243003,14178879.280212823
+Goods,2013,F6,Sawmills,9,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,247446.090165,51849854.21011189,13040633.971721904
+Goods,2012,F6,Sawmills,9,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,231649.561015,48539849.3089151,12233759.11563044
+Goods,2011,F6,Sawmills,9,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,220303.9,46162477.88639349,11636659.928061206
+Goods,2010,F6,Sawmills,9,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,0.0,0.0,0.0
+Goods,2009,F6,Sawmills,9,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,0.0,0.0,0.0
+Goods,2008,F6,Sawmills,9,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,0.0,0.0,0.0
+Goods,2007,F6,Sawmills,9,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,0.0,0.0,0.0
+Goods,2006,F6,Sawmills,9,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,0.0,0.0,0.0
+Goods,2005,F6,Sawmills,9,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,0.0,0.0,0.0
+Goods,2004,F6,Sawmills,9,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,0.0,0.0,0.0
+Goods,2003,F6,Sawmills,9,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,0.0,0.0,0.0
+Goods,2002,F6,Sawmills,9,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,0.0,0.0,0.0
+,2022,,Sawmills_stock,12,Sawmills,9,,,,,32508.616299999994,8446037.421283802,100525427.81133978
+,2021,,Sawmills,9,Sawmills_stock,12,,,,,265943.71229999996,66410970.86529056,669188857.9602404
+,2020,,Sawmills_stock,12,Sawmills,9,,,,,312625.28599999996,84457784.04381497,1038037951.9346067
+,2019,,Sawmills,9,Sawmills_stock,12,,,,,172890.44019999995,42097317.662010424,354044524.3681993
+,2018,,Sawmills,9,Sawmills_stock,12,,,,,68161.26209999999,17030861.29807416,172070936.6385525
+,2017,,Sawmills,9,Sawmills_stock,12,,,,,91450.47150000004,22842625.80957385,221642313.69233984
+,2016,,Sawmills_stock,12,Sawmills,9,,,,,52012.142500000016,12696033.750541614,111702225.72490568
+,2015,,Sawmills_stock,12,Sawmills,9,,,,,187003.60129999998,46430887.695827164,445932034.49556047
+,2014,,Sawmills,9,Sawmills_stock,12,,,,,249224.60109999997,59340434.49642683,454799087.0193148
+,2013,,Sawmills_stock,12,Sawmills,9,,,,,134220.14149999997,31796616.1940962,233855578.09098652
+,2012,,Sawmills_stock,12,Sawmills,9,,,,,27349.277100000007,6452505.22824343,41322762.010674186
+Goods,2022,F34,Planingmills,13,Impregnation,18,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,308199.46,64580114.01,19206429.74
+Goods,2021,F34,Planingmills,13,Impregnation,18,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,435952.72,91349532.95,27167780.87
+Goods,2020,F34,Planingmills,13,Impregnation,18,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,463639.52,97151025.02,28893171.91
+Goods,2019,F34,Planingmills,13,Impregnation,18,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,411346.96,86193642.0,25634394.64
+Goods,2018,F34,Planingmills,13,Impregnation,18,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,371070.0,77754007.8,23124407.73
+Goods,2017,F34,Planingmills,13,Impregnation,18,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,381079.96,79851494.82,23748210.23
+Goods,2016,F34,Planingmills,13,Impregnation,18,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,413416.36,86627264.91,25763356.14
+Goods,2015,F34,Planingmills,13,Impregnation,18,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,431269.14,90368136.43,26875908.93
+Goods,2014,F34,Planingmills,13,Impregnation,18,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,412745.5,86486691.4,25721548.91
+Goods,2013,F34,Planingmills,13,Impregnation,18,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,368555.92,77227207.48,22967734.83
+Goods,2012,F34,Planingmills,13,Impregnation,18,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,364821.28,76444651.01,22734998.86
+Goods,2011,F34,Planingmills,13,Impregnation,18,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,1339611.7,280702235.0,83482165.33
+Goods,2022,F38,Planingmills,13,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,80122.95,16788963.36,4226800.66
+Goods,2021,F38,Planingmills,13,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,429429.0,89982552.66,22642155.11
+Goods,2020,F38,Planingmills,13,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,196998.48,41279061.5,10407566.78
+Goods,2019,F38,Planingmills,13,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,319813.76,67013775.27,16877451.74
+Goods,2018,F38,Planingmills,13,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,480609.6,100706935.6,25336503.35
+Goods,2017,F38,Planingmills,13,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,573573.38,120186566.0,30257056.45
+Goods,2016,F38,Planingmills,13,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,664828.36,139308133.7,35049860.09
+Goods,2015,F38,Planingmills,13,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,582603.62,122078761.7,30728588.57
+Goods,2014,F38,Planingmills,13,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,656673.52,137599370.1,34610880.11
+Goods,2013,F38,Planingmills,13,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,674377.68,141309099.1,35540316.67
+Goods,2012,F38,Planingmills,13,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,786823.32,164870958.5,41553313.81
+Goods,2011,F38,Planingmills,13,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Planed timber,Treindustrien 0% Svinn,767270.85,160773934.3,40527971.74
+Goods,2022,F40,Planingmills,13,Boardmills,15,mix (75% spruce 25% pine),15.0,by-product,Flows,122223.92,25610800.95,6447792.4
+Goods,2021,F40,Planingmills,13,Boardmills,15,mix (75% spruce 25% pine),15.0,by-product,Flows,110121.53,23074865.25,5806288.69
+Goods,2020,F40,Planingmills,13,Boardmills,15,mix (75% spruce 25% pine),15.0,by-product,Flows,121339.06,25425387.09,6410427.09
+Goods,2019,F40,Planingmills,13,Boardmills,15,mix (75% spruce 25% pine),15.0,by-product,Flows,88898.31,18627751.84,4691408.32
+Goods,2018,F40,Planingmills,13,Boardmills,15,mix (75% spruce 25% pine),15.0,by-product,Flows,90916.99,19050746.89,4792910.34
+Goods,2017,F40,Planingmills,13,Boardmills,15,mix (75% spruce 25% pine),15.0,by-product,Flows,89299.69,18711856.15,4710723.56
+Goods,2016,F40,Planingmills,13,Boardmills,15,mix (75% spruce 25% pine),15.0,by-product,Flows,74484.71,15607525.23,3926845.92
+Goods,2015,F40,Planingmills,13,Boardmills,15,mix (75% spruce 25% pine),15.0,by-product,Flows,74912.39,15697141.7,3951145.98
+Goods,2014,F40,Planingmills,13,Boardmills,15,mix (75% spruce 25% pine),15.0,by-product,Flows,69333.5,14528141.39,3654317.31
+Goods,2013,F40,Planingmills,13,Boardmills,15,mix (75% spruce 25% pine),15.0,by-product,Flows,50659.29,10615146.72,2669790.4
+Goods,2012,F40,Planingmills,13,Boardmills,15,mix (75% spruce 25% pine),15.0,by-product,Flows,42955.2,9000831.77,2268528.01
+Goods,2011,F40,Planingmills,13,Boardmills,15,mix (75% spruce 25% pine),15.0,by-product,Flows,13043.11,2733052.31,688949.16
+Goods,2010,F40,Planingmills,13,Boardmills,15,mix (75% spruce 25% pine),15.0,by-product,Flows,0.0,0.0,0.0
+Goods,2009,F40,Planingmills,13,Boardmills,15,mix (75% spruce 25% pine),15.0,by-product,Flows,0.0,0.0,0.0
+Goods,2008,F40,Planingmills,13,Boardmills,15,mix (75% spruce 25% pine),15.0,by-product,Flows,0.0,0.0,0.0
+Goods,2007,F40,Planingmills,13,Boardmills,15,mix (75% spruce 25% pine),15.0,by-product,Flows,0.0,0.0,0.0
+Goods,2006,F40,Planingmills,13,Boardmills,15,mix (75% spruce 25% pine),15.0,by-product,Flows,0.0,0.0,0.0
+Goods,2005,F40,Planingmills,13,Boardmills,15,mix (75% spruce 25% pine),15.0,by-product,Flows,0.0,0.0,0.0
+Goods,2004,F40,Planingmills,13,Boardmills,15,mix (75% spruce 25% pine),15.0,by-product,Flows,0.0,0.0,0.0
+Goods,2003,F40,Planingmills,13,Boardmills,15,mix (75% spruce 25% pine),15.0,by-product,Flows,0.0,0.0,0.0
+Goods,2002,F40,Planingmills,13,Boardmills,15,mix (75% spruce 25% pine),15.0,by-product,Flows,0.0,0.0,0.0
+Goods,2022,F56,Planingmills,13,Export Planed,17,mix (75% spruce 25% pine),15.0,E,SSB table 08801,1222411.0,256144000.9,64486985.18
+Goods,2021,F56,Planingmills,13,Export Planed,17,mix (75% spruce 25% pine),15.0,E,SSB table 08801,857882.0,179760594.3,45232849.46
+Goods,2020,F56,Planingmills,13,Export Planed,17,mix (75% spruce 25% pine),15.0,E,SSB table 08801,1127369.0,236228900.3,59559688.72
+Goods,2019,F56,Planingmills,13,Export Planed,17,mix (75% spruce 25% pine),15.0,E,SSB table 08801,838692.0,175739521.7,44260083.61
+Goods,2018,F56,Planingmills,13,Export Planed,17,mix (75% spruce 25% pine),15.0,E,SSB table 08801,782398.0,163943676.9,41246012.46
+Goods,2017,F56,Planingmills,13,Export Planed,17,mix (75% spruce 25% pine),15.0,E,SSB table 08801,715666.0,149960653.6,37752704.91
+Goods,2016,F56,Planingmills,13,Export Planed,17,mix (75% spruce 25% pine),15.0,E,SSB table 08801,598051.0,125315606.5,31529346.92
+Goods,2015,F56,Planingmills,13,Export Planed,17,mix (75% spruce 25% pine),15.0,E,SSB table 08801,529067.0,110860699.2,27904876.87
+Goods,2014,F56,Planingmills,13,Export Planed,17,mix (75% spruce 25% pine),15.0,E,SSB table 08801,396148.0,83008851.92,20879524.53
+Goods,2013,F56,Planingmills,13,Export Planed,17,mix (75% spruce 25% pine),15.0,E,SSB table 08801,427667.0,89613343.18,22538439.6
+Goods,2012,F56,Planingmills,13,Export Planed,17,mix (75% spruce 25% pine),15.0,E,SSB table 08801,314332.0,65865127.28,16600342.04
+Goods,2011,F56,Planingmills,13,Export Planed,17,mix (75% spruce 25% pine),15.0,E,SSB table 08801,266628.0,55869231.12,14083543.02
+Goods,2010,F56,Planingmills,13,Export Planed,17,mix (75% spruce 25% pine),15.0,E,SSB table 08801,233776.0,48985423.04,12333784.29
+Goods,2009,F56,Planingmills,13,Export Planed,17,mix (75% spruce 25% pine),15.0,E,SSB table 08801,278090.0,58270978.6,14695691.6
+Goods,2008,F56,Planingmills,13,Export Planed,17,mix (75% spruce 25% pine),15.0,E,SSB table 08801,238117.0,49895036.18,12579341.58
+Goods,2007,F56,Planingmills,13,Export Planed,17,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-19237.0,-4030920.98,1015843.52
+Goods,2006,F56,Planingmills,13,Export Planed,17,mix (75% spruce 25% pine),15.0,E,SSB table 08801,246402.0,51631075.08,13002256.66
+Goods,2005,F56,Planingmills,13,Export Planed,17,mix (75% spruce 25% pine),15.0,E,SSB table 08801,144197.0,30215039.38,7609055.14
+Goods,2004,F56,Planingmills,13,Export Planed,17,mix (75% spruce 25% pine),15.0,E,SSB table 08801,271777.0,56948152.58,14341256.6
+Goods,2003,F56,Planingmills,13,Export Planed,17,mix (75% spruce 25% pine),15.0,E,SSB table 08801,471948.0,98891983.92,24903974.1
+Goods,2002,F56,Planingmills,13,Export Planed,17,mix (75% spruce 25% pine),15.0,E,SSB table 08801,432627.0,90652661.58,22829065.07
+Goods,2022,F31,Import Boards,14,Boardmills,15,Spruce,5.7,E,FAO - Particle boards + OSB + MDF,198613.0,41812008.76,153310698.8
+Goods,2021,F31,Import Boards,14,Boardmills,15,Spruce,5.7,E,FAO - Particle boards + OSB + MDF,159750.0,33630570.0,123312090.0
+Goods,2020,F31,Import Boards,14,Boardmills,15,Spruce,5.7,E,FAO - Particle boards + OSB + MDF,205367.0,43233860.84,158524156.4
+Goods,2019,F31,Import Boards,14,Boardmills,15,Spruce,5.7,E,FAO - Particle boards + OSB + MDF,284298.0,59850414.96,219451521.5
+Goods,2018,F31,Import Boards,14,Boardmills,15,Spruce,5.7,E,FAO - Particle boards + OSB + MDF,294312.0,61958562.24,227181394.9
+Goods,2017,F31,Import Boards,14,Boardmills,15,Spruce,5.7,E,FAO - Particle boards + OSB + MDF,271506.0,57157443.12,209577291.4
+Goods,2016,F31,Import Boards,14,Boardmills,15,Spruce,5.7,E,FAO - Particle boards + OSB + MDF,186775.0,39319873.0,144172867.7
+Goods,2015,F31,Import Boards,14,Boardmills,15,Spruce,5.7,E,FAO - Particle boards + OSB + MDF,195069.0,41065925.88,150575061.6
+Goods,2014,F31,Import Boards,14,Boardmills,15,Spruce,5.7,E,FAO - Particle boards + OSB + MDF,199816.0,42065264.32,154239302.5
+Goods,2013,F31,Import Boards,14,Boardmills,15,Spruce,5.7,E,FAO - Particle boards + OSB + MDF,222007.0,46736913.64,171368683.3
+Goods,2012,F31,Import Boards,14,Boardmills,15,Spruce,5.7,E,FAO - Particle boards + OSB + MDF,113248.0,23840968.96,87416886.19
+Goods,2011,F31,Import Boards,14,Boardmills,15,Spruce,5.7,E,FAO - Particle boards + OSB + MDF,114143.0,24029384.36,88107742.65
+Goods,2010,F31,Import Boards,14,Boardmills,15,Spruce,5.7,E,FAO - Particle boards + OSB + MDF,114957.0,24200747.64,88736074.68
+Goods,2009,F31,Import Boards,14,Boardmills,15,Spruce,5.7,E,FAO - Particle boards + OSB + MDF,117009.0,24632734.68,90320027.16
+Goods,2008,F31,Import Boards,14,Boardmills,15,Spruce,5.7,E,FAO - Particle boards + OSB + MDF,117671.0,24772098.92,90831029.37
+Goods,2007,F31,Import Boards,14,Boardmills,15,Spruce,5.7,E,FAO - Particle boards + OSB + MDF,106718.0,22466273.36,82376335.65
+Goods,2006,F31,Import Boards,14,Boardmills,15,Spruce,5.7,E,FAO - Particle boards + OSB + MDF,60927.0,12826352.04,47029957.48
+Goods,2005,F31,Import Boards,14,Boardmills,15,Spruce,5.7,E,FAO - Particle boards + OSB + MDF,5356.0,1127545.12,4134332.11
+Goods,2004,F31,Import Boards,14,Boardmills,15,Spruce,5.7,E,FAO - Particle boards + OSB + MDF,29246.0,6156867.92,22575182.37
+Goods,2003,F31,Import Boards,14,Boardmills,15,Spruce,5.7,E,FAO - Particle boards + OSB + MDF,46574.0,9804758.48,35950781.09
+Goods,2002,F31,Import Boards,14,Boardmills,15,Spruce,5.7,E,FAO - Particle boards + OSB + MDF,60389.0,12713092.28,46614671.69
+Goods,2022,F67,Boardmills,15,Loss Boardmills,23,Fiber board,5.7,Loss,Calculated,5070.0,1067336.4,267462.43
+Goods,2021,F67,Boardmills,15,Loss Boardmills,23,Fiber board,5.7,Loss,Calculated,14968.41,3151149.67,789227.23
+Goods,2020,F67,Boardmills,15,Loss Boardmills,23,Fiber board,5.7,Loss,Calculated,13740.0,2892544.8,725893.76
+Goods,2019,F67,Boardmills,15,Loss Boardmills,23,Fiber board,5.7,Loss,Calculated,12720.0,2677814.4,671269.39
+Goods,2018,F67,Boardmills,15,Loss Boardmills,23,Fiber board,5.7,Loss,Calculated,13740.0,2892544.8,724337.5
+Goods,2017,F67,Boardmills,15,Loss Boardmills,23,Fiber board,5.7,Loss,Calculated,13440.0,2829388.8,708984.85
+Goods,2016,F67,Boardmills,15,Loss Boardmills,23,Fiber board,5.7,Loss,Calculated,13080.0,2753601.6,689579.75
+Goods,2015,F67,Boardmills,15,Loss Boardmills,23,Fiber board,5.7,Loss,Calculated,13410.0,2823073.2,707291.13
+Goods,2014,F67,Boardmills,15,Loss Boardmills,23,Fiber board,5.7,Loss,Calculated,13140.0,2766232.8,692561.75
+Goods,2013,F67,Boardmills,15,Loss Boardmills,23,Fiber board,5.7,Loss,Calculated,11424.6,2405106.79,602086.8
+Goods,2012,F67,Boardmills,15,Loss Boardmills,23,Fiber board,5.7,Loss,Calculated,14532.0,3059276.64,767456.61
+Goods,2011,F67,Boardmills,15,Loss Boardmills,23,Fiber board,5.7,Loss,Calculated,15600.84,3284288.84,824051.12
+Goods,2010,F67,Boardmills,15,Loss Boardmills,23,Fiber board,5.7,Loss,Calculated,16995.12,3577812.66,896645.27
+Goods,2009,F67,Boardmills,15,Loss Boardmills,23,Fiber board,5.7,Loss,Calculated,14594.01,3072330.99,771221.8
+Goods,2008,F67,Boardmills,15,Loss Boardmills,23,Fiber board,5.7,Loss,Calculated,14947.11,3146665.6,789632.0
+Goods,2007,F67,Boardmills,15,Loss Boardmills,23,Fiber board,5.7,Loss,Calculated,17550.0,3694626.0,926758.53
+Goods,2006,F67,Boardmills,15,Loss Boardmills,23,Fiber board,5.7,Loss,Calculated,18600.0,3915672.0,981493.55
+Goods,2005,F67,Boardmills,15,Loss Boardmills,23,Fiber board,5.7,Loss,Calculated,17490.0,3681994.8,922920.55
+Goods,2004,F67,Boardmills,15,Loss Boardmills,23,Fiber board,5.7,Loss,Calculated,17670.0,3719888.4,932418.87
+Goods,2003,F67,Boardmills,15,Loss Boardmills,23,Fiber board,5.7,Loss,Calculated,13830.0,2911491.6,729787.95
+Goods,2002,F67,Boardmills,15,Loss Boardmills,23,Fiber board,5.7,Loss,Calculated,14284.2,3007109.78,753755.39
+Goods,2022,F9,Boardmills,15,Wood Product processing & Logistics,24,Fiber board,5.7,Panels,FAO - Particle boards + OSB + MDF,367613.0,77389888.76,20352392.45
+Goods,2021,F9,Boardmills,15,Wood Product processing & Logistics,24,Fiber board,5.7,Panels,FAO - Particle boards + OSB + MDF,658697.0,138668892.4,36467861.18
+Goods,2020,F9,Boardmills,15,Wood Product processing & Logistics,24,Fiber board,5.7,Panels,FAO - Particle boards + OSB + MDF,663367.0,139652020.8,36726409.36
+Goods,2019,F9,Boardmills,15,Wood Product processing & Logistics,24,Fiber board,5.7,Panels,FAO - Particle boards + OSB + MDF,708298.0,149110895.0,39213952.91
+Goods,2018,F9,Boardmills,15,Wood Product processing & Logistics,24,Fiber board,5.7,Panels,FAO - Particle boards + OSB + MDF,752312.0,158376722.2,41650728.0
+Goods,2017,F9,Boardmills,15,Wood Product processing & Logistics,24,Fiber board,5.7,Panels,FAO - Particle boards + OSB + MDF,719506.0,151470403.1,39834468.55
+Goods,2016,F9,Boardmills,15,Wood Product processing & Logistics,24,Fiber board,5.7,Panels,FAO - Particle boards + OSB + MDF,622775.0,131106593.0,34479088.64
+Goods,2015,F9,Boardmills,15,Wood Product processing & Logistics,24,Fiber board,5.7,Panels,FAO - Particle boards + OSB + MDF,642069.0,135168365.9,35547274.64
+Goods,2014,F9,Boardmills,15,Wood Product processing & Logistics,24,Fiber board,5.7,Panels,FAO - Particle boards + OSB + MDF,637816.0,134273024.3,35311813.09
+Goods,2013,F9,Boardmills,15,Wood Product processing & Logistics,24,Fiber board,5.7,Panels,FAO - Particle boards + OSB + MDF,602827.0,126907140.0,33374694.82
+Goods,2012,F9,Boardmills,15,Wood Product processing & Logistics,24,Fiber board,5.7,Panels,FAO - Particle boards + OSB + MDF,597648.0,125816857.0,33087966.55
+Goods,2011,F9,Boardmills,15,Wood Product processing & Logistics,24,Fiber board,5.7,Panels,FAO - Particle boards + OSB + MDF,634171.0,133505678.9,35110012.64
+Goods,2010,F9,Boardmills,15,Wood Product processing & Logistics,24,Fiber board,5.7,Panels,FAO - Particle boards + OSB + MDF,681461.0,143461169.7,37728159.0
+Goods,2009,F9,Boardmills,15,Wood Product processing & Logistics,24,Fiber board,5.7,Panels,FAO - Particle boards + OSB + MDF,603476.0,127043767.5,33410625.82
+Goods,2008,F9,Boardmills,15,Wood Product processing & Logistics,24,Fiber board,5.7,Panels,FAO - Particle boards + OSB + MDF,615908.0,129660952.2,34098906.55
+Goods,2007,F9,Boardmills,15,Wood Product processing & Logistics,24,Fiber board,5.7,Panels,FAO - Particle boards + OSB + MDF,691718.0,145620473.4,38296023.82
+Goods,2006,F9,Boardmills,15,Wood Product processing & Logistics,24,Fiber board,5.7,Panels,FAO - Particle boards + OSB + MDF,680927.0,143348752.0,37698594.82
+Goods,2005,F9,Boardmills,15,Wood Product processing & Logistics,24,Fiber board,5.7,Panels,FAO - Particle boards + OSB + MDF,588356.0,123860705.1,32573527.64
+Goods,2004,F9,Boardmills,15,Wood Product processing & Logistics,24,Fiber board,5.7,Panels,FAO - Particle boards + OSB + MDF,559754.0,117839412.1,30990016.91
+Goods,2003,F9,Boardmills,15,Wood Product processing & Logistics,24,Fiber board,5.7,Panels,FAO - Particle boards + OSB + MDF,414426.0,87244961.52,22944130.36
+Goods,2002,F9,Boardmills,15,Wood Product processing & Logistics,24,Fiber board,5.7,Panels,FAO - Particle boards + OSB + MDF,415751.0,87523900.52,23017487.18
+,2022,,Boardmills,15,Boardmills_stock,20,,,,,532681.33,101897808.5,553223457.3
+,2021,,Boardmills,15,Boardmills_stock,20,,,,,15956.07,-3303482.61,391835412.4
+,2020,,Boardmills,15,Boardmills_stock,20,,,,,-24803.79,-10030871.66,361615249.1
+,2019,,Boardmills,15,Boardmills_stock,20,,,,,135525.52,20350001.63,527679703.0
+,2018,,Boardmills,15,Boardmills_stock,20,,,,,234249.82,38462362.72,624914415.2
+,2017,,Boardmills,15,Boardmills_stock,20,,,,,183344.14,29006769.5,567681189.4
+,2016,,Boardmills,15,Boardmills_stock,20,,,,,219738.13,35778517.61,533539196.5
+,2015,,Boardmills,15,Boardmills_stock,20,,,,,191301.97,30084563.02,526419068.4
+,2014,,Boardmills,15,Boardmills_stock,20,,,,,146461.17,21603447.02,496070005.8
+,2013,,Boardmills,15,Boardmills_stock,20,,,,,-75203.7,-19765543.56,331442049.3
+,2012,,Boardmills,15,Boardmills_stock,20,,,,,-152310.14,-36755509.97,273185675.1
+Goods,2022,F15,Pulpmills,16,Short-term USE,26,Spruce,100.0,Cellulose,Flows,1402703.45,266303250.6,976445252.0
+Goods,2021,F15,Pulpmills,16,Short-term USE,26,Spruce,100.0,Cellulose,Flows,1392487.4,264363732.9,969333687.3
+Goods,2020,F15,Pulpmills,16,Short-term USE,26,Spruce,100.0,Cellulose,Flows,1388889.44,263680659.2,966829083.9
+Goods,2019,F15,Pulpmills,16,Short-term USE,26,Spruce,100.0,Cellulose,Flows,1425377.06,270607834.5,992228726.4
+Goods,2018,F15,Pulpmills,16,Short-term USE,26,Spruce,100.0,Cellulose,Flows,1393942.02,264639891.9,970346270.4
+Goods,2017,F15,Pulpmills,16,Short-term USE,26,Spruce,100.0,Cellulose,Flows,1357694.68,257758335.4,945113896.4
+Goods,2016,F15,Pulpmills,16,Short-term USE,26,Spruce,100.0,Cellulose,Flows,1366400.16,259411070.6,951173925.4
+Goods,2015,F15,Pulpmills,16,Short-term USE,26,Spruce,100.0,Cellulose,Flows,1305134.19,247779725.2,908525659.1
+Goods,2014,F15,Pulpmills,16,Short-term USE,26,Spruce,100.0,Cellulose,Flows,1286321.96,244208224.9,895430157.8
+Goods,2013,F15,Pulpmills,16,Short-term USE,26,Spruce,100.0,Cellulose,Flows,1379394.14,261877977.9,960219252.1
+Goods,2012,F15,Pulpmills,16,Short-term USE,26,Spruce,100.0,Cellulose,Flows,1387825.0,263478575.5,966088110.1
+Goods,2011,F15,Pulpmills,16,Short-term USE,26,Spruce,100.0,Cellulose,Flows,1223015.53,232189498.4,851361494.0
+Goods,2010,F15,Pulpmills,16,Short-term USE,26,Spruce,100.0,Cellulose,Flows,1130250.0,214577962.5,786785862.5
+Goods,2009,F15,Pulpmills,16,Short-term USE,26,Spruce,100.0,Cellulose,Flows,979500.0,185958075.0,681846275.0
+Goods,2008,F15,Pulpmills,16,Short-term USE,26,Spruce,100.0,Cellulose,Flows,1141125.0,216642581.3,794356131.3
+Goods,2007,F15,Pulpmills,16,Short-term USE,26,Spruce,100.0,Cellulose,Flows,1093500.0,207600975.0,761203575.0
+Goods,2006,F15,Pulpmills,16,Short-term USE,26,Spruce,100.0,Cellulose,Flows,0.0,0.0,0.0
+Goods,2005,F15,Pulpmills,16,Short-term USE,26,Spruce,100.0,Cellulose,Flows,0.0,0.0,0.0
+Goods,2004,F15,Pulpmills,16,Short-term USE,26,Spruce,100.0,Cellulose,Flows,0.0,0.0,0.0
+Goods,2003,F15,Pulpmills,16,Short-term USE,26,Spruce,100.0,Cellulose,Flows,0.0,0.0,0.0
+Goods,2002,F15,Pulpmills,16,Short-term USE,26,Spruce,100.0,Cellulose,Flows,0.0,0.0,0.0
+Goods,2022,F16,Pulpmills,16,Short-term USE,26,Spruce,100.0,Lignin and others,Flows,1664541.43,316013190.7,1158715032.0
+Goods,2021,F16,Pulpmills,16,Short-term USE,26,Spruce,100.0,Lignin and others,Flows,1652418.38,313711629.6,1150275975.0
+Goods,2020,F16,Pulpmills,16,Short-term USE,26,Spruce,100.0,Lignin and others,Flows,1648148.8,312901048.9,1147303846.0
+Goods,2019,F16,Pulpmills,16,Short-term USE,26,Spruce,100.0,Lignin and others,Flows,1691447.44,321121296.9,1177444755.0
+Goods,2018,F16,Pulpmills,16,Short-term USE,26,Spruce,100.0,Lignin and others,Flows,1654144.53,314039338.3,1151477574.0
+Goods,2017,F16,Pulpmills,16,Short-term USE,26,Spruce,100.0,Lignin and others,Flows,1611131.02,305873224.7,1121535157.0
+Goods,2016,F16,Pulpmills,16,Short-term USE,26,Spruce,100.0,Lignin and others,Flows,1621461.53,307834470.5,1128726392.0
+Goods,2015,F16,Pulpmills,16,Short-term USE,26,Spruce,100.0,Lignin and others,Flows,1548759.23,294031940.6,1078117115.0
+Goods,2014,F16,Pulpmills,16,Short-term USE,26,Spruce,100.0,Lignin and others,Flows,1526435.4,289793760.3,1062577121.0
+Goods,2013,F16,Pulpmills,16,Short-term USE,26,Spruce,100.0,Lignin and others,Flows,1636881.05,310761867.2,1139460180.0
+Goods,2012,F16,Pulpmills,16,Short-term USE,26,Spruce,100.0,Lignin and others,Flows,1646885.66,312661242.9,1146424557.0
+Goods,2011,F16,Pulpmills,16,Short-term USE,26,Spruce,100.0,Lignin and others,Flows,1451311.76,275531538.0,1010282306.0
+Goods,2010,F16,Pulpmills,16,Short-term USE,26,Spruce,100.0,Lignin and others,Flows,1341230.0,254632515.5,933652556.8
+Goods,2009,F16,Pulpmills,16,Short-term USE,26,Spruce,100.0,Lignin and others,Flows,1162340.0,220670249.0,809124246.3
+Goods,2008,F16,Pulpmills,16,Short-term USE,26,Spruce,100.0,Lignin and others,Flows,1354135.0,257082529.8,942635942.4
+Goods,2007,F16,Pulpmills,16,Short-term USE,26,Spruce,100.0,Lignin and others,Flows,1297620.0,246353157.0,903294909.0
+Goods,2006,F16,Pulpmills,16,Short-term USE,26,Spruce,100.0,Lignin and others,Flows,0.0,0.0,0.0
+Goods,2005,F16,Pulpmills,16,Short-term USE,26,Spruce,100.0,Lignin and others,Flows,0.0,0.0,0.0
+Goods,2004,F16,Pulpmills,16,Short-term USE,26,Spruce,100.0,Lignin and others,Flows,0.0,0.0,0.0
+Goods,2003,F16,Pulpmills,16,Short-term USE,26,Spruce,100.0,Lignin and others,Flows,0.0,0.0,0.0
+Goods,2002,F16,Pulpmills,16,Short-term USE,26,Spruce,100.0,Lignin and others,Flows,0.0,0.0,0.0
+Goods,2022,F48,Pulpmills,16,Loss Pulpmills,22,Spruce,15.0,Loss,Flows,224432.55,45606938.99,167225443.0
+Goods,2021,F48,Pulpmills,16,Loss Pulpmills,22,Spruce,15.0,Loss,Flows,222797.98,45274778.31,166007520.5
+Goods,2020,F48,Pulpmills,16,Loss Pulpmills,22,Spruce,15.0,Loss,Flows,222222.31,45157795.53,165578583.6
+Goods,2019,F48,Pulpmills,16,Loss Pulpmills,22,Spruce,15.0,Loss,Flows,228060.33,46344139.52,169928511.6
+Goods,2018,F48,Pulpmills,16,Loss Pulpmills,22,Spruce,15.0,Loss,Flows,223030.72,45322073.14,166180934.8
+Goods,2017,F48,Pulpmills,16,Loss Pulpmills,22,Spruce,15.0,Loss,Flows,217231.15,44143541.81,161859653.3
+Goods,2016,F48,Pulpmills,16,Loss Pulpmills,22,Spruce,15.0,Loss,Flows,218624.03,44426588.28,162897490.4
+Goods,2015,F48,Pulpmills,16,Loss Pulpmills,22,Spruce,15.0,Loss,Flows,208821.47,42434610.88,155593573.2
+Goods,2014,F48,Pulpmills,16,Loss Pulpmills,22,Spruce,15.0,Loss,Flows,205811.51,41822957.82,153350845.3
+Goods,2013,F48,Pulpmills,16,Loss Pulpmills,22,Spruce,15.0,Loss,Flows,220703.06,44849069.39,164446587.8
+Goods,2012,F48,Pulpmills,16,Loss Pulpmills,22,Spruce,15.0,Loss,Flows,222052.0,45123186.8,165451684.9
+Goods,2011,F48,Pulpmills,16,Loss Pulpmills,22,Spruce,15.0,Loss,Flows,195682.48,39764637.74,145803671.7
+Goods,2010,F48,Pulpmills,16,Loss Pulpmills,22,Spruce,15.0,Loss,Flows,180840.0,36748496.4,134744486.8
+Goods,2009,F48,Pulpmills,16,Loss Pulpmills,22,Spruce,15.0,Loss,Flows,156720.0,31847071.2,116772594.4
+Goods,2008,F48,Pulpmills,16,Loss Pulpmills,22,Spruce,15.0,Loss,Flows,182580.0,37102081.8,136040966.6
+Goods,2007,F48,Pulpmills,16,Loss Pulpmills,22,Spruce,15.0,Loss,Flows,174960.0,35553621.6,130363279.2
+Goods,2006,F48,Pulpmills,16,Loss Pulpmills,22,Spruce,15.0,Loss,Flows,0.0,0.0,0.0
+Goods,2005,F48,Pulpmills,16,Loss Pulpmills,22,Spruce,15.0,Loss,Flows,0.0,0.0,0.0
+Goods,2004,F48,Pulpmills,16,Loss Pulpmills,22,Spruce,15.0,Loss,Flows,0.0,0.0,0.0
+Goods,2003,F48,Pulpmills,16,Loss Pulpmills,22,Spruce,15.0,Loss,Flows,0.0,0.0,0.0
+Goods,2002,F48,Pulpmills,16,Loss Pulpmills,22,Spruce,15.0,Loss,Flows,0.0,0.0,0.0
+Goods,2022,F49,Pulpmills,16,Energy,31,Spruce,15.0,Biofuel,Transfercoefficient,448865.11,91213877.99,334450886.0
+Goods,2021,F49,Pulpmills,16,Energy,31,Spruce,15.0,Biofuel,Transfercoefficient,445595.97,90549556.62,332015040.9
+Goods,2020,F49,Pulpmills,16,Energy,31,Spruce,15.0,Biofuel,Transfercoefficient,444444.62,90315591.07,331157167.2
+Goods,2019,F49,Pulpmills,16,Energy,31,Spruce,15.0,Biofuel,Transfercoefficient,456120.66,92688279.03,339857023.1
+Goods,2018,F49,Pulpmills,16,Energy,31,Spruce,15.0,Biofuel,Transfercoefficient,446061.45,90644146.3,332361869.8
+Goods,2017,F49,Pulpmills,16,Energy,31,Spruce,15.0,Biofuel,Transfercoefficient,434462.3,88287083.62,323719306.6
+Goods,2016,F49,Pulpmills,16,Energy,31,Spruce,15.0,Biofuel,Transfercoefficient,437248.05,88853176.57,325794980.7
+Goods,2015,F49,Pulpmills,16,Energy,31,Spruce,15.0,Biofuel,Transfercoefficient,417642.94,84869221.74,311187146.4
+Goods,2014,F49,Pulpmills,16,Energy,31,Spruce,15.0,Biofuel,Transfercoefficient,411623.03,83645915.64,306701690.7
+Goods,2013,F49,Pulpmills,16,Energy,31,Spruce,15.0,Biofuel,Transfercoefficient,441406.13,89698138.78,328893175.5
+Goods,2012,F49,Pulpmills,16,Energy,31,Spruce,15.0,Biofuel,Transfercoefficient,444104.0,90246373.6,330903369.9
+Goods,2011,F49,Pulpmills,16,Energy,31,Spruce,15.0,Biofuel,Transfercoefficient,391364.97,79529275.45,291607343.3
+Goods,2010,F49,Pulpmills,16,Energy,31,Spruce,15.0,Biofuel,Transfercoefficient,361680.0,73496992.8,269488973.6
+Goods,2009,F49,Pulpmills,16,Energy,31,Spruce,15.0,Biofuel,Transfercoefficient,313440.0,63694142.4,233545188.8
+Goods,2008,F49,Pulpmills,16,Energy,31,Spruce,15.0,Biofuel,Transfercoefficient,365160.0,74204163.6,272081933.2
+Goods,2007,F49,Pulpmills,16,Energy,31,Spruce,15.0,Biofuel,Transfercoefficient,349920.0,71107243.2,260726558.4
+Goods,2006,F49,Pulpmills,16,Energy,31,Spruce,15.0,Biofuel,Transfercoefficient,0.0,0.0,0.0
+Goods,2005,F49,Pulpmills,16,Energy,31,Spruce,15.0,Biofuel,Transfercoefficient,0.0,0.0,0.0
+Goods,2004,F49,Pulpmills,16,Energy,31,Spruce,15.0,Biofuel,Transfercoefficient,0.0,0.0,0.0
+Goods,2003,F49,Pulpmills,16,Energy,31,Spruce,15.0,Biofuel,Transfercoefficient,0.0,0.0,0.0
+Goods,2002,F49,Pulpmills,16,Energy,31,Spruce,15.0,Biofuel,Transfercoefficient,0.0,0.0,0.0
+,2022,,Pulpmills,16,Pulpmills_stock,21,,,,,1002318.0,217054360.5,844157670.7
+,2021,,Planingmills,16,Planingmills_stock,21,,,,,-177635.44,-37221729.36,-9180743.57
+,2020,,Planingmills,16,Planingmills_stock,21,,,,,-427851.67,-89652038.81,-23249937.68
+,2019,,Planingmills,16,Planingmills_stock,21,,,,,-109868.88,-23021925.11,-5711590.21
+,2018,,Planingmills,16,Planingmills_stock,21,,,,,-128750.9,-26978463.99,-6125978.59
+,2017,,Planingmills,16,Planingmills_stock,21,,,,,-119826.34,-25108410.97,-5683809.12
+,2016,,Planingmills,16,Planingmills_stock,21,,,,,-121923.28,-25547803.14,-6089954.15
+,2015,,Planingmills,16,Planingmills_stock,21,,,,,-72150.09,-15118330.23,-3884833.79
+,2014,,Planingmills,16,Planingmills_stock,21,,,,,-6739.19,-1412129.31,-261702.58
+,2013,,Planingmills,16,Planingmills_stock,21,,,,,-15795.4,-3309768.08,-368293.14
+,2012,,Planingmills,16,Planingmills_stock,21,,,,,58023.11,12158162.64,3595138.92
+,2021,,Pulpmills,16,Pulpmills_stock,21,,,,,1005107.0,218562401.9,849821529.3
+,2020,,Pulpmills,16,Pulpmills_stock,21,,,,,1129600.99,244971305.9,952652297.7
+,2019,,Pulpmills,16,Pulpmills_stock,21,,,,,1143436.0,246974517.1,960663975.9
+,2018,,Pulpmills,16,Pulpmills_stock,21,,,,,948922.99,205564854.8,799456910.8
+,2017,,Pulpmills,16,Pulpmills_stock,21,,,,,984358.0,213573116.5,830527795.3
+,2016,,Pulpmills,16,Pulpmills_stock,21,,,,,1020067.99,220680391.3,858308311.1
+,2015,,Pulpmills,16,Pulpmills_stock,21,,,,,963644.0,208559983.0,811148306.2
+,2014,,Pulpmills,16,Pulpmills_stock,21,,,,,929536.0,201075886.1,782063293.2
+,2013,,Pulpmills,16,Pulpmills_stock,21,,,,,796229.0,171064987.0,665600599.4
+,2012,,Pulpmills,16,Pulpmills_stock,21,,,,,844966.0,181536108.3,706342859.4
+Goods,2022,F35,Impregnation,18,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Impregnated timber,Treindustrien 0% Svinn,319873.46,67026283.97,19933932.19
+Goods,2021,F35,Impregnation,18,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Impregnated timber,Treindustrien 0% Svinn,437328.72,91637859.99,27253530.69
+Goods,2020,F35,Impregnation,18,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Impregnated timber,Treindustrien 0% Svinn,458474.52,96068750.92,28571298.5
+Goods,2019,F35,Impregnation,18,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Impregnated timber,Treindustrien 0% Svinn,406657.96,85211108.94,25342184.69
+Goods,2018,F35,Impregnation,18,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Impregnated timber,Treindustrien 0% Svinn,373632.0,78290849.28,23284066.91
+Goods,2017,F35,Impregnation,18,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Impregnated timber,Treindustrien 0% Svinn,412962.96,86532258.64,25735100.83
+Goods,2016,F35,Impregnation,18,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Impregnated timber,Treindustrien 0% Svinn,451249.36,94554791.73,28121039.91
+Goods,2015,F35,Impregnation,18,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Impregnated timber,Treindustrien 0% Svinn,449411.14,94169611.11,28006485.38
+Goods,2014,F35,Impregnation,18,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Impregnated timber,Treindustrien 0% Svinn,448758.5,94032855.42,27965813.6
+Goods,2013,F35,Impregnation,18,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Impregnated timber,Treindustrien 0% Svinn,411437.92,86212701.76,25640063.11
+Goods,2012,F35,Impregnation,18,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Impregnated timber,Treindustrien 0% Svinn,390816.28,81891643.31,24354959.99
+Goods,2011,F35,Impregnation,18,Wood Product processing & Logistics,24,mix (75% spruce 25% pine),15.0,Impregnated timber,Treindustrien 0% Svinn,396440.97,83070240.43,24705480.32
+Goods,2022,F57,Impregnation,18,Export Impregnated,19,mix (75% spruce 25% pine),15.0,E,SSB table 08801,24676.0,5170609.04,1537763.46
+Goods,2021,F57,Impregnation,18,Export Impregnated,19,mix (75% spruce 25% pine),15.0,E,SSB table 08801,21465.0,4497776.1,1337659.77
+Goods,2020,F57,Impregnation,18,Export Impregnated,19,mix (75% spruce 25% pine),15.0,E,SSB table 08801,38477.0,8062470.58,2397816.68
+Goods,2019,F57,Impregnation,18,Export Impregnated,19,mix (75% spruce 25% pine),15.0,E,SSB table 08801,30920.0,6478976.8,1926878.18
+Goods,2018,F57,Impregnation,18,Export Impregnated,19,mix (75% spruce 25% pine),15.0,E,SSB table 08801,23029.0,4825496.66,1435125.41
+Goods,2017,F57,Impregnation,18,Export Impregnated,19,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-15596.0,-3267985.84,-971914.36
+Goods,2016,F57,Impregnation,18,Export Impregnated,19,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-28970.0,-6070373.8,-1805357.73
+Goods,2015,F57,Impregnation,18,Export Impregnated,19,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-9578.0,-2006974.12,-596883.55
+Goods,2014,F57,Impregnation,18,Export Impregnated,19,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-27585.0,-5780160.9,-1719047.05
+Goods,2013,F57,Impregnation,18,Export Impregnated,19,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-40520.0,-8490560.8,-2525132.73
+Goods,2012,F57,Impregnation,18,Export Impregnated,19,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-24730.0,-5181924.2,-1541128.64
+Goods,2011,F57,Impregnation,18,Export Impregnated,19,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-19009.0,-3983145.86,-1184606.32
+Goods,2010,F57,Impregnation,18,Export Impregnated,19,mix (75% spruce 25% pine),15.0,E,SSB table 08801,11246.0,2356486.84,700830.27
+Goods,2009,F57,Impregnation,18,Export Impregnated,19,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-12538.0,-2627212.52,-781345.36
+Goods,2008,F57,Impregnation,18,Export Impregnated,19,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-12777.0,-2677292.58,-796239.41
+Goods,2007,F57,Impregnation,18,Export Impregnated,19,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-11359.0,-2380164.86,-707872.23
+Goods,2006,F57,Impregnation,18,Export Impregnated,19,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-7389.0,-1548291.06,-460469.05
+Goods,2005,F57,Impregnation,18,Export Impregnated,19,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-18157.0,-3804617.78,-1131511.23
+Goods,2004,F57,Impregnation,18,Export Impregnated,19,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-24899.0,-5217336.46,-1551660.41
+Goods,2003,F57,Impregnation,18,Export Impregnated,19,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-22745.0,-4765987.3,-1417427.05
+Goods,2002,F57,Impregnation,18,Export Impregnated,19,mix (75% spruce 25% pine),15.0,E,SSB table 08801,-41437.0,-8682708.98,-2582278.5
+Goods,2022,F13,Wood Product processing & Logistics,24,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,570293.50328104,119499303.14689392,438164111.6660661
+Goods,2021,F13,Wood Product processing & Logistics,24,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,649110.9343498,136014703.54574516,498720579.7519581
+Goods,2020,F13,Wood Product processing & Logistics,24,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,534859.49655125,112074458.24561083,410939680.28285146
+Goods,2019,F13,Wood Product processing & Logistics,24,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,602205.14210728,126186068.35644448,462682250.6015025
+Goods,2018,F13,Wood Product processing & Logistics,24,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,614848.8029105699,128835418.11336796,472396533.1822821
+Goods,2017,F13,Wood Product processing & Logistics,24,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,602310.55277507,126208155.28732936,462763236.027844
+Goods,2016,F13,Wood Product processing & Logistics,24,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,519220.82022083993,108797532.2005214,398924284.6590309
+Goods,2015,F13,Wood Product processing & Logistics,24,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,509965.83989277,106858244.17146324,391813561.9774213
+Goods,2014,F13,Wood Product processing & Logistics,24,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,509211.71386641,106700222.46851732,391234149.00573415
+Goods,2013,F13,Wood Product processing & Logistics,24,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,439513.7826938899,92095719.82960734,337684306.0490384
+Goods,2012,F13,Wood Product processing & Logistics,24,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,428809.27113249,89852695.8849079,329459884.83581424
+Goods,2011,F13,Wood Product processing & Logistics,24,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,433818.26456224994,90902277.19127966,333308349.67077124
+Goods,2010,F13,Wood Product processing & Logistics,24,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,103372.315,21660634.87903231,79422327.90495436
+Goods,2009,F13,Wood Product processing & Logistics,24,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,78556.65500000001,16460761.483493058,60356125.45249191
+Goods,2008,F13,Wood Product processing & Logistics,24,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,89641.445,18783468.38238913,68872717.41179638
+Goods,2007,F13,Wood Product processing & Logistics,24,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,108945.21000000002,22828379.30025001,83704057.44475001
+Goods,2006,F13,Wood Product processing & Logistics,24,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,92681.365,19420453.22482221,71208328.47740373
+Goods,2005,F13,Wood Product processing & Logistics,24,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,66620.92,13959747.572270706,51185741.10964916
+Goods,2004,F13,Wood Product processing & Logistics,24,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,59869.3,12545013.12627826,45998381.44875941
+Goods,2003,F13,Wood Product processing & Logistics,24,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,54386.9,11396231.02075063,41786180.43129136
+Goods,2002,F13,Wood Product processing & Logistics,24,Energy,31,mix (75% spruce 25% pine),15.0,by-products,Flows,60901.3,12761258.396140598,46791280.80049737
+Goods,2022,F20,Wood Product processing & Logistics,24,Long-term USE,25,mix (75% spruce 25% pine),15.0,Wood products,Flows,5132641.529529359,1075493706.0885444,3943476923.483345
+Goods,2021,F20,Wood Product processing & Logistics,24,Long-term USE,25,mix (75% spruce 25% pine),15.0,Wood products,Flows,5841998.4091482,1224132343.7055707,4488485260.90885
+Goods,2020,F20,Wood Product processing & Logistics,24,Long-term USE,25,mix (75% spruce 25% pine),15.0,Wood products,Flows,4813735.46896125,1008670129.1916428,3698457139.390455
+Goods,2019,F20,Wood Product processing & Logistics,24,Long-term USE,25,mix (75% spruce 25% pine),15.0,Wood products,Flows,5419846.27896552,1135674590.6467912,4164140165.122993
+Goods,2018,F20,Wood Product processing & Logistics,24,Long-term USE,25,mix (75% spruce 25% pine),15.0,Wood products,Flows,5533639.22619513,1159518762.9930575,4251568797.277818
+Goods,2017,F20,Wood Product processing & Logistics,24,Long-term USE,25,mix (75% spruce 25% pine),15.0,Wood products,Flows,5420794.97497563,1135873381.252457,4164869065.020624
+Goods,2016,F20,Wood Product processing & Logistics,24,Long-term USE,25,mix (75% spruce 25% pine),15.0,Wood products,Flows,4672987.381987559,979177775.4317758,3590318510.8310804
+Goods,2015,F20,Wood Product processing & Logistics,24,Long-term USE,25,mix (75% spruce 25% pine),15.0,Wood products,Flows,4589692.55903493,961724178.379736,3526321986.8537383
+Goods,2014,F20,Wood Product processing & Logistics,24,Long-term USE,25,mix (75% spruce 25% pine),15.0,Wood products,Flows,4582905.42479769,960302002.1256636,3521107340.596646
+Goods,2013,F20,Wood Product processing & Logistics,24,Long-term USE,25,mix (75% spruce 25% pine),15.0,Wood products,Flows,3955624.044245009,828861460.4794698,3039158688.99631
+Goods,2012,F20,Wood Product processing & Logistics,24,Long-term USE,25,mix (75% spruce 25% pine),15.0,Wood products,Flows,3859283.44019241,808674250.2443277,2965138918.729581
+Goods,2011,F20,Wood Product processing & Logistics,24,Long-term USE,25,mix (75% spruce 25% pine),15.0,Wood products,Flows,3904364.3810602496,818120513.81179,2999775218.4569283
+Goods,2010,F20,Wood Product processing & Logistics,24,Long-term USE,25,mix (75% spruce 25% pine),15.0,Wood products,Flows,930350.835,194945713.8961216,714800951.2052661
+Goods,2009,F20,Wood Product processing & Logistics,24,Long-term USE,25,mix (75% spruce 25% pine),15.0,Wood products,Flows,707009.895,148146853.3514375,543205129.0854445
+Goods,2008,F20,Wood Product processing & Logistics,24,Long-term USE,25,mix (75% spruce 25% pine),15.0,Wood products,Flows,806773.005,169051215.48516524,619854456.7789392
+Goods,2007,F20,Wood Product processing & Logistics,24,Long-term USE,25,mix (75% spruce 25% pine),15.0,Wood products,Flows,980506.89,205455413.65500027,753336517.05
+Goods,2006,F20,Wood Product processing & Logistics,24,Long-term USE,25,mix (75% spruce 25% pine),15.0,Wood products,Flows,834132.285,174784078.9689557,640874956.3102446
+Goods,2005,F20,Wood Product processing & Logistics,24,Long-term USE,25,mix (75% spruce 25% pine),15.0,Wood products,Flows,599588.28,125637728.1730828,460671670.0434586
+Goods,2004,F20,Wood Product processing & Logistics,24,Long-term USE,25,mix (75% spruce 25% pine),15.0,Wood products,Flows,538823.7000000001,112905118.0509392,413985432.99605227
+Goods,2003,F20,Wood Product processing & Logistics,24,Long-term USE,25,mix (75% spruce 25% pine),15.0,Wood products,Flows,489482.1,102566079.23924936,376075623.816005
+Goods,2002,F20,Wood Product processing & Logistics,24,Long-term USE,25,mix (75% spruce 25% pine),15.0,Wood products,Flows,548111.7000000001,114851325.62385942,421121527.29236734
+Goods,2022,F22,Long-term USE,25,End-of-life,28,mix (75% spruce 25% pine),15.0,Wooden materials,Flows,1670000.0,349931800.0,1283083267.0
+Goods,2021,F22,Long-term USE,25,End-of-life,28,mix (75% spruce 25% pine),15.0,Wooden materials,Flows,1630000.0,341550200.0,1252350733.0
+Goods,2020,F22,Long-term USE,25,End-of-life,28,mix (75% spruce 25% pine),15.0,Wooden materials,Flows,1690000.0,354122600.0,1298449533.0
+Goods,2019,F22,Long-term USE,25,End-of-life,28,mix (75% spruce 25% pine),15.0,Wooden materials,Flows,1690000.0,354122600.0,1298449533.0
+Goods,2018,F22,Long-term USE,25,End-of-life,28,mix (75% spruce 25% pine),15.0,Wooden materials,Flows,1600000.0,335264000.0,1229301333.0
+Goods,2017,F22,Long-term USE,25,End-of-life,28,mix (75% spruce 25% pine),15.0,Wooden materials,Flows,1630000.0,341550200.0,1252350733.0
+Goods,2016,F22,Long-term USE,25,End-of-life,28,mix (75% spruce 25% pine),15.0,Wooden materials,Flows,1640000.0,343645600.0,1260033867.0
+Goods,2015,F22,Long-term USE,25,End-of-life,28,mix (75% spruce 25% pine),15.0,Wooden materials,Flows,1560000.0,326882400.0,1198568800.0
+Goods,2014,F22,Long-term USE,25,End-of-life,28,mix (75% spruce 25% pine),15.0,Wooden materials,Flows,1510000.0,316405400.0,1160153133.0
+Goods,2013,F22,Long-term USE,25,End-of-life,28,mix (75% spruce 25% pine),15.0,Wooden materials,Flows,1510000.0,316405400.0,1160153133.0
+Goods,2012,F22,Long-term USE,25,End-of-life,28,mix (75% spruce 25% pine),15.0,Wooden materials,Flows,1490000.0,312214600.0,1144786867.0
+Goods,2011,F22,Long-term USE,25,End-of-life,28,mix (75% spruce 25% pine),15.0,Wooden materials,Flows,1149033.96,240768576.0,60693060.0
+Goods,2010,F22,Long-term USE,25,End-of-life,28,mix (75% spruce 25% pine),15.0,Wooden materials,Flows,933949.41,195699759.6,49274222.22
+Goods,2009,F22,Long-term USE,25,End-of-life,28,mix (75% spruce 25% pine),15.0,Wooden materials,Flows,739391.75,154932146.4,39073224.74
+Goods,2008,F22,Long-term USE,25,End-of-life,28,mix (75% spruce 25% pine),15.0,Wooden materials,Flows,482704.47,101145895.3,25500507.94
+Goods,2007,F22,Long-term USE,25,End-of-life,28,mix (75% spruce 25% pine),15.0,Wooden materials,Flows,201486.5,42219481.9,10639848.16
+Goods,2006,F22,Long-term USE,25,End-of-life,28,mix (75% spruce 25% pine),15.0,Wooden materials,Flows,155781.19,32642391.08,8220335.26
+Goods,2005,F22,Long-term USE,25,End-of-life,28,mix (75% spruce 25% pine),15.0,Wooden materials,Flows,114254.61,23940911.8,6029041.22
+Goods,2004,F22,Long-term USE,25,End-of-life,28,mix (75% spruce 25% pine),15.0,Wooden materials,Flows,70974.17,14871927.79,3745198.45
+Goods,2003,F22,Long-term USE,25,End-of-life,28,mix (75% spruce 25% pine),15.0,Wooden materials,Flows,37417.59,7840481.81,1974468.99
+Goods,2002,F22,Long-term USE,25,End-of-life,28,mix (75% spruce 25% pine),15.0,Wooden materials,Flows,0.0,0.0,0.0
+,2022,,Long-term USE,25,Long-term USE_stock,27,,,,,-193426.31,-40530549.0,-148612013.0
+,2021,,Long-term USE,25,Long-term USE_stock,27,,,,,450833.37,94467623.3,346381286.0
+,2020,,Long-term USE,25,Long-term USE_stock,27,,,,,276992.83,58041077.2,212817283.0
+,2019,,Long-term USE,25,Long-term USE_stock,27,,,,,172781.88,36204715.6,132750624.0
+,2018,,Long-term USE,25,Long-term USE_stock,27,,,,,430364.63,90178604.4,330654883.0
+,2017,,Long-term USE,25,Long-term USE_stock,27,,,,,479507.51,100476004.5,368412017.0
+,2016,,Long-term USE,25,Long-term USE_stock,27,,,,,403797.7,84611769.8,310243156.0
+,2015,,Long-term USE,25,Long-term USE_stock,27,,,,,428255.02,89736556.7,329034041.0
+,2014,,Long-term USE,25,Long-term USE_stock,27,,,,,504638.57,105741965.7,387720541.0
+,2013,,Long-term USE,25,Long-term USE_stock,27,,,,,335445.18,70289182.2,257727002.0
+,2012,,Long-term USE,25,Long-term USE_stock,27,,,,,383899.39,80442277.3,294955017.0
+Goods,2022,F24,End-of-life,28,Material Recovery,29,mix (75% spruce 25% pine),15.0,Flow 24,Flows,193000.0,40441220.0,10172165.2
+Goods,2021,F24,End-of-life,28,Material Recovery,29,mix (75% spruce 25% pine),15.0,Flow 24,Flows,442000.0,92616680.0,23307218.62
+Goods,2020,F24,End-of-life,28,Material Recovery,29,mix (75% spruce 25% pine),15.0,Flow 24,Flows,182000.0,38136280.0,9614247.97
+Goods,2019,F24,End-of-life,28,Material Recovery,29,mix (75% spruce 25% pine),15.0,Flow 24,Flows,108000.0,22630320.0,5686061.73
+Goods,2018,F24,End-of-life,28,Material Recovery,29,mix (75% spruce 25% pine),15.0,Flow 24,Flows,112000.0,23468480.0,5909648.1
+Goods,2017,F24,End-of-life,28,Material Recovery,29,mix (75% spruce 25% pine),15.0,Flow 24,Flows,106000.0,22211240.0,5578457.88
+Goods,2016,F24,End-of-life,28,Material Recovery,29,mix (75% spruce 25% pine),15.0,Flow 24,Flows,133000.0,27868820.0,7003740.41
+Goods,2015,F24,End-of-life,28,Material Recovery,29,mix (75% spruce 25% pine),15.0,Flow 24,Flows,120000.0,25144800.0,6344915.74
+Goods,2014,F24,End-of-life,28,Material Recovery,29,mix (75% spruce 25% pine),15.0,Flow 24,Flows,89300.0,18711922.0,4706611.22
+Goods,2013,F24,End-of-life,28,Material Recovery,29,mix (75% spruce 25% pine),15.0,Flow 24,Flows,68500.0,14353490.0,3612346.61
+Goods,2012,F24,End-of-life,28,Material Recovery,29,mix (75% spruce 25% pine),15.0,Flow 24,Flows,45500.0,9534070.0,2404250.25
+Goods,2011,F24,End-of-life,28,Material Recovery,29,mix (75% spruce 25% pine),15.0,Flow 24,Flows,127075.93,26627489.97,6712270.65
+Goods,2010,F24,End-of-life,28,Material Recovery,29,mix (75% spruce 25% pine),15.0,Flow 24,Flows,84146.99,17632159.67,4439509.56
+Goods,2009,F24,End-of-life,28,Material Recovery,29,mix (75% spruce 25% pine),15.0,Flow 24,Flows,49407.22,10352788.72,2610929.04
+Goods,2008,F24,End-of-life,28,Material Recovery,29,mix (75% spruce 25% pine),15.0,Flow 24,Flows,26460.03,5544434.44,1397841.15
+Goods,2007,F24,End-of-life,28,Material Recovery,29,mix (75% spruce 25% pine),15.0,Flow 24,Flows,0.0,0.0,0.0
+Goods,2006,F24,End-of-life,28,Material Recovery,29,mix (75% spruce 25% pine),15.0,Flow 24,Flows,27016.63,5661064.76,1425626.27
+Goods,2005,F24,End-of-life,28,Material Recovery,29,mix (75% spruce 25% pine),15.0,Flow 24,Flows,5326.04,1116019.28,281047.2
+Goods,2004,F24,End-of-life,28,Material Recovery,29,mix (75% spruce 25% pine),15.0,Flow 24,Flows,1870.88,392024.09,98723.45
+Goods,2003,F24,End-of-life,28,Material Recovery,29,mix (75% spruce 25% pine),15.0,Flow 24,Flows,0.0,0.0,0.0
+Goods,2002,F24,End-of-life,28,Material Recovery,29,mix (75% spruce 25% pine),15.0,Flow 24,Flows,0.0,0.0,0.0
+Goods,2022,F41,End-of-life,28,Energy,31,mix (75% spruce 25% pine),15.0,reclaimed wood,Flows,1447208.33,303248033.9,76345928.08
+Goods,2021,F41,End-of-life,28,Energy,31,mix (75% spruce 25% pine),15.0,reclaimed wood,Flows,1170478.82,245262131.5,61714888.74
+Goods,2020,F41,End-of-life,28,Energy,31,mix (75% spruce 25% pine),15.0,reclaimed wood,Flows,1393818.46,292060720.7,73636399.24
+Goods,2019,F41,End-of-life,28,Energy,31,mix (75% spruce 25% pine),15.0,reclaimed wood,Flows,1566463.55,328236771.2,82666589.75
+Goods,2018,F41,End-of-life,28,Energy,31,mix (75% spruce 25% pine),15.0,reclaimed wood,Flows,1461457.81,306233869.9,77044301.16
+Goods,2017,F41,End-of-life,28,Energy,31,mix (75% spruce 25% pine),15.0,reclaimed wood,Flows,1492927.75,312828080.7,78754699.54
+Goods,2016,F41,End-of-life,28,Energy,31,mix (75% spruce 25% pine),15.0,reclaimed wood,Flows,1469625.13,307945250.2,77478878.27
+Goods,2015,F41,End-of-life,28,Energy,31,mix (75% spruce 25% pine),15.0,reclaimed wood,Flows,1404161.62,294228025.4,74060482.04
+Goods,2014,F41,End-of-life,28,Energy,31,mix (75% spruce 25% pine),15.0,reclaimed wood,Flows,1387245.09,290683335.7,73116658.04
+Goods,2013,F41,End-of-life,28,Energy,31,mix (75% spruce 25% pine),15.0,reclaimed wood,Flows,1412427.88,295960138.6,74436233.21
+Goods,2012,F41,End-of-life,28,Energy,31,mix (75% spruce 25% pine),15.0,reclaimed wood,Flows,1378169.95,288781732.0,72783212.06
+Goods,2011,F41,End-of-life,28,Energy,31,mix (75% spruce 25% pine),15.0,reclaimed wood,Flows,127075.93,26627489.97,6712270.65
+Goods,2010,F41,End-of-life,28,Energy,31,mix (75% spruce 25% pine),15.0,reclaimed wood,Flows,84146.99,17632159.67,4439509.56
+Goods,2009,F41,End-of-life,28,Energy,31,mix (75% spruce 25% pine),15.0,reclaimed wood,Flows,49407.22,10352788.72,2610929.04
+Goods,2008,F41,End-of-life,28,Energy,31,mix (75% spruce 25% pine),15.0,reclaimed wood,Flows,26460.03,5544434.44,1397841.15
+Goods,2007,F41,End-of-life,28,Energy,31,mix (75% spruce 25% pine),15.0,reclaimed wood,Flows,0.0,0.0,0.0
+Goods,2006,F41,End-of-life,28,Energy,31,mix (75% spruce 25% pine),15.0,reclaimed wood,Flows,27016.63,5661064.76,1425626.27
+Goods,2005,F41,End-of-life,28,Energy,31,mix (75% spruce 25% pine),15.0,reclaimed wood,Flows,5326.04,1116019.28,281047.2
+Goods,2004,F41,End-of-life,28,Energy,31,mix (75% spruce 25% pine),15.0,reclaimed wood,Flows,1870.88,392024.09,98723.45
+Goods,2003,F41,End-of-life,28,Energy,31,mix (75% spruce 25% pine),15.0,reclaimed wood,Flows,0.0,0.0,0.0
+Goods,2002,F41,End-of-life,28,Energy,31,mix (75% spruce 25% pine),15.0,reclaimed wood,Flows,0.0,0.0,0.0
+,2022,Other - EOL,End-of-life,28,Other,30,mix (75% spruce 25% pine),15.0,Other,"10513: Waste account for Norway (1 000 tonnes), by treatment, material, contents and year",28970.54,6070486.86,22258451.82
+,2021,Other - EOL,End-of-life,28,Other,30,mix (75% spruce 25% pine),15.0,Other,"10513: Waste account for Norway (1 000 tonnes), by treatment, material, contents and year",18693.9,3917119.48,14362771.44
+,2020,Other - EOL,End-of-life,28,Other,30,mix (75% spruce 25% pine),15.0,Other,"10513: Waste account for Norway (1 000 tonnes), by treatment, material, contents and year",116296.0,24368662.88,89351763.91
+,2019,Other - EOL,End-of-life,28,Other,30,mix (75% spruce 25% pine),15.0,Other,"10513: Waste account for Norway (1 000 tonnes), by treatment, material, contents and year",12444.56,2607633.9,9561324.31
+,2018,Other - EOL,End-of-life,28,Other,30,mix (75% spruce 25% pine),15.0,Other,"10513: Waste account for Norway (1 000 tonnes), by treatment, material, contents and year",22833.16,4784460.1,17543020.37
+,2017,Other - EOL,End-of-life,28,Other,30,mix (75% spruce 25% pine),15.0,Other,"10513: Waste account for Norway (1 000 tonnes), by treatment, material, contents and year",26955.64,5648284.79,20710377.57
+,2016,Other - EOL,End-of-life,28,Other,30,mix (75% spruce 25% pine),15.0,Other,"10513: Waste account for Norway (1 000 tonnes), by treatment, material, contents and year",39442.75,8264834.56,30304393.38
+,2015,Other - EOL,End-of-life,28,Other,30,mix (75% spruce 25% pine),15.0,Other,"10513: Waste account for Norway (1 000 tonnes), by treatment, material, contents and year",35224.71,7380985.6,27063613.86
+,2014,Other - EOL,End-of-life,28,Other,30,mix (75% spruce 25% pine),15.0,Other,"10513: Waste account for Norway (1 000 tonnes), by treatment, material, contents and year",33087.68,6933192.18,25421704.67
+,2013,Other - EOL,End-of-life,28,Other,30,mix (75% spruce 25% pine),15.0,Other,"10513: Waste account for Norway (1 000 tonnes), by treatment, material, contents and year",29054.44,6088067.1,22322912.68
+,2012,Other - EOL,End-of-life,28,Other,30,mix (75% spruce 25% pine),15.0,Other,"10513: Waste account for Norway (1 000 tonnes), by treatment, material, contents and year",62200.93,13033583.12,47789804.78
+Goods,2022,F27,Energy,31,Energy output,32,Energy,,Energy ,Flows,5747961.16,986608505.6,3617564520.0
+Goods,2021,F27,Energy,31,Energy output,32,Energy,,Energy ,Flows,5355448.75,919953690.7,3373163533.0
+Goods,2020,F27,Energy,31,Energy output,32,Energy,,Energy ,Flows,4710910.67,900179024.7,3300656424.0
+Goods,2019,F27,Energy,31,Energy output,32,Energy,,Energy ,Flows,4165626.04,891292835.8,3268073731.0
+Goods,2018,F27,Energy,31,Energy output,32,Energy,,Energy ,Flows,4117298.87,925063354.3,3391898966.0
+Goods,2017,F27,Energy,31,Energy output,32,Energy,,Energy ,Flows,3992494.08,966063811.0,3542233974.0
+Goods,2016,F27,Energy,31,Energy output,32,Energy,,Energy ,Flows,3632176.32,939825808.1,3446027963.0
+Goods,2015,F27,Energy,31,Energy output,32,Energy,,Energy ,Flows,3442029.87,933235049.0,3421861846.0
+Goods,2014,F27,Energy,31,Energy output,32,Energy,,Energy ,Flows,3011864.97,880151479.8,3227222092.0
+Goods,2013,F27,Energy,31,Energy output,32,Energy,,Energy ,Flows,3141240.44,960997672.1,3523658131.0
+Goods,2012,F27,Energy,31,Energy output,32,Energy,,Energy ,Flows,3842024.41,1143107952.0,4191395823.0
+Goods,2011,F27,Energy,31,Energy output,32,Energy,,Energy ,Flows,3057519.12,723093359.2,2651342317.0
+Goods,2010,F27,Energy,31,Energy output,32,Energy,,Energy ,Flows,3488194.47,827668176.3,3034783313.0
+Goods,2009,F27,Energy,31,Energy output,32,Energy,,Energy ,Flows,3127456.8,746840747.2,2738416073.0
+Goods,2008,F27,Energy,31,Energy output,32,Energy,,Energy ,Flows,2770429.55,684002504.3,2508009182.0
+Goods,2007,F27,Energy,31,Energy output,32,Energy,,Energy ,Flows,2729171.8,677618602.2,2484601541.0
+Goods,2006,F27,Energy,31,Energy output,32,Energy,,Energy ,Flows,124047.44,19929209.12,73073766.76
+Goods,2005,F27,Energy,31,Energy output,32,Energy,,Energy ,Flows,846894.78,199619709.7,731938935.5
+Goods,2004,F27,Energy,31,Energy output,32,Energy,,Energy ,Flows,888406.16,210625272.5,772292665.9
+Goods,2003,F27,Energy,31,Energy output,32,Energy,,Energy ,Flows,950442.6,226425742.4,830227722.1
+Goods,2002,F27,Energy,31,Energy output,32,Energy,,Energy ,Flows,830277.1,197637323.6,724670186.4

@@ -1,0 +1,17 @@
+{"queryObj":{
+  "query": [
+    {
+      "code": "Virkegruppe",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "3800",
+          "1800"
+        ]
+      }
+    }
+  ],
+  "response": {
+    "format": "json-stat2"
+  }
+},"tableIdForQuery":"11181","postUrl":"https://data.ssb.no/api/v0/no/table/11181"}

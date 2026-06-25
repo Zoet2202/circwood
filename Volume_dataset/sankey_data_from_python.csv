@@ -1,0 +1,1712 @@
+,source,target,volume,year,origin
+0,Standing Wood,Spruce,6624431.0,2012,SSB table 03795
+1,Standing Wood,Spruce,6771039.0,2013,SSB table 03795
+2,Standing Wood,Spruce,7309672.0,2014,SSB table 03795
+3,Standing Wood,Spruce,7495405.0,2015,SSB table 03795
+4,Standing Wood,Spruce,7589947.0,2016,SSB table 03795
+5,Standing Wood,Spruce,7677996.0,2017,SSB table 03795
+6,Standing Wood,Spruce,8026512.0,2018,SSB table 03795
+7,Standing Wood,Spruce,7933865.0,2019,SSB table 03795
+8,Standing Wood,Spruce,7163706.0,2020,SSB table 03795
+9,Standing Wood,Spruce,8334532.0,2021,SSB table 03795
+10,Standing Wood,Spruce,8450898.0,2022,SSB table 03795
+11,Standing Wood,Spruce,8099376.0,2023,SSB table 03795
+12,Standing Wood,Pine,2086903.0,2012,SSB table 03795
+13,Standing Wood,Pine,1991767.0,2013,SSB table 03795
+14,Standing Wood,Pine,2333901.0,2014,SSB table 03795
+15,Standing Wood,Pine,2449019.0,2015,SSB table 03795
+16,Standing Wood,Pine,2516475.0,2016,SSB table 03795
+17,Standing Wood,Pine,2569504.0,2017,SSB table 03795
+18,Standing Wood,Pine,2551112.0,2018,SSB table 03795
+19,Standing Wood,Pine,2802132.0,2019,SSB table 03795
+20,Standing Wood,Pine,2771555.0,2020,SSB table 03795
+21,Standing Wood,Pine,2818745.0,2021,SSB table 03795
+22,Standing Wood,Pine,2852901.0,2022,SSB table 03795
+23,Standing Wood,Pine,2600086.0,2023,SSB table 03795
+24,Standing Wood,Non-coniferous,76075.0,2012,SSB table 03795
+25,Standing Wood,Non-coniferous,126688.0,2013,SSB table 03795
+26,Standing Wood,Non-coniferous,128378.0,2014,SSB table 03795
+27,Standing Wood,Non-coniferous,168302.0,2015,SSB table 03795
+28,Standing Wood,Non-coniferous,197407.0,2016,SSB table 03795
+29,Standing Wood,Non-coniferous,243528.0,2017,SSB table 03795
+30,Standing Wood,Non-coniferous,258265.0,2018,SSB table 03795
+31,Standing Wood,Non-coniferous,302702.0,2019,SSB table 03795
+32,Standing Wood,Non-coniferous,306424.0,2020,SSB table 03795
+33,Standing Wood,Non-coniferous,298605.0,2021,SSB table 03795
+34,Standing Wood,Non-coniferous,212954.0,2022,SSB table 03795
+35,Standing Wood,Non-coniferous,295466.0,2023,SSB table 03795
+36,End-of-Life,Other,1486.5424430641822,2012,SSB table 10513
+37,End-of-Life,Other,1503.1055900621118,2013,SSB table 10513
+38,End-of-Life,Other,1505.175983436853,2014,SSB table 10513
+39,End-of-Life,Other,1556.935817805383,2015,SSB table 10513
+40,End-of-Life,Other,1639.751552795031,2016,SSB table 10513
+41,End-of-Life,Other,1623.1884057971015,2017,SSB table 10513
+42,End-of-Life,Other,1592.1325051759834,2018,SSB table 10513
+43,End-of-Life,Other,1687.3706004140786,2019,SSB table 10513
+44,End-of-Life,Other,1693.5817805383024,2020,SSB table 10513
+45,End-of-Life,Other,1627.329192546584,2021,SSB table 10513
+46,End-of-Life,Other,1565.2173913043478,2022,SSB table 10513
+47,End-of-Life,Other,1488.6128364389233,2023,SSB table 10513
+48,End-of-Life,Material recovery,45.54865424430642,2012,SSB table 10513
+49,End-of-Life,Material recovery,68.32298136645963,2013,SSB table 10513
+50,End-of-Life,Material recovery,89.02691511387164,2014,SSB table 10513
+51,End-of-Life,Material recovery,120.08281573498965,2015,SSB table 10513
+52,End-of-Life,Material recovery,132.50517598343686,2016,SSB table 10513
+53,End-of-Life,Material recovery,105.59006211180125,2017,SSB table 10513
+54,End-of-Life,Material recovery,111.80124223602485,2018,SSB table 10513
+55,End-of-Life,Material recovery,107.66045548654245,2019,SSB table 10513
+56,End-of-Life,Material recovery,182.19461697722568,2020,SSB table 10513
+57,End-of-Life,Material recovery,440.99378881987576,2021,SSB table 10513
+58,End-of-Life,Material recovery,792.9606625258799,2022,SSB table 10513
+59,End-of-Life,Material recovery,641.8219461697722,2023,SSB table 10513
+60,End-of-Life,Other,10.351966873706004,2012,SSB table 10513
+61,End-of-Life,Other,2.070393374741201,2016,SSB table 10513
+62,End-of-Life,Other,4.140786749482402,2017,SSB table 10513
+63,End-of-Life,Other,2.070393374741201,2018,SSB table 10513
+64,End-of-Life,Other,2.070393374741201,2019,SSB table 10513
+65,End-of-Life,Other,6.211180124223603,2020,SSB table 10513
+66,End-of-Life,Other,6.211180124223603,2023,SSB table 10513
+67,End-of-Life,Other,14.492753623188406,2012,SSB table 10513
+68,End-of-Life,Other,14.492753623188406,2013,SSB table 10513
+69,End-of-Life,Other,12.422360248447205,2014,SSB table 10513
+70,End-of-Life,Other,14.492753623188406,2015,SSB table 10513
+71,End-of-Life,Other,10.351966873706004,2016,SSB table 10513
+72,End-of-Life,Other,8.281573498964804,2017,SSB table 10513
+73,End-of-Life,Other,8.281573498964804,2018,SSB table 10513
+74,End-of-Life,Other,6.211180124223603,2019,SSB table 10513
+75,End-of-Life,Other,6.211180124223603,2020,SSB table 10513
+76,End-of-Life,Other,4.140786749482402,2021,SSB table 10513
+77,End-of-Life,Other,4.140786749482402,2022,SSB table 10513
+78,End-of-Life,Other,6.211180124223603,2023,SSB table 10513
+79,End-of-Life,Other,8.281573498964804,2014,SSB table 10513
+80,End-of-Life,Energy,1378.8819875776398,2012,SSB table 10513
+81,End-of-Life,Energy,1407.8674948240166,2013,SSB table 10513
+82,End-of-Life,Energy,1383.022774327122,2014,SSB table 10513
+83,End-of-Life,Energy,1401.656314699793,2015,SSB table 10513
+84,End-of-Life,Energy,1465.8385093167701,2016,SSB table 10513
+85,End-of-Life,Energy,1490.6832298136646,2017,SSB table 10513
+86,End-of-Life,Energy,1457.5569358178054,2018,SSB table 10513
+87,End-of-Life,Energy,1565.2173913043478,2019,SSB table 10513
+88,End-of-Life,Energy,1395.4451345755695,2020,SSB table 10513
+89,End-of-Life,Energy,1167.7018633540372,2021,SSB table 10513
+90,End-of-Life,Energy,697.7225672877847,2022,SSB table 10513
+91,End-of-Life,Energy,795.0310559006211,2023,SSB table 10513
+92,End-of-Life,Other,2.070393374741201,2015,SSB table 10513
+93,End-of-Life,Other,10.351966873706004,2016,SSB table 10513
+94,End-of-Life,Other,2.070393374741201,2017,SSB table 10513
+95,End-of-Life,Other,8.281573498964804,2022,SSB table 10513
+96,End-of-Life,Other,22.77432712215321,2012,SSB table 10513
+97,End-of-Life,Other,4.140786749482402,2013,SSB table 10513
+98,End-of-Life,Other,8.281573498964804,2014,SSB table 10513
+99,End-of-Life,Other,14.492753623188406,2015,SSB table 10513
+100,End-of-Life,Other,16.563146997929607,2016,SSB table 10513
+101,End-of-Life,Other,12.422360248447205,2017,SSB table 10513
+102,End-of-Life,Other,12.422360248447205,2018,SSB table 10513
+103,End-of-Life,Other,4.140786749482402,2019,SSB table 10513
+104,End-of-Life,Other,103.51966873706004,2020,SSB table 10513
+105,End-of-Life,Other,14.492753623188406,2021,SSB table 10513
+106,End-of-Life,Other,60.041407867494826,2022,SSB table 10513
+107,End-of-Life,Other,37.267080745341616,2023,SSB table 10513
+108,End-of-Life,Other,14.492753623188406,2012,SSB table 10513
+109,End-of-Life,Other,10.351966873706004,2013,SSB table 10513
+110,End-of-Life,Other,4.140786749482402,2014,SSB table 10513
+111,End-of-Life,Other,4.140786749482402,2015,SSB table 10513
+112,Spruce,Firewood,452000.0,2007,SSB table 11181
+113,Spruce,Firewood,451500.0,2008,SSB table 11181
+114,Spruce,Firewood,504000.0,2009,SSB table 11181
+115,Spruce,Firewood,551500.0,2010,SSB table 11181
+116,Spruce,Firewood,424500.0,2011,SSB table 11181
+117,Spruce,Firewood,513000.0,2012,SSB table 11181
+118,Spruce,Firewood,369500.0,2013,SSB table 11181
+119,Spruce,Firewood,310500.0,2014,SSB table 11181
+120,Spruce,Firewood,346500.0,2015,SSB table 11181
+121,Spruce,Firewood,335500.0,2016,SSB table 11181
+122,Spruce,Firewood,341500.0,2017,SSB table 11181
+123,Spruce,Firewood,323000.0,2018,SSB table 11181
+124,Spruce,Firewood,283000.0,2019,SSB table 11181
+125,Spruce,Firewood,314000.0,2020,SSB table 11181
+126,Spruce,Firewood,360500.0,2021,SSB table 11181
+127,Spruce,Firewood,381500.0,2022,SSB table 11181
+128,Spruce,Firewood,391500.0,2023,SSB table 11181
+129,Pine,Firewood,452000.0,2007,SSB table 11181
+130,Pine,Firewood,451500.0,2008,SSB table 11181
+131,Pine,Firewood,504000.0,2009,SSB table 11181
+132,Pine,Firewood,551500.0,2010,SSB table 11181
+133,Pine,Firewood,424500.0,2011,SSB table 11181
+134,Pine,Firewood,513000.0,2012,SSB table 11181
+135,Pine,Firewood,369500.0,2013,SSB table 11181
+136,Pine,Firewood,310500.0,2014,SSB table 11181
+137,Pine,Firewood,346500.0,2015,SSB table 11181
+138,Pine,Firewood,335500.0,2016,SSB table 11181
+139,Pine,Firewood,341500.0,2017,SSB table 11181
+140,Pine,Firewood,323000.0,2018,SSB table 11181
+141,Pine,Firewood,283000.0,2019,SSB table 11181
+142,Pine,Firewood,314000.0,2020,SSB table 11181
+143,Pine,Firewood,360500.0,2021,SSB table 11181
+144,Pine,Firewood,381500.0,2022,SSB table 11181
+145,Pine,Firewood,391500.0,2023,SSB table 11181
+146,Non-coniferous,Firewood,1755000.0,2007,SSB table 11181
+147,Non-coniferous,Firewood,1753000.0,2008,SSB table 11181
+148,Non-coniferous,Firewood,1957000.0,2009,SSB table 11181
+149,Non-coniferous,Firewood,2141000.0,2010,SSB table 11181
+150,Non-coniferous,Firewood,1648000.0,2011,SSB table 11181
+151,Non-coniferous,Firewood,1992000.0,2012,SSB table 11181
+152,Non-coniferous,Firewood,1435000.0,2013,SSB table 11181
+153,Non-coniferous,Firewood,1205000.0,2014,SSB table 11181
+154,Non-coniferous,Firewood,1346000.0,2015,SSB table 11181
+155,Non-coniferous,Firewood,1303000.0,2016,SSB table 11181
+156,Non-coniferous,Firewood,1366000.0,2017,SSB table 11181
+157,Non-coniferous,Firewood,1253000.0,2018,SSB table 11181
+158,Non-coniferous,Firewood,1098000.0,2019,SSB table 11181
+159,Non-coniferous,Firewood,1219000.0,2020,SSB table 11181
+160,Non-coniferous,Firewood,1401000.0,2021,SSB table 11181
+161,Non-coniferous,Firewood,1480000.0,2022,SSB table 11181
+162,Non-coniferous,Firewood,1521000.0,2023,SSB table 11181
+163,Spruce,Sawmills,2560000.0,2006,SSB table 07410
+164,Spruce,Sawmills,3052000.0,2007,SSB table 07410
+165,Spruce,Sawmills,2754000.0,2008,SSB table 07410
+166,Spruce,Sawmills,2119000.0,2009,SSB table 07410
+167,Spruce,Sawmills,3099000.0,2010,SSB table 07410
+168,Spruce,Sawmills,2928000.0,2011,SSB table 07410
+169,Spruce,Sawmills,3151000.0,2012,SSB table 07410
+170,Spruce,Sawmills,3421000.0,2013,SSB table 07410
+171,Spruce,Sawmills,3983000.0,2014,SSB table 07410
+172,Spruce,Sawmills,4028000.0,2015,SSB table 07410
+173,Spruce,Sawmills,4042000.0,2016,SSB table 07410
+174,Spruce,Sawmills,4171000.0,2017,SSB table 07410
+175,Spruce,Sawmills,4394000.0,2018,SSB table 07410
+176,Spruce,Sawmills,4302000.0,2019,SSB table 07410
+177,Spruce,Sawmills,3835000.0,2020,SSB table 07410
+178,Spruce,Sawmills,4964000.0,2021,SSB table 07410
+179,Spruce,Sawmills,4819000.0,2022,SSB table 07410
+180,Spruce,Sawmills,4508000.0,2023,SSB table 07410
+181,Spruce,Pulpmills,2661000.0,2006,SSB table 07410
+182,Spruce,Pulpmills,2916000.0,2007,SSB table 07410
+183,Spruce,Pulpmills,3042000.0,2008,SSB table 07410
+184,Spruce,Pulpmills,2612000.0,2009,SSB table 07410
+185,Spruce,Pulpmills,3014000.0,2010,SSB table 07410
+186,Spruce,Pulpmills,3139000.0,2011,SSB table 07410
+187,Spruce,Pulpmills,3271000.0,2012,SSB table 07410
+188,Spruce,Pulpmills,3161000.0,2013,SSB table 07410
+189,Spruce,Pulpmills,2941000.0,2014,SSB table 07410
+190,Spruce,Pulpmills,3038000.0,2015,SSB table 07410
+191,Spruce,Pulpmills,3131000.0,2016,SSB table 07410
+192,Spruce,Pulpmills,3136000.0,2017,SSB table 07410
+193,Spruce,Pulpmills,3200000.0,2018,SSB table 07410
+194,Spruce,Pulpmills,3299000.0,2019,SSB table 07410
+195,Spruce,Pulpmills,3155000.0,2020,SSB table 07410
+196,Spruce,Pulpmills,3123000.0,2021,SSB table 07410
+197,Spruce,Pulpmills,3224000.0,2022,SSB table 07410
+198,Spruce,Pulpmills,3259000.0,2023,SSB table 07410
+199,Spruce,Boardmills,261000.0,2006,SSB table 07410
+200,Spruce,Boardmills,267000.0,2007,SSB table 07410
+201,Spruce,Boardmills,269000.0,2008,SSB table 07410
+202,Spruce,Boardmills,153000.0,2009,SSB table 07410
+203,Spruce,Boardmills,324000.0,2010,SSB table 07410
+204,Spruce,Boardmills,426000.0,2011,SSB table 07410
+205,Spruce,Boardmills,202000.0,2012,SSB table 07410
+206,Spruce,Boardmills,190000.0,2013,SSB table 07410
+207,Spruce,Boardmills,386000.0,2014,SSB table 07410
+208,Spruce,Boardmills,430000.0,2015,SSB table 07410
+209,Spruce,Boardmills,417000.0,2016,SSB table 07410
+210,Spruce,Boardmills,371000.0,2017,SSB table 07410
+211,Spruce,Boardmills,433000.0,2018,SSB table 07410
+212,Spruce,Boardmills,333000.0,2019,SSB table 07410
+213,Spruce,Boardmills,174000.0,2020,SSB table 07410
+214,Spruce,Boardmills,247000.0,2021,SSB table 07410
+215,Spruce,Boardmills,408000.0,2022,SSB table 07410
+216,Spruce,Boardmills,332000.0,2023,SSB table 07410
+217,Pine,Sawmills,1042000.0,2006,SSB table 07410
+218,Pine,Sawmills,1179000.0,2007,SSB table 07410
+219,Pine,Sawmills,1097000.0,2008,SSB table 07410
+220,Pine,Sawmills,864000.0,2009,SSB table 07410
+221,Pine,Sawmills,1119000.0,2010,SSB table 07410
+222,Pine,Sawmills,1139000.0,2011,SSB table 07410
+223,Pine,Sawmills,1226000.0,2012,SSB table 07410
+224,Pine,Sawmills,1168000.0,2013,SSB table 07410
+225,Pine,Sawmills,1349000.0,2014,SSB table 07410
+226,Pine,Sawmills,1429000.0,2015,SSB table 07410
+227,Pine,Sawmills,1413000.0,2016,SSB table 07410
+228,Pine,Sawmills,1501000.0,2017,SSB table 07410
+229,Pine,Sawmills,1509000.0,2018,SSB table 07410
+230,Pine,Sawmills,1602000.0,2019,SSB table 07410
+231,Pine,Sawmills,1587000.0,2020,SSB table 07410
+232,Pine,Sawmills,1749000.0,2021,SSB table 07410
+233,Pine,Sawmills,1770000.0,2022,SSB table 07410
+234,Pine,Sawmills,1524000.0,2023,SSB table 07410
+235,Pine,Pulpmills,676000.0,2006,SSB table 07410
+236,Pine,Pulpmills,699000.0,2007,SSB table 07410
+237,Pine,Pulpmills,794000.0,2008,SSB table 07410
+238,Pine,Pulpmills,747000.0,2009,SSB table 07410
+239,Pine,Pulpmills,661000.0,2010,SSB table 07410
+240,Pine,Pulpmills,832000.0,2011,SSB table 07410
+241,Pine,Pulpmills,842000.0,2012,SSB table 07410
+242,Pine,Pulpmills,796000.0,2013,SSB table 07410
+243,Pine,Pulpmills,930000.0,2014,SSB table 07410
+244,Pine,Pulpmills,964000.0,2015,SSB table 07410
+245,Pine,Pulpmills,1020000.0,2016,SSB table 07410
+246,Pine,Pulpmills,984000.0,2017,SSB table 07410
+247,Pine,Pulpmills,949000.0,2018,SSB table 07410
+248,Pine,Pulpmills,1143000.0,2019,SSB table 07410
+249,Pine,Pulpmills,1130000.0,2020,SSB table 07410
+250,Pine,Pulpmills,1005000.0,2021,SSB table 07410
+251,Pine,Pulpmills,1002000.0,2022,SSB table 07410
+252,Pine,Pulpmills,1002000.0,2023,SSB table 07410
+253,Pine,Boardmills,14000.0,2006,SSB table 07410
+254,Pine,Boardmills,27000.0,2007,SSB table 07410
+255,Pine,Boardmills,26000.0,2008,SSB table 07410
+256,Pine,Boardmills,33000.0,2009,SSB table 07410
+257,Pine,Boardmills,33000.0,2010,SSB table 07410
+258,Pine,Boardmills,24000.0,2011,SSB table 07410
+259,Pine,Boardmills,19000.0,2012,SSB table 07410
+260,Pine,Boardmills,27000.0,2013,SSB table 07410
+261,Pine,Boardmills,56000.0,2014,SSB table 07410
+262,Pine,Boardmills,56000.0,2015,SSB table 07410
+263,Pine,Boardmills,83000.0,2016,SSB table 07410
+264,Pine,Boardmills,85000.0,2017,SSB table 07410
+265,Pine,Boardmills,93000.0,2018,SSB table 07410
+266,Pine,Boardmills,57000.0,2019,SSB table 07410
+267,Pine,Boardmills,55000.0,2020,SSB table 07410
+268,Pine,Boardmills,65000.0,2021,SSB table 07410
+269,Pine,Boardmills,81000.0,2022,SSB table 07410
+270,Pine,Boardmills,74000.0,2023,SSB table 07410
+271,Non-coniferous,Sawmills,4000.0,2006,SSB table 07410
+272,Non-coniferous,Sawmills,4000.0,2007,SSB table 07410
+273,Non-coniferous,Sawmills,4000.0,2008,SSB table 07410
+274,Non-coniferous,Sawmills,6000.0,2009,SSB table 07410
+275,Non-coniferous,Sawmills,5000.0,2010,SSB table 07410
+276,Non-coniferous,Sawmills,3000.0,2011,SSB table 07410
+277,Non-coniferous,Sawmills,2000.0,2012,SSB table 07410
+278,Non-coniferous,Sawmills,4000.0,2013,SSB table 07410
+279,Non-coniferous,Sawmills,3000.0,2014,SSB table 07410
+280,Non-coniferous,Sawmills,1000.0,2015,SSB table 07410
+281,Non-coniferous,Sawmills,7000.0,2016,SSB table 07410
+282,Non-coniferous,Sawmills,5000.0,2017,SSB table 07410
+283,Non-coniferous,Sawmills,3000.0,2018,SSB table 07410
+284,Non-coniferous,Sawmills,1000.0,2019,SSB table 07410
+285,Non-coniferous,Sawmills,2000.0,2020,SSB table 07410
+286,Non-coniferous,Sawmills,2000.0,2021,SSB table 07410
+287,Non-coniferous,Sawmills,2000.0,2022,SSB table 07410
+288,Non-coniferous,Sawmills,3000.0,2023,SSB table 07410
+289,Non-coniferous,Pulpmills,64000.0,2006,SSB table 07410
+290,Non-coniferous,Pulpmills,70000.0,2007,SSB table 07410
+291,Non-coniferous,Pulpmills,84000.0,2008,SSB table 07410
+292,Non-coniferous,Pulpmills,97000.0,2009,SSB table 07410
+293,Non-coniferous,Pulpmills,68000.0,2010,SSB table 07410
+294,Non-coniferous,Pulpmills,93000.0,2011,SSB table 07410
+295,Non-coniferous,Pulpmills,74000.0,2012,SSB table 07410
+296,Non-coniferous,Pulpmills,123000.0,2013,SSB table 07410
+297,Non-coniferous,Pulpmills,125000.0,2014,SSB table 07410
+298,Non-coniferous,Pulpmills,167000.0,2015,SSB table 07410
+299,Non-coniferous,Pulpmills,191000.0,2016,SSB table 07410
+300,Non-coniferous,Pulpmills,238000.0,2017,SSB table 07410
+301,Non-coniferous,Pulpmills,256000.0,2018,SSB table 07410
+302,Non-coniferous,Pulpmills,301000.0,2019,SSB table 07410
+303,Non-coniferous,Pulpmills,304000.0,2020,SSB table 07410
+304,Non-coniferous,Pulpmills,297000.0,2021,SSB table 07410
+305,Non-coniferous,Pulpmills,211000.0,2022,SSB table 07410
+306,Non-coniferous,Pulpmills,293000.0,2023,SSB table 07410
+307,Non-coniferous,Boardmills,,2006,SSB table 07410
+308,Non-coniferous,Boardmills,,2007,SSB table 07410
+309,Non-coniferous,Boardmills,,2008,SSB table 07410
+310,Non-coniferous,Boardmills,1000.0,2009,SSB table 07410
+311,Non-coniferous,Boardmills,,2010,SSB table 07410
+312,Non-coniferous,Boardmills,,2011,SSB table 07410
+313,Non-coniferous,Boardmills,,2012,SSB table 07410
+314,Non-coniferous,Boardmills,,2013,SSB table 07410
+315,Non-coniferous,Boardmills,,2014,SSB table 07410
+316,Non-coniferous,Boardmills,,2015,SSB table 07410
+317,Non-coniferous,Boardmills,,2016,SSB table 07410
+318,Non-coniferous,Boardmills,,2017,SSB table 07410
+319,Non-coniferous,Boardmills,,2018,SSB table 07410
+320,Non-coniferous,Boardmills,,2019,SSB table 07410
+321,Non-coniferous,Boardmills,,2020,SSB table 07410
+322,Non-coniferous,Boardmills,,2021,SSB table 07410
+323,Non-coniferous,Boardmills,,2022,SSB table 07410
+324,Non-coniferous,Boardmills,,2023,SSB table 07410
+325,Import Impregnated,Impregnation,101055.0,2017,SSB table 08810
+326,Import Pulpmills,Pulpmills,5246.0,2017,SSB table 08810
+327,Import Sawmills,Sawmills,43608.0,2017,SSB table 08810
+328,Impregnation,Export,312199.0,2017,SSB table 08810
+329,Spruce,Export,1485003.0,2017,SSB table 08810
+330,Import Impregnated,Impregnation,23281.0,2018,SSB table 08810
+331,Import Pulpmills,Pulpmills,21570.0,2018,SSB table 08810
+332,Import Sawmills,Sawmills,2.0,2018,SSB table 08810
+333,Impregnation,Export,317325.0,2018,SSB table 08810
+334,Spruce,Export,1347614.0,2018,SSB table 08810
+335,Import Impregnated,Impregnation,5325.0,2019,SSB table 08810
+336,Import Pulpmills,Pulpmills,28223.0,2019,SSB table 08810
+337,Import Sawmills,Sawmills,65301.0,2019,SSB table 08810
+338,Impregnation,Export,345238.0,2019,SSB table 08810
+339,Spruce,Export,1515352.0,2019,SSB table 08810
+340,Import Impregnated,Impregnation,3724.0,2020,SSB table 08810
+341,Import Pulpmills,Pulpmills,5272.0,2020,SSB table 08810
+342,Import Sawmills,Sawmills,65271.0,2020,SSB table 08810
+343,Impregnation,Export,443525.0,2020,SSB table 08810
+344,Spruce,Export,1194829.0,2020,SSB table 08810
+345,Import Impregnated,Impregnation,6915.0,2021,SSB table 08810
+346,Import Pulpmills,Pulpmills,14655.0,2021,SSB table 08810
+347,Import Sawmills,Sawmills,83048.0,2021,SSB table 08810
+348,Impregnation,Export,353062.0,2021,SSB table 08810
+349,Spruce,Export,1561173.0,2021,SSB table 08810
+350,Import Pulpmills,Pulpmills,3170.0,2022,SSB table 08810
+351,Import Sawmills,Sawmills,55121.0,2022,SSB table 08810
+352,Spruce,Export,1750241.0,2022,SSB table 08810
+353,Import Pulpmills,Pulpmills,634.0,2023,SSB table 08810
+354,Import Sawmills,Sawmills,58827.0,2023,SSB table 08810
+355,Spruce,Export,1694836.0,2023,SSB table 08810
+356,Import Impregnated,Impregnation,379680.0,2002,SSB table 08810
+357,Import Pulpmills,Pulpmills,98786.0,2002,SSB table 08810
+358,Impregnation,Export,66504.0,2002,SSB table 08810
+359,Spruce,Export,173155.0,2002,SSB table 08810
+360,Import Impregnated,Impregnation,331469.0,2003,SSB table 08810
+361,Import Pulpmills,Pulpmills,66115.0,2003,SSB table 08810
+362,Impregnation,Export,79569.0,2003,SSB table 08810
+363,Spruce,Export,147173.0,2003,SSB table 08810
+364,Import Impregnated,Impregnation,389473.0,2004,SSB table 08810
+365,Import Pulpmills,Pulpmills,12071.0,2004,SSB table 08810
+366,Impregnation,Export,79540.0,2004,SSB table 08810
+367,Spruce,Export,146006.0,2004,SSB table 08810
+368,Import Impregnated,Impregnation,437919.0,2005,SSB table 08810
+369,Import Pulpmills,Pulpmills,3546.0,2005,SSB table 08810
+370,Impregnation,Export,76770.0,2005,SSB table 08810
+371,Spruce,Export,111007.0,2005,SSB table 08810
+372,Import Impregnated,Impregnation,399389.0,2006,SSB table 08810
+373,Import Pulpmills,Pulpmills,156.0,2006,SSB table 08810
+374,Impregnation,Export,92033.0,2006,SSB table 08810
+375,Spruce,Export,220972.0,2006,SSB table 08810
+376,Import Impregnated,Impregnation,446974.0,2007,SSB table 08810
+377,Import Pulpmills,Pulpmills,3595.0,2007,SSB table 08810
+378,Impregnation,Export,76980.0,2007,SSB table 08810
+379,Spruce,Export,182667.0,2007,SSB table 08810
+380,Import Impregnated,Impregnation,303398.0,2008,SSB table 08810
+381,Import Pulpmills,Pulpmills,3625.0,2008,SSB table 08810
+382,Impregnation,Export,73078.0,2008,SSB table 08810
+383,Spruce,Export,284012.0,2008,SSB table 08810
+384,Import Impregnated,Impregnation,286524.0,2009,SSB table 08810
+385,Import Pulpmills,Pulpmills,530.0,2009,SSB table 08810
+386,Impregnation,Export,74115.0,2009,SSB table 08810
+387,Spruce,Export,520931.0,2009,SSB table 08810
+388,Import Impregnated,Impregnation,273777.0,2010,SSB table 08810
+389,Import Pulpmills,Pulpmills,326.0,2010,SSB table 08810
+390,Impregnation,Export,73471.0,2010,SSB table 08810
+391,Spruce,Export,341533.0,2010,SSB table 08810
+392,Import Impregnated,Impregnation,239995.0,2011,SSB table 08810
+393,Import Pulpmills,Pulpmills,547.0,2011,SSB table 08810
+394,Impregnation,Export,84489.0,2011,SSB table 08810
+395,Spruce,Export,297990.0,2011,SSB table 08810
+396,Import Impregnated,Impregnation,260622.0,2012,SSB table 08810
+397,Import Pulpmills,Pulpmills,262.0,2012,SSB table 08810
+398,Impregnation,Export,92100.0,2012,SSB table 08810
+399,Spruce,Export,669302.0,2012,SSB table 08810
+400,Import Impregnated,Impregnation,211900.0,2013,SSB table 08810
+401,Import Pulpmills,Pulpmills,394.0,2013,SSB table 08810
+402,Impregnation,Export,81700.0,2013,SSB table 08810
+403,Spruce,Export,953474.0,2013,SSB table 08810
+404,Import Impregnated,Impregnation,215201.0,2014,SSB table 08810
+405,Import Pulpmills,Pulpmills,956.0,2014,SSB table 08810
+406,Impregnation,Export,71429.0,2014,SSB table 08810
+407,Spruce,Export,1171064.0,2014,SSB table 08810
+408,Import Impregnated,Impregnation,205444.0,2015,SSB table 08810
+409,Import Pulpmills,Pulpmills,51.0,2015,SSB table 08810
+410,Impregnation,Export,72285.0,2015,SSB table 08810
+411,Spruce,Export,1225897.0,2015,SSB table 08810
+412,Import Impregnated,Impregnation,237036.0,2016,SSB table 08810
+413,Import Pulpmills,Pulpmills,135.0,2016,SSB table 08810
+414,Impregnation,Export,79501.0,2016,SSB table 08810
+415,Spruce,Export,1159839.0,2016,SSB table 08810
+416,Import Impregnated,Impregnation,199050.0,2017,SSB table 08810
+417,Import Pulpmills,Pulpmills,170820.0,2017,SSB table 08810
+418,Import Sawmills,Sawmills,6391.0,2017,SSB table 08810
+419,Impregnation,Export,116720.0,2017,SSB table 08810
+420,Spruce,Export,1488993.0,2017,SSB table 08810
+421,Import Impregnated,Impregnation,187334.0,2018,SSB table 08810
+422,Import Pulpmills,Pulpmills,157996.0,2018,SSB table 08810
+423,Import Sawmills,Sawmills,1106.0,2018,SSB table 08810
+424,Impregnation,Export,116768.0,2018,SSB table 08810
+425,Spruce,Export,1756165.0,2018,SSB table 08810
+426,Import Impregnated,Impregnation,163566.0,2019,SSB table 08810
+427,Import Pulpmills,Pulpmills,3035.0,2019,SSB table 08810
+428,Import Sawmills,Sawmills,4458.0,2019,SSB table 08810
+429,Impregnation,Export,86651.0,2019,SSB table 08810
+430,Spruce,Export,1668095.0,2019,SSB table 08810
+431,Import Impregnated,Impregnation,150164.0,2020,SSB table 08810
+432,Import Pulpmills,Pulpmills,81.0,2020,SSB table 08810
+433,Import Sawmills,Sawmills,8733.0,2020,SSB table 08810
+434,Impregnation,Export,109349.0,2020,SSB table 08810
+435,Spruce,Export,1893866.0,2020,SSB table 08810
+436,Import Impregnated,Impregnation,196528.0,2021,SSB table 08810
+437,Import Pulpmills,Pulpmills,122.0,2021,SSB table 08810
+438,Import Sawmills,Sawmills,12393.0,2021,SSB table 08810
+439,Impregnation,Export,102685.0,2021,SSB table 08810
+440,Spruce,Export,1886464.0,2021,SSB table 08810
+441,Import Pulpmills,Pulpmills,269.0,2022,SSB table 08810
+442,Import Sawmills,Sawmills,5889.0,2022,SSB table 08810
+443,Spruce,Export,2101603.0,2022,SSB table 08810
+444,Import Pulpmills,Pulpmills,781.0,2023,SSB table 08810
+445,Import Sawmills,Sawmills,7747.0,2023,SSB table 08810
+446,Spruce,Export,1965000.0,2023,SSB table 08810
+447,Import Firewood,Import Firewood,8061.0,2002,SSB table 08810
+448,Non-coniferous,Non-coniferous,412.0,2002,SSB table 08810
+449,Import Firewood,Import Firewood,4939.0,2003,SSB table 08810
+450,Import Firewood,Import Firewood,9299.0,2004,SSB table 08810
+451,Import Firewood,Import Firewood,2380.0,2005,SSB table 08810
+452,Non-coniferous,Non-coniferous,1621.0,2005,SSB table 08810
+453,Import Firewood,Import Firewood,4498.0,2006,SSB table 08810
+454,Import Firewood,Import Firewood,69.0,2007,SSB table 08810
+455,Non-coniferous,Non-coniferous,2318.0,2007,SSB table 08810
+456,Non-coniferous,Non-coniferous,26692.0,2008,SSB table 08810
+457,Non-coniferous,Non-coniferous,21375.0,2009,SSB table 08810
+458,Non-coniferous,Non-coniferous,13171.0,2010,SSB table 08810
+459,Import Firewood,Import Firewood,13.0,2011,SSB table 08810
+460,Non-coniferous,Non-coniferous,11052.0,2011,SSB table 08810
+461,Non-coniferous,Non-coniferous,25716.0,2012,SSB table 08810
+462,Non-coniferous,Non-coniferous,54248.0,2013,SSB table 08810
+463,Non-coniferous,Non-coniferous,107993.0,2014,SSB table 08810
+464,Non-coniferous,Non-coniferous,109357.0,2015,SSB table 08810
+465,Import Firewood,Import Firewood,633.0,2016,SSB table 08810
+466,Non-coniferous,Non-coniferous,137527.0,2016,SSB table 08810
+467,Import Firewood,Import Firewood,147104.0,2002,SSB table 08810
+468,Import Firewood,Import Firewood,291519.0,2003,SSB table 08810
+469,Import Firewood,Import Firewood,162433.0,2004,SSB table 08810
+470,Non-coniferous,Non-coniferous,15.0,2004,SSB table 08810
+471,Import Firewood,Import Firewood,110122.0,2005,SSB table 08810
+472,Non-coniferous,Non-coniferous,78.0,2005,SSB table 08810
+473,Import Firewood,Import Firewood,169538.0,2006,SSB table 08810
+474,Non-coniferous,Non-coniferous,43.0,2006,SSB table 08810
+475,Import Firewood,Import Firewood,161516.0,2007,SSB table 08810
+476,Non-coniferous,Non-coniferous,85.0,2007,SSB table 08810
+477,Import Firewood,Import Firewood,135876.0,2008,SSB table 08810
+478,Non-coniferous,Non-coniferous,170.0,2008,SSB table 08810
+479,Import Firewood,Import Firewood,1173.0,2009,SSB table 08810
+480,Non-coniferous,Non-coniferous,8675.0,2009,SSB table 08810
+481,Import Firewood,Import Firewood,111456.0,2009,SSB table 08810
+482,Non-coniferous,Non-coniferous,63.0,2009,SSB table 08810
+483,Import Firewood,Import Firewood,23774.0,2010,SSB table 08810
+484,Non-coniferous,Non-coniferous,1891.0,2010,SSB table 08810
+485,Import Firewood,Import Firewood,172753.0,2010,SSB table 08810
+486,Non-coniferous,Non-coniferous,1133.0,2010,SSB table 08810
+487,Import Firewood,Import Firewood,25837.0,2011,SSB table 08810
+488,Non-coniferous,Non-coniferous,1628.0,2011,SSB table 08810
+489,Import Firewood,Import Firewood,261798.0,2011,SSB table 08810
+490,Non-coniferous,Non-coniferous,218.0,2011,SSB table 08810
+491,Import Firewood,Import Firewood,57369.0,2012,SSB table 08810
+492,Non-coniferous,Non-coniferous,15854.0,2012,SSB table 08810
+493,Import Firewood,Import Firewood,110099.0,2012,SSB table 08810
+494,Non-coniferous,Non-coniferous,9.0,2012,SSB table 08810
+495,Import Firewood,Import Firewood,83338.0,2013,SSB table 08810
+496,Non-coniferous,Non-coniferous,18852.0,2013,SSB table 08810
+497,Import Firewood,Import Firewood,110659.0,2013,SSB table 08810
+498,Non-coniferous,Non-coniferous,145.0,2013,SSB table 08810
+499,Import Firewood,Import Firewood,64818.0,2014,SSB table 08810
+500,Non-coniferous,Non-coniferous,38.0,2014,SSB table 08810
+501,Import Firewood,Import Firewood,96320.0,2014,SSB table 08810
+502,Non-coniferous,Non-coniferous,12122.0,2014,SSB table 08810
+503,Import Firewood,Import Firewood,72803.0,2015,SSB table 08810
+504,Non-coniferous,Non-coniferous,2319.0,2015,SSB table 08810
+505,Import Firewood,Import Firewood,87377.0,2015,SSB table 08810
+506,Non-coniferous,Non-coniferous,27226.0,2015,SSB table 08810
+507,Import Firewood,Import Firewood,35038.0,2016,SSB table 08810
+508,Non-coniferous,Non-coniferous,51037.0,2016,SSB table 08810
+509,Import Firewood,Import Firewood,104411.0,2016,SSB table 08810
+510,Non-coniferous,Non-coniferous,29138.0,2016,SSB table 08810
+511,Import Firewood,Import Firewood,43235.0,2017,SSB table 08810
+512,Non-coniferous,Non-coniferous,27513.0,2017,SSB table 08810
+513,Import Firewood,Import Firewood,533.0,2017,SSB table 08810
+514,Non-coniferous,Non-coniferous,28073.0,2017,SSB table 08810
+515,Import Firewood,Import Firewood,3263.0,2017,SSB table 08810
+516,Non-coniferous,Non-coniferous,18232.0,2017,SSB table 08810
+517,Import Firewood,Import Firewood,101712.0,2017,SSB table 08810
+518,Non-coniferous,Non-coniferous,5779.0,2017,SSB table 08810
+519,None,None,0.0,2017,SSB table 08810
+520,Import Firewood,Import Firewood,73081.0,2018,SSB table 08810
+521,Non-coniferous,Non-coniferous,8336.0,2018,SSB table 08810
+522,Import Firewood,Import Firewood,517.0,2018,SSB table 08810
+523,Non-coniferous,Non-coniferous,53710.0,2018,SSB table 08810
+524,Import Firewood,Import Firewood,3421.0,2018,SSB table 08810
+525,Non-coniferous,Non-coniferous,3735.0,2018,SSB table 08810
+526,Import Firewood,Import Firewood,132198.0,2018,SSB table 08810
+527,Non-coniferous,Non-coniferous,4708.0,2018,SSB table 08810
+528,Import Firewood,Import Firewood,95684.0,2019,SSB table 08810
+529,Non-coniferous,Non-coniferous,10749.0,2019,SSB table 08810
+530,Import Firewood,Import Firewood,745.0,2019,SSB table 08810
+531,Non-coniferous,Non-coniferous,1784.0,2019,SSB table 08810
+532,Import Firewood,Import Firewood,2581.0,2019,SSB table 08810
+533,Non-coniferous,Non-coniferous,6322.0,2019,SSB table 08810
+534,Import Firewood,Import Firewood,145963.0,2019,SSB table 08810
+535,Non-coniferous,Non-coniferous,1199.0,2019,SSB table 08810
+536,Import Firewood,Import Firewood,29482.0,2020,SSB table 08810
+537,Non-coniferous,Non-coniferous,51530.0,2020,SSB table 08810
+538,Import Firewood,Import Firewood,1357.0,2020,SSB table 08810
+539,Import Firewood,Import Firewood,4531.0,2020,SSB table 08810
+540,Non-coniferous,Non-coniferous,14016.0,2020,SSB table 08810
+541,Import Firewood,Import Firewood,116716.0,2020,SSB table 08810
+542,Non-coniferous,Non-coniferous,7036.0,2020,SSB table 08810
+543,Import Firewood,Import Firewood,71359.0,2021,SSB table 08810
+544,Non-coniferous,Non-coniferous,95695.0,2021,SSB table 08810
+545,Import Firewood,Import Firewood,1661.0,2021,SSB table 08810
+546,Import Firewood,Import Firewood,6843.0,2021,SSB table 08810
+547,Non-coniferous,Non-coniferous,43291.0,2021,SSB table 08810
+548,Import Firewood,Import Firewood,192915.0,2021,SSB table 08810
+549,Import Firewood,Import Firewood,58477.0,2022,SSB table 08810
+550,Non-coniferous,Non-coniferous,88687.0,2022,SSB table 08810
+551,Import Firewood,Import Firewood,2562.0,2022,SSB table 08810
+552,Import Firewood,Import Firewood,7546.0,2022,SSB table 08810
+553,Non-coniferous,Non-coniferous,71739.0,2022,SSB table 08810
+554,Import Firewood,Import Firewood,243715.0,2022,SSB table 08810
+555,Non-coniferous,Non-coniferous,119.0,2022,SSB table 08810
+556,Import Firewood,Import Firewood,53322.0,2023,SSB table 08810
+557,Non-coniferous,Non-coniferous,42499.0,2023,SSB table 08810
+558,Import Firewood,Import Firewood,7618.0,2023,SSB table 08810
+559,Import Firewood,Import Firewood,6739.0,2023,SSB table 08810
+560,Non-coniferous,Non-coniferous,133010.0,2023,SSB table 08810
+561,Import Firewood,Import Firewood,137257.0,2023,SSB table 08810
+562,Non-coniferous,Non-coniferous,75.0,2023,SSB table 08810
+563,Import Impregnated,Wood Product processing & Logistics,44140.0,2002,SSB table 08810
+564,Impregnation,Export Impregnated,895.0,2002,SSB table 08810
+565,Import Pulpmills,Pulpmills,1432069.0,2002,SSB table 08810
+566,Spruce,Export Pulpwood,55.0,2002,SSB table 08810
+567,Import Sawmills,Sawmills,153985.0,2002,SSB table 08810
+568,Spruce,Export Spruce,42.0,2002,SSB table 08810
+569,Import Impregnated,Wood Product processing & Logistics,145806.0,2002,SSB table 08810
+570,Impregnation,Export Impregnated,366391.0,2002,SSB table 08810
+571,Import Impregnated,Wood Product processing & Logistics,36117.0,2003,SSB table 08810
+572,Impregnation,Export Impregnated,6338.0,2003,SSB table 08810
+573,Import Pulpmills,Pulpmills,1440454.0,2003,SSB table 08810
+574,Import Sawmills,Sawmills,348363.0,2003,SSB table 08810
+575,Spruce,Export Spruce,63.0,2003,SSB table 08810
+576,Import Impregnated,Wood Product processing & Logistics,130439.0,2003,SSB table 08810
+577,Impregnation,Export Impregnated,337314.0,2003,SSB table 08810
+578,Import Impregnated,Wood Product processing & Logistics,28772.0,2004,SSB table 08810
+579,Impregnation,Export Impregnated,1405.0,2004,SSB table 08810
+580,Import Pulpmills,Pulpmills,1548845.0,2004,SSB table 08810
+581,Import Sawmills,Sawmills,442311.0,2004,SSB table 08810
+582,Import Impregnated,Wood Product processing & Logistics,147584.0,2004,SSB table 08810
+583,Impregnation,Export Impregnated,279992.0,2004,SSB table 08810
+584,Import Impregnated,Wood Product processing & Logistics,19659.0,2005,SSB table 08810
+585,Impregnation,Export Impregnated,688.0,2005,SSB table 08810
+586,Import Pulpmills,Pulpmills,1607638.0,2005,SSB table 08810
+587,Spruce,Export Pulpwood,7.0,2005,SSB table 08810
+588,Import Sawmills,Sawmills,331804.0,2005,SSB table 08810
+589,Import Impregnated,Wood Product processing & Logistics,172814.0,2005,SSB table 08810
+590,Impregnation,Export Impregnated,258450.0,2005,SSB table 08810
+591,Import Impregnated,Wood Product processing & Logistics,9688.0,2006,SSB table 08810
+592,Impregnation,Export Impregnated,774.0,2006,SSB table 08810
+593,Import Pulpmills,Pulpmills,1253693.0,2006,SSB table 08810
+594,Import Sawmills,Sawmills,25940.0,2006,SSB table 08810
+595,Spruce,Export Spruce,38100.0,2006,SSB table 08810
+596,Import Impregnated,Wood Product processing & Logistics,171954.0,2006,SSB table 08810
+597,Impregnation,Export Impregnated,280254.0,2006,SSB table 08810
+598,Import Impregnated,Wood Product processing & Logistics,12100.0,2007,SSB table 08810
+599,Impregnation,Export Impregnated,218.0,2007,SSB table 08810
+600,Import Pulpmills,Pulpmills,1274231.0,2007,SSB table 08810
+601,Spruce,Export Pulpwood,3434.0,2007,SSB table 08810
+602,Import Sawmills,Sawmills,55548.0,2007,SSB table 08810
+603,Spruce,Export Spruce,99291.0,2007,SSB table 08810
+604,Import Impregnated,Wood Product processing & Logistics,224399.0,2007,SSB table 08810
+605,Impregnation,Export Impregnated,224565.0,2007,SSB table 08810
+606,Import Impregnated,Wood Product processing & Logistics,13259.0,2008,SSB table 08810
+607,Impregnation,Export Impregnated,132.0,2008,SSB table 08810
+608,Import Pulpmills,Pulpmills,1042032.0,2008,SSB table 08810
+609,Spruce,Export Pulpwood,6260.0,2008,SSB table 08810
+610,Import Sawmills,Sawmills,84.0,2008,SSB table 08810
+611,Spruce,Export Spruce,54560.0,2008,SSB table 08810
+612,Import Impregnated,Wood Product processing & Logistics,157874.0,2008,SSB table 08810
+613,Impregnation,Export Impregnated,227988.0,2008,SSB table 08810
+614,Import Impregnated,Wood Product processing & Logistics,14437.0,2009,SSB table 08810
+615,Impregnation,Export Impregnated,434.0,2009,SSB table 08810
+616,Import Pulpmills,Pulpmills,614734.0,2009,SSB table 08810
+617,Spruce,Export Pulpwood,31786.0,2009,SSB table 08810
+618,Import Sawmills,Sawmills,43610.0,2009,SSB table 08810
+619,Spruce,Export Spruce,17424.0,2009,SSB table 08810
+620,Import Impregnated,Wood Product processing & Logistics,150989.0,2009,SSB table 08810
+621,Impregnation,Export Impregnated,247468.0,2009,SSB table 08810
+622,Import Impregnated,Wood Product processing & Logistics,4656.0,2010,SSB table 08810
+623,Impregnation,Export Impregnated,138.0,2010,SSB table 08810
+624,Import Pulpmills,Pulpmills,838949.0,2010,SSB table 08810
+625,Spruce,Export Pulpwood,138452.0,2010,SSB table 08810
+626,Import Sawmills,Sawmills,106085.0,2010,SSB table 08810
+627,Spruce,Export Spruce,28500.0,2010,SSB table 08810
+628,Import Impregnated,Wood Product processing & Logistics,236112.0,2010,SSB table 08810
+629,Impregnation,Export Impregnated,254707.0,2010,SSB table 08810
+630,Import Impregnated,Wood Product processing & Logistics,21515.0,2011,SSB table 08810
+631,Impregnation,Export Impregnated,656.0,2011,SSB table 08810
+632,Import Pulpmills,Pulpmills,795657.0,2011,SSB table 08810
+633,Spruce,Export Pulpwood,205163.0,2011,SSB table 08810
+634,Import Sawmills,Sawmills,88.0,2011,SSB table 08810
+635,Spruce,Export Spruce,83767.0,2011,SSB table 08810
+636,Import Impregnated,Wood Product processing & Logistics,238976.0,2011,SSB table 08810
+637,Impregnation,Export Impregnated,252933.0,2011,SSB table 08810
+638,Import Impregnated,Wood Product processing & Logistics,26710.0,2012,SSB table 08810
+639,Impregnation,Export Impregnated,822.0,2012,SSB table 08810
+640,Import Pulpmills,Pulpmills,323144.0,2012,SSB table 08810
+641,Spruce,Export Pulpwood,235004.0,2012,SSB table 08810
+642,Spruce,Export Spruce,286712.0,2012,SSB table 08810
+643,Import Impregnated,Wood Product processing & Logistics,227319.0,2012,SSB table 08810
+644,Impregnation,Export Impregnated,262619.0,2012,SSB table 08810
+645,Import Impregnated,Wood Product processing & Logistics,44519.0,2013,SSB table 08810
+646,Impregnation,Export Impregnated,1520.0,2013,SSB table 08810
+647,Import Pulpmills,Pulpmills,7105.0,2013,SSB table 08810
+648,Spruce,Export Pulpwood,302468.0,2013,SSB table 08810
+649,Import Sawmills,Sawmills,3388.0,2013,SSB table 08810
+650,Spruce,Export Spruce,577534.0,2013,SSB table 08810
+651,Import Impregnated,Wood Product processing & Logistics,177102.0,2013,SSB table 08810
+652,Impregnation,Export Impregnated,277142.0,2013,SSB table 08810
+653,Import Impregnated,Wood Product processing & Logistics,43267.0,2014,SSB table 08810
+654,Impregnation,Export Impregnated,6692.0,2014,SSB table 08810
+655,Import Pulpmills,Pulpmills,61.0,2014,SSB table 08810
+656,Spruce,Export Pulpwood,650062.0,2014,SSB table 08810
+657,Import Sawmills,Sawmills,43.0,2014,SSB table 08810
+658,Spruce,Export Spruce,894686.0,2014,SSB table 08810
+659,Import Impregnated,Wood Product processing & Logistics,162029.0,2014,SSB table 08810
+660,Impregnation,Export Impregnated,263892.0,2014,SSB table 08810
+661,Import Impregnated,Wood Product processing & Logistics,24758.0,2015,SSB table 08810
+662,Impregnation,Export Impregnated,5759.0,2015,SSB table 08810
+663,Import Pulpmills,Pulpmills,872.0,2015,SSB table 08810
+664,Spruce,Export Pulpwood,993096.0,2015,SSB table 08810
+665,Import Sawmills,Sawmills,16.0,2015,SSB table 08810
+666,Spruce,Export Spruce,1251277.0,2015,SSB table 08810
+667,Import Impregnated,Wood Product processing & Logistics,142738.0,2015,SSB table 08810
+668,Impregnation,Export Impregnated,299155.0,2015,SSB table 08810
+669,Import Impregnated,Wood Product processing & Logistics,45754.0,2016,SSB table 08810
+670,Impregnation,Export Impregnated,7566.0,2016,SSB table 08810
+671,Import Pulpmills,Pulpmills,561.0,2016,SSB table 08810
+672,Spruce,Export Pulpwood,794293.0,2016,SSB table 08810
+673,Import Sawmills,Sawmills,48.0,2016,SSB table 08810
+674,Spruce,Export Spruce,14678.0,2016,SSB table 08810
+675,Import Sawmills,Sawmills,107.0,2016,SSB table 08810
+676,Spruce,Export Spruce,993472.0,2016,SSB table 08810
+677,Import Impregnated,Wood Product processing & Logistics,109396.0,2016,SSB table 08810
+678,Impregnation,Export Impregnated,327594.0,2016,SSB table 08810
+679,Sawmills,Planingmills,1336258.371,2011,Treindustrien årsrapport
+680,Sawmills,Wood Product processing & Logistics,872990.9719999998,2011,Treindustrien årsrapport
+681,Sawmills,Shrinkage,0.0,2011,Treindustrien årsrapport
+682,Sawmills,Boardmills,0.0,2011,Treindustrien årsrapport
+683,Sawmills,Pulpmills,0.0,2011,Treindustrien årsrapport
+684,Sawmills,Boardmills,0.0,2011,Treindustrien årsrapport
+685,Planingmills,Boardmills,66812.91855,2011,Treindustrien årsrapport
+686,Planingmills,Wood Product processing & Logistics,897045.052,2011,Treindustrien årsrapport
+687,Planingmills,Impregnation,375581.968,2011,Treindustrien årsrapport
+688,Sawmills,Planingmills,1408379.07,2012,Treindustrien årsrapport
+689,Sawmills,Wood Product processing & Logistics,832699.104,2012,Treindustrien årsrapport
+690,Sawmills,Shrinkage,0.0,2012,Treindustrien årsrapport
+691,Sawmills,Boardmills,0.0,2012,Treindustrien årsrapport
+692,Sawmills,Pulpmills,0.0,2012,Treindustrien årsrapport
+693,Sawmills,Boardmills,0.0,2012,Treindustrien årsrapport
+694,Planingmills,Boardmills,70418.9535,2012,Treindustrien årsrapport
+695,Planingmills,Wood Product processing & Logistics,976492.1199999999,2012,Treindustrien årsrapport
+696,Planingmills,Impregnation,364821.28,2012,Treindustrien årsrapport
+697,Sawmills,Planingmills,1353111.4800000002,2013,Treindustrien årsrapport
+698,Sawmills,Wood Product processing & Logistics,863055.1469999996,2013,Treindustrien årsrapport
+699,Sawmills,Shrinkage,0.0,2013,Treindustrien årsrapport
+700,Sawmills,Boardmills,0.0,2013,Treindustrien årsrapport
+701,Sawmills,Pulpmills,0.0,2013,Treindustrien årsrapport
+702,Sawmills,Boardmills,0.0,2013,Treindustrien årsrapport
+703,Planingmills,Boardmills,67655.57400000001,2013,Treindustrien årsrapport
+704,Planingmills,Wood Product processing & Logistics,920121.6800000002,2013,Treindustrien årsrapport
+705,Planingmills,Impregnation,368555.92,2013,Treindustrien årsrapport
+706,Sawmills,Planingmills,1373511.4050000003,2014,Treindustrien årsrapport
+707,Sawmills,Wood Product processing & Logistics,1034368.1069999998,2014,Treindustrien årsrapport
+708,Sawmills,Shrinkage,0.0,2014,Treindustrien årsrapport
+709,Sawmills,Boardmills,0.0,2014,Treindustrien årsrapport
+710,Sawmills,Pulpmills,0.0,2014,Treindustrien årsrapport
+711,Sawmills,Boardmills,0.0,2014,Treindustrien årsrapport
+712,Planingmills,Boardmills,68675.57025000002,2014,Treindustrien årsrapport
+713,Planingmills,Wood Product processing & Logistics,895360.6032,2014,Treindustrien årsrapport
+714,Planingmills,Impregnation,412745.4968,2014,Treindustrien årsrapport
+715,Sawmills,Planingmills,1389277.008,2015,Treindustrien årsrapport
+716,Sawmills,Wood Product processing & Logistics,1054739.2480000001,2015,Treindustrien årsrapport
+717,Sawmills,Shrinkage,0.0,2015,Treindustrien årsrapport
+718,Sawmills,Boardmills,0.0,2015,Treindustrien årsrapport
+719,Sawmills,Pulpmills,0.0,2015,Treindustrien årsrapport
+720,Sawmills,Boardmills,0.0,2015,Treindustrien årsrapport
+721,Planingmills,Boardmills,69463.8504,2015,Treindustrien årsrapport
+722,Planingmills,Wood Product processing & Logistics,891851.816,2015,Treindustrien årsrapport
+723,Planingmills,Impregnation,431269.144,2015,Treindustrien årsrapport
+724,Sawmills,Planingmills,1464016.806,2016,Treindustrien årsrapport
+725,Sawmills,Wood Product processing & Logistics,1068231.5799999998,2016,Treindustrien årsrapport
+726,Sawmills,Shrinkage,0.0,2016,Treindustrien årsrapport
+727,Sawmills,Boardmills,0.0,2016,Treindustrien årsrapport
+728,Sawmills,Pulpmills,0.0,2016,Treindustrien årsrapport
+729,Sawmills,Boardmills,0.0,2016,Treindustrien årsrapport
+730,Planingmills,Boardmills,73200.84030000001,2016,Treindustrien årsrapport
+731,Planingmills,Wood Product processing & Logistics,980885.3559999999,2016,Treindustrien årsrapport
+732,Planingmills,Impregnation,413416.364,2016,Treindustrien årsrapport
+733,Sawmills,Planingmills,1473845.6670000001,2017,Treindustrien årsrapport
+734,Sawmills,Wood Product processing & Logistics,1181502.169,2017,Treindustrien årsrapport
+735,Sawmills,Shrinkage,0.0,2017,Treindustrien årsrapport
+736,Sawmills,Boardmills,0.0,2017,Treindustrien årsrapport
+737,Sawmills,Pulpmills,0.0,2017,Treindustrien årsrapport
+738,Sawmills,Boardmills,0.0,2017,Treindustrien årsrapport
+739,Planingmills,Boardmills,73692.28335000001,2017,Treindustrien årsrapport
+740,Planingmills,Wood Product processing & Logistics,1022582.5800000001,2017,Treindustrien årsrapport
+741,Planingmills,Impregnation,381079.96,2017,Treindustrien årsrapport
+742,Sawmills,Planingmills,1434703.83,2018,Treindustrien årsrapport
+743,Sawmills,Wood Product processing & Logistics,1240418.0919999997,2018,Treindustrien årsrapport
+744,Sawmills,Shrinkage,0.0,2018,Treindustrien årsrapport
+745,Sawmills,Boardmills,0.0,2018,Treindustrien årsrapport
+746,Sawmills,Pulpmills,0.0,2018,Treindustrien årsrapport
+747,Sawmills,Boardmills,0.0,2018,Treindustrien årsrapport
+748,Planingmills,Boardmills,71735.1915,2018,Treindustrien årsrapport
+749,Planingmills,Wood Product processing & Logistics,995314.6000000001,2018,Treindustrien årsrapport
+750,Planingmills,Impregnation,371070.0,2018,Treindustrien årsrapport
+751,Sawmills,Planingmills,1392135.276,2019,Treindustrien årsrapport
+752,Sawmills,Wood Product processing & Logistics,1269880.0239999997,2019,Treindustrien årsrapport
+753,Sawmills,Shrinkage,0.0,2019,Treindustrien årsrapport
+754,Sawmills,Boardmills,0.0,2019,Treindustrien årsrapport
+755,Sawmills,Pulpmills,0.0,2019,Treindustrien årsrapport
+756,Sawmills,Boardmills,0.0,2019,Treindustrien årsrapport
+757,Planingmills,Boardmills,69606.7638,2019,Treindustrien årsrapport
+758,Planingmills,Wood Product processing & Logistics,914496.1600000001,2019,Treindustrien årsrapport
+759,Planingmills,Impregnation,411346.96,2019,Treindustrien årsrapport
+760,Sawmills,Planingmills,1331567.16,2020,Treindustrien årsrapport
+761,Sawmills,Wood Product processing & Logistics,1358183.019,2020,Treindustrien årsrapport
+762,Sawmills,Shrinkage,0.0,2020,Treindustrien årsrapport
+763,Sawmills,Boardmills,0.0,2020,Treindustrien årsrapport
+764,Sawmills,Pulpmills,0.0,2020,Treindustrien årsrapport
+765,Sawmills,Boardmills,0.0,2020,Treindustrien årsrapport
+766,Planingmills,Boardmills,66578.358,2020,Treindustrien årsrapport
+767,Planingmills,Wood Product processing & Logistics,804519.6799999999,2020,Treindustrien årsrapport
+768,Planingmills,Impregnation,463639.52,2020,Treindustrien årsrapport
+769,Sawmills,Planingmills,1488187.9320000003,2021,Treindustrien årsrapport
+770,Sawmills,Wood Product processing & Logistics,1320589.2609999997,2021,Treindustrien årsrapport
+771,Sawmills,Shrinkage,0.0,2021,Treindustrien årsrapport
+772,Sawmills,Boardmills,0.0,2021,Treindustrien årsrapport
+773,Sawmills,Pulpmills,0.0,2021,Treindustrien årsrapport
+774,Sawmills,Boardmills,0.0,2021,Treindustrien årsrapport
+775,Planingmills,Boardmills,74409.39660000002,2021,Treindustrien årsrapport
+776,Planingmills,Wood Product processing & Logistics,981369.1200000001,2021,Treindustrien årsrapport
+777,Planingmills,Impregnation,435952.72,2021,Treindustrien årsrapport
+778,Sawmills,Planingmills,1242974.4684000001,2022,Treindustrien årsrapport
+779,Sawmills,Wood Product processing & Logistics,1458653.5496,2022,Treindustrien årsrapport
+780,Sawmills,Shrinkage,0.0,2022,Treindustrien årsrapport
+781,Sawmills,Boardmills,0.0,2022,Treindustrien årsrapport
+782,Sawmills,Pulpmills,0.0,2022,Treindustrien årsrapport
+783,Sawmills,Boardmills,0.0,2022,Treindustrien årsrapport
+784,Planingmills,Boardmills,62148.72342000001,2022,Treindustrien årsrapport
+785,Planingmills,Wood Product processing & Logistics,875585.7520000001,2022,Treindustrien årsrapport
+786,Planingmills,Impregnation,308199.456,2022,Treindustrien årsrapport
+787,Sawmills,Planingmills,1204042.9936499998,2023,Treindustrien årsrapport
+788,Sawmills,Wood Product processing & Logistics,1285461.6313500002,2023,Treindustrien årsrapport
+789,Sawmills,Shrinkage,0.0,2023,Treindustrien årsrapport
+790,Sawmills,Boardmills,0.0,2023,Treindustrien årsrapport
+791,Sawmills,Pulpmills,0.0,2023,Treindustrien årsrapport
+792,Sawmills,Boardmills,0.0,2023,Treindustrien årsrapport
+793,Planingmills,Boardmills,60202.14968249999,2023,Treindustrien årsrapport
+794,Planingmills,Wood Product processing & Logistics,819337.6129999999,2023,Treindustrien årsrapport
+795,Planingmills,Impregnation,327370.0,2023,Treindustrien årsrapport
+796,Sawmills,Timber Inventory,1164.7797000000137,2012,Treindustrien årsrapport
+797,Timber Inventory,Sawmills,115769.80329999997,2013,Treindustrien årsrapport
+798,Sawmills,Timber Inventory,213595.79979999998,2014,Treindustrien årsrapport
+799,Timber Inventory,Sawmills,165750.4169,2015,Treindustrien årsrapport
+800,Timber Inventory,Sawmills,60144.04979999998,2016,Treindustrien årsrapport
+801,Sawmills,Timber Inventory,85107.84460000001,2017,Treindustrien årsrapport
+802,Sawmills,Timber Inventory,16390.382099999988,2018,Treindustrien årsrapport
+803,Sawmills,Timber Inventory,124216.34839999996,2019,Treindustrien årsrapport
+804,Timber Inventory,Sawmills,176028.26249999995,2020,Treindustrien årsrapport
+805,Sawmills,Timber Inventory,241046.88399999996,2021,Treindustrien årsrapport
+806,Timber Inventory,Sawmills,111736.93579999998,2022,Treindustrien årsrapport
+807,Timber Inventory,Sawmills,127756.5832,2023,Treindustrien årsrapport
+808,Timber Inventory,Sawmills,28514.05680000002,2012,Treindustrien årsrapport
+809,Timber Inventory,Sawmills,18450.3382,2013,Treindustrien årsrapport
+810,Sawmills,Timber Inventory,35628.80129999999,2014,Treindustrien årsrapport
+811,Timber Inventory,Sawmills,21253.18439999997,2015,Treindustrien årsrapport
+812,Sawmills,Timber Inventory,8131.907299999963,2016,Treindustrien årsrapport
+813,Sawmills,Timber Inventory,6342.626900000032,2017,Treindustrien årsrapport
+814,Sawmills,Timber Inventory,51770.880000000005,2018,Treindustrien årsrapport
+815,Sawmills,Timber Inventory,48674.091799999995,2019,Treindustrien årsrapport
+816,Timber Inventory,Sawmills,136597.0235,2020,Treindustrien årsrapport
+817,Sawmills,Timber Inventory,24896.828299999994,2021,Treindustrien årsrapport
+818,Sawmills,Timber Inventory,79228.31949999998,2022,Treindustrien årsrapport
+819,Timber Inventory,Sawmills,28095.043599999975,2023,Treindustrien årsrapport
+820,Planingmills,planed timber inventory,41620.59999999998,2012,Treindustrien årsrapport
+821,planed timber inventory,Planingmills,46895.79999999999,2013,Treindustrien årsrapport
+822,Planingmills,planed timber inventory,13415.080000000016,2014,Treindustrien årsrapport
+823,planed timber inventory,Planingmills,7341.880000000005,2015,Treindustrien årsrapport
+824,planed timber inventory,Planingmills,16013.200000000012,2016,Treindustrien årsrapport
+825,Planingmills,planed timber inventory,26765.20000000001,2017,Treindustrien årsrapport
+826,Planingmills,planed timber inventory,6351.799999999988,2018,Treindustrien årsrapport
+827,Planingmills,planed timber inventory,43044.40000000002,2019,Treindustrien årsrapport
+828,planed timber inventory,Planingmills,137233.2,2020,Treindustrien årsrapport
+829,Planingmills,planed timber inventory,104715.91999999998,2021,Treindustrien årsrapport
+830,Planingmills,planed timber inventory,28985.679999999993,2022,Treindustrien årsrapport
+831,planed timber inventory,Planingmills,65483.31999999998,2023,Treindustrien årsrapport
+832,Impregnated inventory,Impregnation,4433.840000000011,2012,Treindustrien årsrapport
+833,Impregnated inventory,Impregnation,2778.5599999999977,2013,Treindustrien årsrapport
+834,Impregnated inventory,Impregnation,6450.271999999997,2014,Treindustrien årsrapport
+835,Impregnation,Impregnated inventory,7813.7119999999995,2015,Treindustrien årsrapport
+836,Impregnated inventory,Impregnation,7177.440000000002,2016,Treindustrien årsrapport
+837,Impregnated inventory,Impregnation,11199.36,2017,Treindustrien årsrapport
+838,Impregnated inventory,Impregnation,6683.440000000002,2018,Treindustrien årsrapport
+839,Impregnation,Impregnated inventory,33354.880000000005,2019,Treindustrien årsrapport
+840,Impregnated inventory,Impregnation,49918.32000000001,2020,Treindustrien årsrapport
+841,Impregnation,Impregnated inventory,56174.640000000014,2021,Treindustrien årsrapport
+842,Impregnated inventory,Impregnation,15669.680000000008,2022,Treindustrien årsrapport
+843,Impregnated inventory,Impregnation,37928.56,2023,Treindustrien årsrapport
+844,Boardmills,Export Boards,60389.0,2002,FAOSTAT
+845,Boardmills,Export Boards,46574.0,2003,FAOSTAT
+846,Boardmills,Export Boards,29246.0,2004,FAOSTAT
+847,Import Boards,Boardmills,5356.0,2005,FAOSTAT
+848,Import Boards,Boardmills,60927.0,2006,FAOSTAT
+849,Import Boards,Boardmills,106718.0,2007,FAOSTAT
+850,Import Boards,Boardmills,117671.0,2008,FAOSTAT
+851,Import Boards,Boardmills,117009.0,2009,FAOSTAT
+852,Import Boards,Boardmills,114957.0,2010,FAOSTAT
+853,Import Boards,Boardmills,114143.0,2011,FAOSTAT
+854,Import Boards,Boardmills,113248.0,2012,FAOSTAT
+855,Import Boards,Boardmills,222007.0,2013,FAOSTAT
+856,Import Boards,Boardmills,199816.0,2014,FAOSTAT
+857,Import Boards,Boardmills,195069.0,2015,FAOSTAT
+858,Import Boards,Boardmills,186775.0,2016,FAOSTAT
+859,Import Boards,Boardmills,271506.0,2017,FAOSTAT
+860,Import Boards,Boardmills,294312.0,2018,FAOSTAT
+861,Import Boards,Boardmills,284298.0,2019,FAOSTAT
+862,Import Boards,Boardmills,205367.0,2020,FAOSTAT
+863,Import Boards,Boardmills,159750.0,2021,FAOSTAT
+864,Import Boards,Boardmills,198613.0,2022,FAOSTAT
+865,Long-term USE,End-of-Life,2973.0848861283644,2012,SSB table 10513
+866,Long-term USE,End-of-Life,3008.281573498965,2013,SSB table 10513
+867,Long-term USE,End-of-Life,3010.351966873706,2014,SSB table 10513
+868,Long-term USE,End-of-Life,3113.871635610766,2015,SSB table 10513
+869,Long-term USE,End-of-Life,3277.432712215321,2016,SSB table 10513
+870,Long-term USE,End-of-Life,3246.376811594203,2017,SSB table 10513
+871,Long-term USE,End-of-Life,3184.265010351967,2018,SSB table 10513
+872,Long-term USE,End-of-Life,3372.670807453416,2019,SSB table 10513
+873,Long-term USE,End-of-Life,3387.1635610766048,2020,SSB table 10513
+874,Long-term USE,End-of-Life,3254.658385093168,2021,SSB table 10513
+875,Long-term USE,End-of-Life,3128.3643892339546,2022,SSB table 10513
+876,Long-term USE,End-of-Life,2975.1552795031052,2023,SSB table 10513
+877,Standing wood,Bark,721400.0,2006,SSB table 07410
+878,Standing wood,Bark,814000.0,2007,SSB table 07410
+879,Standing wood,Bark,798200.0,2008,SSB table 07410
+880,Standing wood,Bark,652800.0,2009,SSB table 07410
+881,Standing wood,Bark,825000.0,2010,SSB table 07410
+882,Standing wood,Bark,848800.0,2011,SSB table 07410
+883,Standing wood,Bark,871100.0,2012,SSB table 07410
+884,Standing wood,Bark,876300.0,2013,SSB table 07410
+885,Standing wood,Bark,964500.0,2014,SSB table 07410
+886,Standing wood,Bark,994500.0,2015,SSB table 07410
+887,Standing wood,Bark,1010600.0,2016,SSB table 07410
+888,Standing wood,Bark,1024800.0,2017,SSB table 07410
+889,Standing wood,Bark,1057800.0,2018,SSB table 07410
+890,Standing wood,Bark,1073600.0,2019,SSB table 07410
+891,Standing wood,Bark,993600.0,2020,SSB table 07410
+892,Standing wood,Bark,1115300.0,2021,SSB table 07410
+893,Standing wood,Bark,1130400.0,2022,SSB table 07410
+894,Standing wood,Bark,1069900.0,2023,SSB table 07410
+895,Standing wood,Residues from harvest,728200.0,2006,SSB table 07410
+896,Standing wood,Residues from harvest,821400.0,2007,SSB table 07410
+897,Standing wood,Residues from harvest,807000.0,2008,SSB table 07410
+898,Standing wood,Residues from harvest,663200.0,2009,SSB table 07410
+899,Standing wood,Residues from harvest,832300.0,2010,SSB table 07410
+900,Standing wood,Residues from harvest,858400.0,2011,SSB table 07410
+901,Standing wood,Residues from harvest,878700.0,2012,SSB table 07410
+902,Standing wood,Residues from harvest,889000.0,2013,SSB table 07410
+903,Standing wood,Residues from harvest,977300.0,2014,SSB table 07410
+904,Standing wood,Residues from harvest,1011300.0,2015,SSB table 07410
+905,Standing wood,Residues from harvest,1030400.0,2016,SSB table 07410
+906,Standing wood,Residues from harvest,1049100.0,2017,SSB table 07410
+907,Standing wood,Residues from harvest,1083700.0,2018,SSB table 07410
+908,Standing wood,Residues from harvest,1103800.0,2019,SSB table 07410
+909,Standing wood,Residues from harvest,1024200.0,2020,SSB table 07410
+910,Standing wood,Residues from harvest,1145200.0,2021,SSB table 07410
+911,Standing wood,Residues from harvest,1151700.0,2022,SSB table 07410
+912,Standing wood,Residues from harvest,1099500.0,2023,SSB table 07410
+913,Standing wood,Spruce,5482000.0,2006,SSB table 07410
+914,Standing wood,Spruce,6235000.0,2007,SSB table 07410
+915,Standing wood,Spruce,6065000.0,2008,SSB table 07410
+916,Standing wood,Spruce,4884000.0,2009,SSB table 07410
+917,Standing wood,Spruce,6437000.0,2010,SSB table 07410
+918,Standing wood,Spruce,6493000.0,2011,SSB table 07410
+919,Standing wood,Spruce,6624000.0,2012,SSB table 07410
+920,Standing wood,Spruce,6772000.0,2013,SSB table 07410
+921,Standing wood,Spruce,7310000.0,2014,SSB table 07410
+922,Standing wood,Spruce,7496000.0,2015,SSB table 07410
+923,Standing wood,Spruce,7590000.0,2016,SSB table 07410
+924,Standing wood,Spruce,7678000.0,2017,SSB table 07410
+925,Standing wood,Spruce,8027000.0,2018,SSB table 07410
+926,Standing wood,Spruce,7934000.0,2019,SSB table 07410
+927,Standing wood,Spruce,7164000.0,2020,SSB table 07410
+928,Standing wood,Spruce,8334000.0,2021,SSB table 07410
+929,Standing wood,Spruce,8451000.0,2022,SSB table 07410
+930,Standing wood,Spruce,8099000.0,2023,SSB table 07410
+931,Standing wood,Pine,1732000.0,2006,SSB table 07410
+932,Standing wood,Pine,1905000.0,2007,SSB table 07410
+933,Standing wood,Pine,1917000.0,2008,SSB table 07410
+934,Standing wood,Pine,1644000.0,2009,SSB table 07410
+935,Standing wood,Pine,1813000.0,2010,SSB table 07410
+936,Standing wood,Pine,1995000.0,2011,SSB table 07410
+937,Standing wood,Pine,2087000.0,2012,SSB table 07410
+938,Standing wood,Pine,1991000.0,2013,SSB table 07410
+939,Standing wood,Pine,2335000.0,2014,SSB table 07410
+940,Standing wood,Pine,2449000.0,2015,SSB table 07410
+941,Standing wood,Pine,2516000.0,2016,SSB table 07410
+942,Standing wood,Pine,2570000.0,2017,SSB table 07410
+943,Standing wood,Pine,2551000.0,2018,SSB table 07410
+944,Standing wood,Pine,2802000.0,2019,SSB table 07410
+945,Standing wood,Pine,2772000.0,2020,SSB table 07410
+946,Standing wood,Pine,2819000.0,2021,SSB table 07410
+947,Standing wood,Pine,2853000.0,2022,SSB table 07410
+948,Standing wood,Pine,2600000.0,2023,SSB table 07410
+949,Standing wood,Non-coniferous,68000.0,2006,SSB table 07410
+950,Standing wood,Non-coniferous,74000.0,2007,SSB table 07410
+951,Standing wood,Non-coniferous,88000.0,2008,SSB table 07410
+952,Standing wood,Non-coniferous,104000.0,2009,SSB table 07410
+953,Standing wood,Non-coniferous,73000.0,2010,SSB table 07410
+954,Standing wood,Non-coniferous,96000.0,2011,SSB table 07410
+955,Standing wood,Non-coniferous,76000.0,2012,SSB table 07410
+956,Standing wood,Non-coniferous,127000.0,2013,SSB table 07410
+957,Standing wood,Non-coniferous,128000.0,2014,SSB table 07410
+958,Standing wood,Non-coniferous,168000.0,2015,SSB table 07410
+959,Standing wood,Non-coniferous,198000.0,2016,SSB table 07410
+960,Standing wood,Non-coniferous,243000.0,2017,SSB table 07410
+961,Standing wood,Non-coniferous,259000.0,2018,SSB table 07410
+962,Standing wood,Non-coniferous,302000.0,2019,SSB table 07410
+963,Standing wood,Non-coniferous,306000.0,2020,SSB table 07410
+964,Standing wood,Non-coniferous,299000.0,2021,SSB table 07410
+965,Standing wood,Non-coniferous,213000.0,2022,SSB table 07410
+966,Standing wood,Non-coniferous,296000.0,2023,SSB table 07410
+967,Standing wood,Spruce,452000.0,2007,SSB table 11181
+968,Standing wood,Spruce,451500.0,2008,SSB table 11181
+969,Standing wood,Spruce,504000.0,2009,SSB table 11181
+970,Standing wood,Spruce,551500.0,2010,SSB table 11181
+971,Standing wood,Spruce,424500.0,2011,SSB table 11181
+972,Standing wood,Spruce,513000.0,2012,SSB table 11181
+973,Standing wood,Spruce,369500.0,2013,SSB table 11181
+974,Standing wood,Spruce,310500.0,2014,SSB table 11181
+975,Standing wood,Spruce,346500.0,2015,SSB table 11181
+976,Standing wood,Spruce,335500.0,2016,SSB table 11181
+977,Standing wood,Spruce,341500.0,2017,SSB table 11181
+978,Standing wood,Spruce,323000.0,2018,SSB table 11181
+979,Standing wood,Spruce,283000.0,2019,SSB table 11181
+980,Standing wood,Spruce,314000.0,2020,SSB table 11181
+981,Standing wood,Spruce,360500.0,2021,SSB table 11181
+982,Standing wood,Spruce,381500.0,2022,SSB table 11181
+983,Standing wood,Spruce,391500.0,2023,SSB table 11181
+984,Standing wood,Pine,452000.0,2007,SSB table 11181
+985,Standing wood,Pine,451500.0,2008,SSB table 11181
+986,Standing wood,Pine,504000.0,2009,SSB table 11181
+987,Standing wood,Pine,551500.0,2010,SSB table 11181
+988,Standing wood,Pine,424500.0,2011,SSB table 11181
+989,Standing wood,Pine,513000.0,2012,SSB table 11181
+990,Standing wood,Pine,369500.0,2013,SSB table 11181
+991,Standing wood,Pine,310500.0,2014,SSB table 11181
+992,Standing wood,Pine,346500.0,2015,SSB table 11181
+993,Standing wood,Pine,335500.0,2016,SSB table 11181
+994,Standing wood,Pine,341500.0,2017,SSB table 11181
+995,Standing wood,Pine,323000.0,2018,SSB table 11181
+996,Standing wood,Pine,283000.0,2019,SSB table 11181
+997,Standing wood,Pine,314000.0,2020,SSB table 11181
+998,Standing wood,Pine,360500.0,2021,SSB table 11181
+999,Standing wood,Pine,381500.0,2022,SSB table 11181
+1000,Standing wood,Pine,391500.0,2023,SSB table 11181
+1001,Standing wood,Non-coniferous,1755000.0,2007,SSB table 11181
+1002,Standing wood,Non-coniferous,1753000.0,2008,SSB table 11181
+1003,Standing wood,Non-coniferous,1957000.0,2009,SSB table 11181
+1004,Standing wood,Non-coniferous,2141000.0,2010,SSB table 11181
+1005,Standing wood,Non-coniferous,1648000.0,2011,SSB table 11181
+1006,Standing wood,Non-coniferous,1992000.0,2012,SSB table 11181
+1007,Standing wood,Non-coniferous,1435000.0,2013,SSB table 11181
+1008,Standing wood,Non-coniferous,1205000.0,2014,SSB table 11181
+1009,Standing wood,Non-coniferous,1346000.0,2015,SSB table 11181
+1010,Standing wood,Non-coniferous,1303000.0,2016,SSB table 11181
+1011,Standing wood,Non-coniferous,1366000.0,2017,SSB table 11181
+1012,Standing wood,Non-coniferous,1253000.0,2018,SSB table 11181
+1013,Standing wood,Non-coniferous,1098000.0,2019,SSB table 11181
+1014,Standing wood,Non-coniferous,1219000.0,2020,SSB table 11181
+1015,Standing wood,Non-coniferous,1401000.0,2021,SSB table 11181
+1016,Standing wood,Non-coniferous,1480000.0,2022,SSB table 11181
+1017,Standing wood,Non-coniferous,1521000.0,2023,SSB table 11181
+1018,Standing wood,Mortality,3479550.0,2002,SSB table 06289
+1019,Standing wood,Mortality,3599550.0,2003,SSB table 06289
+1020,Standing wood,Mortality,3831000.0,2004,SSB table 06289
+1021,Standing wood,Mortality,3851100.0,2005,SSB table 06289
+1022,Standing wood,Mortality,3828900.0,2006,SSB table 06289
+1023,Standing wood,Mortality,3789300.0,2007,SSB table 06289
+1024,Standing wood,Mortality,3734550.0,2008,SSB table 06289
+1025,Standing wood,Mortality,3725850.0,2009,SSB table 06289
+1026,Standing wood,Mortality,3690900.0,2010,SSB table 06289
+1027,Standing wood,Mortality,3741300.0,2011,SSB table 06289
+1028,Standing wood,Mortality,3791100.0,2012,SSB table 06289
+1029,Standing wood,Mortality,3839700.0,2013,SSB table 06289
+1030,Standing wood,Mortality,3886800.0,2014,SSB table 06289
+1031,Standing wood,Mortality,3918000.0,2015,SSB table 06289
+1032,Standing wood,Mortality,3872850.0,2016,SSB table 06289
+1033,Standing wood,Mortality,3813150.0,2017,SSB table 06289
+1034,Standing wood,Mortality,3735900.0,2018,SSB table 06289
+1035,Standing wood,Mortality,3627900.0,2019,SSB table 06289
+1036,Standing wood,Mortality,3609150.0,2020,SSB table 06289
+1037,Standing wood,Mortality,3607350.0,2021,SSB table 06289
+1038,Standing wood,Mortality,3599250.0,2022,SSB table 06289
+1039,Standing wood,Mortality,3607650.0,2023,SSB table 06289
+1040,Boardmills,Loss Boardmills,13050.0,2006,SSB table 07410
+1041,Boardmills,Loss Boardmills,13350.0,2007,SSB table 07410
+1042,Boardmills,Loss Boardmills,13450.0,2008,SSB table 07410
+1043,Boardmills,Loss Boardmills,7650.0,2009,SSB table 07410
+1044,Boardmills,Loss Boardmills,16200.0,2010,SSB table 07410
+1045,Boardmills,Loss Boardmills,21300.0,2011,SSB table 07410
+1046,Boardmills,Loss Boardmills,10100.0,2012,SSB table 07410
+1047,Boardmills,Loss Boardmills,9500.0,2013,SSB table 07410
+1048,Boardmills,Loss Boardmills,19300.0,2014,SSB table 07410
+1049,Boardmills,Loss Boardmills,21500.0,2015,SSB table 07410
+1050,Boardmills,Loss Boardmills,20850.0,2016,SSB table 07410
+1051,Boardmills,Loss Boardmills,18550.0,2017,SSB table 07410
+1052,Boardmills,Loss Boardmills,21650.0,2018,SSB table 07410
+1053,Boardmills,Loss Boardmills,16650.0,2019,SSB table 07410
+1054,Boardmills,Loss Boardmills,8700.0,2020,SSB table 07410
+1055,Boardmills,Loss Boardmills,12350.0,2021,SSB table 07410
+1056,Boardmills,Loss Boardmills,20400.0,2022,SSB table 07410
+1057,Boardmills,Loss Boardmills,16600.0,2023,SSB table 07410
+1058,Boardmills,Loss Boardmills,700.0,2006,SSB table 07410
+1059,Boardmills,Loss Boardmills,1350.0,2007,SSB table 07410
+1060,Boardmills,Loss Boardmills,1300.0,2008,SSB table 07410
+1061,Boardmills,Loss Boardmills,1650.0,2009,SSB table 07410
+1062,Boardmills,Loss Boardmills,1650.0,2010,SSB table 07410
+1063,Boardmills,Loss Boardmills,1200.0,2011,SSB table 07410
+1064,Boardmills,Loss Boardmills,950.0,2012,SSB table 07410
+1065,Boardmills,Loss Boardmills,1350.0,2013,SSB table 07410
+1066,Boardmills,Loss Boardmills,2800.0,2014,SSB table 07410
+1067,Boardmills,Loss Boardmills,2800.0,2015,SSB table 07410
+1068,Boardmills,Loss Boardmills,4150.0,2016,SSB table 07410
+1069,Boardmills,Loss Boardmills,4250.0,2017,SSB table 07410
+1070,Boardmills,Loss Boardmills,4650.0,2018,SSB table 07410
+1071,Boardmills,Loss Boardmills,2850.0,2019,SSB table 07410
+1072,Boardmills,Loss Boardmills,2750.0,2020,SSB table 07410
+1073,Boardmills,Loss Boardmills,3250.0,2021,SSB table 07410
+1074,Boardmills,Loss Boardmills,4050.0,2022,SSB table 07410
+1075,Boardmills,Loss Boardmills,3700.0,2023,SSB table 07410
+1076,Boardmills,Loss Boardmills,,2006,SSB table 07410
+1077,Boardmills,Loss Boardmills,,2007,SSB table 07410
+1078,Boardmills,Loss Boardmills,,2008,SSB table 07410
+1079,Boardmills,Loss Boardmills,50.0,2009,SSB table 07410
+1080,Boardmills,Loss Boardmills,,2010,SSB table 07410
+1081,Boardmills,Loss Boardmills,,2011,SSB table 07410
+1082,Boardmills,Loss Boardmills,,2012,SSB table 07410
+1083,Boardmills,Loss Boardmills,,2013,SSB table 07410
+1084,Boardmills,Loss Boardmills,,2014,SSB table 07410
+1085,Boardmills,Loss Boardmills,,2015,SSB table 07410
+1086,Boardmills,Loss Boardmills,,2016,SSB table 07410
+1087,Boardmills,Loss Boardmills,,2017,SSB table 07410
+1088,Boardmills,Loss Boardmills,,2018,SSB table 07410
+1089,Boardmills,Loss Boardmills,,2019,SSB table 07410
+1090,Boardmills,Loss Boardmills,,2020,SSB table 07410
+1091,Boardmills,Loss Boardmills,,2021,SSB table 07410
+1092,Boardmills,Loss Boardmills,,2022,SSB table 07410
+1093,Boardmills,Loss Boardmills,,2023,SSB table 07410
+1094,Boardmills,Loss Boardmills,0.0,2011,Treindustrien årsrapport
+1095,Boardmills,Loss Boardmills,0.0,2011,Treindustrien årsrapport
+1096,Boardmills,Loss Boardmills,3340.6459275,2011,Treindustrien årsrapport
+1097,Boardmills,Loss Boardmills,0.0,2012,Treindustrien årsrapport
+1098,Boardmills,Loss Boardmills,0.0,2012,Treindustrien årsrapport
+1099,Boardmills,Loss Boardmills,3520.9476750000003,2012,Treindustrien årsrapport
+1100,Boardmills,Loss Boardmills,0.0,2013,Treindustrien årsrapport
+1101,Boardmills,Loss Boardmills,0.0,2013,Treindustrien årsrapport
+1102,Boardmills,Loss Boardmills,3382.7787000000008,2013,Treindustrien årsrapport
+1103,Boardmills,Loss Boardmills,0.0,2014,Treindustrien årsrapport
+1104,Boardmills,Loss Boardmills,0.0,2014,Treindustrien årsrapport
+1105,Boardmills,Loss Boardmills,3433.778512500001,2014,Treindustrien årsrapport
+1106,Boardmills,Loss Boardmills,0.0,2015,Treindustrien årsrapport
+1107,Boardmills,Loss Boardmills,0.0,2015,Treindustrien årsrapport
+1108,Boardmills,Loss Boardmills,3473.19252,2015,Treindustrien årsrapport
+1109,Boardmills,Loss Boardmills,0.0,2016,Treindustrien årsrapport
+1110,Boardmills,Loss Boardmills,0.0,2016,Treindustrien årsrapport
+1111,Boardmills,Loss Boardmills,3660.042015000001,2016,Treindustrien årsrapport
+1112,Boardmills,Loss Boardmills,0.0,2017,Treindustrien årsrapport
+1113,Boardmills,Loss Boardmills,0.0,2017,Treindustrien årsrapport
+1114,Boardmills,Loss Boardmills,3684.614167500001,2017,Treindustrien årsrapport
+1115,Boardmills,Loss Boardmills,0.0,2018,Treindustrien årsrapport
+1116,Boardmills,Loss Boardmills,0.0,2018,Treindustrien årsrapport
+1117,Boardmills,Loss Boardmills,3586.759575,2018,Treindustrien årsrapport
+1118,Boardmills,Loss Boardmills,0.0,2019,Treindustrien årsrapport
+1119,Boardmills,Loss Boardmills,0.0,2019,Treindustrien årsrapport
+1120,Boardmills,Loss Boardmills,3480.3381900000004,2019,Treindustrien årsrapport
+1121,Boardmills,Loss Boardmills,0.0,2020,Treindustrien årsrapport
+1122,Boardmills,Loss Boardmills,0.0,2020,Treindustrien årsrapport
+1123,Boardmills,Loss Boardmills,3328.9179,2020,Treindustrien årsrapport
+1124,Boardmills,Loss Boardmills,0.0,2021,Treindustrien årsrapport
+1125,Boardmills,Loss Boardmills,0.0,2021,Treindustrien årsrapport
+1126,Boardmills,Loss Boardmills,3720.4698300000014,2021,Treindustrien årsrapport
+1127,Boardmills,Loss Boardmills,0.0,2022,Treindustrien årsrapport
+1128,Boardmills,Loss Boardmills,0.0,2022,Treindustrien årsrapport
+1129,Boardmills,Loss Boardmills,3107.4361710000007,2022,Treindustrien årsrapport
+1130,Boardmills,Loss Boardmills,0.0,2023,Treindustrien årsrapport
+1131,Boardmills,Loss Boardmills,0.0,2023,Treindustrien årsrapport
+1132,Boardmills,Loss Boardmills,3010.1074841249997,2023,Treindustrien årsrapport
+1133,Boardmills,Loss Boardmills,267.8,2005,FAOSTAT
+1134,Boardmills,Loss Boardmills,3046.3500000000004,2006,FAOSTAT
+1135,Boardmills,Loss Boardmills,5335.900000000001,2007,FAOSTAT
+1136,Boardmills,Loss Boardmills,5883.55,2008,FAOSTAT
+1137,Boardmills,Loss Boardmills,5850.450000000001,2009,FAOSTAT
+1138,Boardmills,Loss Boardmills,5747.85,2010,FAOSTAT
+1139,Boardmills,Loss Boardmills,5707.150000000001,2011,FAOSTAT
+1140,Boardmills,Loss Boardmills,5662.400000000001,2012,FAOSTAT
+1141,Boardmills,Loss Boardmills,11100.35,2013,FAOSTAT
+1142,Boardmills,Loss Boardmills,9990.800000000001,2014,FAOSTAT
+1143,Boardmills,Loss Boardmills,9753.45,2015,FAOSTAT
+1144,Boardmills,Loss Boardmills,9338.75,2016,FAOSTAT
+1145,Boardmills,Loss Boardmills,13575.300000000001,2017,FAOSTAT
+1146,Boardmills,Loss Boardmills,14715.6,2018,FAOSTAT
+1147,Boardmills,Loss Boardmills,14214.900000000001,2019,FAOSTAT
+1148,Boardmills,Loss Boardmills,10268.35,2020,FAOSTAT
+1149,Boardmills,Loss Boardmills,7987.5,2021,FAOSTAT
+1150,Boardmills,Loss Boardmills,9930.650000000001,2022,FAOSTAT
+1151,Boardmills,Wood Product processing & Logistics,247950.0,2006,SSB table 07410
+1152,Boardmills,Wood Product processing & Logistics,253650.0,2007,SSB table 07410
+1153,Boardmills,Wood Product processing & Logistics,255550.0,2008,SSB table 07410
+1154,Boardmills,Wood Product processing & Logistics,145350.0,2009,SSB table 07410
+1155,Boardmills,Wood Product processing & Logistics,307800.0,2010,SSB table 07410
+1156,Boardmills,Wood Product processing & Logistics,404700.0,2011,SSB table 07410
+1157,Boardmills,Wood Product processing & Logistics,191900.0,2012,SSB table 07410
+1158,Boardmills,Wood Product processing & Logistics,180500.0,2013,SSB table 07410
+1159,Boardmills,Wood Product processing & Logistics,366700.0,2014,SSB table 07410
+1160,Boardmills,Wood Product processing & Logistics,408500.0,2015,SSB table 07410
+1161,Boardmills,Wood Product processing & Logistics,396150.0,2016,SSB table 07410
+1162,Boardmills,Wood Product processing & Logistics,352450.0,2017,SSB table 07410
+1163,Boardmills,Wood Product processing & Logistics,411350.0,2018,SSB table 07410
+1164,Boardmills,Wood Product processing & Logistics,316350.0,2019,SSB table 07410
+1165,Boardmills,Wood Product processing & Logistics,165300.0,2020,SSB table 07410
+1166,Boardmills,Wood Product processing & Logistics,234650.0,2021,SSB table 07410
+1167,Boardmills,Wood Product processing & Logistics,387600.0,2022,SSB table 07410
+1168,Boardmills,Wood Product processing & Logistics,315400.0,2023,SSB table 07410
+1169,Boardmills,Wood Product processing & Logistics,13300.0,2006,SSB table 07410
+1170,Boardmills,Wood Product processing & Logistics,25650.0,2007,SSB table 07410
+1171,Boardmills,Wood Product processing & Logistics,24700.0,2008,SSB table 07410
+1172,Boardmills,Wood Product processing & Logistics,31350.0,2009,SSB table 07410
+1173,Boardmills,Wood Product processing & Logistics,31350.0,2010,SSB table 07410
+1174,Boardmills,Wood Product processing & Logistics,22800.0,2011,SSB table 07410
+1175,Boardmills,Wood Product processing & Logistics,18050.0,2012,SSB table 07410
+1176,Boardmills,Wood Product processing & Logistics,25650.0,2013,SSB table 07410
+1177,Boardmills,Wood Product processing & Logistics,53200.0,2014,SSB table 07410
+1178,Boardmills,Wood Product processing & Logistics,53200.0,2015,SSB table 07410
+1179,Boardmills,Wood Product processing & Logistics,78850.0,2016,SSB table 07410
+1180,Boardmills,Wood Product processing & Logistics,80750.0,2017,SSB table 07410
+1181,Boardmills,Wood Product processing & Logistics,88350.0,2018,SSB table 07410
+1182,Boardmills,Wood Product processing & Logistics,54150.0,2019,SSB table 07410
+1183,Boardmills,Wood Product processing & Logistics,52250.0,2020,SSB table 07410
+1184,Boardmills,Wood Product processing & Logistics,61750.0,2021,SSB table 07410
+1185,Boardmills,Wood Product processing & Logistics,76950.0,2022,SSB table 07410
+1186,Boardmills,Wood Product processing & Logistics,70300.0,2023,SSB table 07410
+1187,Boardmills,Wood Product processing & Logistics,,2006,SSB table 07410
+1188,Boardmills,Wood Product processing & Logistics,,2007,SSB table 07410
+1189,Boardmills,Wood Product processing & Logistics,,2008,SSB table 07410
+1190,Boardmills,Wood Product processing & Logistics,950.0,2009,SSB table 07410
+1191,Boardmills,Wood Product processing & Logistics,,2010,SSB table 07410
+1192,Boardmills,Wood Product processing & Logistics,,2011,SSB table 07410
+1193,Boardmills,Wood Product processing & Logistics,,2012,SSB table 07410
+1194,Boardmills,Wood Product processing & Logistics,,2013,SSB table 07410
+1195,Boardmills,Wood Product processing & Logistics,,2014,SSB table 07410
+1196,Boardmills,Wood Product processing & Logistics,,2015,SSB table 07410
+1197,Boardmills,Wood Product processing & Logistics,,2016,SSB table 07410
+1198,Boardmills,Wood Product processing & Logistics,,2017,SSB table 07410
+1199,Boardmills,Wood Product processing & Logistics,,2018,SSB table 07410
+1200,Boardmills,Wood Product processing & Logistics,,2019,SSB table 07410
+1201,Boardmills,Wood Product processing & Logistics,,2020,SSB table 07410
+1202,Boardmills,Wood Product processing & Logistics,,2021,SSB table 07410
+1203,Boardmills,Wood Product processing & Logistics,,2022,SSB table 07410
+1204,Boardmills,Wood Product processing & Logistics,,2023,SSB table 07410
+1205,Boardmills,Wood Product processing & Logistics,0.0,2011,Treindustrien årsrapport
+1206,Boardmills,Wood Product processing & Logistics,0.0,2011,Treindustrien årsrapport
+1207,Boardmills,Wood Product processing & Logistics,63472.2726225,2011,Treindustrien årsrapport
+1208,Boardmills,Wood Product processing & Logistics,0.0,2012,Treindustrien årsrapport
+1209,Boardmills,Wood Product processing & Logistics,0.0,2012,Treindustrien årsrapport
+1210,Boardmills,Wood Product processing & Logistics,66898.005825,2012,Treindustrien årsrapport
+1211,Boardmills,Wood Product processing & Logistics,0.0,2013,Treindustrien årsrapport
+1212,Boardmills,Wood Product processing & Logistics,0.0,2013,Treindustrien årsrapport
+1213,Boardmills,Wood Product processing & Logistics,64272.795300000005,2013,Treindustrien årsrapport
+1214,Boardmills,Wood Product processing & Logistics,0.0,2014,Treindustrien årsrapport
+1215,Boardmills,Wood Product processing & Logistics,0.0,2014,Treindustrien årsrapport
+1216,Boardmills,Wood Product processing & Logistics,65241.79173750002,2014,Treindustrien årsrapport
+1217,Boardmills,Wood Product processing & Logistics,0.0,2015,Treindustrien årsrapport
+1218,Boardmills,Wood Product processing & Logistics,0.0,2015,Treindustrien årsrapport
+1219,Boardmills,Wood Product processing & Logistics,65990.65788,2015,Treindustrien årsrapport
+1220,Boardmills,Wood Product processing & Logistics,0.0,2016,Treindustrien årsrapport
+1221,Boardmills,Wood Product processing & Logistics,0.0,2016,Treindustrien årsrapport
+1222,Boardmills,Wood Product processing & Logistics,69540.79828500001,2016,Treindustrien årsrapport
+1223,Boardmills,Wood Product processing & Logistics,0.0,2017,Treindustrien årsrapport
+1224,Boardmills,Wood Product processing & Logistics,0.0,2017,Treindustrien årsrapport
+1225,Boardmills,Wood Product processing & Logistics,70007.6691825,2017,Treindustrien årsrapport
+1226,Boardmills,Wood Product processing & Logistics,0.0,2018,Treindustrien årsrapport
+1227,Boardmills,Wood Product processing & Logistics,0.0,2018,Treindustrien årsrapport
+1228,Boardmills,Wood Product processing & Logistics,68148.431925,2018,Treindustrien årsrapport
+1229,Boardmills,Wood Product processing & Logistics,0.0,2019,Treindustrien årsrapport
+1230,Boardmills,Wood Product processing & Logistics,0.0,2019,Treindustrien årsrapport
+1231,Boardmills,Wood Product processing & Logistics,66126.42560999999,2019,Treindustrien årsrapport
+1232,Boardmills,Wood Product processing & Logistics,0.0,2020,Treindustrien årsrapport
+1233,Boardmills,Wood Product processing & Logistics,0.0,2020,Treindustrien årsrapport
+1234,Boardmills,Wood Product processing & Logistics,63249.44009999999,2020,Treindustrien årsrapport
+1235,Boardmills,Wood Product processing & Logistics,0.0,2021,Treindustrien årsrapport
+1236,Boardmills,Wood Product processing & Logistics,0.0,2021,Treindustrien årsrapport
+1237,Boardmills,Wood Product processing & Logistics,70688.92677000002,2021,Treindustrien årsrapport
+1238,Boardmills,Wood Product processing & Logistics,0.0,2022,Treindustrien årsrapport
+1239,Boardmills,Wood Product processing & Logistics,0.0,2022,Treindustrien årsrapport
+1240,Boardmills,Wood Product processing & Logistics,59041.28724900001,2022,Treindustrien årsrapport
+1241,Boardmills,Wood Product processing & Logistics,0.0,2023,Treindustrien årsrapport
+1242,Boardmills,Wood Product processing & Logistics,0.0,2023,Treindustrien årsrapport
+1243,Boardmills,Wood Product processing & Logistics,57192.04219837499,2023,Treindustrien årsrapport
+1244,Boardmills,Wood Product processing & Logistics,5088.2,2005,FAOSTAT
+1245,Boardmills,Wood Product processing & Logistics,57880.649999999994,2006,FAOSTAT
+1246,Boardmills,Wood Product processing & Logistics,101382.09999999999,2007,FAOSTAT
+1247,Boardmills,Wood Product processing & Logistics,111787.45,2008,FAOSTAT
+1248,Boardmills,Wood Product processing & Logistics,111158.54999999999,2009,FAOSTAT
+1249,Boardmills,Wood Product processing & Logistics,109209.15,2010,FAOSTAT
+1250,Boardmills,Wood Product processing & Logistics,108435.84999999999,2011,FAOSTAT
+1251,Boardmills,Wood Product processing & Logistics,107585.59999999999,2012,FAOSTAT
+1252,Boardmills,Wood Product processing & Logistics,210906.65,2013,FAOSTAT
+1253,Boardmills,Wood Product processing & Logistics,189825.19999999998,2014,FAOSTAT
+1254,Boardmills,Wood Product processing & Logistics,185315.55,2015,FAOSTAT
+1255,Boardmills,Wood Product processing & Logistics,177436.25,2016,FAOSTAT
+1256,Boardmills,Wood Product processing & Logistics,257930.69999999998,2017,FAOSTAT
+1257,Boardmills,Wood Product processing & Logistics,279596.39999999997,2018,FAOSTAT
+1258,Boardmills,Wood Product processing & Logistics,270083.1,2019,FAOSTAT
+1259,Boardmills,Wood Product processing & Logistics,195098.65,2020,FAOSTAT
+1260,Boardmills,Wood Product processing & Logistics,151762.5,2021,FAOSTAT
+1261,Boardmills,Wood Product processing & Logistics,188682.34999999998,2022,FAOSTAT
+1262,Pulpmills,Short-term USE,2288460.0,2006,SSB table 07410
+1263,Pulpmills,Short-term USE,2507760.0,2007,SSB table 07410
+1264,Pulpmills,Short-term USE,2616120.0,2008,SSB table 07410
+1265,Pulpmills,Short-term USE,2246320.0,2009,SSB table 07410
+1266,Pulpmills,Short-term USE,2592040.0,2010,SSB table 07410
+1267,Pulpmills,Short-term USE,2699540.0,2011,SSB table 07410
+1268,Pulpmills,Short-term USE,2813060.0,2012,SSB table 07410
+1269,Pulpmills,Short-term USE,2718460.0,2013,SSB table 07410
+1270,Pulpmills,Short-term USE,2529260.0,2014,SSB table 07410
+1271,Pulpmills,Short-term USE,2612680.0,2015,SSB table 07410
+1272,Pulpmills,Short-term USE,2692660.0,2016,SSB table 07410
+1273,Pulpmills,Short-term USE,2696960.0,2017,SSB table 07410
+1274,Pulpmills,Short-term USE,2752000.0,2018,SSB table 07410
+1275,Pulpmills,Short-term USE,2837140.0,2019,SSB table 07410
+1276,Pulpmills,Short-term USE,2713300.0,2020,SSB table 07410
+1277,Pulpmills,Short-term USE,2685780.0,2021,SSB table 07410
+1278,Pulpmills,Short-term USE,2772640.0,2022,SSB table 07410
+1279,Pulpmills,Short-term USE,2802740.0,2023,SSB table 07410
+1280,Pulpmills,Short-term USE,581360.0,2006,SSB table 07410
+1281,Pulpmills,Short-term USE,601140.0,2007,SSB table 07410
+1282,Pulpmills,Short-term USE,682840.0,2008,SSB table 07410
+1283,Pulpmills,Short-term USE,642420.0,2009,SSB table 07410
+1284,Pulpmills,Short-term USE,568460.0,2010,SSB table 07410
+1285,Pulpmills,Short-term USE,715520.0,2011,SSB table 07410
+1286,Pulpmills,Short-term USE,724120.0,2012,SSB table 07410
+1287,Pulpmills,Short-term USE,684560.0,2013,SSB table 07410
+1288,Pulpmills,Short-term USE,799800.0,2014,SSB table 07410
+1289,Pulpmills,Short-term USE,829040.0,2015,SSB table 07410
+1290,Pulpmills,Short-term USE,877200.0,2016,SSB table 07410
+1291,Pulpmills,Short-term USE,846240.0,2017,SSB table 07410
+1292,Pulpmills,Short-term USE,816140.0,2018,SSB table 07410
+1293,Pulpmills,Short-term USE,982980.0,2019,SSB table 07410
+1294,Pulpmills,Short-term USE,971800.0,2020,SSB table 07410
+1295,Pulpmills,Short-term USE,864300.0,2021,SSB table 07410
+1296,Pulpmills,Short-term USE,861720.0,2022,SSB table 07410
+1297,Pulpmills,Short-term USE,861720.0,2023,SSB table 07410
+1298,Pulpmills,Short-term USE,55040.0,2006,SSB table 07410
+1299,Pulpmills,Short-term USE,60200.0,2007,SSB table 07410
+1300,Pulpmills,Short-term USE,72240.0,2008,SSB table 07410
+1301,Pulpmills,Short-term USE,83420.0,2009,SSB table 07410
+1302,Pulpmills,Short-term USE,58480.0,2010,SSB table 07410
+1303,Pulpmills,Short-term USE,79980.0,2011,SSB table 07410
+1304,Pulpmills,Short-term USE,63640.0,2012,SSB table 07410
+1305,Pulpmills,Short-term USE,105780.0,2013,SSB table 07410
+1306,Pulpmills,Short-term USE,107500.0,2014,SSB table 07410
+1307,Pulpmills,Short-term USE,143620.0,2015,SSB table 07410
+1308,Pulpmills,Short-term USE,164260.0,2016,SSB table 07410
+1309,Pulpmills,Short-term USE,204680.0,2017,SSB table 07410
+1310,Pulpmills,Short-term USE,220160.0,2018,SSB table 07410
+1311,Pulpmills,Short-term USE,258860.0,2019,SSB table 07410
+1312,Pulpmills,Short-term USE,261440.0,2020,SSB table 07410
+1313,Pulpmills,Short-term USE,255420.0,2021,SSB table 07410
+1314,Pulpmills,Short-term USE,181460.0,2022,SSB table 07410
+1315,Pulpmills,Short-term USE,251980.0,2023,SSB table 07410
+1316,Pulpmills,Short-term USE,4511.5599999999995,2017,SSB table 08810
+1317,Pulpmills,Short-term USE,18550.2,2018,SSB table 08810
+1318,Pulpmills,Short-term USE,24271.78,2019,SSB table 08810
+1319,Pulpmills,Short-term USE,4533.92,2020,SSB table 08810
+1320,Pulpmills,Short-term USE,12603.3,2021,SSB table 08810
+1321,Pulpmills,Short-term USE,2726.2,2022,SSB table 08810
+1322,Pulpmills,Short-term USE,545.24,2023,SSB table 08810
+1323,Pulpmills,Short-term USE,84955.95999999999,2002,SSB table 08810
+1324,Pulpmills,Short-term USE,56858.9,2003,SSB table 08810
+1325,Pulpmills,Short-term USE,10381.06,2004,SSB table 08810
+1326,Pulpmills,Short-term USE,3049.56,2005,SSB table 08810
+1327,Pulpmills,Short-term USE,134.16,2006,SSB table 08810
+1328,Pulpmills,Short-term USE,3091.7,2007,SSB table 08810
+1329,Pulpmills,Short-term USE,3117.5,2008,SSB table 08810
+1330,Pulpmills,Short-term USE,455.8,2009,SSB table 08810
+1331,Pulpmills,Short-term USE,280.36,2010,SSB table 08810
+1332,Pulpmills,Short-term USE,470.42,2011,SSB table 08810
+1333,Pulpmills,Short-term USE,225.32,2012,SSB table 08810
+1334,Pulpmills,Short-term USE,338.84,2013,SSB table 08810
+1335,Pulpmills,Short-term USE,822.16,2014,SSB table 08810
+1336,Pulpmills,Short-term USE,43.86,2015,SSB table 08810
+1337,Pulpmills,Short-term USE,116.1,2016,SSB table 08810
+1338,Pulpmills,Short-term USE,146905.2,2017,SSB table 08810
+1339,Pulpmills,Short-term USE,135876.56,2018,SSB table 08810
+1340,Pulpmills,Short-term USE,2610.1,2019,SSB table 08810
+1341,Pulpmills,Short-term USE,69.66,2020,SSB table 08810
+1342,Pulpmills,Short-term USE,104.92,2021,SSB table 08810
+1343,Pulpmills,Short-term USE,231.34,2022,SSB table 08810
+1344,Pulpmills,Short-term USE,671.66,2023,SSB table 08810
+1345,Pulpmills,Short-term USE,1231579.34,2002,SSB table 08810
+1346,Pulpmills,Short-term USE,1238790.44,2003,SSB table 08810
+1347,Pulpmills,Short-term USE,1332006.7,2004,SSB table 08810
+1348,Pulpmills,Short-term USE,1382568.68,2005,SSB table 08810
+1349,Pulpmills,Short-term USE,1078175.98,2006,SSB table 08810
+1350,Pulpmills,Short-term USE,1095838.66,2007,SSB table 08810
+1351,Pulpmills,Short-term USE,896147.52,2008,SSB table 08810
+1352,Pulpmills,Short-term USE,528671.24,2009,SSB table 08810
+1353,Pulpmills,Short-term USE,721496.14,2010,SSB table 08810
+1354,Pulpmills,Short-term USE,684265.02,2011,SSB table 08810
+1355,Pulpmills,Short-term USE,277903.83999999997,2012,SSB table 08810
+1356,Pulpmills,Short-term USE,6110.3,2013,SSB table 08810
+1357,Pulpmills,Short-term USE,52.46,2014,SSB table 08810
+1358,Pulpmills,Short-term USE,749.92,2015,SSB table 08810
+1359,Pulpmills,Short-term USE,482.46,2016,SSB table 08810
+1360,Pulpmills,Short-term USE,0.0,2011,Treindustrien årsrapport
+1361,Pulpmills,Short-term USE,0.0,2012,Treindustrien årsrapport
+1362,Pulpmills,Short-term USE,0.0,2013,Treindustrien årsrapport
+1363,Pulpmills,Short-term USE,0.0,2014,Treindustrien årsrapport
+1364,Pulpmills,Short-term USE,0.0,2015,Treindustrien årsrapport
+1365,Pulpmills,Short-term USE,0.0,2016,Treindustrien årsrapport
+1366,Pulpmills,Short-term USE,0.0,2017,Treindustrien årsrapport
+1367,Pulpmills,Short-term USE,0.0,2018,Treindustrien årsrapport
+1368,Pulpmills,Short-term USE,0.0,2019,Treindustrien årsrapport
+1369,Pulpmills,Short-term USE,0.0,2020,Treindustrien årsrapport
+1370,Pulpmills,Short-term USE,0.0,2021,Treindustrien årsrapport
+1371,Pulpmills,Short-term USE,0.0,2022,Treindustrien årsrapport
+1372,Pulpmills,Short-term USE,0.0,2023,Treindustrien årsrapport
+1373,Pulpmills,Energy,212880.0,2006,SSB table 07410
+1374,Pulpmills,Energy,233280.0,2007,SSB table 07410
+1375,Pulpmills,Energy,243360.0,2008,SSB table 07410
+1376,Pulpmills,Energy,208960.0,2009,SSB table 07410
+1377,Pulpmills,Energy,241120.0,2010,SSB table 07410
+1378,Pulpmills,Energy,251120.0,2011,SSB table 07410
+1379,Pulpmills,Energy,261680.0,2012,SSB table 07410
+1380,Pulpmills,Energy,252880.0,2013,SSB table 07410
+1381,Pulpmills,Energy,235280.0,2014,SSB table 07410
+1382,Pulpmills,Energy,243040.0,2015,SSB table 07410
+1383,Pulpmills,Energy,250480.0,2016,SSB table 07410
+1384,Pulpmills,Energy,250880.0,2017,SSB table 07410
+1385,Pulpmills,Energy,256000.0,2018,SSB table 07410
+1386,Pulpmills,Energy,263920.0,2019,SSB table 07410
+1387,Pulpmills,Energy,252400.0,2020,SSB table 07410
+1388,Pulpmills,Energy,249840.0,2021,SSB table 07410
+1389,Pulpmills,Energy,257920.0,2022,SSB table 07410
+1390,Pulpmills,Energy,260720.0,2023,SSB table 07410
+1391,Pulpmills,Energy,54080.0,2006,SSB table 07410
+1392,Pulpmills,Energy,55920.0,2007,SSB table 07410
+1393,Pulpmills,Energy,63520.0,2008,SSB table 07410
+1394,Pulpmills,Energy,59760.0,2009,SSB table 07410
+1395,Pulpmills,Energy,52880.0,2010,SSB table 07410
+1396,Pulpmills,Energy,66560.0,2011,SSB table 07410
+1397,Pulpmills,Energy,67360.0,2012,SSB table 07410
+1398,Pulpmills,Energy,63680.0,2013,SSB table 07410
+1399,Pulpmills,Energy,74400.0,2014,SSB table 07410
+1400,Pulpmills,Energy,77120.0,2015,SSB table 07410
+1401,Pulpmills,Energy,81600.0,2016,SSB table 07410
+1402,Pulpmills,Energy,78720.0,2017,SSB table 07410
+1403,Pulpmills,Energy,75920.0,2018,SSB table 07410
+1404,Pulpmills,Energy,91440.0,2019,SSB table 07410
+1405,Pulpmills,Energy,90400.0,2020,SSB table 07410
+1406,Pulpmills,Energy,80400.0,2021,SSB table 07410
+1407,Pulpmills,Energy,80160.0,2022,SSB table 07410
+1408,Pulpmills,Energy,80160.0,2023,SSB table 07410
+1409,Pulpmills,Energy,5120.0,2006,SSB table 07410
+1410,Pulpmills,Energy,5600.0,2007,SSB table 07410
+1411,Pulpmills,Energy,6720.0,2008,SSB table 07410
+1412,Pulpmills,Energy,7760.0,2009,SSB table 07410
+1413,Pulpmills,Energy,5440.0,2010,SSB table 07410
+1414,Pulpmills,Energy,7440.0,2011,SSB table 07410
+1415,Pulpmills,Energy,5920.0,2012,SSB table 07410
+1416,Pulpmills,Energy,9840.0,2013,SSB table 07410
+1417,Pulpmills,Energy,10000.0,2014,SSB table 07410
+1418,Pulpmills,Energy,13360.0,2015,SSB table 07410
+1419,Pulpmills,Energy,15280.0,2016,SSB table 07410
+1420,Pulpmills,Energy,19040.0,2017,SSB table 07410
+1421,Pulpmills,Energy,20480.0,2018,SSB table 07410
+1422,Pulpmills,Energy,24080.0,2019,SSB table 07410
+1423,Pulpmills,Energy,24320.0,2020,SSB table 07410
+1424,Pulpmills,Energy,23760.0,2021,SSB table 07410
+1425,Pulpmills,Energy,16880.0,2022,SSB table 07410
+1426,Pulpmills,Energy,23440.0,2023,SSB table 07410
+1427,Pulpmills,Energy,419.68,2017,SSB table 08810
+1428,Pulpmills,Energy,1725.6000000000001,2018,SSB table 08810
+1429,Pulpmills,Energy,2257.84,2019,SSB table 08810
+1430,Pulpmills,Energy,421.76,2020,SSB table 08810
+1431,Pulpmills,Energy,1172.4,2021,SSB table 08810
+1432,Pulpmills,Energy,253.6,2022,SSB table 08810
+1433,Pulpmills,Energy,50.72,2023,SSB table 08810
+1434,Pulpmills,Energy,7902.88,2002,SSB table 08810
+1435,Pulpmills,Energy,5289.2,2003,SSB table 08810
+1436,Pulpmills,Energy,965.6800000000001,2004,SSB table 08810
+1437,Pulpmills,Energy,283.68,2005,SSB table 08810
+1438,Pulpmills,Energy,12.48,2006,SSB table 08810
+1439,Pulpmills,Energy,287.6,2007,SSB table 08810
+1440,Pulpmills,Energy,290.0,2008,SSB table 08810
+1441,Pulpmills,Energy,42.4,2009,SSB table 08810
+1442,Pulpmills,Energy,26.080000000000002,2010,SSB table 08810
+1443,Pulpmills,Energy,43.76,2011,SSB table 08810
+1444,Pulpmills,Energy,20.96,2012,SSB table 08810
+1445,Pulpmills,Energy,31.52,2013,SSB table 08810
+1446,Pulpmills,Energy,76.48,2014,SSB table 08810
+1447,Pulpmills,Energy,4.08,2015,SSB table 08810
+1448,Pulpmills,Energy,10.8,2016,SSB table 08810
+1449,Pulpmills,Energy,13665.6,2017,SSB table 08810
+1450,Pulpmills,Energy,12639.68,2018,SSB table 08810
+1451,Pulpmills,Energy,242.8,2019,SSB table 08810
+1452,Pulpmills,Energy,6.48,2020,SSB table 08810
+1453,Pulpmills,Energy,9.76,2021,SSB table 08810
+1454,Pulpmills,Energy,21.52,2022,SSB table 08810
+1455,Pulpmills,Energy,62.480000000000004,2023,SSB table 08810
+1456,Pulpmills,Energy,114565.52,2002,SSB table 08810
+1457,Pulpmills,Energy,115236.32,2003,SSB table 08810
+1458,Pulpmills,Energy,123907.6,2004,SSB table 08810
+1459,Pulpmills,Energy,128611.04000000001,2005,SSB table 08810
+1460,Pulpmills,Energy,100295.44,2006,SSB table 08810
+1461,Pulpmills,Energy,101938.48,2007,SSB table 08810
+1462,Pulpmills,Energy,83362.56,2008,SSB table 08810
+1463,Pulpmills,Energy,49178.72,2009,SSB table 08810
+1464,Pulpmills,Energy,67115.92,2010,SSB table 08810
+1465,Pulpmills,Energy,63652.560000000005,2011,SSB table 08810
+1466,Pulpmills,Energy,25851.52,2012,SSB table 08810
+1467,Pulpmills,Energy,568.4,2013,SSB table 08810
+1468,Pulpmills,Energy,4.88,2014,SSB table 08810
+1469,Pulpmills,Energy,69.76,2015,SSB table 08810
+1470,Pulpmills,Energy,44.88,2016,SSB table 08810
+1471,Pulpmills,Energy,0.0,2011,Treindustrien årsrapport
+1472,Pulpmills,Energy,0.0,2012,Treindustrien årsrapport
+1473,Pulpmills,Energy,0.0,2013,Treindustrien årsrapport
+1474,Pulpmills,Energy,0.0,2014,Treindustrien årsrapport
+1475,Pulpmills,Energy,0.0,2015,Treindustrien årsrapport
+1476,Pulpmills,Energy,0.0,2016,Treindustrien årsrapport
+1477,Pulpmills,Energy,0.0,2017,Treindustrien årsrapport
+1478,Pulpmills,Energy,0.0,2018,Treindustrien årsrapport
+1479,Pulpmills,Energy,0.0,2019,Treindustrien årsrapport
+1480,Pulpmills,Energy,0.0,2020,Treindustrien årsrapport
+1481,Pulpmills,Energy,0.0,2021,Treindustrien årsrapport
+1482,Pulpmills,Energy,0.0,2022,Treindustrien årsrapport
+1483,Pulpmills,Energy,0.0,2023,Treindustrien årsrapport
+1484,Pulpmills,Loss,159660.0,2006,SSB table 07410
+1485,Pulpmills,Loss,174960.0,2007,SSB table 07410
+1486,Pulpmills,Loss,182520.0,2008,SSB table 07410
+1487,Pulpmills,Loss,156720.0,2009,SSB table 07410
+1488,Pulpmills,Loss,180840.0,2010,SSB table 07410
+1489,Pulpmills,Loss,188340.0,2011,SSB table 07410
+1490,Pulpmills,Loss,196260.0,2012,SSB table 07410
+1491,Pulpmills,Loss,189660.0,2013,SSB table 07410
+1492,Pulpmills,Loss,176460.0,2014,SSB table 07410
+1493,Pulpmills,Loss,182280.0,2015,SSB table 07410
+1494,Pulpmills,Loss,187860.0,2016,SSB table 07410
+1495,Pulpmills,Loss,188160.0,2017,SSB table 07410
+1496,Pulpmills,Loss,192000.0,2018,SSB table 07410
+1497,Pulpmills,Loss,197940.0,2019,SSB table 07410
+1498,Pulpmills,Loss,189300.0,2020,SSB table 07410
+1499,Pulpmills,Loss,187380.0,2021,SSB table 07410
+1500,Pulpmills,Loss,193440.0,2022,SSB table 07410
+1501,Pulpmills,Loss,195540.0,2023,SSB table 07410
+1502,Pulpmills,Loss,40560.0,2006,SSB table 07410
+1503,Pulpmills,Loss,41940.0,2007,SSB table 07410
+1504,Pulpmills,Loss,47640.0,2008,SSB table 07410
+1505,Pulpmills,Loss,44820.0,2009,SSB table 07410
+1506,Pulpmills,Loss,39660.0,2010,SSB table 07410
+1507,Pulpmills,Loss,49920.0,2011,SSB table 07410
+1508,Pulpmills,Loss,50520.0,2012,SSB table 07410
+1509,Pulpmills,Loss,47760.0,2013,SSB table 07410
+1510,Pulpmills,Loss,55800.0,2014,SSB table 07410
+1511,Pulpmills,Loss,57840.0,2015,SSB table 07410
+1512,Pulpmills,Loss,61200.0,2016,SSB table 07410
+1513,Pulpmills,Loss,59040.0,2017,SSB table 07410
+1514,Pulpmills,Loss,56940.0,2018,SSB table 07410
+1515,Pulpmills,Loss,68580.0,2019,SSB table 07410
+1516,Pulpmills,Loss,67800.0,2020,SSB table 07410
+1517,Pulpmills,Loss,60300.0,2021,SSB table 07410
+1518,Pulpmills,Loss,60120.0,2022,SSB table 07410
+1519,Pulpmills,Loss,60120.0,2023,SSB table 07410
+1520,Pulpmills,Loss,3840.0,2006,SSB table 07410
+1521,Pulpmills,Loss,4200.0,2007,SSB table 07410
+1522,Pulpmills,Loss,5040.0,2008,SSB table 07410
+1523,Pulpmills,Loss,5820.0,2009,SSB table 07410
+1524,Pulpmills,Loss,4080.0,2010,SSB table 07410
+1525,Pulpmills,Loss,5580.0,2011,SSB table 07410
+1526,Pulpmills,Loss,4440.0,2012,SSB table 07410
+1527,Pulpmills,Loss,7380.0,2013,SSB table 07410
+1528,Pulpmills,Loss,7500.0,2014,SSB table 07410
+1529,Pulpmills,Loss,10020.0,2015,SSB table 07410
+1530,Pulpmills,Loss,11460.0,2016,SSB table 07410
+1531,Pulpmills,Loss,14280.0,2017,SSB table 07410
+1532,Pulpmills,Loss,15360.0,2018,SSB table 07410
+1533,Pulpmills,Loss,18060.0,2019,SSB table 07410
+1534,Pulpmills,Loss,18240.0,2020,SSB table 07410
+1535,Pulpmills,Loss,17820.0,2021,SSB table 07410
+1536,Pulpmills,Loss,12660.0,2022,SSB table 07410
+1537,Pulpmills,Loss,17580.0,2023,SSB table 07410
+1538,Pulpmills,Loss,314.76,2017,SSB table 08810
+1539,Pulpmills,Loss,1294.2,2018,SSB table 08810
+1540,Pulpmills,Loss,1693.3799999999999,2019,SSB table 08810
+1541,Pulpmills,Loss,316.32,2020,SSB table 08810
+1542,Pulpmills,Loss,879.3,2021,SSB table 08810
+1543,Pulpmills,Loss,190.2,2022,SSB table 08810
+1544,Pulpmills,Loss,38.04,2023,SSB table 08810
+1545,Pulpmills,Loss,5927.16,2002,SSB table 08810
+1546,Pulpmills,Loss,3966.8999999999996,2003,SSB table 08810
+1547,Pulpmills,Loss,724.26,2004,SSB table 08810
+1548,Pulpmills,Loss,212.76,2005,SSB table 08810
+1549,Pulpmills,Loss,9.36,2006,SSB table 08810
+1550,Pulpmills,Loss,215.7,2007,SSB table 08810
+1551,Pulpmills,Loss,217.5,2008,SSB table 08810
+1552,Pulpmills,Loss,31.799999999999997,2009,SSB table 08810
+1553,Pulpmills,Loss,19.56,2010,SSB table 08810
+1554,Pulpmills,Loss,32.82,2011,SSB table 08810
+1555,Pulpmills,Loss,15.719999999999999,2012,SSB table 08810
+1556,Pulpmills,Loss,23.64,2013,SSB table 08810
+1557,Pulpmills,Loss,57.36,2014,SSB table 08810
+1558,Pulpmills,Loss,3.06,2015,SSB table 08810
+1559,Pulpmills,Loss,8.1,2016,SSB table 08810
+1560,Pulpmills,Loss,10249.199999999999,2017,SSB table 08810
+1561,Pulpmills,Loss,9479.76,2018,SSB table 08810
+1562,Pulpmills,Loss,182.1,2019,SSB table 08810
+1563,Pulpmills,Loss,4.859999999999999,2020,SSB table 08810
+1564,Pulpmills,Loss,7.319999999999999,2021,SSB table 08810
+1565,Pulpmills,Loss,16.14,2022,SSB table 08810
+1566,Pulpmills,Loss,46.86,2023,SSB table 08810
+1567,Pulpmills,Loss,85924.14,2002,SSB table 08810
+1568,Pulpmills,Loss,86427.23999999999,2003,SSB table 08810
+1569,Pulpmills,Loss,92930.7,2004,SSB table 08810
+1570,Pulpmills,Loss,96458.28,2005,SSB table 08810
+1571,Pulpmills,Loss,75221.58,2006,SSB table 08810
+1572,Pulpmills,Loss,76453.86,2007,SSB table 08810
+1573,Pulpmills,Loss,62521.92,2008,SSB table 08810
+1574,Pulpmills,Loss,36884.04,2009,SSB table 08810
+1575,Pulpmills,Loss,50336.939999999995,2010,SSB table 08810
+1576,Pulpmills,Loss,47739.42,2011,SSB table 08810
+1577,Pulpmills,Loss,19388.64,2012,SSB table 08810
+1578,Pulpmills,Loss,426.3,2013,SSB table 08810
+1579,Pulpmills,Loss,3.6599999999999997,2014,SSB table 08810
+1580,Pulpmills,Loss,52.32,2015,SSB table 08810
+1581,Pulpmills,Loss,33.66,2016,SSB table 08810
+1582,Pulpmills,Loss,0.0,2011,Treindustrien årsrapport
+1583,Pulpmills,Loss,0.0,2012,Treindustrien årsrapport
+1584,Pulpmills,Loss,0.0,2013,Treindustrien årsrapport
+1585,Pulpmills,Loss,0.0,2014,Treindustrien årsrapport
+1586,Pulpmills,Loss,0.0,2015,Treindustrien årsrapport
+1587,Pulpmills,Loss,0.0,2016,Treindustrien årsrapport
+1588,Pulpmills,Loss,0.0,2017,Treindustrien årsrapport
+1589,Pulpmills,Loss,0.0,2018,Treindustrien årsrapport
+1590,Pulpmills,Loss,0.0,2019,Treindustrien årsrapport
+1591,Pulpmills,Loss,0.0,2020,Treindustrien årsrapport
+1592,Pulpmills,Loss,0.0,2021,Treindustrien årsrapport
+1593,Pulpmills,Loss,0.0,2022,Treindustrien årsrapport
+1594,Pulpmills,Loss,0.0,2023,Treindustrien årsrapport
+1595,Firewood,Energy,904000.0,2007,SSB various tables
+1596,Firewood,Energy,903000.0,2008,SSB various tables
+1597,Firewood,Energy,1008000.0,2009,SSB various tables
+1598,Firewood,Energy,1103000.0,2010,SSB various tables
+1599,Firewood,Energy,849000.0,2011,SSB various tables
+1600,Firewood,Energy,1026000.0,2012,SSB various tables
+1601,Firewood,Energy,739000.0,2013,SSB various tables
+1602,Firewood,Energy,621000.0,2014,SSB various tables
+1603,Firewood,Energy,693000.0,2015,SSB various tables
+1604,Firewood,Energy,671000.0,2016,SSB various tables
+1605,Firewood,Energy,683000.0,2017,SSB various tables
+1606,Firewood,Energy,646000.0,2018,SSB various tables
+1607,Firewood,Energy,566000.0,2019,SSB various tables
+1608,Firewood,Energy,628000.0,2020,SSB various tables
+1609,Firewood,Energy,721000.0,2021,SSB various tables
+1610,Firewood,Energy,763000.0,2022,SSB various tables
+1611,Firewood,Energy,783000.0,2023,SSB various tables
+1612,Firewood,Energy,1755000.0,2007,SSB various tables
+1613,Firewood,Energy,1753000.0,2008,SSB various tables
+1614,Firewood,Energy,1957000.0,2009,SSB various tables
+1615,Firewood,Energy,2141000.0,2010,SSB various tables
+1616,Firewood,Energy,1648000.0,2011,SSB various tables
+1617,Firewood,Energy,1992000.0,2012,SSB various tables
+1618,Firewood,Energy,1435000.0,2013,SSB various tables
+1619,Firewood,Energy,1205000.0,2014,SSB various tables
+1620,Firewood,Energy,1346000.0,2015,SSB various tables
+1621,Firewood,Energy,1303000.0,2016,SSB various tables
+1622,Firewood,Energy,1366000.0,2017,SSB various tables
+1623,Firewood,Energy,1253000.0,2018,SSB various tables
+1624,Firewood,Energy,1098000.0,2019,SSB various tables
+1625,Firewood,Energy,1219000.0,2020,SSB various tables
+1626,Firewood,Energy,1401000.0,2021,SSB various tables
+1627,Firewood,Energy,1480000.0,2022,SSB various tables
+1628,Firewood,Energy,1521000.0,2023,SSB various tables
+1629,Wood Product processing & Logistics,Long-term USE,4579.38,2005,SSB and Treindustrien
+1630,Wood Product processing & Logistics,Long-term USE,52092.585,2006,SSB and Treindustrien
+1631,Wood Product processing & Logistics,Long-term USE,91243.89,2007,SSB and Treindustrien
+1632,Wood Product processing & Logistics,Long-term USE,100608.705,2008,SSB and Treindustrien
+1633,Wood Product processing & Logistics,Long-term USE,100042.69499999999,2009,SSB and Treindustrien
+1634,Wood Product processing & Logistics,Long-term USE,98288.235,2010,SSB and Treindustrien
+1635,Wood Product processing & Logistics,Long-term USE,1747749.73196025,2011,SSB and Treindustrien
+1636,Wood Product processing & Logistics,Long-term USE,1785307.3468425,2012,SSB and Treindustrien
+1637,Wood Product processing & Logistics,Long-term USE,1852520.6450699999,2013,SSB and Treindustrien
+1638,Wood Product processing & Logistics,Long-term USE,1966316.13174375,2014,SSB and Treindustrien
+1639,Wood Product processing & Logistics,Long-term USE,1978107.544692,2015,SSB and Treindustrien
+1640,Wood Product processing & Logistics,Long-term USE,2066484.5858564998,2016,SSB and Treindustrien
+1641,Wood Product processing & Logistics,Long-term USE,2278820.80636425,2017,SSB and Treindustrien
+1642,Wood Product processing & Logistics,Long-term USE,2325129.7715325,2018,SSB and Treindustrien
+1643,Wood Product processing & Logistics,Long-term USE,2268527.138649,2019,SSB and Treindustrien
+1644,Wood Product processing & Logistics,Long-term USE,2178945.71019,2020,SSB and Treindustrien
+1645,Wood Product processing & Logistics,Long-term USE,2271968.8269929998,2021,SSB and Treindustrien
+1646,Wood Product processing & Logistics,Long-term USE,2323766.6449641003,2022,SSB and Treindustrien
+1647,Wood Product processing & Logistics,Long-term USE,1945792.1578935378,2023,SSB and Treindustrien
+1648,Wood Product processing & Logistics,Long-term USE,170951.4,2002,SSB and Treindustrien
+1649,Wood Product processing & Logistics,Long-term USE,149900.4,2003,SSB and Treindustrien
+1650,Wood Product processing & Logistics,Long-term USE,158720.4,2004,SSB and Treindustrien
+1651,Wood Product processing & Logistics,Long-term USE,173225.7,2005,SSB and Treindustrien
+1652,Wood Product processing & Logistics,Long-term USE,71647.2,2006,SSB and Treindustrien
+1653,Wood Product processing & Logistics,Long-term USE,38520.9,2007,SSB and Treindustrien
+1654,Wood Product processing & Logistics,Long-term USE,98205.3,2008,SSB and Treindustrien
+1655,Wood Product processing & Logistics,Long-term USE,11001.6,2009,SSB and Treindustrien
+1656,Wood Product processing & Logistics,Long-term USE,88543.8,2010,SSB and Treindustrien
+1657,Wood Product processing & Logistics,Long-term USE,150308.1,2011,SSB and Treindustrien
+1658,Wood Product processing & Logistics,Long-term USE,39671.1,2012,SSB and Treindustrien
+1659,Wood Product processing & Logistics,Long-term USE,13923.9,2013,SSB and Treindustrien
+1660,Wood Product processing & Logistics,Long-term USE,193143.6,2014,SSB and Treindustrien
+1661,Wood Product processing & Logistics,Long-term USE,264783.60000000003,2015,SSB and Treindustrien
+1662,Wood Product processing & Logistics,Long-term USE,287865.0,2016,SSB and Treindustrien
+1663,Wood Product processing & Logistics,Long-term USE,389880.0,2017,SSB and Treindustrien
+1664,Wood Product processing & Logistics,Long-term USE,449730.0,2018,SSB and Treindustrien
+1665,Wood Product processing & Logistics,Long-term USE,333450.0,2019,SSB and Treindustrien
+1666,Wood Product processing & Logistics,Long-term USE,195795.0,2020,SSB and Treindustrien
+1667,Wood Product processing & Logistics,Long-term USE,266760.0,2021,SSB and Treindustrien
+1668,Wood Product processing & Logistics,Long-term USE,418095.0,2022,SSB and Treindustrien
+1669,Wood Product processing & Logistics,Long-term USE,347130.0,2023,SSB and Treindustrien
+1670,Wood Product processing & Logistics,Energy,508.82,2005,SSB and Treindustrien
+1671,Wood Product processing & Logistics,Energy,5788.065,2006,SSB and Treindustrien
+1672,Wood Product processing & Logistics,Energy,10138.21,2007,SSB and Treindustrien
+1673,Wood Product processing & Logistics,Energy,11178.745,2008,SSB and Treindustrien
+1674,Wood Product processing & Logistics,Energy,11115.855,2009,SSB and Treindustrien
+1675,Wood Product processing & Logistics,Energy,10920.915,2010,SSB and Treindustrien
+1676,Wood Product processing & Logistics,Energy,194194.41466225,2011,SSB and Treindustrien
+1677,Wood Product processing & Logistics,Energy,198367.4829825,2012,SSB and Treindustrien
+1678,Wood Product processing & Logistics,Energy,205835.62722999998,2013,SSB and Treindustrien
+1679,Wood Product processing & Logistics,Energy,218479.57019375,2014,SSB and Treindustrien
+1680,Wood Product processing & Logistics,Energy,219789.727188,2015,SSB and Treindustrien
+1681,Wood Product processing & Logistics,Energy,229609.3984285,2016,SSB and Treindustrien
+1682,Wood Product processing & Logistics,Energy,253202.31181825,2017,SSB and Treindustrien
+1683,Wood Product processing & Logistics,Energy,258347.7523925,2018,SSB and Treindustrien
+1684,Wood Product processing & Logistics,Energy,252058.570961,2019,SSB and Treindustrien
+1685,Wood Product processing & Logistics,Energy,242105.07891000004,2020,SSB and Treindustrien
+1686,Wood Product processing & Logistics,Energy,252440.980777,2021,SSB and Treindustrien
+1687,Wood Product processing & Logistics,Energy,258196.29388490005,2022,SSB and Treindustrien
+1688,Wood Product processing & Logistics,Energy,216199.12865483752,2023,SSB and Treindustrien
+1689,Wood Product processing & Logistics,Energy,18994.600000000002,2002,SSB and Treindustrien
+1690,Wood Product processing & Logistics,Energy,16655.600000000002,2003,SSB and Treindustrien
+1691,Wood Product processing & Logistics,Energy,17635.600000000002,2004,SSB and Treindustrien
+1692,Wood Product processing & Logistics,Energy,19247.3,2005,SSB and Treindustrien
+1693,Wood Product processing & Logistics,Energy,7960.8,2006,SSB and Treindustrien
+1694,Wood Product processing & Logistics,Energy,4280.1,2007,SSB and Treindustrien
+1695,Wood Product processing & Logistics,Energy,10911.7,2008,SSB and Treindustrien
+1696,Wood Product processing & Logistics,Energy,1222.4,2009,SSB and Treindustrien
+1697,Wood Product processing & Logistics,Energy,9838.2,2010,SSB and Treindustrien
+1698,Wood Product processing & Logistics,Energy,16700.9,2011,SSB and Treindustrien
+1699,Wood Product processing & Logistics,Energy,4407.900000000001,2012,SSB and Treindustrien
+1700,Wood Product processing & Logistics,Energy,1547.1000000000001,2013,SSB and Treindustrien
+1701,Wood Product processing & Logistics,Energy,21460.4,2014,SSB and Treindustrien
+1702,Wood Product processing & Logistics,Energy,29420.4,2015,SSB and Treindustrien
+1703,Wood Product processing & Logistics,Energy,31985.0,2016,SSB and Treindustrien
+1704,Wood Product processing & Logistics,Energy,43320.0,2017,SSB and Treindustrien
+1705,Wood Product processing & Logistics,Energy,49970.0,2018,SSB and Treindustrien
+1706,Wood Product processing & Logistics,Energy,37050.0,2019,SSB and Treindustrien
+1707,Wood Product processing & Logistics,Energy,21755.0,2020,SSB and Treindustrien
+1708,Wood Product processing & Logistics,Energy,29640.0,2021,SSB and Treindustrien
+1709,Wood Product processing & Logistics,Energy,46455.0,2022,SSB and Treindustrien
+1710,Wood Product processing & Logistics,Energy,38570.0,2023,SSB and Treindustrien

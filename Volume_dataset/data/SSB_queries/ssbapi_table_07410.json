@@ -1,0 +1,24 @@
+{"queryObj":{
+  "query": [
+    {
+      "code": "Treslag",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "1142",
+          "1160",
+          "1410",
+          "2142",
+          "2160",
+          "2410",
+          "3122",
+          "3123",
+          "3400"
+        ]
+      }
+    }
+  ],
+  "response": {
+    "format": "json-stat2"
+  }
+},"tableIdForQuery":"07410","postUrl":"https://data.ssb.no/api/v0/no/table/07410"}

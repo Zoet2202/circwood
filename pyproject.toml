@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "circwood"
+version = "0.1.0"
+description = "Circwood WP4 — Norwegian wood-flow Sankey dataset pipeline and Streamlit app"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.0",
+    "plotly>=5.18",
+    "streamlit>=1.30",
+    "openpyxl>=3.1",
+]
+
+[project.optional-dependencies]
+# Required only to fetch fresh data from the SSB API (use_cached_ssb=False).
+ssb = [
+    "pyjstat>=2.4",
+    "requests>=2.31",
+]
+dev = [
+    "pytest>=7.4",
+]
+
+[project.scripts]
+circwood-build = "circwood.pipeline:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

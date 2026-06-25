@@ -1,0 +1,33 @@
+{"queryObj":{
+  "query": [
+    {
+      "code": "AvfallsBehand",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "00",
+          "01",
+          "16",
+          "02",
+          "15",
+          "21",
+          "06",
+          "07b",
+          "14"
+        ]
+      }
+    },
+    {
+      "code": "AvfallsType",
+      "selection": {
+        "filter": "item",
+        "values": [
+          "06"
+        ]
+      }
+    }
+  ],
+  "response": {
+    "format": "json-stat2"
+  }
+},"tableIdForQuery":"10513","postUrl":"https://data.ssb.no/api/v0/no/table/10513"}
