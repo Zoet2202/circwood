@@ -1,5 +1,8 @@
 # Circwood WP4 — Refactor Roadmap
 
+> **This roadmap (the refactor) is essentially complete.** For what to build
+> next, see [ROADMAP_NEXT.md](ROADMAP_NEXT.md).
+
 > Goal: turn the current collection of scripts into a clean, reproducible data
 > pipeline that goes **SSB API → validated wood-flow dataset → carbon dataset →
 > interactive Streamlit web app** hosting the Sankey diagram, with the sawing
