@@ -1,0 +1,7 @@
+species,state,kg_c_per_m3
+spruce,raw,190
+spruce,dry,203
+pine,raw,215
+pine,dry,228
+non-coniferous,raw,240
+non-coniferous,dry,268

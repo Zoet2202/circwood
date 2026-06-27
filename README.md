@@ -60,17 +60,38 @@ Sidebar controls: **metric** (volume Mm³ or embodied carbon Mt C),
 annual-average vs single-year, year range, and node toggles. A CSV download
 panel exports the current window.
 
-**Carbon overlay**
+**Carbon overlay (species-accurate)**
 
 ```python
 from circwood import build_carbon
 df = build_carbon(write=True)   # adds a `carbon` column (kg C); writes carbon_data.csv
 ```
 
-Carbon mass per flow = `volume (m³) × density (kg C/m³)`, where density is set by
-the flow's (species, state) per `data/raw/Carbon-Excel.xlsx`. See
-[carbon/carbon.py](src/circwood/carbon/carbon.py) and
-[tests/test_carbon.py](tests/test_carbon.py).
+Carbon mass per flow = `volume (m³) × Σ species_share × density(species, state)`.
+The model is **species-accurate downstream**: the spruce / pine / non-coniferous
+mix is tracked as wood flows through the mixing nodes (Sawmills, Pulpmills, …) to
+a fixed point, rather than collapsing everything to spruce. So, e.g., Sawmills
+output carbon reflects the actual spruce/pine split of the logs sawn that year.
+See [carbon/species_model.py](src/circwood/carbon/species_model.py).
+
+### Editing the carbon model (for researchers)
+
+All carbon assumptions live in two CSVs you can open and edit in Excel — no code
+changes needed:
+
+* **[config/carbon_densities.csv](config/carbon_densities.csv)** — carbon density
+  (kg C/m³) for each `(species, state)`.
+* **[config/carbon_nodes.csv](config/carbon_nodes.csv)** — one row per node:
+  * `state` — `raw` or `dry` (moisture state of wood leaving the node),
+  * `mix_mode` — `fixed` (use the given species shares; for pools and imports) or
+    `propagate` (compute the species mix from the node's inflows; for mills, use
+    phases, inventories),
+  * `spruce_share` / `pine_share` / `nonconif_share` — species fractions, used
+    only when `mix_mode = fixed`.
+
+Edit a value, re-run the app (or `build_carbon(write=True)`), and the carbon
+figures update. The app's "Species composition" panel shows the resulting mix
+per node.
 
 **Run the tests**
 

@@ -20,7 +20,7 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from circwood import build_sankey, constants as C  # noqa: E402
-from circwood.carbon import add_carbon, carbon_sankey  # noqa: E402
+from circwood.carbon import add_carbon, carbon_sankey, species_mix  # noqa: E402
 from circwood.viz.sankey import make_sankey  # noqa: E402
 
 st.set_page_config(page_title="Circwood WP4 — Wood Flows", layout="wide")
@@ -35,6 +35,23 @@ METRICS = {
 @st.cache_data(show_spinner=False)
 def _load_data():
     return build_sankey(use_cached_ssb=True)
+
+
+@st.cache_data(show_spinner=False)
+def _carbon_flows():
+    """Carbon-valued Sankey frame (volume column carries kg C)."""
+    return carbon_sankey(_load_data())
+
+
+@st.cache_data(show_spinner=False)
+def _carbon_table():
+    """Full frame with an added carbon column (for the data panel)."""
+    return add_carbon(_load_data())
+
+
+@st.cache_data(show_spinner=False)
+def _species_mix():
+    return species_mix(_load_data())
 
 
 def main() -> None:
@@ -72,7 +89,7 @@ def main() -> None:
 
     is_carbon = metric.startswith("Carbon")
     value_scale, value_unit = METRICS[metric]
-    plot_df = carbon_sankey(df) if is_carbon else df
+    plot_df = _carbon_flows() if is_carbon else df
 
     st.caption(
         f"Sankey of wood-{'carbon' if is_carbon else 'volume'} flows from "
@@ -86,10 +103,10 @@ def main() -> None:
     )
     st.plotly_chart(fig, use_container_width=True)
 
+    base = _carbon_table() if is_carbon else df
+    window = base[(base["year"] >= min_year) & (base["year"] <= max_year)]
+
     with st.expander("Data & provenance"):
-        window = df[(df["year"] >= min_year) & (df["year"] <= max_year)]
-        if is_carbon:
-            window = add_carbon(window)
         st.write(
             f"{len(window)} flow rows over {min_year}-{max_year}. "
             f"Origins: {', '.join(sorted(window['origin'].astype(str).unique()))}"
@@ -101,6 +118,22 @@ def main() -> None:
             file_name=f"circwood_{'carbon' if is_carbon else 'flows'}_{min_year}_{max_year}.csv",
             mime="text/csv",
         )
+
+    if is_carbon:
+        with st.expander("Species composition (downstream carbon model)"):
+            st.caption(
+                "Spruce / pine / non-coniferous mix tracked through the mixing "
+                "nodes. Editable in config/carbon_densities.csv and "
+                "config/carbon_nodes.csv."
+            )
+            smix = _species_mix()
+            smix = smix[(smix["year"] >= min_year) & (smix["year"] <= max_year)]
+            smix = (
+                smix.groupby("node", as_index=False)[list(("spruce", "pine", "non-coniferous"))]
+                .mean()
+                .sort_values("node")
+            )
+            st.dataframe(smix, use_container_width=True, height=320)
 
 
 if __name__ == "__main__":

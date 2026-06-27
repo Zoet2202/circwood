@@ -1,10 +1,8 @@
-"""Carbon overlay: convert wood-volume flows to embodied-carbon flows."""
+"""Carbon overlay: convert wood-volume flows to embodied-carbon flows.
 
-from circwood.carbon.carbon import (
-    CARBON_DENSITY,
-    add_carbon,
-    carbon_sankey,
-    density_for_flow,
-)
+Species-accurate model driven by editable CSV config (see species_model).
+"""
 
-__all__ = ["CARBON_DENSITY", "add_carbon", "carbon_sankey", "density_for_flow"]
+from circwood.carbon.carbon import add_carbon, carbon_sankey, load_model, species_mix
+
+__all__ = ["add_carbon", "carbon_sankey", "species_mix", "load_model"]

@@ -92,8 +92,9 @@ unit-test); all paths anchored to package root; constants centralized.
 
 > **Progress (2026-06-27):** Phases 0, 1, 2, 4, 5 and 6 are **done** — package
 > restructure, dead-code removal, centralized constants, the sawing-fix test
-> suite, the carbon overlay (density model from Carbon-Excel.xlsx, with a metric
-> selector in the app), and the Streamlit app off cached data. **Deferred:**
+> suite, the carbon overlay (species-accurate downstream model with editable CSV
+> config and a metric selector in the app), and the Streamlit app off cached
+> data. **Deferred:**
 > Phase 3 (live SSB ingestion — scaffolded but not wired; the user will own this).
 > Phase 7 (README) done; web deploy pending.
 

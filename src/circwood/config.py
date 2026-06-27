@@ -16,6 +16,10 @@ CONFIG_DIR = ROOT_DIR / "config"
 SSB_QUERY_DIR = CONFIG_DIR / "ssb_queries"
 NODES_FILE = CONFIG_DIR / "nodes.json"
 
+# Researcher-editable carbon model (open in Excel as CSV).
+CARBON_DENSITIES_FILE = CONFIG_DIR / "carbon_densities.csv"
+CARBON_NODES_FILE = CONFIG_DIR / "carbon_nodes.csv"
+
 DATA_DIR = ROOT_DIR / "data"
 RAW_DIR = DATA_DIR / "raw"
 PROCESSED_DIR = DATA_DIR / "processed"
@@ -33,6 +37,8 @@ __all__ = [
     "CONFIG_DIR",
     "SSB_QUERY_DIR",
     "NODES_FILE",
+    "CARBON_DENSITIES_FILE",
+    "CARBON_NODES_FILE",
     "DATA_DIR",
     "RAW_DIR",
     "PROCESSED_DIR",
