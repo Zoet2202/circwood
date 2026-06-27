@@ -82,21 +82,42 @@ def remap_ids(df: pd.DataFrame, labels) -> pd.DataFrame:
     return df
 
 
+def _to_rgba(color: str, alpha: float = 0.4) -> str:
+    """Convert a #RRGGBB (or rgb/rgba) color to an rgba() string with alpha."""
+    if color.startswith("#"):
+        h = color.lstrip("#")
+        r, g, b = (int(h[i:i + 2], 16) for i in (0, 2, 4))
+        return f"rgba({r},{g},{b},{alpha})"
+    if color.startswith("rgb("):
+        return color.replace("rgb(", "rgba(").replace(")", f",{alpha})")
+    return color
+
+
 def build_figure(
     labels, x_positions, y_positions, node_colors, df,
     min_year=C.MIN_YEAR, max_year=C.MAX_YEAR,
     value_unit="Mm³",
+    label_threshold=0.5,
 ) -> go.Figure:
-    """Build the Plotly Sankey figure from prepared + remapped flows."""
+    """Build the Plotly Sankey figure from prepared + remapped flows.
+
+    Links are coloured by their source node at low opacity so individual flows
+    stay traceable through dense regions. Node positions are honoured exactly
+    (``arrangement='fixed'``) so the layout is deterministic and does not drift
+    between renders.
+    """
     df = df.sort_values(["source_id", "target_id"]).reset_index(drop=True)
     values = df["volume"].abs().tolist()
-    link_labels = [f"{v:.1f}" if v >= 0.05 else "" for v in values]
+    # Only annotate the larger flows; rely on hover for the rest.
+    link_labels = [f"{v:.1f}" if v >= label_threshold else "" for v in values]
+    link_colors = [_to_rgba(node_colors[s], 0.40) for s in df["source_id"]]
 
     link = dict(
         source=df["source_id"].tolist(),
         target=df["target_id"].tolist(),
         value=values,
         label=link_labels,
+        color=link_colors,
         hovertemplate=(
             "%{source.label} → %{target.label}<br>"
             "%{value:.2f} " + value_unit + "<extra></extra>"
@@ -104,17 +125,26 @@ def build_figure(
     )
     node = dict(
         label=labels, color=node_colors, x=x_positions, y=y_positions,
-        pad=15, thickness=20, align="right",
+        pad=22, thickness=18,
+        line=dict(color="rgba(0,0,0,0.25)", width=0.5),
         hovertemplate="%{label}<br>Total: %{value:.2f} " + value_unit + "<extra></extra>",
     )
     fig = go.Figure(go.Sankey(
-        textfont=dict(color="black", size=12),
-        arrangement="snap", node=node, link=link,
+        textfont=dict(color="#222", size=12, family="Arial"),
+        arrangement="fixed", node=node, link=link,
         valueformat=".2f", valuesuffix=f" {value_unit}",
     ))
     fig.update_layout(
-        title_text=f"Wood flows in Norway, annual average {min_year}-{max_year} ({value_unit})",
-        font_size=10,
+        title=dict(
+            text=f"Wood flows in Norway — annual average {min_year}–{max_year} ({value_unit})",
+            font=dict(size=20, family="Arial", color="#111"),
+            x=0.01, xanchor="left",
+        ),
+        font=dict(family="Arial", size=13, color="#222"),
+        paper_bgcolor="white",
+        plot_bgcolor="white",
+        margin=dict(l=10, r=190, t=70, b=20),
+        height=760,
     )
     return fig
 
