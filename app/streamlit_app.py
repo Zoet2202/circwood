@@ -21,6 +21,7 @@ if str(SRC) not in sys.path:
 
 from circwood import build_sankey, constants as C  # noqa: E402
 from circwood.carbon import add_carbon, carbon_sankey, species_mix  # noqa: E402
+from circwood.reconcile import treindustrien_reconciliation  # noqa: E402
 from circwood.validate import balance_report  # noqa: E402
 from circwood.viz.sankey import load_node_params, make_sankey  # noqa: E402
 
@@ -165,6 +166,15 @@ def main() -> None:
                 "imbalance": "{:+,.0f}", "rel_imbalance": "{:+.1%}",
             }),
             use_container_width=True, height=320,
+        )
+
+        st.markdown("**Source reconciliation** (pipeline vs Treindustrien CSV)")
+        recon = treindustrien_reconciliation(df, min_year, max_year)
+        st.dataframe(
+            recon.style.format({
+                "pipeline": "{:,.0f}", "source": "{:,.0f}", "rel_diff": "{:+.2%}",
+            }),
+            use_container_width=True, hide_index=True,
         )
 
     if is_carbon:

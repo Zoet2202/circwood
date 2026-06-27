@@ -30,9 +30,11 @@ These determine whether the numbers can be defended in a paper.
   Wire up `build_sankey(use_cached_ssb=False)`: retries/timeouts, cache raw
   JSON-stat to `data/raw/`, and validate each table's columns/year coverage on
   load (fail loud). Record the data vintage (pull date) alongside the output.
-- **A3 · Validate against published SSB/Treindustrien aggregates** — **P1 · S**
-  Assert pipeline totals (harvest, sawn timber, pulp) match the source tables'
-  own totals within tolerance. Cheap, high-confidence regression guard.
+- **A3 · Validate against published SSB/Treindustrien aggregates** — ✅ **DONE**
+  ``circwood.reconcile``: planed/impregnated throughput reconciles exactly to the
+  Treindustrien CSV; domestic sawtimber matches the SSB 07410 control total
+  (61,445,000 m³, 2012–2022); annual roundwood harvest is range-checked. Guarded
+  by ``tests/test_reconcile.py`` and shown in the app's balance panel.
 - **A4 · Replace placeholder import species mix** — **P2 · S**
   `config/carbon_nodes.csv` currently assumes imports are 100 % spruce. Source
   the real species split (or document the assumption and its sensitivity).
@@ -74,9 +76,9 @@ These determine whether the numbers can be defended in a paper.
 
 ## D. Engineering quality
 
-- **D1 · CI pipeline (GitHub Actions)** — **P1 · S**
-  Run `pytest` (and lint) on every push/PR. Cheap insurance now that there's a
-  real test suite.
+- **D1 · CI pipeline (GitHub Actions)** — ✅ **DONE**
+  `.github/workflows/ci.yml` runs the test suite on push/PR across Python
+  3.11–3.12. (Lint still pending under D2.)
 - **D2 · Lint + format + pre-commit** — **P2 · S**
   `ruff` + `black` (or `ruff format`) with a pre-commit hook for consistency.
 - **D3 · Broaden test coverage** — **P2 · M**
@@ -103,7 +105,7 @@ These determine whether the numbers can be defended in a paper.
 ## Recommended near-term sequence
 
 1. ✅ ~~A1 close the mass balance~~ — **done.**
-2. **D1 CI** + **A3 aggregate validation** — lock in correctness cheaply (½ day).
+2. ✅ ~~D1 CI + A3 aggregate validation~~ — **done.**
 3. **A2 live SSB ingestion** — make the pipeline self-refreshing.
 4. **C1 time-series view** + **E1 deploy** — biggest user-visible wins.
 5. **B1 carbon uncertainty** — turn the carbon result into a defensible range.

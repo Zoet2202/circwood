@@ -100,6 +100,11 @@ per node.
 pytest
 ```
 
+The suite is run in CI ([.github/workflows/ci.yml](.github/workflows/ci.yml)) on
+every push/PR across Python 3.11–3.12. It includes reconciliation checks
+([src/circwood/reconcile.py](src/circwood/reconcile.py)) that tie pipeline totals
+to the Treindustrien source CSV and the SSB 07410 control total.
+
 ## The sawing-function fix
 
 `Sawing_function_diagnosis.docx` documents three compounding bugs in the old
