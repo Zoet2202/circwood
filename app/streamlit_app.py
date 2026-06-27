@@ -21,6 +21,7 @@ if str(SRC) not in sys.path:
 
 from circwood import build_sankey, constants as C  # noqa: E402
 from circwood.carbon import add_carbon, carbon_sankey, species_mix  # noqa: E402
+from circwood.validate import balance_report  # noqa: E402
 from circwood.viz.sankey import load_node_params, make_sankey  # noqa: E402
 
 st.set_page_config(page_title="Circwood WP4 — Wood Flows", layout="wide")
@@ -143,6 +144,27 @@ def main() -> None:
             window.to_csv(index=False).encode("utf-8"),
             file_name=f"circwood_{'carbon' if is_carbon else 'flows'}_{min_year}_{max_year}.csv",
             mime="text/csv",
+        )
+
+    with st.expander("Mass balance check"):
+        st.caption(
+            "Per-node inflow vs outflow over the selected window (m³). Process "
+            "nodes should balance. Note: use-phase nodes (Long-term/Short-term "
+            "USE) are reservoirs where wood accumulates, so they are not expected "
+            "to net to zero; Sawmills currently carries a known imbalance "
+            "(diagnosis Issue 3) in the cached dataset."
+        )
+        vol_window = df[(df["year"] >= min_year) & (df["year"] <= max_year)]
+        rep = balance_report(vol_window)
+        rep = rep[rep["kind"] == "process"][
+            ["node", "inflow", "outflow", "imbalance", "rel_imbalance"]
+        ]
+        st.dataframe(
+            rep.style.format({
+                "inflow": "{:,.0f}", "outflow": "{:,.0f}",
+                "imbalance": "{:+,.0f}", "rel_imbalance": "{:+.1%}",
+            }),
+            use_container_width=True, height=320,
         )
 
     if is_carbon:
