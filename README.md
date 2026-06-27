@@ -57,8 +57,9 @@ streamlit run app/streamlit_app.py
 ```
 
 Sidebar controls: **metric** (volume Mm³ or embodied carbon Mt C),
-annual-average vs single-year, year range, and node toggles. A CSV download
-panel exports the current window.
+annual-average vs single-year, year range, and a **node selector** (choose
+exactly which nodes to display — flows touching a hidden node are removed). A CSV
+download panel exports the current window.
 
 **Carbon overlay (species-accurate)**
 

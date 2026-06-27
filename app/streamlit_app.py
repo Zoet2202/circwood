@@ -21,7 +21,7 @@ if str(SRC) not in sys.path:
 
 from circwood import build_sankey, constants as C  # noqa: E402
 from circwood.carbon import add_carbon, carbon_sankey, species_mix  # noqa: E402
-from circwood.viz.sankey import make_sankey  # noqa: E402
+from circwood.viz.sankey import load_node_params, make_sankey  # noqa: E402
 
 st.set_page_config(page_title="Circwood WP4 — Wood Flows", layout="wide")
 
@@ -54,6 +54,13 @@ def _species_mix():
     return species_mix(_load_data())
 
 
+@st.cache_data(show_spinner=False)
+def _all_node_labels():
+    """All node labels defined in config/nodes.json, in file order."""
+    labels, _x, _y, _c = load_node_params(nodes_to_drop=())
+    return labels
+
+
 def main() -> None:
     st.title("Norwegian Wood Flows — Circwood WP4")
 
@@ -84,8 +91,23 @@ def main() -> None:
             )
             agg_key = "avg"
 
-        drop_energy_output = st.checkbox("Hide 'Energy output' node", value=True)
-        nodes_to_drop = ("Energy output",) if drop_energy_output else ()
+        st.divider()
+        st.subheader("Nodes")
+        all_nodes = _all_node_labels()
+        # Default: show everything except the 'Energy output' helper node.
+        default_visible = [n for n in all_nodes if n != "Energy output"]
+
+        if st.checkbox("Select all nodes", value=False,
+                       help="Tick to show every node, then untick individual ones below."):
+            default_visible = list(all_nodes)
+
+        visible = st.multiselect(
+            "Nodes to display",
+            options=all_nodes,
+            default=default_visible,
+            help="Flows touching a hidden node are removed from the diagram.",
+        )
+        nodes_to_drop = tuple(n for n in all_nodes if n not in visible)
 
     is_carbon = metric.startswith("Carbon")
     value_scale, value_unit = METRICS[metric]
@@ -95,6 +117,10 @@ def main() -> None:
         f"Sankey of wood-{'carbon' if is_carbon else 'volume'} flows from "
         f"standing forest to end use. Data: SSB + Treindustrien (cached)."
     )
+
+    if not visible:
+        st.warning("Select at least one node to display.")
+        st.stop()
 
     fig = make_sankey(
         plot_df, min_year=min_year, max_year=max_year,
