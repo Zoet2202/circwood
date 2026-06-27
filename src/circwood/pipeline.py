@@ -27,6 +27,21 @@ def build_sankey(use_cached_ssb: bool = True) -> pd.DataFrame:
     return run_fresh_pipeline()
 
 
+def build_carbon(use_cached_ssb: bool = True, write: bool = False) -> pd.DataFrame:
+    """Return the Sankey dataset with an added ``carbon`` column (kg C).
+
+    If ``write`` is True, also (re)generate ``data/processed/carbon_data.csv``.
+    """
+    from circwood.carbon import add_carbon
+
+    df = add_carbon(build_sankey(use_cached_ssb=use_cached_ssb))
+    if write:
+        config.PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
+        df.to_csv(config.CARBON_CSV, index=False)
+        print(f"Wrote {len(df)} rows to {config.CARBON_CSV}")
+    return df
+
+
 def load_cached_sankey() -> pd.DataFrame:
     """Load the pre-generated Sankey dataset from disk."""
     if not config.SANKEY_CSV.exists():

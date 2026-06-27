@@ -43,17 +43,18 @@ def prepare_flows(
     max_year: int = C.MAX_YEAR,
     aggregate: str = "avg",
     nodes_to_drop=(),
-    to_million: bool = True,
+    value_scale: float = 1_000_000.0,
 ) -> pd.DataFrame:
-    """Filter, rename, unit-convert and aggregate flows for plotting.
+    """Filter, rename, scale and aggregate flows for plotting.
 
-    ``aggregate='avg'`` produces the annual-average over the window; any other
-    value keeps per-year rows (already summed within year).
+    The ``volume`` column is divided by ``value_scale`` (e.g. 1e6 for m3 -> Mm3,
+    or 1e9 for kg C -> Mt C). ``aggregate='avg'`` produces the annual average
+    over the window; any other value keeps per-year rows.
     """
     df = df.copy()
     df = df.dropna(subset=["year", "volume"])
-    if to_million:
-        df["volume"] = df["volume"].astype(float) / 1_000_000.0
+    if value_scale and value_scale != 1:
+        df["volume"] = df["volume"].astype(float) / value_scale
 
     df["source"] = df["source"].replace(NODE_RENAME_MAP)
     df["target"] = df["target"].replace(NODE_RENAME_MAP)
@@ -155,9 +156,19 @@ def make_sankey(
     max_year: int = C.MAX_YEAR,
     aggregate: str = "avg",
     nodes_to_drop=("Energy output",),
+    value_scale: float = 1_000_000.0,
+    value_unit: str = "Mm³",
+    label_threshold: float = 0.5,
 ) -> go.Figure:
-    """Convenience: full pipeline from a raw sankey DataFrame to a figure."""
+    """Convenience: full pipeline from a raw sankey DataFrame to a figure.
+
+    Pass ``value_scale``/``value_unit`` to switch metric, e.g. carbon flows
+    (``volume`` column already in kg C) with ``value_scale=1e9``,
+    ``value_unit='Mt C'``.
+    """
     labels, xs, ys, colors = load_node_params(nodes_to_drop=nodes_to_drop)
-    flows = prepare_flows(df, min_year, max_year, aggregate, nodes_to_drop)
+    flows = prepare_flows(df, min_year, max_year, aggregate, nodes_to_drop,
+                          value_scale=value_scale)
     flows = remap_ids(flows, labels)
-    return build_figure(labels, xs, ys, colors, flows, min_year, max_year)
+    return build_figure(labels, xs, ys, colors, flows, min_year, max_year,
+                        value_unit=value_unit, label_threshold=label_threshold)

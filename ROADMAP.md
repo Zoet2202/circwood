@@ -90,11 +90,12 @@ unit-test); all paths anchored to package root; constants centralized.
 
 ## 4. Work phases
 
-> **Progress (2026-06-25):** Phases 0, 1, 2, 4 and 6 are **done** — package
+> **Progress (2026-06-27):** Phases 0, 1, 2, 4, 5 and 6 are **done** — package
 > restructure, dead-code removal, centralized constants, the sawing-fix test
-> suite, and a working volume-only Streamlit app off cached data. **Deferred:**
-> Phase 3 (live SSB ingestion — scaffolded but not wired) and Phase 5 (carbon
-> overlay). Phase 7 (README) done; deploy pending.
+> suite, the carbon overlay (density model from Carbon-Excel.xlsx, with a metric
+> selector in the app), and the Streamlit app off cached data. **Deferred:**
+> Phase 3 (live SSB ingestion — scaffolded but not wired; the user will own this).
+> Phase 7 (README) done; web deploy pending.
 
 ### Phase 0 — Baseline & safety net (do first)
 - [ ] Initialize git (repo is currently not under version control) and commit the

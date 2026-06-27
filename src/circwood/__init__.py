@@ -4,6 +4,6 @@ from __future__ import annotations
 
 __version__ = "0.1.0"
 
-from circwood.pipeline import build_sankey, load_cached_sankey
+from circwood.pipeline import build_carbon, build_sankey, load_cached_sankey
 
-__all__ = ["build_sankey", "load_cached_sankey", "__version__"]
+__all__ = ["build_sankey", "build_carbon", "load_cached_sankey", "__version__"]

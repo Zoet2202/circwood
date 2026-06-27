@@ -56,8 +56,21 @@ from the SSB API (needs the `ssb` extras + network; not yet wired for routine us
 streamlit run app/streamlit_app.py
 ```
 
-Sidebar controls: annual-average vs single-year, year range, and node toggles.
-The diagram shows volumes in million m³ (Mm³) with a CSV download panel.
+Sidebar controls: **metric** (volume Mm³ or embodied carbon Mt C),
+annual-average vs single-year, year range, and node toggles. A CSV download
+panel exports the current window.
+
+**Carbon overlay**
+
+```python
+from circwood import build_carbon
+df = build_carbon(write=True)   # adds a `carbon` column (kg C); writes carbon_data.csv
+```
+
+Carbon mass per flow = `volume (m³) × density (kg C/m³)`, where density is set by
+the flow's (species, state) per `data/raw/Carbon-Excel.xlsx`. See
+[carbon/carbon.py](src/circwood/carbon/carbon.py) and
+[tests/test_carbon.py](tests/test_carbon.py).
 
 **Run the tests**
 
@@ -89,5 +102,5 @@ yield), verified for the 2012–2022 window.
 
 ## Status & roadmap
 
-Volume pipeline + app are working off cached data. Still to do: live SSB
-ingestion and the carbon overlay. See [ROADMAP.md](ROADMAP.md).
+Volume **and carbon** pipelines + the app are working off cached data. Still to
+do: live SSB API ingestion. See [ROADMAP.md](ROADMAP.md).
