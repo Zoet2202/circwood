@@ -90,17 +90,19 @@ def create_flow_rows(
     )
 
     # --- Trade series, all reindexed by year ---
-    # NB: 'Export sawn wood' / 'Export planed wood' / 'Export Sawmills' live in
-    # the TARGET column (see ingest.trade.assign_target_source_trade), while
-    # 'Import *' labels live in the SOURCE column.
+    # NB: 'Export sawn wood' / 'Export planed wood' live in the TARGET column
+    # (see ingest.trade.assign_target_source_trade), while 'Import *' labels
+    # live in the SOURCE column.
+    #
+    # Raw-log re-exports ('Export Sawmills') are NOT handled here: they are
+    # routed around the Sawmills node upstream (see assemble._bypass_raw_log_
+    # reexports), so the logs reaching this function are only those actually
+    # sawn. This keeps the by-product yields (e.g. 26% cellulose) as shares of
+    # sawn-log input and lets the Sawmills node balance.
     import_saw_wood = _yearly_series(
         trade_df, trade_df["source"] == "Import saw wood", "volume", all_years)
-    export_sawmills = _yearly_series(
-        trade_df, trade_df["target"] == "Export Sawmills", "volume", all_years)
     export_sawn_wood = _yearly_series(
         trade_df, trade_df["target"] == "Export sawn wood", "volume", all_years)
-    import_planed_wood = _yearly_series(
-        trade_df, trade_df["source"] == "Import planed wood", "volume", all_years)
     export_planed_wood = _yearly_series(
         trade_df, trade_df["target"] == "Export planed wood", "volume", all_years)
 
@@ -108,13 +110,11 @@ def create_flow_rows(
     sankey_inflow = _yearly_series(
         sankey_df, sankey_df["target"] == "Sawmills", "volume", all_years)
 
-    # Volume that actually enters the saw:
-    #   domestic harvest + imports - stock change - raw logs re-exported as logs
+    # Volume that actually enters the saw: domestic sawlogs + imports - stock change.
     initial_timber_vol = (
         sankey_inflow.to_numpy()
         - inventory_timber.to_numpy()
         + import_saw_wood.to_numpy()
-        - export_sawmills.to_numpy()
     )
     initial_timber_vol = pd.Series(initial_timber_vol, index=all_years)
 
@@ -136,7 +136,11 @@ def create_flow_rows(
     )
 
     planed_byproducts = sawn_vol_to_planed * C.BYPRODUCT_PLANING
-    sum_planed_wood = planed_vol.to_numpy() + import_planed_wood.to_numpy() - export_planed_wood.to_numpy()
+    # Domestically planed wood routed to WPP, after export and impregnation.
+    # NB: imported planed wood is NOT added here — it reaches WPP via its own
+    # direct trade edge ('Import planed wood' -> WPP). Including it would inflate
+    # the Planingmills outflow and break that node's mass balance.
+    sum_planed_wood = planed_vol.to_numpy() - export_planed_wood.to_numpy()
     planed_wpp = pd.Series(sum_planed_wood, index=all_years) - imp_vol.to_numpy()
 
     # Assemble rows. All series share the ``all_years`` index/order.

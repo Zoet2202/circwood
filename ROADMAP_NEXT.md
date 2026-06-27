@@ -15,13 +15,17 @@ Effort — **S** hours · **M** a day or two · **L** several days.
 
 These determine whether the numbers can be defended in a paper.
 
-- **A1 · Close the mass balance** — **P1 · M**
-  The fully-assembled Sawmills node does not net to zero (outflow ≈ 40 % >
-  inflow) because trade exports are extra outflows with no matching input row
-  (diagnosis Issue 3). Add an explicit reconciliation: either a balancing
-  residual node per process, or route raw-log re-exports/imports so every node
-  closes. Then add a runtime assertion + a per-node balance report. *Without
-  this, any single band in the Sankey is only approximately meaningful.*
+- **A1 · Close the mass balance** — ✅ **DONE**
+  Closed diagnosis Issue 3: raw-log re-exports now bypass the Sawmills node
+  (routed from the species pools straight to Export), the sawn-side flows are
+  mass-derived via ``SAWN_YIELD``, and the imported-planed-wood double-count is
+  fixed. Every process node (Sawmills, Pulpmills, Boardmills, Planingmills,
+  Impregnation, WPP) balances within ~1 % over 2012–2022; use-phase and
+  inventory nodes are treated as reservoirs by design. Added
+  ``circwood.validate`` (balance report + ``assert_balanced``), a "Mass balance
+  check" panel in the app, ``assemble.assemble_sankey`` / ``regenerate_balanced``
+  (offline re-derivation), and balance tests. The shipped dataset was
+  regenerated; pulp ≈ 26 % of logs actually sawn.
 - **A2 · Live SSB ingestion (Phase 3)** — **P1 · M**
   Wire up `build_sankey(use_cached_ssb=False)`: retries/timeouts, cache raw
   JSON-stat to `data/raw/`, and validate each table's columns/year coverage on
@@ -98,8 +102,8 @@ These determine whether the numbers can be defended in a paper.
 
 ## Recommended near-term sequence
 
-1. **D1 CI** + **A3 aggregate validation** — lock in correctness cheaply (½ day).
-2. **A1 close the mass balance** — the one real outstanding correctness gap.
+1. ✅ ~~A1 close the mass balance~~ — **done.**
+2. **D1 CI** + **A3 aggregate validation** — lock in correctness cheaply (½ day).
 3. **A2 live SSB ingestion** — make the pipeline self-refreshing.
 4. **C1 time-series view** + **E1 deploy** — biggest user-visible wins.
 5. **B1 carbon uncertainty** — turn the carbon result into a defensible range.

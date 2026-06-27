@@ -118,9 +118,18 @@ by [tests/test_sawing.py](tests/test_sawing.py):
 Result: **Sawmills → Pulpmills ≈ 26%** of sawmill log input (the expected chip
 yield), verified for the 2012–2022 window.
 
-> Note: the *whole assembled* Sawmills node intentionally does not net to zero,
-> because trade export rows (`Sawmills → Export *`) are additional outflows. The
-> sawing *transform* is mass-balanced in isolation; the test suite checks that.
+### Mass balance
+
+The dataset conserves volume at every process node. Raw-log re-exports bypass the
+Sawmills node (routed from the species pools straight to Export, since they are
+never sawn), the sawn-side flows are mass-derived, and imported planed wood
+reaches WPP via its own edge. Over 2012–2022, Sawmills, Pulpmills, Boardmills,
+Planingmills, Impregnation and WPP all balance within ~1 %; use-phase
+(Long-term/Short-term USE) and inventory nodes are reservoirs by design. The
+checks live in [src/circwood/validate.py](src/circwood/validate.py) and
+[tests/test_balance.py](tests/test_balance.py); the app has a "Mass balance
+check" panel. To re-derive a balanced dataset offline from primary rows:
+`python -c "from circwood.transform.assemble import regenerate_balanced; regenerate_balanced(write=True)"`.
 
 ## Deployment (web hosting)
 

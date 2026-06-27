@@ -17,7 +17,7 @@ import pytest
 from circwood import build_sankey, constants as C
 from circwood.transform.sawing import create_flow_rows
 from circwood.transform.mills import boardmill_process, pulpmills_process
-from circwood.validate import assert_balanced, process_imbalances
+from circwood.validate import assert_balanced
 
 
 def _synthetic_primary():
@@ -79,25 +79,31 @@ def test_assembly_is_mass_conserving():
                            "Wood Product processing & Logistics"])
 
 
-# Nodes that genuinely conserve (their split functions enforce 100% pass-through).
-CONSERVING_NODES = ["Pulpmills", "Boardmills"]
+# Process nodes expected to conserve volume (within ~1%). Reservoirs/stocks are
+# excluded: use phases (Long-term/Short-term USE) accumulate wood, and the
+# inventory nodes hold net stock changes over the window.
+PROCESS_NODES = [
+    "Sawmills", "Pulpmills", "Boardmills", "Planingmills", "Impregnation",
+    "Wood Product processing & Logistics",
+]
 
 
-def test_cached_conserving_nodes_balance():
-    """Pulpmills and Boardmills balance exactly in the cached data."""
-    df = build_sankey()
-    window = df[(df.year >= C.MIN_YEAR) & (df.year <= C.MAX_YEAR)]
-    assert_balanced(window, rel_tol=0.001, nodes=CONSERVING_NODES)
+def test_shipped_dataset_process_nodes_balance():
+    """The shipped (regenerated) dataset balances at every process node.
 
-
-def test_cached_sawmills_is_materially_unbalanced():
-    """Sawmills is the one pass-through node that is materially off.
-
-    This is diagnosis Issue 3, still present in the shipped cached dataset (the
-    sawn-side outflows come from Treindustrien, larger than the SSB log input).
-    The imbalance is year-dependent, so this checks the 2012-2022 window.
+    This is the closure of diagnosis Issue 3: raw-log re-exports bypass the
+    Sawmills node and the sawn-side flows are mass-derived, so Sawmills and the
+    downstream mills conserve volume over the paper window.
     """
     df = build_sankey()
     window = df[(df.year >= C.MIN_YEAR) & (df.year <= C.MAX_YEAR)]
-    rep = process_imbalances(window).set_index("node")
-    assert rep.loc["Sawmills", "rel_imbalance"] > 0.1
+    assert_balanced(window, rel_tol=0.01, nodes=PROCESS_NODES)
+
+
+def test_shipped_sawmills_pulp_share_about_26pct():
+    """With re-exports bypassed, pulp is ~26% of the logs actually sawn."""
+    df = build_sankey()
+    window = df[(df.year >= C.MIN_YEAR) & (df.year <= C.MAX_YEAR)]
+    inflow = window[window.target == "Sawmills"].volume.sum()
+    pulp = window[(window.source == "Sawmills") & (window.target == "Pulpmills")].volume.sum()
+    assert 0.24 <= pulp / inflow <= 0.28

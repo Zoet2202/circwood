@@ -98,7 +98,52 @@ def _finalize(sankey_df: pd.DataFrame) -> pd.DataFrame:
     sankey_df = sankey_df.dropna(subset=["year", "volume"])
     sankey_df["year"] = sankey_df["year"].astype(int)
     sankey_df["volume"] = sankey_df["volume"].abs()
-    return dedupe_flows(sankey_df)
+    deduped = dedupe_flows(sankey_df)
+    # Canonical column order (dedupe groups by year first).
+    return deduped[["source", "target", "volume", "year", "origin"]]
+
+
+def _bypass_raw_log_reexports(primary_df: pd.DataFrame) -> pd.DataFrame:
+    """Route raw-log re-exports around the Sawmills node.
+
+    SSB 08801 maps re-exported sawlogs ('Skurtømmer' eksport) to a
+    ``Sawmills -> Export Sawmills`` edge, i.e. the logs pass *through* Sawmills
+    even though they are never sawn. That inflates the Sawmills inflow and means
+    the 26% chip yield (applied to logs actually sawn) reads as a smaller share
+    of inflow, and the node cannot balance.
+
+    This re-routes the re-exported volume to come straight from the species
+    pools (``Spruce``/``Pine``/``Non-coniferous`` -> ``Export Sawmills``),
+    allocated by each species' share of the sawlog inflow, and reduces the
+    corresponding species -> Sawmills rows. Idempotent: only acts on the
+    ``Sawmills -> Export Sawmills`` passthrough.
+    """
+    df = primary_df.copy()
+    reexp = df[(df["source"] == "Sawmills") & (df["target"] == "Export Sawmills")]
+    if reexp.empty:
+        return df
+
+    reexp_by_year = reexp.groupby("year")["volume"].sum()
+    df = df[~((df["source"] == "Sawmills") & (df["target"] == "Export Sawmills"))].copy()
+
+    harvest_mask = df["source"].isin(SPECIES_POOLS) & (df["target"] == "Sawmills")
+    new_rows = []
+    for year, total in reexp_by_year.items():
+        hy = df[harvest_mask & (df["year"] == year)]
+        hsum = hy["volume"].sum()
+        if hsum <= 0:
+            continue
+        for idx, row in hy.iterrows():
+            cut = total * (row["volume"] / hsum)
+            df.at[idx, "volume"] = row["volume"] - cut
+            new_rows.append({
+                "source": row["source"], "target": "Export Sawmills",
+                "volume": cut, "year": year, "origin": row["origin"],
+            })
+
+    if new_rows:
+        df = pd.concat([df, pd.DataFrame(new_rows)], ignore_index=True)
+    return df
 
 
 def assemble_sankey(primary_df: pd.DataFrame, treindustrien_df: pd.DataFrame) -> pd.DataFrame:
@@ -111,6 +156,9 @@ def assemble_sankey(primary_df: pd.DataFrame, treindustrien_df: pd.DataFrame) ->
     primary rows came fresh from SSB or were extracted from a cached dataset.
     """
     production = tre.production_wide(treindustrien_df)
+
+    # Route raw-log re-exports around Sawmills so only sawn logs reach the node.
+    primary_df = _bypass_raw_log_reexports(primary_df)
 
     # create_flow_rows must see ONLY the harvest logs entering the saw (species
     # pools -> Sawmills); imports/inventory are folded in via the trade frame.
