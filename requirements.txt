@@ -1,0 +1,8 @@
+# Runtime dependencies for the Streamlit app (e.g. Streamlit Community Cloud,
+# which installs from requirements.txt and does not pip-install the package).
+# The app adds ./src to sys.path itself, so the package need not be installed.
+# For local development, prefer:  pip install -e .[dev]
+pandas>=2.0
+plotly>=5.18
+streamlit>=1.30
+openpyxl>=3.1

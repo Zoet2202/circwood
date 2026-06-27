@@ -121,6 +121,25 @@ yield), verified for the 2012–2022 window.
 > because trade export rows (`Sawmills → Export *`) are additional outflows. The
 > sawing *transform* is mass-balanced in isolation; the test suite checks that.
 
+## Deployment (web hosting)
+
+The app runs off the **committed** processed data (`data/processed/*.csv`) and the
+config files, so it needs no live SSB access or local install when hosted.
+
+**Streamlit Community Cloud:** point it at this repo with
+`app/streamlit_app.py` as the entry point. It installs from
+[requirements.txt](requirements.txt) (the app adds `src/` to the path itself, so
+the package is not pip-installed there). Theme/server defaults are in
+[.streamlit/config.toml](.streamlit/config.toml).
+
+To refresh the hosted data after editing inputs or the carbon model, regenerate
+and commit the processed CSVs:
+
+```bash
+python -m circwood.pipeline          # sankey_data.csv (cached mode)
+python -c "from circwood import build_carbon; build_carbon(write=True)"  # carbon_data.csv
+```
+
 ## Status & roadmap
 
 Volume **and carbon** pipelines + the app are working off cached data. Still to
