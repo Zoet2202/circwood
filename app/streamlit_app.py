@@ -22,6 +22,11 @@ if str(SRC) not in sys.path:
 from circwood import build_sankey, constants as C  # noqa: E402
 from circwood.carbon import add_carbon, carbon_sankey, species_mix  # noqa: E402
 from circwood.reconcile import treindustrien_reconciliation  # noqa: E402
+from circwood.transform.assemble import (  # noqa: E402
+    effective_coefficients,
+    regenerate_balanced,
+)
+from circwood.transform.sawing import SawmillCoefficients  # noqa: E402
 from circwood.validate import balance_report  # noqa: E402
 from circwood.viz.sankey import load_node_params, make_sankey  # noqa: E402
 
@@ -34,26 +39,63 @@ METRICS = {
 }
 
 
-@st.cache_data(show_spinner=False)
-def _load_data():
-    return build_sankey(use_cached_ssb=True)
+# A coefficient choice is identified by (source, shrinkage, sawdust, cellulose,
+# scraps, planed_input_factor, byproduct_planing) — all primitives, so they make
+# safe, hashable Streamlit cache keys. The dataclass is rebuilt inside.
+_DEFAULTS = SawmillCoefficients()
+_DEFAULT_ARGS = (
+    "manual", _DEFAULTS.shrinkage, _DEFAULTS.sawdust, _DEFAULTS.cellulose,
+    _DEFAULTS.scraps, _DEFAULTS.planed_input_factor, _DEFAULTS.byproduct_planing,
+)
+
+
+@st.cache_data(show_spinner="Rebuilding flows…")
+def _load_data(source, shrinkage, sawdust, cellulose, scraps,
+               planed_input_factor, byproduct_planing):
+    """Sankey dataset for the chosen sawmill/planing coefficients.
+
+    The default-manual case loads the shipped cached dataset as-is; any other
+    choice rebuilds the flows from the cached primary rows via
+    ``regenerate_balanced`` (the published Sawmills imbalance noted in the mass-
+    balance panel applies to rebuilt datasets).
+    """
+    args = (source, shrinkage, sawdust, cellulose, scraps,
+            planed_input_factor, byproduct_planing)
+    if args == _DEFAULT_ARGS:
+        return build_sankey(use_cached_ssb=True)
+    base = SawmillCoefficients(
+        shrinkage, sawdust, cellulose, scraps,
+        planed_input_factor, byproduct_planing,
+    )
+    return regenerate_balanced(coefficient_source=source, coefficients=base)
 
 
 @st.cache_data(show_spinner=False)
-def _carbon_flows():
+def _carbon_flows(*args):
     """Carbon-valued Sankey frame (volume column carries kg C)."""
-    return carbon_sankey(_load_data())
+    return carbon_sankey(_load_data(*args))
 
 
 @st.cache_data(show_spinner=False)
-def _carbon_table():
+def _carbon_table(*args):
     """Full frame with an added carbon column (for the data panel)."""
-    return add_carbon(_load_data())
+    return add_carbon(_load_data(*args))
 
 
 @st.cache_data(show_spinner=False)
-def _species_mix():
-    return species_mix(_load_data())
+def _species_mix(*args):
+    return species_mix(_load_data(*args))
+
+
+@st.cache_data(show_spinner=False)
+def _effective_coef(source, shrinkage, sawdust, cellulose, scraps,
+                    planed_input_factor, byproduct_planing):
+    """The coefficients a rebuild would actually use (for display)."""
+    base = SawmillCoefficients(
+        shrinkage, sawdust, cellulose, scraps,
+        planed_input_factor, byproduct_planing,
+    )
+    return effective_coefficients(source, base)
 
 
 @st.cache_data(show_spinner=False)
@@ -66,8 +108,10 @@ def _all_node_labels():
 def main() -> None:
     st.title("Norwegian Wood Flows — Circwood WP4")
 
-    df = _load_data()
-    data_min, data_max = int(df["year"].min()), int(df["year"].max())
+    # Year coverage is independent of the coefficient choice, so derive the slider
+    # bounds from the default dataset before the controls are drawn.
+    bounds_df = _load_data(*_DEFAULT_ARGS)
+    data_min, data_max = int(bounds_df["year"].min()), int(bounds_df["year"].max())
 
     with st.sidebar:
         st.header("Controls")
@@ -111,9 +155,84 @@ def main() -> None:
         )
         nodes_to_drop = tuple(n for n in all_nodes if n not in visible)
 
+        st.divider()
+        st.subheader("Sawmill & planing coefficients")
+        coef_source_label = st.radio(
+            "Coefficient source",
+            options=["Manual (set percentages)", "Calculate from Treindustrien"],
+            help=(
+                "Manual: type the sawmill by-product and planing percentages. "
+                "Treindustrien: derive the sawn-timber yield from the produced-"
+                "volume dataset (single window-averaged value)."
+            ),
+        )
+        source_key = (
+            "treindustrien" if coef_source_label.startswith("Calculate") else "manual"
+        )
+
+        if source_key == "manual":
+            shrinkage = st.number_input(
+                "Shrinkage (water) share", 0.0, 0.95, float(_DEFAULTS.shrinkage),
+                0.01, format="%.3f",
+                help="Water lost at the saw, as a share of raw log input.")
+            sawdust = st.number_input(
+                "Sawdust share → Boardmills", 0.0, 0.95, float(_DEFAULTS.sawdust),
+                0.01, format="%.3f")
+            cellulose = st.number_input(
+                "Cellulose (chips) share → Pulpmills", 0.0, 0.95,
+                float(_DEFAULTS.cellulose), 0.01, format="%.3f")
+            scraps = st.number_input(
+                "Scraps share → Energy", 0.0, 0.95, float(_DEFAULTS.scraps),
+                0.01, format="%.3f")
+            planed_input_factor = st.number_input(
+                "Planing input factor (sawn per planed)", 1.0, 2.0,
+                float(_DEFAULTS.planed_input_factor), 0.01, format="%.3f")
+            byproduct_planing = st.number_input(
+                "Planing by-product share → Boardmills", 0.0, 0.95,
+                float(_DEFAULTS.byproduct_planing), 0.01, format="%.3f")
+            byproduct_total = shrinkage + sawdust + cellulose + scraps
+            if byproduct_total >= 1.0:
+                st.error(
+                    f"By-product shares sum to {byproduct_total:.0%} (≥ 100%); the "
+                    "implied sawn yield would be ≤ 0. Lower them."
+                )
+                st.stop()
+            st.caption(
+                f"→ Implied sawn-timber yield: **{1 - byproduct_total:.1%}** of log input."
+            )
+        else:
+            # Treindustrien-derived: the four by-product shares are rescaled from
+            # the defaults to fill the data-measured sawn yield; the planing
+            # factors are not reported by Treindustrien, so they keep the defaults.
+            shrinkage, sawdust, cellulose, scraps = (
+                _DEFAULTS.shrinkage, _DEFAULTS.sawdust,
+                _DEFAULTS.cellulose, _DEFAULTS.scraps,
+            )
+            planed_input_factor = _DEFAULTS.planed_input_factor
+            byproduct_planing = _DEFAULTS.byproduct_planing
+            eff = _effective_coef(
+                source_key, shrinkage, sawdust, cellulose, scraps,
+                planed_input_factor, byproduct_planing,
+            )
+            st.caption(
+                "Derived from Treindustrien produced sawn timber:\n"
+                f"- **Sawn yield {eff.sawn_yield:.1%}** of log input\n"
+                f"- Shrinkage {eff.shrinkage:.1%} · Sawdust {eff.sawdust:.1%} · "
+                f"Cellulose {eff.cellulose:.1%} · Scraps {eff.scraps:.1%}\n\n"
+                f"Planing input factor stays at {planed_input_factor:.2f} "
+                "(planing conversion is not reported by Treindustrien)."
+            )
+
+        coef_args = (
+            source_key, shrinkage, sawdust, cellulose, scraps,
+            planed_input_factor, byproduct_planing,
+        )
+
+    df = _load_data(*coef_args)
+
     is_carbon = metric.startswith("Carbon")
     value_scale, value_unit = METRICS[metric]
-    plot_df = _carbon_flows() if is_carbon else df
+    plot_df = _carbon_flows(*coef_args) if is_carbon else df
 
     st.caption(
         f"Sankey of wood-{'carbon' if is_carbon else 'volume'} flows from "
@@ -131,7 +250,7 @@ def main() -> None:
     )
     st.plotly_chart(fig, use_container_width=True)
 
-    base = _carbon_table() if is_carbon else df
+    base = _carbon_table(*coef_args) if is_carbon else df
     window = base[(base["year"] >= min_year) & (base["year"] <= max_year)]
 
     with st.expander("Data & provenance"):
@@ -184,7 +303,7 @@ def main() -> None:
                 "nodes. Editable in config/carbon_densities.csv and "
                 "config/carbon_nodes.csv."
             )
-            smix = _species_mix()
+            smix = _species_mix(*coef_args)
             smix = smix[(smix["year"] >= min_year) & (smix["year"] <= max_year)]
             smix = (
                 smix.groupby("node", as_index=False)[list(("spruce", "pine", "non-coniferous"))]

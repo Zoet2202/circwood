@@ -28,6 +28,11 @@ ROT_FACTOR = 1 / 15           # annual decay rate of dead-biomass stock
 # NOT to a post-shrinkage "dry" volume. Applying them to the dry volume was one
 # of the three bugs documented in Sawing_function_diagnosis.docx (it silently
 # scaled every by-product by (1 - SHRINKAGE) and under-reported the pulp share).
+#
+# These values are the *manual defaults*. A researcher can override them, or have
+# the sawn yield derived from the Treindustrien produced-volume dataset, via
+# ``circwood.transform.sawing.SawmillCoefficients`` (exposed in the Streamlit
+# app's "Sawmill & planing coefficients" control).
 # ---------------------------------------------------------------------------
 SHRINKAGE = 0.05              # water loss
 SAWDUST = 0.14               # -> Boardmills

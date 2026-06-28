@@ -12,7 +12,11 @@ import pandas as pd
 
 from circwood import config, constants as C
 from circwood.ingest import treindustrien as tre
-from circwood.transform.sawing import create_flow_rows
+from circwood.transform.sawing import (
+    SawmillCoefficients,
+    create_flow_rows,
+    resolve_coefficients,
+)
 from circwood.transform.inventory import create_inventory_rows
 from circwood.transform.mills import boardmill_process, pulpmills_process
 
@@ -240,14 +244,15 @@ def _bypass_raw_log_reexports(primary_df: pd.DataFrame) -> pd.DataFrame:
     return _bypass_raw_reexport(primary_df, "Sawmills", "Export Sawmills")
 
 
-def assemble_sankey(primary_df: pd.DataFrame, treindustrien_df: pd.DataFrame) -> pd.DataFrame:
-    """Build the full, mass-balanced Sankey from primary rows + Treindustrien.
+def _prepare_sawing_inputs(primary_df: pd.DataFrame, treindustrien_df: pd.DataFrame):
+    """Coerce years, route raw re-exports, and split out the sawing inputs.
 
-    ``primary_df`` holds the non-derived flows (SSB species/trade/mortality/EOL/
-    firewood rows + FAO board imports). This function re-derives every process
-    edge — the sawing flows, inventory routing, mill splits, and the firewood/
-    WPP aggregates — so the result is mass-consistent regardless of whether the
-    primary rows came fresh from SSB or were extracted from a cached dataset.
+    Returns ``(primary_df, harvest_to_sawmills, production)``: the cleaned primary
+    rows (with raw-roundwood re-exports bypassed around the mills), the
+    ``species pools -> Sawmills`` harvest inflow, and the wide Treindustrien
+    production frame. Shared by :func:`assemble_sankey` and
+    :func:`effective_coefficients` so the coefficients displayed and applied are
+    derived from identical inputs.
     """
     production = tre.production_wide(treindustrien_df)
 
@@ -269,9 +274,41 @@ def assemble_sankey(primary_df: pd.DataFrame, treindustrien_df: pd.DataFrame) ->
     harvest_to_sawmills = primary_df[
         primary_df["source"].isin(SPECIES_POOLS) & (primary_df["target"] == "Sawmills")
     ]
+    return primary_df, harvest_to_sawmills, production
+
+
+def assemble_sankey(
+    primary_df: pd.DataFrame,
+    treindustrien_df: pd.DataFrame,
+    coefficient_source: str = "manual",
+    coefficients: SawmillCoefficients | None = None,
+) -> pd.DataFrame:
+    """Build the full, mass-balanced Sankey from primary rows + Treindustrien.
+
+    ``primary_df`` holds the non-derived flows (SSB species/trade/mortality/EOL/
+    firewood rows + FAO board imports). This function re-derives every process
+    edge — the sawing flows, inventory routing, mill splits, and the firewood/
+    WPP aggregates — so the result is mass-consistent regardless of whether the
+    primary rows came fresh from SSB or were extracted from a cached dataset.
+
+    ``coefficient_source`` selects how the sawmill/planing percentages are set:
+    ``"manual"`` uses ``coefficients`` (or the package defaults), while
+    ``"treindustrien"`` derives the sawn yield from the Treindustrien
+    produced-volume data (with ``coefficients`` supplying the base by-product
+    ratios and planing factors). See
+    :class:`~circwood.transform.sawing.SawmillCoefficients`.
+    """
+    primary_df, harvest_to_sawmills, production = _prepare_sawing_inputs(
+        primary_df, treindustrien_df)
+
+    coef = resolve_coefficients(
+        coefficient_source, primary_df, harvest_to_sawmills,
+        production, treindustrien_df, base=coefficients,
+    )
     flows = create_flow_rows(
         trade_df=primary_df, sankey_df=harvest_to_sawmills,
         treindustrien_production=production, treindustrien_inventory=treindustrien_df,
+        coefficients=coef,
     )
     inventory_rows = create_inventory_rows(tre.signed_inventory(treindustrien_df))
 
@@ -301,7 +338,18 @@ def assemble_sankey(primary_df: pd.DataFrame, treindustrien_df: pd.DataFrame) ->
     return _apply_net_exports(_finalize(sankey_df))
 
 
-def regenerate_balanced(df: pd.DataFrame | None = None, write: bool = False) -> pd.DataFrame:
+def _strip_derived(df: pd.DataFrame) -> pd.DataFrame:
+    """Return only the primary (non-derived) rows of ``df`` (see ``DERIVED_EDGES``)."""
+    is_derived = [(s, t) in DERIVED_EDGES for s, t in zip(df["source"], df["target"])]
+    return df[~pd.Series(is_derived, index=df.index)].copy()
+
+
+def regenerate_balanced(
+    df: pd.DataFrame | None = None,
+    write: bool = False,
+    coefficient_source: str = "manual",
+    coefficients: SawmillCoefficients | None = None,
+) -> pd.DataFrame:
     """Re-derive a mass-balanced dataset from an existing dataset's primary rows.
 
     Strips every derived edge (see ``DERIVED_EDGES``) from ``df`` and re-runs
@@ -309,16 +357,23 @@ def regenerate_balanced(df: pd.DataFrame | None = None, write: bool = False) -> 
     Treindustrien CSV. This closes the Sawmills mass-balance gap (diagnosis
     Issue 3) on the cached dataset without needing SSB API access.
 
+    ``coefficient_source`` / ``coefficients`` are forwarded to
+    :func:`assemble_sankey`, so this is also the entry point for rebuilding the
+    cached dataset under researcher-chosen (manual or Treindustrien-derived)
+    sawmill/planing percentages.
+
     Note: this changes the sawn-side numbers (the Sawmills -> WPP band shrinks
     to its mass-balanced value, cascading to Boardmills/Pulpmills throughput).
     """
     from circwood.pipeline import load_cached_sankey
 
     df = df if df is not None else load_cached_sankey()
-    is_derived = [(s, t) in DERIVED_EDGES for s, t in zip(df["source"], df["target"])]
-    primary = df[~pd.Series(is_derived, index=df.index)].copy()
+    primary = _strip_derived(df)
 
-    rebuilt = assemble_sankey(primary, tre.load_treindustrien())
+    rebuilt = assemble_sankey(
+        primary, tre.load_treindustrien(),
+        coefficient_source=coefficient_source, coefficients=coefficients,
+    )
 
     if write:
         config.PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
@@ -327,14 +382,43 @@ def regenerate_balanced(df: pd.DataFrame | None = None, write: bool = False) -> 
     return rebuilt
 
 
+def effective_coefficients(
+    coefficient_source: str = "manual",
+    coefficients: SawmillCoefficients | None = None,
+    df: pd.DataFrame | None = None,
+) -> SawmillCoefficients:
+    """Return the :class:`SawmillCoefficients` that a rebuild would actually use.
+
+    Mirrors the primary-row extraction and re-export bypass of
+    :func:`regenerate_balanced`, then resolves the coefficients against the same
+    inputs :func:`assemble_sankey` sees. Lets the app preview the
+    Treindustrien-derived yields without rebuilding the whole dataset.
+    """
+    from circwood.pipeline import load_cached_sankey
+
+    df = df if df is not None else load_cached_sankey()
+    treindustrien_df = tre.load_treindustrien()
+    primary = _strip_derived(df)
+    primary, harvest_to_sawmills, production = _prepare_sawing_inputs(
+        primary, treindustrien_df)
+    return resolve_coefficients(
+        coefficient_source, primary, harvest_to_sawmills,
+        production, treindustrien_df, base=coefficients,
+    )
+
+
 # ---------------------------------------------------------------------------
 # Fresh (SSB API) pipeline — deferred; requires the `ssb` extras + network.
 # ---------------------------------------------------------------------------
-def run_fresh_pipeline() -> pd.DataFrame:
+def run_fresh_pipeline(
+    coefficient_source: str = "manual",
+    coefficients: SawmillCoefficients | None = None,
+) -> pd.DataFrame:
     """Fetch fresh SSB data and rebuild the full Sankey dataset.
 
     Requires ``pip install -e .[ssb]`` and network access. Writes the result to
-    ``config.SANKEY_CSV`` and returns it.
+    ``config.SANKEY_CSV`` and returns it. ``coefficient_source`` / ``coefficients``
+    are forwarded to :func:`assemble_sankey`.
     """
     try:
         import pyjstat  # noqa: F401
@@ -462,7 +546,10 @@ def run_fresh_pipeline() -> pd.DataFrame:
                           rows_residues, rows_firewood, rows_harvest, rows_bark],
         ignore_index=True,
     )
-    sankey_df = assemble_sankey(primary_df, treindustrien_df)
+    sankey_df = assemble_sankey(
+        primary_df, treindustrien_df,
+        coefficient_source=coefficient_source, coefficients=coefficients,
+    )
 
     config.PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
     sankey_df.to_csv(config.SANKEY_CSV, index=False)

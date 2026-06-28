@@ -11,7 +11,11 @@ import pandas as pd
 import pytest
 
 from circwood import constants as C
-from circwood.transform.sawing import create_flow_rows
+from circwood.transform.sawing import (
+    SawmillCoefficients,
+    create_flow_rows,
+    resolve_coefficients,
+)
 
 
 def _empty_trade() -> pd.DataFrame:
@@ -109,3 +113,87 @@ def test_byproduct_shares_sum_with_sawn_yield_to_one():
     """The defined coefficients must partition the input exactly."""
     total = C.SHRINKAGE + C.SAWDUST + C.CELLULOSE + C.SCRAPS + C.SAWN_YIELD
     assert total == pytest.approx(1.0)
+
+
+# --- Sawmill/planing coefficient option (manual vs Treindustrien) ------------
+
+def test_default_coefficients_match_constants():
+    """Omitting coefficients must reproduce the package constants exactly."""
+    coef = SawmillCoefficients()
+    assert coef.shrinkage == C.SHRINKAGE
+    assert coef.cellulose == C.CELLULOSE
+    assert coef.sawn_yield == pytest.approx(C.SAWN_YIELD)
+    assert coef.byproduct_total + coef.sawn_yield == pytest.approx(1.0)
+    assert coef.source == "manual"
+
+
+def test_manual_coefficients_change_byproduct_flows():
+    """A custom cellulose share must scale the Sawmills -> Pulpmills flow."""
+    years = [2011, 2012]
+    inflow = _inflow({2011: 1000.0, 2012: 2000.0})
+    coef = SawmillCoefficients(
+        shrinkage=0.05, sawdust=0.14, cellulose=0.30, scraps=0.05)
+    flows = create_flow_rows(
+        trade_df=_empty_trade(),
+        sankey_df=inflow,
+        treindustrien_production=_production(years),
+        treindustrien_inventory=_zero_inventory(years),
+        coefficients=coef,
+    )
+    cellulose = flows[(flows.source == "Sawmills") & (flows.target == "Pulpmills")]
+    cellulose = cellulose.set_index("year")["volume"]
+    assert cellulose.loc[2011] == pytest.approx(0.30 * 1000.0)
+
+
+def test_custom_coefficients_still_mass_balance():
+    """Any coefficient choice still partitions the input (Sawmills balances)."""
+    years = [2011, 2012, 2013]
+    inflow_map = {2011: 1000.0, 2012: 2000.0, 2013: 3000.0}
+    coef = SawmillCoefficients(
+        shrinkage=0.03, sawdust=0.10, cellulose=0.30, scraps=0.07)
+    flows = create_flow_rows(
+        trade_df=_empty_trade(),
+        sankey_df=_inflow(inflow_map),
+        treindustrien_production=_production(years),
+        treindustrien_inventory=_zero_inventory(years),
+        coefficients=coef,
+    )
+    outflow = flows[flows.source == "Sawmills"].groupby("year")["volume"].sum()
+    for y, v in inflow_map.items():
+        assert outflow.loc[y] == pytest.approx(v)
+
+
+def test_from_treindustrien_derives_yield_and_rescales_byproducts():
+    """Sawn yield = Σ produced sawn / Σ input; by-products fill the remainder."""
+    years = [2011, 2012]
+    initial = pd.Series([1000.0, 1000.0], index=years)
+    produced_sawn = pd.Series([600.0, 600.0], index=years)  # 60% yield
+    coef = SawmillCoefficients.from_treindustrien(produced_sawn, initial)
+    assert coef.source == "treindustrien"
+    assert coef.sawn_yield == pytest.approx(0.60)
+    assert coef.byproduct_total == pytest.approx(0.40)
+    assert coef.byproduct_total + coef.sawn_yield == pytest.approx(1.0)
+    # Relative proportions of the by-products are preserved while rescaling.
+    base = SawmillCoefficients()
+    assert coef.cellulose / coef.sawdust == pytest.approx(base.cellulose / base.sawdust)
+
+
+def test_from_treindustrien_ignores_years_without_input():
+    """Years with produced sawn but no log input must not bias the average."""
+    years = [2010, 2011, 2012]
+    initial = pd.Series([0.0, 1000.0, 1000.0], index=years)   # 2010 has no input
+    produced_sawn = pd.Series([999.0, 500.0, 500.0], index=years)
+    coef = SawmillCoefficients.from_treindustrien(produced_sawn, initial)
+    assert coef.sawn_yield == pytest.approx(0.50)  # 1000 / 2000, 2010 excluded
+
+
+def test_resolve_coefficients_manual_returns_base():
+    """Manual mode returns the supplied base unchanged (source normalised)."""
+    years = [2011, 2012]
+    base = SawmillCoefficients(cellulose=0.30)
+    coef = resolve_coefficients(
+        "manual", _empty_trade(), _inflow({2011: 1.0, 2012: 1.0}),
+        _production(years), _zero_inventory(years), base=base,
+    )
+    assert coef.cellulose == 0.30
+    assert coef.source == "manual"
