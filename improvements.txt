@@ -1,0 +1,9 @@
+improvements: 
+
+1. Rename Standing wood to Harvested wood.
+1.5 Completly remove mortality node from the model.
+
+3. From sawmills -> Net exports impregnated, sawn timber
+3.5 Node for standing wood -> Net export Skurlast & massevirke nodes
+
+4. Figure out how to publish this application.

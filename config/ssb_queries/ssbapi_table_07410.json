@@ -1,24 +1,35 @@
-{"queryObj":{
-  "query": [
-    {
-      "code": "Treslag",
-      "selection": {
-        "filter": "item",
-        "values": [
-          "1142",
-          "1160",
-          "1410",
-          "2142",
-          "2160",
-          "2410",
-          "3122",
-          "3123",
-          "3400"
+{
+  "url": "https://data.ssb.no/api/pxwebapi/v2/tables/07410/data",
+  "params": {
+    "lang": "no",
+    "outputFormat": "json-stat2"
+  },
+  "payload": {
+    "selection": [
+      { "variableCode": "ContentsCode", "valueCodes": ["*"] },
+      {
+        "variableCode": "Tid",
+        "valueCodes": [
+          "2012", "2013", "2014", "2015", "2016", "2017",
+          "2018", "2019", "2020", "2021", "2022",
+          "2023", "2024", "2025"
         ]
-      }
+      },
+      { "variableCode": "Treslag", "valueCodes":[
+        "1142",
+        "1160",
+        "1410",
+        "2142",
+        "2160",
+        "2410",
+        "3122",
+        "3123",
+        "3400"
+      ] }
+    ],
+    "placement": {
+      "heading": ["ContentsCode", "Tid"],
+      "stub": ["Treslag"]
     }
-  ],
-  "response": {
-    "format": "json-stat2"
   }
-},"tableIdForQuery":"07410","postUrl":"https://data.ssb.no/api/v0/no/table/07410"}
+}

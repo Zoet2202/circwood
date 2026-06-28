@@ -1,17 +1,18 @@
-{"queryObj":{
-  "query": [
-    {
-      "code": "Virkegruppe",
-      "selection": {
-        "filter": "item",
-        "values": [
-          "3800",
-          "1800"
-        ]
-      }
+{
+  "url": "https://data.ssb.no/api/pxwebapi/v2/tables/11181/data",
+  "params": {
+    "lang": "no",
+    "outputFormat": "json-stat2"
+  },
+  "payload": {
+    "selection": [
+      { "variableCode": "ContentsCode", "valueCodes": ["*"] },
+      { "variableCode": "Tid", "valueCodes": ["*"] },
+      { "variableCode": "Virkegruppe", "valueCodes": ["1800", "3800"] }
+    ],
+    "placement": {
+      "heading": ["Virkegruppe", "ContentsCode"],
+      "stub": ["Tid"]
     }
-  ],
-  "response": {
-    "format": "json-stat2"
   }
-},"tableIdForQuery":"11181","postUrl":"https://data.ssb.no/api/v0/no/table/11181"}
+}

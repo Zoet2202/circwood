@@ -19,7 +19,6 @@ MAX_YEAR = 2022
 # ---------------------------------------------------------------------------
 BARK_PERCENTAGE = 0.10        # share of roundwood that is bark
 HARVEST_RESIDUE_PERCENTAGE = 0.10  # residues left at harvest, share of removals
-MORTALITY_FACTOR = 0.15       # share of annual increment lost to mortality
 ROT_FACTOR = 1 / 15           # annual decay rate of dead-biomass stock
 
 # ---------------------------------------------------------------------------

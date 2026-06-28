@@ -26,7 +26,7 @@ def test_species_mix_sums_to_one_everywhere():
 def test_pure_pool_source_keeps_its_species():
     """A flow straight out of a species pool uses that species only."""
     df = pd.DataFrame({
-        "source": ["Standing wood", "Spruce"],
+        "source": ["Harvested wood", "Spruce"],
         "target": ["Spruce", "Sawmills"],
         "volume": [1000.0, 1000.0],
         "year": [2015, 2015],

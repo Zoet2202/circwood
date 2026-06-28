@@ -62,15 +62,20 @@ def treindustrien_reconciliation(
 
 
 def domestic_sawtimber(df: pd.DataFrame, min_year: int, max_year: int) -> float:
-    """Total domestic sawtimber harvest reaching the sawmill (incl. re-exports)."""
+    """Total domestic sawtimber harvest reaching the sawmill (incl. net re-export).
+
+    Raw-sawlog re-exports are now netted into ``Net export skurlast`` (the species
+    pool's outflow splits between ``Sawmills`` and that net node), so the harvest
+    total is the sum of both.
+    """
     w = _window(df, min_year, max_year)
     return w[
-        w.source.isin(SPECIES_POOLS) & w.target.isin(["Sawmills", "Export Sawmills"])
+        w.source.isin(SPECIES_POOLS) & w.target.isin(["Sawmills", "Net export skurlast"])
     ].volume.sum()
 
 
 def annual_roundwood_harvest(df: pd.DataFrame, min_year: int, max_year: int) -> float:
-    """Mean annual roundwood harvest (Standing wood -> species pools), m3/yr."""
+    """Mean annual roundwood harvest (Harvested wood -> species pools), m3/yr."""
     w = _window(df, min_year, max_year)
-    total = w[(w.source == "Standing wood") & w.target.isin(SPECIES_POOLS)].volume.sum()
+    total = w[(w.source == "Harvested wood") & w.target.isin(SPECIES_POOLS)].volume.sum()
     return total / (max_year - min_year + 1)

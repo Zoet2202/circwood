@@ -46,9 +46,9 @@ def create_firewood_rows(
     for species, ratio in [("Spruce", spruce_ratio), ("Pine", pine_ratio)]:
         sub = conifer.assign(value=conifer["value"] * ratio)
         flows.append(make_flow(sub, species, "Firewood"))
-        flows.append(make_flow(sub, "Standing wood", species))
+        flows.append(make_flow(sub, "Harvested wood", species))
 
     flows.append(make_flow(non_conifer, "Non-coniferous", "Firewood"))
-    flows.append(make_flow(non_conifer, "Standing wood", "Non-coniferous"))
+    flows.append(make_flow(non_conifer, "Harvested wood", "Non-coniferous"))
 
     return pd.concat(flows, ignore_index=True)

@@ -24,7 +24,7 @@ def _synthetic_primary():
     """Minimal, consistent set of primary rows for one year (no trade)."""
     year = 2015
     species_edges = [
-        ("Standing wood", "Spruce", 2000.0),
+        ("Harvested wood", "Spruce", 2000.0),
         ("Spruce", "Sawmills", 1200.0),
         ("Spruce", "Pulpmills", 600.0),
         ("Spruce", "Boardmills", 200.0),

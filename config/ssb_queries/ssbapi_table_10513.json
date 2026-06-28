@@ -1,33 +1,19 @@
-{"queryObj":{
-  "query": [
-    {
-      "code": "AvfallsBehand",
-      "selection": {
-        "filter": "item",
-        "values": [
-          "00",
-          "01",
-          "16",
-          "02",
-          "15",
-          "21",
-          "06",
-          "07b",
-          "14"
-        ]
-      }
-    },
-    {
-      "code": "AvfallsType",
-      "selection": {
-        "filter": "item",
-        "values": [
-          "06"
-        ]
-      }
+{
+  "url": "https://data.ssb.no/api/pxwebapi/v2/tables/10513/data",
+  "params": {
+    "lang": "no",
+    "outputFormat": "json-stat2"
+  },
+  "payload": {
+    "selection": [
+      { "variableCode": "ContentsCode", "valueCodes": ["*"] },
+      { "variableCode": "Tid", "valueCodes": ["*"] },
+      { "variableCode": "AvfallsType", "valueCodes": ["06"] },
+      { "variableCode": "AvfallsBehand", "valueCodes": ["21"] }
+    ],
+    "placement": {
+      "heading": ["AvfallsType", "ContentsCode"],
+      "stub": ["AvfallsBehand", "Tid"]
     }
-  ],
-  "response": {
-    "format": "json-stat2"
   }
-},"tableIdForQuery":"10513","postUrl":"https://data.ssb.no/api/v0/no/table/10513"}
+}

@@ -1,7 +1,7 @@
 {
   "url": "https://data.ssb.no/api/pxwebapi/v2/tables/03795/data",
   "params": {
-    "lang": "en",
+    "lang": "no",
     "outputFormat": "json-stat2"
   },
   "payload": {

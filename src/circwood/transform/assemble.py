@@ -103,47 +103,141 @@ def _finalize(sankey_df: pd.DataFrame) -> pd.DataFrame:
     return deduped[["source", "target", "volume", "year", "origin"]]
 
 
-def _bypass_raw_log_reexports(primary_df: pd.DataFrame) -> pd.DataFrame:
-    """Route raw-log re-exports around the Sawmills node.
+# Trade flows collapsed into single net-export nodes (net = export - import),
+# replacing the gross Import*/Export* edges. Raw roundwood nets at the species
+# pools; sawn timber nets at the Sawmills output. (improvements items 3 / 3.5)
+NET_EXPORT_PRODUCTS = (
+    {
+        "net_node": "Net export skurlast",
+        "exports": [("Spruce", "Export Sawmills"), ("Pine", "Export Sawmills"),
+                    ("Non-coniferous", "Export Sawmills")],
+        "import_edge": ("Import saw wood", "Sawmills"),
+        "domestic_target": "Sawmills",
+    },
+    {
+        "net_node": "Net export massevirke",
+        "exports": [("Spruce", "Export pulpwood"), ("Pine", "Export pulpwood"),
+                    ("Non-coniferous", "Export pulpwood")],
+        "import_edge": ("Import pulpwood", "Pulpmills"),
+        "domestic_target": "Pulpmills",
+    },
+    {
+        "net_node": "Net export sawn timber",
+        "exports": [("Sawmills", "Export sawn wood")],
+        "import_edge": ("Import sawn wood", "Wood Product processing & Logistics"),
+        "domestic_target": "Wood Product processing & Logistics",
+    },
+)
 
-    SSB 08801 maps re-exported sawlogs ('Skurtømmer' eksport) to a
-    ``Sawmills -> Export Sawmills`` edge, i.e. the logs pass *through* Sawmills
-    even though they are never sawn. That inflates the Sawmills inflow and means
-    the 26% chip yield (applied to logs actually sawn) reads as a smaller share
-    of inflow, and the node cannot balance.
+NET_ORIGIN = "SSB table 08801 (net)"
 
-    This re-routes the re-exported volume to come straight from the species
-    pools (``Spruce``/``Pine``/``Non-coniferous`` -> ``Export Sawmills``),
-    allocated by each species' share of the sawlog inflow, and reduces the
-    corresponding species -> Sawmills rows. Idempotent: only acts on the
-    ``Sawmills -> Export Sawmills`` passthrough.
+
+def _apply_net_exports(sankey_df: pd.DataFrame) -> pd.DataFrame:
+    """Collapse gross import/export pairs into single net-export nodes.
+
+    For each product and year, ``net = gross export - gross import``. The gross
+    ``Import* -> mill`` and ``source -> Export*`` edges are removed and replaced
+    by a ``source -> Net export <product>`` edge carrying the net; the domestic
+    ``source -> mill`` edge is bumped by the import volume so every node stays
+    mass-balanced (the mill's total throughput is unchanged — the import is just
+    folded into the domestic flow). Net-import years (import > export) are drawn
+    as ``Net export <product> -> mill`` instead, keeping direction physical and
+    volumes non-negative. Idempotent: re-running finds no gross edges to net.
+    """
+    vol: dict = {}
+    orig: dict = {}
+    for r in sankey_df.itertuples(index=False):
+        k = (r.year, r.source, r.target)
+        vol[k] = vol.get(k, 0.0) + float(r.volume)
+        orig[k] = r.origin
+
+    years = sorted({k[0] for k in vol})
+    for cfg in NET_EXPORT_PRODUCTS:
+        net_node, dom = cfg["net_node"], cfg["domestic_target"]
+        imp_s, imp_t = cfg["import_edge"]
+        for y in years:
+            xs = {(s, t): vol.get((y, s, t), 0.0) for s, t in cfg["exports"]}
+            X = sum(xs.values())
+            I = vol.get((y, imp_s, imp_t), 0.0)
+            if X == 0 and I == 0:
+                continue
+            for s, t in cfg["exports"]:
+                vol.pop((y, s, t), None)
+            vol.pop((y, imp_s, imp_t), None)
+
+            if X - I >= 0 and X > 0:                  # net export
+                for (s, _t), x in xs.items():
+                    dk = (y, s, dom)
+                    vol[dk] = vol.get(dk, 0.0) + x / X * I
+                    orig.setdefault(dk, NET_ORIGIN)
+                    nk = (y, s, net_node)
+                    vol[nk] = vol.get(nk, 0.0) + x * (X - I) / X
+                    orig[nk] = NET_ORIGIN
+            else:                                     # net import (or X == 0)
+                for (s, _t), x in xs.items():
+                    dk = (y, s, dom)
+                    vol[dk] = vol.get(dk, 0.0) + x
+                    orig.setdefault(dk, NET_ORIGIN)
+                mk = (y, net_node, dom)
+                vol[mk] = vol.get(mk, 0.0) + (I - X)
+                orig[mk] = NET_ORIGIN
+
+    recs = [
+        {"source": s, "target": t, "volume": v, "year": y, "origin": orig[(y, s, t)]}
+        for (y, s, t), v in vol.items() if v != 0
+    ]
+    return pd.DataFrame(recs)[["source", "target", "volume", "year", "origin"]]
+
+
+def _bypass_raw_reexport(primary_df: pd.DataFrame, node: str, export_target: str) -> pd.DataFrame:
+    """Route raw-roundwood re-exports around a processing ``node``.
+
+    SSB 08801 maps re-exported raw roundwood to a ``node -> export_target`` edge,
+    i.e. the wood passes *through* the mill even though it is never processed
+    there. That inflates the node's throughput and stops it balancing (and, for
+    Sawmills, makes the 26% chip yield read as a smaller share of inflow).
+
+    This re-routes the re-exported volume to come straight from the species pools
+    (``Spruce``/``Pine``/``Non-coniferous`` -> ``export_target``), allocated by
+    each species' share of the node's pool inflow, and reduces the corresponding
+    ``species -> node`` rows. Species-pool balance is preserved (the pool's total
+    outflow is unchanged). Idempotent: only acts on the passthrough edge.
+
+    Examples: ``(node="Sawmills", export_target="Export Sawmills")`` for
+    re-exported sawlogs ('Skurtømmer'); ``(node="Pulpmills",
+    export_target="Export pulpwood")`` for re-exported pulpwood ('Massevirke').
     """
     df = primary_df.copy()
-    reexp = df[(df["source"] == "Sawmills") & (df["target"] == "Export Sawmills")]
+    reexp = df[(df["source"] == node) & (df["target"] == export_target)]
     if reexp.empty:
         return df
 
     reexp_by_year = reexp.groupby("year")["volume"].sum()
-    df = df[~((df["source"] == "Sawmills") & (df["target"] == "Export Sawmills"))].copy()
+    df = df[~((df["source"] == node) & (df["target"] == export_target))].copy()
 
-    harvest_mask = df["source"].isin(SPECIES_POOLS) & (df["target"] == "Sawmills")
+    feed_mask = df["source"].isin(SPECIES_POOLS) & (df["target"] == node)
     new_rows = []
     for year, total in reexp_by_year.items():
-        hy = df[harvest_mask & (df["year"] == year)]
-        hsum = hy["volume"].sum()
-        if hsum <= 0:
+        fy = df[feed_mask & (df["year"] == year)]
+        fsum = fy["volume"].sum()
+        if fsum <= 0:
             continue
-        for idx, row in hy.iterrows():
-            cut = total * (row["volume"] / hsum)
+        for idx, row in fy.iterrows():
+            cut = total * (row["volume"] / fsum)
             df.at[idx, "volume"] = row["volume"] - cut
             new_rows.append({
-                "source": row["source"], "target": "Export Sawmills",
+                "source": row["source"], "target": export_target,
                 "volume": cut, "year": year, "origin": row["origin"],
             })
 
     if new_rows:
         df = pd.concat([df, pd.DataFrame(new_rows)], ignore_index=True)
     return df
+
+
+def _bypass_raw_log_reexports(primary_df: pd.DataFrame) -> pd.DataFrame:
+    """Route raw-log re-exports around Sawmills (see :func:`_bypass_raw_reexport`)."""
+    return _bypass_raw_reexport(primary_df, "Sawmills", "Export Sawmills")
 
 
 def assemble_sankey(primary_df: pd.DataFrame, treindustrien_df: pd.DataFrame) -> pd.DataFrame:
@@ -157,8 +251,18 @@ def assemble_sankey(primary_df: pd.DataFrame, treindustrien_df: pd.DataFrame) ->
     """
     production = tre.production_wide(treindustrien_df)
 
-    # Route raw-log re-exports around Sawmills so only sawn logs reach the node.
-    primary_df = _bypass_raw_log_reexports(primary_df)
+    # SSB rows arrive with string years (pyjstat category labels); the sawing
+    # math reindexes against integer Treindustrien years, so coerce up front or
+    # the string-keyed harvest inflow silently drops to zero on reindex.
+    primary_df = primary_df.copy()
+    primary_df["year"] = pd.to_numeric(primary_df["year"], errors="coerce")
+    primary_df = primary_df.dropna(subset=["year"])
+    primary_df["year"] = primary_df["year"].astype(int)
+
+    # Route raw-roundwood re-exports around the mills so only processed wood
+    # reaches them (raw sawlogs around Sawmills, raw pulpwood around Pulpmills).
+    primary_df = _bypass_raw_reexport(primary_df, "Sawmills", "Export Sawmills")
+    primary_df = _bypass_raw_reexport(primary_df, "Pulpmills", "Export pulpwood")
 
     # create_flow_rows must see ONLY the harvest logs entering the saw (species
     # pools -> Sawmills); imports/inventory are folded in via the trade frame.
@@ -194,7 +298,7 @@ def assemble_sankey(primary_df: pd.DataFrame, treindustrien_df: pd.DataFrame) ->
     wpp_energy = df_wpp.assign(volume=df_wpp["volume"] * C.WPP_ENERGY, target="Energy")
 
     sankey_df = pd.concat([sankey_df, df_firewood, wpp_ltu, wpp_energy], ignore_index=True)
-    return _finalize(sankey_df)
+    return _apply_net_exports(_finalize(sankey_df))
 
 
 def regenerate_balanced(df: pd.DataFrame | None = None, write: bool = False) -> pd.DataFrame:
@@ -257,16 +361,27 @@ def run_fresh_pipeline() -> pd.DataFrame:
     # --- 11181 firewood ---
     rows_firewood = create_firewood_rows(pd.concat(ssb["11181"], ignore_index=True))
 
-    # --- 06289 mortality ---
-    tbl_06289 = pd.concat(ssb["06289"], ignore_index=True)
-    tilvekst = tbl_06289.loc[
-        (tbl_06289["statistikkvariabel"] == "Årlig tilvekst")
-        & (tbl_06289["treslag"] == "I alt")
-    ].copy()
-    rows_mortality = pd.DataFrame({
-        "source": "Standing wood", "target": "Mortality",
-        "volume": tilvekst["value"] * 1000 * C.MORTALITY_FACTOR,
-        "year": tilvekst["år"], "origin": "SSB table 06289",
+    # --- 03795 roundwood harvest by species (feeds the species pools) ---
+    # 03795 'Kvantum avvirket' is already in m3 (no x1000). It supplies the
+    # Harvested wood -> Spruce/Pine/Non-coniferous inflows that balance the
+    # species pools, plus the harvest total used for the bark estimate.
+    tbl_03795 = pd.concat(ssb["03795"], ignore_index=True)
+    species_map = {"Gran": "Spruce", "Furu": "Pine", "Lauv": "Non-coniferous"}
+    harvest = tbl_03795[tbl_03795["sortiment"].isin(species_map)].copy()
+    rows_harvest = pd.DataFrame({
+        "source": "Harvested wood",
+        "target": harvest["sortiment"].map(species_map),
+        "volume": harvest["value"].astype(float),
+        "year": harvest["år"].astype(int),
+        "origin": "SSB table 03795",
+    })
+
+    # Bark = 10% of total harvested wood (all 03795 sortiments), per year.
+    harvest_total = tbl_03795.groupby("år", as_index=False)["value"].sum()
+    rows_bark = pd.DataFrame({
+        "source": "Harvested wood", "target": "Bark",
+        "volume": harvest_total["value"].astype(float) * C.BARK_PERCENTAGE,
+        "year": harvest_total["år"].astype(int), "origin": "SSB table 03795",
     })
 
     # --- 10513 end-of-life ---
@@ -295,7 +410,7 @@ def run_fresh_pipeline() -> pd.DataFrame:
     sum_all = tbl_07410.groupby("år", as_index=False)["value"].sum()
     rows_residues = pd.DataFrame({
         "year": sum_all["år"], "volume": sum_all["value"] * C.HARVEST_RESIDUE_PERCENTAGE,
-        "source": "Standing wood", "target": "Residues from harvest",
+        "source": "Harvested wood", "target": "Residues from harvest",
         "origin": "SSB table 07410",
     })
 
@@ -344,7 +459,7 @@ def run_fresh_pipeline() -> pd.DataFrame:
     # mass-balanced assembly step.
     primary_df = pd.concat(
         species_frames + [trade_vol, fao_boardmills_df, rows_EOL, rows_waste,
-                          rows_residues, rows_mortality, rows_firewood],
+                          rows_residues, rows_firewood, rows_harvest, rows_bark],
         ignore_index=True,
     )
     sankey_df = assemble_sankey(primary_df, treindustrien_df)

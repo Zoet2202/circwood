@@ -9,9 +9,9 @@ Carbon of a flow = ``volume × Σ_species share_species × density(species, stat
 
 How the species share of a flow is determined:
 
-* Flows leaving ``Standing wood`` carry the target pool's species (Spruce/Pine/
-  Non-coniferous); the harvest by-products (Bark, Residues, Mortality) carry the
-  year's overall harvest mix.
+* Flows leaving ``Harvested wood`` carry the target pool's species (Spruce/Pine/
+  Non-coniferous); the harvest by-products (Bark, Residues) carry the year's
+  overall harvest mix.
 * Flows leaving a **fixed** node (the species pools and imports) carry that
   node's configured shares.
 * Flows leaving a **propagate** node (the mills, use phases, inventories) carry
@@ -32,7 +32,7 @@ import pandas as pd
 from circwood import config
 
 SPECIES = ("spruce", "pine", "non-coniferous")
-STANDING_WOOD = "Standing wood"
+STANDING_WOOD = "Harvested wood"
 # Pool node label -> its single species.
 POOL_SPECIES = {"Spruce": "spruce", "Pine": "pine", "Non-coniferous": "non-coniferous"}
 
@@ -110,7 +110,7 @@ def _num(x) -> float:
 # Species propagation
 # ---------------------------------------------------------------------------
 def _harvest_mix_for_year(edges: pd.DataFrame) -> dict:
-    """Species split of the year's harvest, from Standing wood -> pool volumes."""
+    """Species split of the year's harvest, from Harvested wood -> pool volumes."""
     sub = edges[(edges["source"] == STANDING_WOOD) & (edges["target"].isin(POOL_SPECIES))]
     acc = {sp: 0.0 for sp in SPECIES}
     for r in sub.itertuples():

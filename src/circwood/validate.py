@@ -5,9 +5,9 @@ flows in equals what flows out (the model treats stock changes as their own
 edges to inventory nodes, so they are part of the flow accounting). Boundary
 nodes are exempt:
 
-* **sources** — only emit (e.g. ``Standing wood``, the ``Import *`` nodes);
+* **sources** — only emit (e.g. ``Harvested wood``, the ``Import *`` nodes);
 * **sinks** — only receive (e.g. ``Energy``, ``Loss``, ``Export *``,
-  ``Short-term USE``, ``Mortality`` ...).
+  ``Short-term USE`` ...).
 
 ``balance_report`` quantifies the imbalance per node; ``assert_balanced`` turns
 it into a hard check for the process nodes.

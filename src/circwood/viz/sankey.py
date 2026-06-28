@@ -12,14 +12,13 @@ from circwood import config, constants as C
 # Data-side node names that differ from the labels in config/nodes.json.
 # Any flow whose endpoints are not in nodes.json is dropped during remap.
 NODE_RENAME_MAP = {
-    "Standing Wood": "Standing wood",
+    "Standing Wood": "Harvested wood",
+    "Standing wood": "Harvested wood",
     "End-of-Life": "End-of-life",
     "Material recovery": "Material Recovery",
     "Timber Inventory": "Sawmills_stock",
     "planed timber inventory": "Planingmills_stock",
     "Impregnated inventory": "Boardmills_stock",
-    "Export sawn wood": "Export Sawn",
-    "Export Sawmills": "Export Sawn",
     "Export planed wood": "Export Planed",
 }
 
