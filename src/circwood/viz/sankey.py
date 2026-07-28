@@ -9,20 +9,6 @@ import plotly.graph_objects as go
 
 from circwood import config, constants as C
 
-# Data-side node names that differ from the labels in config/nodes.json.
-# Any flow whose endpoints are not in nodes.json is dropped during remap.
-NODE_RENAME_MAP = {
-    "Standing Wood": "Harvested wood",
-    "Standing wood": "Harvested wood",
-    "End-of-Life": "End-of-life",
-    "Material recovery": "Material Recovery",
-    "Timber Inventory": "Sawmills_stock",
-    "planed timber inventory": "Planingmills_stock",
-    "Impregnated inventory": "Boardmills_stock",
-    "Export planed wood": "Export Planed",
-}
-
-
 def load_node_params(nodes_to_drop=(), param_file=None):
     """Load node labels/positions/colors from the params JSON."""
     with open(param_file or config.NODES_FILE, "r", encoding="utf-8") as fh:
@@ -55,16 +41,12 @@ def prepare_flows(
     if value_scale and value_scale != 1:
         df["volume"] = df["volume"].astype(float) / value_scale
 
-    df["source"] = df["source"].replace(NODE_RENAME_MAP)
-    df["target"] = df["target"].replace(NODE_RENAME_MAP)
-
     df = df[~df["target"].isin(nodes_to_drop)]
     df = df[~df["source"].isin(nodes_to_drop)]
 
     df["year"] = df["year"].astype(int)
     df = df[(df["year"] >= min_year) & (df["year"] <= max_year)]
 
-    # Sum within year first (the rename can re-merge distinct nodes), then mean.
     df = df.groupby(["source", "target", "year"], as_index=False)["volume"].sum()
     if aggregate == "avg":
         df = df.groupby(["source", "target"], as_index=False)["volume"].mean()
@@ -154,7 +136,7 @@ def make_sankey(
     min_year: int = C.MIN_YEAR,
     max_year: int = C.MAX_YEAR,
     aggregate: str = "avg",
-    nodes_to_drop=("Energy output",),
+    nodes_to_drop=(),
     value_scale: float = 1_000_000.0,
     value_unit: str = "Mm³",
     label_threshold: float = 0.5,

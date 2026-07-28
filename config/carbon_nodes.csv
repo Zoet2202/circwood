@@ -2,13 +2,12 @@ node,state,mix_mode,spruce_share,pine_share,nonconif_share
 Spruce,raw,fixed,1,0,0
 Pine,raw,fixed,0,1,0
 Non-coniferous,raw,fixed,0,0,1
-Import saw wood,dry,fixed,1,0,0
-Import sawn wood,dry,fixed,1,0,0
 Import planed wood,dry,fixed,1,0,0
-Import pulpwood,raw,fixed,1,0,0
-Import impregnated,dry,fixed,1,0,0
 Import Boards,dry,fixed,1,0,0
 Import Firewood,dry,fixed,0,0,1
+Net export skurlast,raw,fixed,1,0,0
+Net export massevirke,raw,fixed,1,0,0
+Net export sawn timber,dry,fixed,1,0,0
 Sawmills,dry,propagate,,,
 Planingmills,dry,propagate,,,
 Boardmills,dry,propagate,,,
@@ -18,8 +17,8 @@ Wood Product processing & Logistics,dry,propagate,,,
 Long-term USE,dry,propagate,,,
 End-of-Life,dry,propagate,,,
 Firewood,raw,propagate,,,
-Timber Inventory,raw,propagate,,,
-planed timber inventory,dry,propagate,,,
+Timber inventory,raw,propagate,,,
+Planed timber inventory,dry,propagate,,,
 Impregnated inventory,dry,propagate,,,
 Bark,raw,propagate,,,
 Residues from harvest,raw,propagate,,,

@@ -140,17 +140,10 @@ def main() -> None:
         st.divider()
         st.subheader("Nodes")
         all_nodes = _all_node_labels()
-        # Default: show everything except the 'Energy output' helper node.
-        default_visible = [n for n in all_nodes if n != "Energy output"]
-
-        if st.checkbox("Select all nodes", value=False,
-                       help="Tick to show every node, then untick individual ones below."):
-            default_visible = list(all_nodes)
-
         visible = st.multiselect(
             "Nodes to display",
             options=all_nodes,
-            default=default_visible,
+            default=list(all_nodes),
             help="Flows touching a hidden node are removed from the diagram.",
         )
         nodes_to_drop = tuple(n for n in all_nodes if n not in visible)
@@ -269,10 +262,9 @@ def main() -> None:
     with st.expander("Mass balance check"):
         st.caption(
             "Per-node inflow vs outflow over the selected window (m³). Process "
-            "nodes should balance. Note: use-phase nodes (Long-term/Short-term "
-            "USE) are reservoirs where wood accumulates, so they are not expected "
-            "to net to zero; Sawmills currently carries a known imbalance "
-            "(diagnosis Issue 3) in the cached dataset."
+            "nodes should balance within ~1 %. Use-phase nodes (Long-term/"
+            "Short-term USE) and the inventory nodes are reservoirs where wood "
+            "accumulates, so they are not expected to net to zero."
         )
         vol_window = df[(df["year"] >= min_year) & (df["year"] <= max_year)]
         rep = balance_report(vol_window)

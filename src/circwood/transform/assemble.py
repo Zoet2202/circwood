@@ -39,10 +39,10 @@ DERIVED_EDGES = {
     ("Planingmills", "Impregnation"),
     ("Impregnation", "Wood Product processing & Logistics"),
     # inventory routing
-    ("Sawmills", "Timber Inventory"),
-    ("Timber Inventory", "Sawmills"),
-    ("Planingmills", "planed timber inventory"),
-    ("planed timber inventory", "Planingmills"),
+    ("Sawmills", "Timber inventory"),
+    ("Timber inventory", "Sawmills"),
+    ("Planingmills", "Planed timber inventory"),
+    ("Planed timber inventory", "Planingmills"),
     ("Impregnation", "Impregnated inventory"),
     ("Impregnated inventory", "Impregnation"),
     # mill split functions
@@ -50,7 +50,7 @@ DERIVED_EDGES = {
     ("Boardmills", "Wood Product processing & Logistics"),
     ("Pulpmills", "Short-term USE"),
     ("Pulpmills", "Energy"),
-    ("Pulpmills", "Loss"),
+    ("Pulpmills", "Loss Pulpmills"),
     # aggregates
     ("Firewood", "Energy"),
     ("Wood Product processing & Logistics", "Long-term USE"),

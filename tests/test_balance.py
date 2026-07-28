@@ -5,8 +5,8 @@ volume at every process node when fed consistent inputs — i.e. a correctly
 assembled dataset balances by construction. This is the guarantee behind
 fixing diagnosis Issue 3.
 
-`test_cached_*` documents the known state of the shipped cached dataset (which
-predates the Issue-3 fix): only the Sawmills node is materially out of balance.
+`test_shipped_*` locks in that the shipped (regenerated) dataset balances at
+every process node over the paper window — the closure of Issue 3.
 """
 
 from __future__ import annotations

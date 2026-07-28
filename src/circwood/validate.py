@@ -6,7 +6,7 @@ edges to inventory nodes, so they are part of the flow accounting). Boundary
 nodes are exempt:
 
 * **sources** — only emit (e.g. ``Harvested wood``, the ``Import *`` nodes);
-* **sinks** — only receive (e.g. ``Energy``, ``Loss``, ``Export *``,
+* **sinks** — only receive (e.g. ``Energy``, ``Loss Pulpmills``, ``Export *``,
   ``Short-term USE`` ...).
 
 ``balance_report`` quantifies the imbalance per node; ``assert_balanced`` turns

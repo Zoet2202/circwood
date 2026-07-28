@@ -50,7 +50,7 @@ def pulpmills_process(
 
     rows_loss = filtered.copy()
     rows_loss["volume"] = rows_loss["volume"] * loss_ratio
-    rows_loss["target"] = "Loss"
+    rows_loss["target"] = "Loss Pulpmills"
 
     return pd.concat(
         [dataframe, rows_short_term, rows_energy, rows_loss], ignore_index=True
