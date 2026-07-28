@@ -9,16 +9,16 @@ import pandas as pd
 #   change <  0  -> stock draw-down (inventory -> mill)
 INVENTORY_MAPPING = {
     "Timber inventory": {
-        "positive": ("Sawmills", "Timber Inventory"),
-        "negative": ("Timber Inventory", "Sawmills"),
+        "positive": ("Sawmills", "Timber inventory"),
+        "negative": ("Timber inventory", "Sawmills"),
     },
     "sawn timber inventory": {
-        "positive": ("Sawmills", "Timber Inventory"),
-        "negative": ("Timber Inventory", "Sawmills"),
+        "positive": ("Sawmills", "Timber inventory"),
+        "negative": ("Timber inventory", "Sawmills"),
     },
     "planed timber inventory": {
-        "positive": ("Planingmills", "planed timber inventory"),
-        "negative": ("planed timber inventory", "Planingmills"),
+        "positive": ("Planingmills", "Planed timber inventory"),
+        "negative": ("Planed timber inventory", "Planingmills"),
     },
     "Impregnated inventory": {
         "positive": ("Impregnation", "Impregnated inventory"),

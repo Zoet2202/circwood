@@ -11,32 +11,29 @@
     { "label": "Sawmills", "x_position": 0.32, "y_position": 0.22, "node_color": "#bc8a5f" },
 
     { "label": "Shrinkage", "x_position": 0.50, "y_position": 0.02, "node_color": "#bc4749" },
-    { "label": "Sawmills_stock", "x_position": 0.50, "y_position": 0.07, "node_color": "#adb5bd" },
+    { "label": "Timber inventory", "x_position": 0.50, "y_position": 0.07, "node_color": "#adb5bd" },
     { "label": "Net export skurlast", "x_position": 0.32, "y_position": 0.02, "node_color": "#8d99ae" },
     { "label": "Net export massevirke", "x_position": 0.32, "y_position": 0.98, "node_color": "#8d99ae" },
     { "label": "Net export sawn timber", "x_position": 0.67, "y_position": 0.02, "node_color": "#8d99ae" },
     { "label": "Planingmills", "x_position": 0.50, "y_position": 0.21, "node_color": "#a3744a" },
-    { "label": "Planingmills_stock", "x_position": 0.50, "y_position": 0.28, "node_color": "#adb5bd" },
+    { "label": "Planed timber inventory", "x_position": 0.50, "y_position": 0.28, "node_color": "#adb5bd" },
+    { "label": "Import planed wood", "x_position": 0.50, "y_position": 0.35, "node_color": "#355070" },
     { "label": "Boardmills", "x_position": 0.50, "y_position": 0.44, "node_color": "#c89f72" },
     { "label": "Import Boards", "x_position": 0.50, "y_position": 0.54, "node_color": "#355070" },
     { "label": "Pulpmills", "x_position": 0.50, "y_position": 0.82, "node_color": "#ddb892" },
 
-    { "label": "Export Planed", "x_position": 0.67, "y_position": 0.08, "node_color": "#8d99ae" },
+    { "label": "Export planed wood", "x_position": 0.67, "y_position": 0.08, "node_color": "#8d99ae" },
     { "label": "Impregnation", "x_position": 0.67, "y_position": 0.17, "node_color": "#9c6644" },
     { "label": "Wood Product processing & Logistics", "x_position": 0.67, "y_position": 0.33, "node_color": "#b08968" },
-    { "label": "Boardmills_stock", "x_position": 0.67, "y_position": 0.45, "node_color": "#adb5bd" },
+    { "label": "Impregnated inventory", "x_position": 0.67, "y_position": 0.45, "node_color": "#adb5bd" },
     { "label": "Loss Boardmills", "x_position": 0.67, "y_position": 0.51, "node_color": "#bc4749" },
+    { "label": "Export Boards", "x_position": 0.67, "y_position": 0.57, "node_color": "#8d99ae" },
     { "label": "Short-term USE", "x_position": 0.67, "y_position": 0.63, "node_color": "#468faf" },
     { "label": "Firewood", "x_position": 0.67, "y_position": 0.74, "node_color": "#d4a373" },
     { "label": "Loss Pulpmills", "x_position": 0.67, "y_position": 0.88, "node_color": "#bc4749" },
 
-    { "label": "Export Impregnated", "x_position": 0.80, "y_position": 0.10, "node_color": "#8d99ae" },
     { "label": "Long-term USE", "x_position": 0.80, "y_position": 0.30, "node_color": "#1d7874" },
-    { "label": "End-of-life", "x_position": 0.80, "y_position": 0.50, "node_color": "#f4a261" },
-    { "label": "Energy", "x_position": 0.80, "y_position": 0.72, "node_color": "#ee9b00" },
-
-    { "label": "Long-term USE_stock", "x_position": 0.92, "y_position": 0.24, "node_color": "#adb5bd" },
-    { "label": "Material Recovery", "x_position": 0.92, "y_position": 0.45, "node_color": "#2a9d8f" },
-    { "label": "Other", "x_position": 0.92, "y_position": 0.55, "node_color": "#ced4da" },
-    { "label": "Energy output", "x_position": 0.92, "y_position": 0.72, "node_color": "#ffb703" }
+    { "label": "End-of-Life", "x_position": 0.80, "y_position": 0.50, "node_color": "#f4a261" },
+    { "label": "Export Firewood", "x_position": 0.80, "y_position": 0.62, "node_color": "#8d99ae" },
+    { "label": "Energy", "x_position": 0.80, "y_position": 0.72, "node_color": "#ee9b00" }
 ]

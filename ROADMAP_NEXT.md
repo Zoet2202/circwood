@@ -1,5 +1,9 @@
 # Circwood WP4 — Improvements Roadmap (next horizon)
 
+> **Superseded** — the open items here were reprioritised into
+> [ROADMAP_CONSOLIDATION.md](ROADMAP_CONSOLIDATION.md); use that document.
+> This file is kept for the item numbering (A2, C1, …) it references.
+
 The refactor in [ROADMAP.md](ROADMAP.md) is done: clean `circwood` package,
 fixed + tested sawing function, species-accurate editable carbon model, and a
 Streamlit app (metric toggle, year controls, node selector) that deploys off
@@ -69,7 +73,7 @@ These determine whether the numbers can be defended in a paper.
   Forest / mills / end-use grouping (the same palette categories) to make the
   33-node list easier to navigate.
 - **C4 · Figure export & per-node totals** — **P2 · S**
-  Download the diagram as PNG/SVG (kaleido is already installed) and show a
+  Download the diagram as PNG/SVG (requires adding `kaleido`) and show a
   per-node inflow/outflow/balance table on hover or in a panel.
 - **C5 · Two-year / scenario comparison** — **P3 · M**
   Render two Sankeys side by side (e.g. 2012 vs 2022, or central vs high-carbon).

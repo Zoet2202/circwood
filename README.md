@@ -8,7 +8,7 @@ diagram.
 Data sources: **SSB** (Statistics Norway) tables and the **Treindustrien**
 annual report. The current build runs entirely off cached/processed data — no
 network access required. Live SSB API ingestion is scaffolded for later (see
-[ROADMAP.md](ROADMAP.md)).
+[ROADMAP_CONSOLIDATION.md](ROADMAP_CONSOLIDATION.md)).
 
 ## Project layout
 
@@ -158,4 +158,10 @@ python -c "from circwood import build_carbon; build_carbon(write=True)"  # carbo
 ## Status & roadmap
 
 Volume **and carbon** pipelines + the app are working off cached data. Still to
-do: live SSB API ingestion. See [ROADMAP.md](ROADMAP.md).
+do: live SSB API ingestion, an automated refresh loop, and a public static
+site. The live plan is [ROADMAP_CONSOLIDATION.md](ROADMAP_CONSOLIDATION.md)
+(ROADMAP.md and ROADMAP_NEXT.md are its completed/superseded predecessors).
+
+The Streamlit app is the **internal exploration tool**; the public deployment
+will be a static site (see Phase D of the roadmap) so it is robust enough for
+Treteknisk to adopt.
