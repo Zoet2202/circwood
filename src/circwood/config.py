@@ -33,6 +33,13 @@ RAW_SSB_DIR = RAW_DIR / "ssb"
 SANKEY_CSV = PROCESSED_DIR / "sankey_data.csv"
 CARBON_CSV = PROCESSED_DIR / "carbon_data.csv"
 
+# The public static site (Phase D). ``site/`` is committed source; ``site/data``
+# is generated output (git-ignored) — the bundle is derived from the committed
+# CSVs at build/deploy time rather than committed twice.
+SITE_DIR = ROOT_DIR / "site"
+SITE_DATA_DIR = SITE_DIR / "data"
+BUNDLE_JSON = SITE_DATA_DIR / "circwood.json"
+
 # Raw source inputs used by the fresh (API) pipeline.
 TREINDUSTRIEN_CSV = RAW_DIR / "treindustrien_production_data.csv"
 FAO_CSV = RAW_DIR / "FAO_Data.csv"
@@ -56,6 +63,9 @@ __all__ = [
     "PROCESSED_DIR",
     "SANKEY_CSV",
     "CARBON_CSV",
+    "SITE_DIR",
+    "SITE_DATA_DIR",
+    "BUNDLE_JSON",
     "TREINDUSTRIEN_CSV",
     "FAO_CSV",
     "HARVEST_FYLKE_CSV",

@@ -2,7 +2,63 @@
 
 Completed work, newest first. The live plan is [ROADMAP.md](ROADMAP.md).
 
-## 2026-07-28 — Phase E: confidentiality guardrails
+## 2026-07-28 — Phase D: the public static site
+
+The public deployment — a host-anywhere static site in `site/`, deployed to
+GitHub Pages by `.github/workflows/site.yml` on every merge to `main` that
+touches the data or the site. The refresh loop's PRs therefore redeploy the
+site only *after* human review, never from the refresh run itself.
+
+**The bundle** (`circwood.export.bundle.build_bundle`, CLI `circwood-bundle`)
+
+- One file, `site/data/circwood.json` (+ a byte-deterministic `.json.gz`),
+  built offline from the committed `carbon_data.csv` — volume and carbon in
+  one flow table — plus the `nodes.json` positions and the manifest vintage.
+  Columnar layout with index-coded categoricals: **69 KB / 17 KB gzipped**
+  for all 1,878 flows, which is why it is JSON and not Parquet.
+- **Every frame passes `assert_publishable` before serialising** — the Phase E
+  gate is the only door out of the module — and `entity_id` never reaches the
+  bundle at all (a constant today, a confidentiality decision tomorrow).
+- Node coverage is checked exactly, both ways, like the golden fence: a label
+  missing from `nodes.json` raises instead of silently dropping flows (the
+  `remap_ids` failure mode that once hid ~5.9 Mm³); a ghost raises instead of
+  rendering an orphan node. `site/data/` is git-ignored — the CSVs stay the
+  single committed artifact.
+
+**The site** (`site/index.html` + `app.js` + `style.css`, no build step)
+
+- **Plotly.js, not ECharts as the roadmap originally named** — reversed on
+  evidence, logged in the decision log: the dataset contains two-way
+  inventory flows (`Sawmills ⇄ Timber inventory` and both other inventory
+  pairs, both directions even within one year), which ECharts' sankey rejects
+  as a graph cycle, and only Plotly's `arrangement: "fixed"` honours the
+  hand-placed `nodes.json` layout the paper's figure uses.
+  `site/vendor/plotly.min.js` (2.35.2, MIT) is committed so deploys need no
+  CDN.
+- Filters, all client-side over the bundle: year range with single-year vs
+  annual-average aggregation (mirroring `viz.prepare_flows` — mean over the
+  years a flow has data for), metric (volume Mm³ / carbon Mt C), species,
+  region, assortment, and a node-focus multi-select. A visible note explains
+  the region dimension's semantics when a county is selected ("NO" = not
+  regionally attributed, harvest edges only).
+- **Cross-filter:** clicking a node renders its inflow/outflow time series
+  across all dataset years (analysis window shaded) and an
+  inflow/outflow/balance table; clicking a link renders that flow's history
+  and per-year values. Verified live: process nodes balance on screen
+  (Pulpmills 2020: in 3.86, out 3.86).
+- **URL state** — every filter and the selection serialise to query params, so
+  any view is a shareable link — plus four presets (overview, sawmill chain,
+  carbon to long-term use, firewood & energy) and a copy-link button.
+- **PNG/SVG export** of the current view; light/dark theme (OS-following with
+  a manual override); a data-table fallback so every charted number is
+  reachable without hovering; the footer states the data vintage from the
+  manifest and cites the paper.
+
+**Verified:** 142 tests green (was 130; `tests/test_bundle.py` covers
+fidelity, the gate, node coverage and byte-determinism); the site
+smoke-tested in headless Edge — light, dark, node selection, link selection,
+carbon metric, single-year mode — rendering from a local bundle build. No
+data or schema change; no fixture regeneration.
 
 The rules for member-level data, written and enforced **before any such data
 exists** — cheap insurance against an unrecoverable failure mode (a member's
