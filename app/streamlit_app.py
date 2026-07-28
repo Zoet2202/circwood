@@ -105,8 +105,27 @@ def _all_node_labels():
     return labels
 
 
+def _vintage_caption() -> str:
+    """"Data as of ..." from the manifest, or an honest admission of ignorance.
+
+    A dashboard that does not state its vintage invites the reader to assume it
+    is current. When no manifest exists (a checkout that has never run a fresh
+    build) say so rather than showing nothing.
+    """
+    from circwood.manifest import read_manifest
+
+    manifest = read_manifest()
+    if manifest is None:
+        return (
+            ":grey[Data vintage unknown — no `data/processed/manifest.json`. "
+            "Run `circwood-refresh` to record one.]"
+        )
+    return f":grey[{manifest.describe()}]"
+
+
 def main() -> None:
     st.title("Norwegian Wood Flows — Circwood WP4")
+    st.caption(_vintage_caption())
 
     # Year coverage is independent of the coefficient choice, so derive the slider
     # bounds from the default dataset before the controls are drawn.

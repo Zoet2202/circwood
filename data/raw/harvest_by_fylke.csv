@@ -1,0 +1,1275 @@
+year,region,region_label,target,volume
+1996,NO-03,Oslo - Oslove,Non-coniferous,246.0
+1996,NO-11,Rogaland,Non-coniferous,1525.0
+1996,NO-15,Møre og Romsdal,Non-coniferous,2941.0
+1996,NO-18,Nordland - Nordlánnda,Non-coniferous,12905.0
+1996,NO-31,Østfold,Non-coniferous,6001.0
+1996,NO-32,Akershus,Non-coniferous,10879.0
+1996,NO-33,Buskerud,Non-coniferous,12837.0
+1996,NO-34,Innlandet,Non-coniferous,18328.0
+1996,NO-39,Vestfold,Non-coniferous,33878.0
+1996,NO-40,Telemark,Non-coniferous,22099.0
+1996,NO-42,Agder,Non-coniferous,48133.0
+1996,NO-46,Vestland,Non-coniferous,1171.0
+1996,NO-50,Trøndelag - Trööndelage,Non-coniferous,5874.0
+1996,NO-55,Troms - Romsa - Tromssa,Non-coniferous,38272.0
+1996,NO-03,Oslo - Oslove,Pine,783.0
+1996,NO-11,Rogaland,Pine,17103.0
+1996,NO-15,Møre og Romsdal,Pine,52441.0
+1996,NO-18,Nordland - Nordlánnda,Pine,2774.0
+1996,NO-31,Østfold,Pine,75516.0
+1996,NO-32,Akershus,Pine,98457.0
+1996,NO-33,Buskerud,Pine,179399.0
+1996,NO-34,Innlandet,Pine,678831.0
+1996,NO-39,Vestfold,Pine,13111.0
+1996,NO-40,Telemark,Pine,193012.0
+1996,NO-42,Agder,Pine,243354.0
+1996,NO-46,Vestland,Pine,49924.0
+1996,NO-50,Trøndelag - Trööndelage,Pine,69800.0
+1996,NO-55,Troms - Romsa - Tromssa,Pine,2940.0
+1996,NO-56,Finnmark - Finnmárku - Finmarkku,Pine,333.0
+1996,NO-03,Oslo - Oslove,Spruce,54752.0
+1996,NO-11,Rogaland,Spruce,18029.0
+1996,NO-15,Møre og Romsdal,Spruce,28919.0
+1996,NO-18,Nordland - Nordlánnda,Spruce,89759.0
+1996,NO-31,Østfold,Spruce,290471.0
+1996,NO-32,Akershus,Spruce,670660.0
+1996,NO-33,Buskerud,Spruce,620588.0
+1996,NO-34,Innlandet,Spruce,2267644.0
+1996,NO-39,Vestfold,Spruce,232892.0
+1996,NO-40,Telemark,Spruce,412450.0
+1996,NO-42,Agder,Spruce,238842.0
+1996,NO-46,Vestland,Spruce,100972.0
+1996,NO-50,Trøndelag - Trööndelage,Spruce,826733.0
+1996,NO-55,Troms - Romsa - Tromssa,Spruce,94.0
+1997,NO-03,Oslo - Oslove,Non-coniferous,391.0
+1997,NO-11,Rogaland,Non-coniferous,518.0
+1997,NO-15,Møre og Romsdal,Non-coniferous,1429.0
+1997,NO-18,Nordland - Nordlánnda,Non-coniferous,10592.0
+1997,NO-31,Østfold,Non-coniferous,4561.0
+1997,NO-32,Akershus,Non-coniferous,6626.0
+1997,NO-33,Buskerud,Non-coniferous,10459.0
+1997,NO-34,Innlandet,Non-coniferous,17359.0
+1997,NO-39,Vestfold,Non-coniferous,22519.0
+1997,NO-40,Telemark,Non-coniferous,18152.0
+1997,NO-42,Agder,Non-coniferous,33734.0
+1997,NO-46,Vestland,Non-coniferous,1350.0
+1997,NO-50,Trøndelag - Trööndelage,Non-coniferous,3263.0
+1997,NO-55,Troms - Romsa - Tromssa,Non-coniferous,33477.0
+1997,NO-03,Oslo - Oslove,Pine,1048.0
+1997,NO-11,Rogaland,Pine,11209.0
+1997,NO-15,Møre og Romsdal,Pine,42895.0
+1997,NO-18,Nordland - Nordlánnda,Pine,3392.0
+1997,NO-31,Østfold,Pine,75663.0
+1997,NO-32,Akershus,Pine,98060.0
+1997,NO-33,Buskerud,Pine,183533.0
+1997,NO-34,Innlandet,Pine,697644.0
+1997,NO-39,Vestfold,Pine,10834.0
+1997,NO-40,Telemark,Pine,196506.0
+1997,NO-42,Agder,Pine,238273.0
+1997,NO-46,Vestland,Pine,38735.0
+1997,NO-50,Trøndelag - Trööndelage,Pine,53283.0
+1997,NO-55,Troms - Romsa - Tromssa,Pine,4855.0
+1997,NO-03,Oslo - Oslove,Spruce,45990.0
+1997,NO-11,Rogaland,Spruce,24498.0
+1997,NO-15,Møre og Romsdal,Spruce,25214.0
+1997,NO-18,Nordland - Nordlánnda,Spruce,82282.0
+1997,NO-31,Østfold,Spruce,301550.0
+1997,NO-32,Akershus,Spruce,713981.0
+1997,NO-33,Buskerud,Spruce,689620.0
+1997,NO-34,Innlandet,Spruce,2462110.0
+1997,NO-39,Vestfold,Spruce,265630.0
+1997,NO-40,Telemark,Spruce,472090.0
+1997,NO-42,Agder,Spruce,284092.0
+1997,NO-46,Vestland,Spruce,77665.0
+1997,NO-50,Trøndelag - Trööndelage,Spruce,776469.0
+1997,NO-55,Troms - Romsa - Tromssa,Spruce,227.0
+1998,NO-03,Oslo - Oslove,Non-coniferous,373.0
+1998,NO-11,Rogaland,Non-coniferous,657.0
+1998,NO-15,Møre og Romsdal,Non-coniferous,1790.0
+1998,NO-18,Nordland - Nordlánnda,Non-coniferous,20309.0
+1998,NO-31,Østfold,Non-coniferous,2965.0
+1998,NO-32,Akershus,Non-coniferous,6368.0
+1998,NO-33,Buskerud,Non-coniferous,7294.0
+1998,NO-34,Innlandet,Non-coniferous,20822.0
+1998,NO-39,Vestfold,Non-coniferous,17292.0
+1998,NO-40,Telemark,Non-coniferous,15591.0
+1998,NO-42,Agder,Non-coniferous,30524.0
+1998,NO-46,Vestland,Non-coniferous,1244.0
+1998,NO-50,Trøndelag - Trööndelage,Non-coniferous,4831.0
+1998,NO-55,Troms - Romsa - Tromssa,Non-coniferous,32153.0
+1998,NO-03,Oslo - Oslove,Pine,1714.0
+1998,NO-11,Rogaland,Pine,11156.0
+1998,NO-15,Møre og Romsdal,Pine,34526.0
+1998,NO-18,Nordland - Nordlánnda,Pine,2675.0
+1998,NO-31,Østfold,Pine,71455.0
+1998,NO-32,Akershus,Pine,108308.0
+1998,NO-33,Buskerud,Pine,181789.0
+1998,NO-34,Innlandet,Pine,685850.0
+1998,NO-39,Vestfold,Pine,10520.0
+1998,NO-40,Telemark,Pine,209654.0
+1998,NO-42,Agder,Pine,242428.0
+1998,NO-46,Vestland,Pine,31079.0
+1998,NO-50,Trøndelag - Trööndelage,Pine,64491.0
+1998,NO-55,Troms - Romsa - Tromssa,Pine,6207.0
+1998,NO-03,Oslo - Oslove,Spruce,34037.0
+1998,NO-11,Rogaland,Spruce,16585.0
+1998,NO-15,Møre og Romsdal,Spruce,26944.0
+1998,NO-18,Nordland - Nordlánnda,Spruce,87595.0
+1998,NO-31,Østfold,Spruce,293765.0
+1998,NO-32,Akershus,Spruce,630167.0
+1998,NO-33,Buskerud,Spruce,618545.0
+1998,NO-34,Innlandet,Spruce,2325025.0
+1998,NO-39,Vestfold,Spruce,253222.0
+1998,NO-40,Telemark,Spruce,497633.0
+1998,NO-42,Agder,Spruce,251875.0
+1998,NO-46,Vestland,Spruce,73671.0
+1998,NO-50,Trøndelag - Trööndelage,Spruce,736985.0
+1998,NO-55,Troms - Romsa - Tromssa,Spruce,60.0
+1999,NO-03,Oslo - Oslove,Non-coniferous,80.0
+1999,NO-11,Rogaland,Non-coniferous,720.0
+1999,NO-15,Møre og Romsdal,Non-coniferous,667.0
+1999,NO-18,Nordland - Nordlánnda,Non-coniferous,14850.0
+1999,NO-31,Østfold,Non-coniferous,2689.0
+1999,NO-32,Akershus,Non-coniferous,3761.0
+1999,NO-33,Buskerud,Non-coniferous,1780.0
+1999,NO-34,Innlandet,Non-coniferous,16821.0
+1999,NO-39,Vestfold,Non-coniferous,5571.0
+1999,NO-40,Telemark,Non-coniferous,4862.0
+1999,NO-42,Agder,Non-coniferous,12859.0
+1999,NO-46,Vestland,Non-coniferous,1497.0
+1999,NO-50,Trøndelag - Trööndelage,Non-coniferous,3590.0
+1999,NO-55,Troms - Romsa - Tromssa,Non-coniferous,30284.0
+1999,NO-03,Oslo - Oslove,Pine,3632.0
+1999,NO-11,Rogaland,Pine,11678.0
+1999,NO-15,Møre og Romsdal,Pine,29864.0
+1999,NO-18,Nordland - Nordlánnda,Pine,1132.0
+1999,NO-31,Østfold,Pine,69011.0
+1999,NO-32,Akershus,Pine,88637.0
+1999,NO-33,Buskerud,Pine,182542.0
+1999,NO-34,Innlandet,Pine,638590.0
+1999,NO-39,Vestfold,Pine,11813.0
+1999,NO-40,Telemark,Pine,210206.0
+1999,NO-42,Agder,Pine,234834.0
+1999,NO-46,Vestland,Pine,34199.0
+1999,NO-50,Trøndelag - Trööndelage,Pine,38777.0
+1999,NO-55,Troms - Romsa - Tromssa,Pine,6397.0
+1999,NO-03,Oslo - Oslove,Spruce,42906.0
+1999,NO-11,Rogaland,Spruce,17757.0
+1999,NO-15,Møre og Romsdal,Spruce,24079.0
+1999,NO-18,Nordland - Nordlánnda,Spruce,98609.0
+1999,NO-31,Østfold,Spruce,321925.0
+1999,NO-32,Akershus,Spruce,649620.0
+1999,NO-33,Buskerud,Spruce,649198.0
+1999,NO-34,Innlandet,Spruce,2420027.0
+1999,NO-39,Vestfold,Spruce,250557.0
+1999,NO-40,Telemark,Spruce,492292.0
+1999,NO-42,Agder,Spruce,262232.0
+1999,NO-46,Vestland,Spruce,81234.0
+1999,NO-50,Trøndelag - Trööndelage,Spruce,734321.0
+1999,NO-55,Troms - Romsa - Tromssa,Spruce,254.0
+2000,NO-03,Oslo - Oslove,Non-coniferous,57.0
+2000,NO-11,Rogaland,Non-coniferous,622.0
+2000,NO-15,Møre og Romsdal,Non-coniferous,1070.0
+2000,NO-18,Nordland - Nordlánnda,Non-coniferous,4957.0
+2000,NO-31,Østfold,Non-coniferous,1339.0
+2000,NO-32,Akershus,Non-coniferous,1213.0
+2000,NO-33,Buskerud,Non-coniferous,669.0
+2000,NO-34,Innlandet,Non-coniferous,6923.0
+2000,NO-39,Vestfold,Non-coniferous,1650.0
+2000,NO-40,Telemark,Non-coniferous,7358.0
+2000,NO-42,Agder,Non-coniferous,11551.0
+2000,NO-46,Vestland,Non-coniferous,1029.0
+2000,NO-50,Trøndelag - Trööndelage,Non-coniferous,3794.0
+2000,NO-55,Troms - Romsa - Tromssa,Non-coniferous,18999.0
+2000,NO-03,Oslo - Oslove,Pine,1364.0
+2000,NO-11,Rogaland,Pine,9596.0
+2000,NO-15,Møre og Romsdal,Pine,30158.0
+2000,NO-18,Nordland - Nordlánnda,Pine,725.0
+2000,NO-31,Østfold,Pine,73420.0
+2000,NO-32,Akershus,Pine,93826.0
+2000,NO-33,Buskerud,Pine,188509.0
+2000,NO-34,Innlandet,Pine,665057.0
+2000,NO-39,Vestfold,Pine,11243.0
+2000,NO-40,Telemark,Pine,228526.0
+2000,NO-42,Agder,Pine,237712.0
+2000,NO-46,Vestland,Pine,30955.0
+2000,NO-50,Trøndelag - Trööndelage,Pine,30211.0
+2000,NO-55,Troms - Romsa - Tromssa,Pine,4334.0
+2000,NO-03,Oslo - Oslove,Spruce,31814.0
+2000,NO-11,Rogaland,Spruce,18322.0
+2000,NO-15,Møre og Romsdal,Spruce,29844.0
+2000,NO-18,Nordland - Nordlánnda,Spruce,111667.0
+2000,NO-31,Østfold,Spruce,324964.0
+2000,NO-32,Akershus,Spruce,570544.0
+2000,NO-33,Buskerud,Spruce,558402.0
+2000,NO-34,Innlandet,Spruce,2342644.0
+2000,NO-39,Vestfold,Spruce,220438.0
+2000,NO-40,Telemark,Spruce,522708.0
+2000,NO-42,Agder,Spruce,266535.0
+2000,NO-46,Vestland,Spruce,72130.0
+2000,NO-50,Trøndelag - Trööndelage,Spruce,740787.0
+2000,NO-55,Troms - Romsa - Tromssa,Spruce,123.0
+2001,NO-11,Rogaland,Non-coniferous,132.0
+2001,NO-15,Møre og Romsdal,Non-coniferous,1395.0
+2001,NO-18,Nordland - Nordlánnda,Non-coniferous,2300.0
+2001,NO-31,Østfold,Non-coniferous,2310.0
+2001,NO-32,Akershus,Non-coniferous,789.0
+2001,NO-33,Buskerud,Non-coniferous,700.0
+2001,NO-34,Innlandet,Non-coniferous,4744.0
+2001,NO-39,Vestfold,Non-coniferous,5077.0
+2001,NO-40,Telemark,Non-coniferous,10228.0
+2001,NO-42,Agder,Non-coniferous,9393.0
+2001,NO-46,Vestland,Non-coniferous,965.0
+2001,NO-50,Trøndelag - Trööndelage,Non-coniferous,2210.0
+2001,NO-55,Troms - Romsa - Tromssa,Non-coniferous,13049.0
+2001,NO-03,Oslo - Oslove,Pine,757.0
+2001,NO-11,Rogaland,Pine,11106.0
+2001,NO-15,Møre og Romsdal,Pine,28666.0
+2001,NO-18,Nordland - Nordlánnda,Pine,3955.0
+2001,NO-31,Østfold,Pine,80295.0
+2001,NO-32,Akershus,Pine,111476.0
+2001,NO-33,Buskerud,Pine,198713.0
+2001,NO-34,Innlandet,Pine,751700.0
+2001,NO-39,Vestfold,Pine,11955.0
+2001,NO-40,Telemark,Pine,215844.0
+2001,NO-42,Agder,Pine,240690.0
+2001,NO-46,Vestland,Pine,26887.0
+2001,NO-50,Trøndelag - Trööndelage,Pine,31583.0
+2001,NO-55,Troms - Romsa - Tromssa,Pine,2550.0
+2001,NO-03,Oslo - Oslove,Spruce,32088.0
+2001,NO-11,Rogaland,Spruce,18902.0
+2001,NO-15,Møre og Romsdal,Spruce,34210.0
+2001,NO-18,Nordland - Nordlánnda,Spruce,164333.0
+2001,NO-31,Østfold,Spruce,342200.0
+2001,NO-32,Akershus,Spruce,627846.0
+2001,NO-33,Buskerud,Spruce,592144.0
+2001,NO-34,Innlandet,Spruce,2343222.0
+2001,NO-39,Vestfold,Spruce,233104.0
+2001,NO-40,Telemark,Spruce,457463.0
+2001,NO-42,Agder,Spruce,248969.0
+2001,NO-46,Vestland,Spruce,79813.0
+2001,NO-50,Trøndelag - Trööndelage,Spruce,740557.0
+2001,NO-55,Troms - Romsa - Tromssa,Spruce,224.0
+2002,NO-03,Oslo - Oslove,Non-coniferous,61.0
+2002,NO-11,Rogaland,Non-coniferous,239.0
+2002,NO-15,Møre og Romsdal,Non-coniferous,1503.0
+2002,NO-18,Nordland - Nordlánnda,Non-coniferous,4695.0
+2002,NO-31,Østfold,Non-coniferous,939.0
+2002,NO-32,Akershus,Non-coniferous,1544.0
+2002,NO-33,Buskerud,Non-coniferous,1258.0
+2002,NO-34,Innlandet,Non-coniferous,5394.0
+2002,NO-39,Vestfold,Non-coniferous,7944.0
+2002,NO-40,Telemark,Non-coniferous,9367.0
+2002,NO-42,Agder,Non-coniferous,6735.0
+2002,NO-46,Vestland,Non-coniferous,1065.0
+2002,NO-50,Trøndelag - Trööndelage,Non-coniferous,3187.0
+2002,NO-55,Troms - Romsa - Tromssa,Non-coniferous,10929.0
+2002,NO-03,Oslo - Oslove,Pine,870.0
+2002,NO-11,Rogaland,Pine,7717.0
+2002,NO-15,Møre og Romsdal,Pine,21565.0
+2002,NO-18,Nordland - Nordlánnda,Pine,2952.0
+2002,NO-31,Østfold,Pine,68835.0
+2002,NO-32,Akershus,Pine,87385.0
+2002,NO-33,Buskerud,Pine,260464.0
+2002,NO-34,Innlandet,Pine,760535.0
+2002,NO-39,Vestfold,Pine,7860.0
+2002,NO-40,Telemark,Pine,209040.0
+2002,NO-42,Agder,Pine,219252.0
+2002,NO-46,Vestland,Pine,23098.0
+2002,NO-50,Trøndelag - Trööndelage,Pine,19063.0
+2002,NO-55,Troms - Romsa - Tromssa,Pine,4719.0
+2002,NO-03,Oslo - Oslove,Spruce,43885.0
+2002,NO-11,Rogaland,Spruce,15881.0
+2002,NO-15,Møre og Romsdal,Spruce,34641.0
+2002,NO-18,Nordland - Nordlánnda,Spruce,114741.0
+2002,NO-31,Østfold,Spruce,329805.0
+2002,NO-32,Akershus,Spruce,592061.0
+2002,NO-33,Buskerud,Spruce,636479.0
+2002,NO-34,Innlandet,Spruce,2221395.0
+2002,NO-39,Vestfold,Spruce,195809.0
+2002,NO-40,Telemark,Spruce,398766.0
+2002,NO-42,Agder,Spruce,206934.0
+2002,NO-46,Vestland,Spruce,66508.0
+2002,NO-50,Trøndelag - Trööndelage,Spruce,657454.0
+2002,NO-55,Troms - Romsa - Tromssa,Spruce,315.0
+2003,NO-11,Rogaland,Non-coniferous,652.0
+2003,NO-15,Møre og Romsdal,Non-coniferous,1465.0
+2003,NO-18,Nordland - Nordlánnda,Non-coniferous,7591.0
+2003,NO-31,Østfold,Non-coniferous,916.0
+2003,NO-32,Akershus,Non-coniferous,1049.0
+2003,NO-33,Buskerud,Non-coniferous,2562.0
+2003,NO-34,Innlandet,Non-coniferous,7192.0
+2003,NO-39,Vestfold,Non-coniferous,6129.0
+2003,NO-40,Telemark,Non-coniferous,5835.0
+2003,NO-42,Agder,Non-coniferous,8501.0
+2003,NO-46,Vestland,Non-coniferous,371.0
+2003,NO-50,Trøndelag - Trööndelage,Non-coniferous,2484.0
+2003,NO-55,Troms - Romsa - Tromssa,Non-coniferous,5596.0
+2003,NO-03,Oslo - Oslove,Pine,1430.0
+2003,NO-11,Rogaland,Pine,8321.0
+2003,NO-15,Møre og Romsdal,Pine,20618.0
+2003,NO-18,Nordland - Nordlánnda,Pine,1145.0
+2003,NO-31,Østfold,Pine,82328.0
+2003,NO-32,Akershus,Pine,99551.0
+2003,NO-33,Buskerud,Pine,209740.0
+2003,NO-34,Innlandet,Pine,695070.0
+2003,NO-39,Vestfold,Pine,7731.0
+2003,NO-40,Telemark,Pine,149702.0
+2003,NO-42,Agder,Pine,187904.0
+2003,NO-46,Vestland,Pine,14945.0
+2003,NO-50,Trøndelag - Trööndelage,Pine,24125.0
+2003,NO-55,Troms - Romsa - Tromssa,Pine,1947.0
+2003,NO-03,Oslo - Oslove,Spruce,35100.0
+2003,NO-11,Rogaland,Spruce,20056.0
+2003,NO-15,Møre og Romsdal,Spruce,33001.0
+2003,NO-18,Nordland - Nordlánnda,Spruce,99888.0
+2003,NO-31,Østfold,Spruce,332791.0
+2003,NO-32,Akershus,Spruce,577720.0
+2003,NO-33,Buskerud,Spruce,600351.0
+2003,NO-34,Innlandet,Spruce,2096525.0
+2003,NO-39,Vestfold,Spruce,186297.0
+2003,NO-40,Telemark,Spruce,342240.0
+2003,NO-42,Agder,Spruce,226868.0
+2003,NO-46,Vestland,Spruce,74763.0
+2003,NO-50,Trøndelag - Trööndelage,Spruce,608246.0
+2003,NO-55,Troms - Romsa - Tromssa,Spruce,853.0
+2004,NO-03,Oslo - Oslove,Non-coniferous,63.0
+2004,NO-11,Rogaland,Non-coniferous,416.0
+2004,NO-15,Møre og Romsdal,Non-coniferous,886.0
+2004,NO-18,Nordland - Nordlánnda,Non-coniferous,4894.0
+2004,NO-31,Østfold,Non-coniferous,3029.0
+2004,NO-32,Akershus,Non-coniferous,2009.0
+2004,NO-33,Buskerud,Non-coniferous,1603.0
+2004,NO-34,Innlandet,Non-coniferous,8335.0
+2004,NO-39,Vestfold,Non-coniferous,8133.0
+2004,NO-40,Telemark,Non-coniferous,4923.0
+2004,NO-42,Agder,Non-coniferous,8082.0
+2004,NO-46,Vestland,Non-coniferous,276.0
+2004,NO-50,Trøndelag - Trööndelage,Non-coniferous,2395.0
+2004,NO-55,Troms - Romsa - Tromssa,Non-coniferous,3402.0
+2004,NO-03,Oslo - Oslove,Pine,1719.0
+2004,NO-11,Rogaland,Pine,9420.0
+2004,NO-15,Møre og Romsdal,Pine,16390.0
+2004,NO-18,Nordland - Nordlánnda,Pine,3285.0
+2004,NO-31,Østfold,Pine,92180.0
+2004,NO-32,Akershus,Pine,118199.0
+2004,NO-33,Buskerud,Pine,253733.0
+2004,NO-34,Innlandet,Pine,783397.0
+2004,NO-39,Vestfold,Pine,7945.0
+2004,NO-40,Telemark,Pine,183478.0
+2004,NO-42,Agder,Pine,186256.0
+2004,NO-46,Vestland,Pine,20196.0
+2004,NO-50,Trøndelag - Trööndelage,Pine,25878.0
+2004,NO-55,Troms - Romsa - Tromssa,Pine,1109.0
+2004,NO-03,Oslo - Oslove,Spruce,37289.0
+2004,NO-11,Rogaland,Spruce,32013.0
+2004,NO-15,Møre og Romsdal,Spruce,28908.0
+2004,NO-18,Nordland - Nordlánnda,Spruce,109658.0
+2004,NO-31,Østfold,Spruce,390048.0
+2004,NO-32,Akershus,Spruce,643779.0
+2004,NO-33,Buskerud,Spruce,576118.0
+2004,NO-34,Innlandet,Spruce,2288661.0
+2004,NO-39,Vestfold,Spruce,217510.0
+2004,NO-40,Telemark,Spruce,361549.0
+2004,NO-42,Agder,Spruce,232501.0
+2004,NO-46,Vestland,Spruce,92182.0
+2004,NO-50,Trøndelag - Trööndelage,Spruce,590833.0
+2004,NO-55,Troms - Romsa - Tromssa,Spruce,463.0
+2005,NO-03,Oslo - Oslove,Non-coniferous,3.0
+2005,NO-11,Rogaland,Non-coniferous,17.0
+2005,NO-15,Møre og Romsdal,Non-coniferous,2824.0
+2005,NO-18,Nordland - Nordlánnda,Non-coniferous,2756.0
+2005,NO-31,Østfold,Non-coniferous,4423.0
+2005,NO-32,Akershus,Non-coniferous,2860.0
+2005,NO-33,Buskerud,Non-coniferous,2315.0
+2005,NO-34,Innlandet,Non-coniferous,11878.0
+2005,NO-39,Vestfold,Non-coniferous,6823.0
+2005,NO-40,Telemark,Non-coniferous,6415.0
+2005,NO-42,Agder,Non-coniferous,16377.0
+2005,NO-46,Vestland,Non-coniferous,884.0
+2005,NO-50,Trøndelag - Trööndelage,Non-coniferous,2286.0
+2005,NO-55,Troms - Romsa - Tromssa,Non-coniferous,3110.0
+2005,NO-03,Oslo - Oslove,Pine,814.0
+2005,NO-11,Rogaland,Pine,6403.0
+2005,NO-15,Møre og Romsdal,Pine,20793.0
+2005,NO-18,Nordland - Nordlánnda,Pine,4084.0
+2005,NO-31,Østfold,Pine,104018.0
+2005,NO-32,Akershus,Pine,111671.0
+2005,NO-33,Buskerud,Pine,269073.0
+2005,NO-34,Innlandet,Pine,941884.0
+2005,NO-39,Vestfold,Pine,10964.0
+2005,NO-40,Telemark,Pine,241950.0
+2005,NO-42,Agder,Pine,227050.0
+2005,NO-46,Vestland,Pine,17889.0
+2005,NO-50,Trøndelag - Trööndelage,Pine,23500.0
+2005,NO-55,Troms - Romsa - Tromssa,Pine,4119.0
+2005,NO-03,Oslo - Oslove,Spruce,23936.0
+2005,NO-11,Rogaland,Spruce,37374.0
+2005,NO-15,Møre og Romsdal,Spruce,27035.0
+2005,NO-18,Nordland - Nordlánnda,Spruce,100653.0
+2005,NO-31,Østfold,Spruce,416772.0
+2005,NO-32,Akershus,Spruce,599260.0
+2005,NO-33,Buskerud,Spruce,723198.0
+2005,NO-34,Innlandet,Spruce,2707616.0
+2005,NO-39,Vestfold,Spruce,236107.0
+2005,NO-40,Telemark,Spruce,359465.0
+2005,NO-42,Agder,Spruce,246517.0
+2005,NO-46,Vestland,Spruce,84730.0
+2005,NO-50,Trøndelag - Trööndelage,Spruce,679817.0
+2005,NO-55,Troms - Romsa - Tromssa,Spruce,296.0
+2006,NO-03,Oslo - Oslove,Non-coniferous,48.0
+2006,NO-11,Rogaland,Non-coniferous,70.0
+2006,NO-15,Møre og Romsdal,Non-coniferous,1408.0
+2006,NO-18,Nordland - Nordlánnda,Non-coniferous,4518.0
+2006,NO-31,Østfold,Non-coniferous,2438.0
+2006,NO-32,Akershus,Non-coniferous,3661.0
+2006,NO-33,Buskerud,Non-coniferous,2533.0
+2006,NO-34,Innlandet,Non-coniferous,17509.0
+2006,NO-39,Vestfold,Non-coniferous,8668.0
+2006,NO-40,Telemark,Non-coniferous,8491.0
+2006,NO-42,Agder,Non-coniferous,14341.0
+2006,NO-46,Vestland,Non-coniferous,888.0
+2006,NO-50,Trøndelag - Trööndelage,Non-coniferous,2345.0
+2006,NO-55,Troms - Romsa - Tromssa,Non-coniferous,1188.0
+2006,NO-03,Oslo - Oslove,Pine,589.0
+2006,NO-11,Rogaland,Pine,7738.0
+2006,NO-15,Møre og Romsdal,Pine,18841.0
+2006,NO-18,Nordland - Nordlánnda,Pine,3350.0
+2006,NO-31,Østfold,Pine,114216.0
+2006,NO-32,Akershus,Pine,127977.0
+2006,NO-33,Buskerud,Pine,242569.0
+2006,NO-34,Innlandet,Pine,758938.0
+2006,NO-39,Vestfold,Pine,12748.0
+2006,NO-40,Telemark,Pine,216802.0
+2006,NO-42,Agder,Pine,175013.0
+2006,NO-46,Vestland,Pine,12794.0
+2006,NO-50,Trøndelag - Trööndelage,Pine,35339.0
+2006,NO-55,Troms - Romsa - Tromssa,Pine,4727.0
+2006,NO-03,Oslo - Oslove,Spruce,18680.0
+2006,NO-11,Rogaland,Spruce,49409.0
+2006,NO-15,Møre og Romsdal,Spruce,30823.0
+2006,NO-18,Nordland - Nordlánnda,Spruce,116466.0
+2006,NO-31,Østfold,Spruce,375395.0
+2006,NO-32,Akershus,Spruce,538243.0
+2006,NO-33,Buskerud,Spruce,583714.0
+2006,NO-34,Innlandet,Spruce,2136676.0
+2006,NO-39,Vestfold,Spruce,233770.0
+2006,NO-40,Telemark,Spruce,367817.0
+2006,NO-42,Agder,Spruce,225242.0
+2006,NO-46,Vestland,Spruce,84815.0
+2006,NO-50,Trøndelag - Trööndelage,Spruce,721288.0
+2006,NO-55,Troms - Romsa - Tromssa,Spruce,392.0
+2007,NO-03,Oslo - Oslove,Non-coniferous,16.0
+2007,NO-11,Rogaland,Non-coniferous,205.0
+2007,NO-15,Møre og Romsdal,Non-coniferous,501.0
+2007,NO-18,Nordland - Nordlánnda,Non-coniferous,3448.0
+2007,NO-31,Østfold,Non-coniferous,3482.0
+2007,NO-32,Akershus,Non-coniferous,2595.0
+2007,NO-33,Buskerud,Non-coniferous,2534.0
+2007,NO-34,Innlandet,Non-coniferous,21598.0
+2007,NO-39,Vestfold,Non-coniferous,9680.0
+2007,NO-40,Telemark,Non-coniferous,8133.0
+2007,NO-42,Agder,Non-coniferous,17638.0
+2007,NO-46,Vestland,Non-coniferous,219.0
+2007,NO-50,Trøndelag - Trööndelage,Non-coniferous,3251.0
+2007,NO-55,Troms - Romsa - Tromssa,Non-coniferous,366.0
+2007,NO-03,Oslo - Oslove,Pine,702.0
+2007,NO-11,Rogaland,Pine,6681.0
+2007,NO-15,Møre og Romsdal,Pine,17592.0
+2007,NO-18,Nordland - Nordlánnda,Pine,2709.0
+2007,NO-31,Østfold,Pine,95962.0
+2007,NO-32,Akershus,Pine,135261.0
+2007,NO-33,Buskerud,Pine,274867.0
+2007,NO-34,Innlandet,Pine,900251.0
+2007,NO-39,Vestfold,Pine,12321.0
+2007,NO-40,Telemark,Pine,221041.0
+2007,NO-42,Agder,Pine,177028.0
+2007,NO-46,Vestland,Pine,13695.0
+2007,NO-50,Trøndelag - Trööndelage,Pine,44165.0
+2007,NO-55,Troms - Romsa - Tromssa,Pine,2271.0
+2007,NO-03,Oslo - Oslove,Spruce,21451.0
+2007,NO-11,Rogaland,Spruce,45667.0
+2007,NO-15,Møre og Romsdal,Spruce,44561.0
+2007,NO-18,Nordland - Nordlánnda,Spruce,125607.0
+2007,NO-31,Østfold,Spruce,411111.0
+2007,NO-32,Akershus,Spruce,566905.0
+2007,NO-33,Buskerud,Spruce,662337.0
+2007,NO-34,Innlandet,Spruce,2593339.0
+2007,NO-39,Vestfold,Spruce,337496.0
+2007,NO-40,Telemark,Spruce,385743.0
+2007,NO-42,Agder,Spruce,214746.0
+2007,NO-46,Vestland,Spruce,105035.0
+2007,NO-50,Trøndelag - Trööndelage,Spruce,719488.0
+2007,NO-55,Troms - Romsa - Tromssa,Spruce,214.0
+2008,NO-03,Oslo - Oslove,Non-coniferous,89.0
+2008,NO-11,Rogaland,Non-coniferous,275.0
+2008,NO-15,Møre og Romsdal,Non-coniferous,529.0
+2008,NO-18,Nordland - Nordlánnda,Non-coniferous,1597.0
+2008,NO-31,Østfold,Non-coniferous,4030.0
+2008,NO-32,Akershus,Non-coniferous,4332.0
+2008,NO-33,Buskerud,Non-coniferous,1544.0
+2008,NO-34,Innlandet,Non-coniferous,35338.0
+2008,NO-39,Vestfold,Non-coniferous,11140.0
+2008,NO-40,Telemark,Non-coniferous,8995.0
+2008,NO-42,Agder,Non-coniferous,16025.0
+2008,NO-46,Vestland,Non-coniferous,81.0
+2008,NO-50,Trøndelag - Trööndelage,Non-coniferous,4226.0
+2008,NO-55,Troms - Romsa - Tromssa,Non-coniferous,163.0
+2008,NO-03,Oslo - Oslove,Pine,701.0
+2008,NO-11,Rogaland,Pine,10751.0
+2008,NO-15,Møre og Romsdal,Pine,22143.0
+2008,NO-18,Nordland - Nordlánnda,Pine,7701.0
+2008,NO-31,Østfold,Pine,104046.0
+2008,NO-32,Akershus,Pine,131291.0
+2008,NO-33,Buskerud,Pine,291961.0
+2008,NO-34,Innlandet,Pine,835155.0
+2008,NO-39,Vestfold,Pine,13526.0
+2008,NO-40,Telemark,Pine,229921.0
+2008,NO-42,Agder,Pine,208121.0
+2008,NO-46,Vestland,Pine,12948.0
+2008,NO-50,Trøndelag - Trööndelage,Pine,48718.0
+2008,NO-55,Troms - Romsa - Tromssa,Pine,632.0
+2008,NO-03,Oslo - Oslove,Spruce,23027.0
+2008,NO-11,Rogaland,Spruce,89508.0
+2008,NO-15,Møre og Romsdal,Spruce,51682.0
+2008,NO-18,Nordland - Nordlánnda,Spruce,126052.0
+2008,NO-31,Østfold,Spruce,375547.0
+2008,NO-32,Akershus,Spruce,552002.0
+2008,NO-33,Buskerud,Spruce,623599.0
+2008,NO-34,Innlandet,Spruce,2370414.0
+2008,NO-39,Vestfold,Spruce,326952.0
+2008,NO-40,Telemark,Spruce,388486.0
+2008,NO-42,Agder,Spruce,267410.0
+2008,NO-46,Vestland,Spruce,126554.0
+2008,NO-50,Trøndelag - Trööndelage,Spruce,743382.0
+2008,NO-55,Troms - Romsa - Tromssa,Spruce,186.0
+2009,NO-03,Oslo - Oslove,Non-coniferous,73.0
+2009,NO-11,Rogaland,Non-coniferous,553.0
+2009,NO-15,Møre og Romsdal,Non-coniferous,912.0
+2009,NO-18,Nordland - Nordlánnda,Non-coniferous,4503.0
+2009,NO-31,Østfold,Non-coniferous,6160.0
+2009,NO-32,Akershus,Non-coniferous,7304.0
+2009,NO-33,Buskerud,Non-coniferous,10617.0
+2009,NO-34,Innlandet,Non-coniferous,33426.0
+2009,NO-39,Vestfold,Non-coniferous,10907.0
+2009,NO-40,Telemark,Non-coniferous,6503.0
+2009,NO-42,Agder,Non-coniferous,16278.0
+2009,NO-46,Vestland,Non-coniferous,361.0
+2009,NO-50,Trøndelag - Trööndelage,Non-coniferous,3912.0
+2009,NO-55,Troms - Romsa - Tromssa,Non-coniferous,1106.0
+2009,NO-03,Oslo - Oslove,Pine,2001.0
+2009,NO-11,Rogaland,Pine,19562.0
+2009,NO-15,Møre og Romsdal,Pine,15953.0
+2009,NO-18,Nordland - Nordlánnda,Pine,6256.0
+2009,NO-31,Østfold,Pine,85242.0
+2009,NO-32,Akershus,Pine,110858.0
+2009,NO-33,Buskerud,Pine,256959.0
+2009,NO-34,Innlandet,Pine,766071.0
+2009,NO-39,Vestfold,Pine,11907.0
+2009,NO-40,Telemark,Pine,164335.0
+2009,NO-42,Agder,Pine,155478.0
+2009,NO-46,Vestland,Pine,18493.0
+2009,NO-50,Trøndelag - Trööndelage,Pine,28147.0
+2009,NO-55,Troms - Romsa - Tromssa,Pine,2737.0
+2009,NO-03,Oslo - Oslove,Spruce,33959.0
+2009,NO-11,Rogaland,Spruce,56082.0
+2009,NO-15,Møre og Romsdal,Spruce,40128.0
+2009,NO-18,Nordland - Nordlánnda,Spruce,105289.0
+2009,NO-31,Østfold,Spruce,299683.0
+2009,NO-32,Akershus,Spruce,466868.0
+2009,NO-33,Buskerud,Spruce,492975.0
+2009,NO-34,Innlandet,Spruce,1988289.0
+2009,NO-39,Vestfold,Spruce,253490.0
+2009,NO-40,Telemark,Spruce,257963.0
+2009,NO-42,Agder,Spruce,207621.0
+2009,NO-46,Vestland,Spruce,97040.0
+2009,NO-50,Trøndelag - Trööndelage,Spruce,584310.0
+2009,NO-55,Troms - Romsa - Tromssa,Spruce,515.0
+2010,NO-11,Rogaland,Non-coniferous,69.0
+2010,NO-15,Møre og Romsdal,Non-coniferous,776.0
+2010,NO-18,Nordland - Nordlánnda,Non-coniferous,749.0
+2010,NO-31,Østfold,Non-coniferous,4234.0
+2010,NO-32,Akershus,Non-coniferous,1486.0
+2010,NO-33,Buskerud,Non-coniferous,790.0
+2010,NO-34,Innlandet,Non-coniferous,28443.0
+2010,NO-39,Vestfold,Non-coniferous,13592.0
+2010,NO-40,Telemark,Non-coniferous,8064.0
+2010,NO-42,Agder,Non-coniferous,12267.0
+2010,NO-46,Vestland,Non-coniferous,266.0
+2010,NO-50,Trøndelag - Trööndelage,Non-coniferous,1870.0
+2010,NO-55,Troms - Romsa - Tromssa,Non-coniferous,888.0
+2010,NO-03,Oslo - Oslove,Pine,1101.0
+2010,NO-11,Rogaland,Pine,17797.0
+2010,NO-15,Møre og Romsdal,Pine,16520.0
+2010,NO-18,Nordland - Nordlánnda,Pine,10957.0
+2010,NO-31,Østfold,Pine,99718.0
+2010,NO-32,Akershus,Pine,120947.0
+2010,NO-33,Buskerud,Pine,279857.0
+2010,NO-34,Innlandet,Pine,772200.0
+2010,NO-39,Vestfold,Pine,17678.0
+2010,NO-40,Telemark,Pine,221546.0
+2010,NO-42,Agder,Pine,197426.0
+2010,NO-46,Vestland,Pine,10466.0
+2010,NO-50,Trøndelag - Trööndelage,Pine,44687.0
+2010,NO-55,Troms - Romsa - Tromssa,Pine,1238.0
+2010,NO-03,Oslo - Oslove,Spruce,24613.0
+2010,NO-11,Rogaland,Spruce,70884.0
+2010,NO-15,Møre og Romsdal,Spruce,82727.0
+2010,NO-18,Nordland - Nordlánnda,Spruce,117198.0
+2010,NO-31,Østfold,Spruce,418492.0
+2010,NO-32,Akershus,Spruce,691909.0
+2010,NO-33,Buskerud,Spruce,697356.0
+2010,NO-34,Innlandet,Spruce,2564384.0
+2010,NO-39,Vestfold,Spruce,303912.0
+2010,NO-40,Telemark,Spruce,359878.0
+2010,NO-42,Agder,Spruce,286980.0
+2010,NO-46,Vestland,Spruce,145053.0
+2010,NO-50,Trøndelag - Trööndelage,Spruce,673132.0
+2010,NO-55,Troms - Romsa - Tromssa,Spruce,280.0
+2011,NO-03,Oslo - Oslove,Non-coniferous,26.0
+2011,NO-11,Rogaland,Non-coniferous,72.0
+2011,NO-15,Møre og Romsdal,Non-coniferous,653.0
+2011,NO-18,Nordland - Nordlánnda,Non-coniferous,482.0
+2011,NO-31,Østfold,Non-coniferous,1439.0
+2011,NO-32,Akershus,Non-coniferous,750.0
+2011,NO-33,Buskerud,Non-coniferous,1321.0
+2011,NO-34,Innlandet,Non-coniferous,3493.0
+2011,NO-39,Vestfold,Non-coniferous,4421.0
+2011,NO-40,Telemark,Non-coniferous,6793.0
+2011,NO-42,Agder,Non-coniferous,16851.0
+2011,NO-46,Vestland,Non-coniferous,371.0
+2011,NO-50,Trøndelag - Trööndelage,Non-coniferous,1632.0
+2011,NO-55,Troms - Romsa - Tromssa,Non-coniferous,387.0
+2011,NO-03,Oslo - Oslove,Pine,1124.0
+2011,NO-11,Rogaland,Pine,12621.0
+2011,NO-15,Møre og Romsdal,Pine,14321.0
+2011,NO-18,Nordland - Nordlánnda,Pine,3256.0
+2011,NO-31,Østfold,Pine,115984.0
+2011,NO-32,Akershus,Pine,128932.0
+2011,NO-33,Buskerud,Pine,330202.0
+2011,NO-34,Innlandet,Pine,898697.0
+2011,NO-39,Vestfold,Pine,11864.0
+2011,NO-40,Telemark,Pine,215558.0
+2011,NO-42,Agder,Pine,203240.0
+2011,NO-46,Vestland,Pine,18972.0
+2011,NO-50,Trøndelag - Trööndelage,Pine,35966.0
+2011,NO-55,Troms - Romsa - Tromssa,Pine,1661.0
+2011,NO-03,Oslo - Oslove,Spruce,26530.0
+2011,NO-11,Rogaland,Spruce,75818.0
+2011,NO-15,Møre og Romsdal,Spruce,99960.0
+2011,NO-18,Nordland - Nordlánnda,Spruce,100469.0
+2011,NO-31,Østfold,Spruce,430424.0
+2011,NO-32,Akershus,Spruce,619080.0
+2011,NO-33,Buskerud,Spruce,680926.0
+2011,NO-34,Innlandet,Spruce,2619319.0
+2011,NO-39,Vestfold,Spruce,297442.0
+2011,NO-40,Telemark,Spruce,387047.0
+2011,NO-42,Agder,Spruce,334710.0
+2011,NO-46,Vestland,Spruce,164745.0
+2011,NO-50,Trøndelag - Trööndelage,Spruce,637768.0
+2011,NO-55,Troms - Romsa - Tromssa,Spruce,967.0
+2012,NO-11,Rogaland,Non-coniferous,16.0
+2012,NO-15,Møre og Romsdal,Non-coniferous,619.0
+2012,NO-18,Nordland - Nordlánnda,Non-coniferous,378.0
+2012,NO-31,Østfold,Non-coniferous,8789.0
+2012,NO-32,Akershus,Non-coniferous,4109.0
+2012,NO-33,Buskerud,Non-coniferous,2289.0
+2012,NO-34,Innlandet,Non-coniferous,38630.0
+2012,NO-39,Vestfold,Non-coniferous,1439.0
+2012,NO-40,Telemark,Non-coniferous,8088.0
+2012,NO-42,Agder,Non-coniferous,8889.0
+2012,NO-46,Vestland,Non-coniferous,138.0
+2012,NO-50,Trøndelag - Trööndelage,Non-coniferous,1872.0
+2012,NO-55,Troms - Romsa - Tromssa,Non-coniferous,819.0
+2012,NO-03,Oslo - Oslove,Pine,1218.0
+2012,NO-11,Rogaland,Pine,12595.0
+2012,NO-15,Møre og Romsdal,Pine,13743.0
+2012,NO-18,Nordland - Nordlánnda,Pine,8870.0
+2012,NO-31,Østfold,Pine,106171.0
+2012,NO-32,Akershus,Pine,152153.0
+2012,NO-33,Buskerud,Pine,319048.0
+2012,NO-34,Innlandet,Pine,1017645.0
+2012,NO-39,Vestfold,Pine,13189.0
+2012,NO-40,Telemark,Pine,175477.0
+2012,NO-42,Agder,Pine,190146.0
+2012,NO-46,Vestland,Pine,28986.0
+2012,NO-50,Trøndelag - Trööndelage,Pine,43449.0
+2012,NO-55,Troms - Romsa - Tromssa,Pine,3831.0
+2012,NO-56,Finnmark - Finnmárku - Finmarkku,Pine,382.0
+2012,NO-03,Oslo - Oslove,Spruce,31740.0
+2012,NO-11,Rogaland,Spruce,66725.0
+2012,NO-15,Møre og Romsdal,Spruce,164284.0
+2012,NO-18,Nordland - Nordlánnda,Spruce,135328.0
+2012,NO-31,Østfold,Spruce,350024.0
+2012,NO-32,Akershus,Spruce,666552.0
+2012,NO-33,Buskerud,Spruce,608450.0
+2012,NO-34,Innlandet,Spruce,2775684.0
+2012,NO-39,Vestfold,Spruce,242304.0
+2012,NO-40,Telemark,Spruce,359045.0
+2012,NO-42,Agder,Spruce,339892.0
+2012,NO-46,Vestland,Spruce,272189.0
+2012,NO-50,Trøndelag - Trööndelage,Spruce,612197.0
+2012,NO-55,Troms - Romsa - Tromssa,Spruce,17.0
+2013,NO-03,Oslo - Oslove,Non-coniferous,673.0
+2013,NO-11,Rogaland,Non-coniferous,25.0
+2013,NO-15,Møre og Romsdal,Non-coniferous,1745.0
+2013,NO-18,Nordland - Nordlánnda,Non-coniferous,4318.0
+2013,NO-31,Østfold,Non-coniferous,10448.0
+2013,NO-32,Akershus,Non-coniferous,9349.0
+2013,NO-33,Buskerud,Non-coniferous,4093.0
+2013,NO-34,Innlandet,Non-coniferous,70802.0
+2013,NO-39,Vestfold,Non-coniferous,2068.0
+2013,NO-40,Telemark,Non-coniferous,6577.0
+2013,NO-42,Agder,Non-coniferous,9886.0
+2013,NO-46,Vestland,Non-coniferous,581.0
+2013,NO-50,Trøndelag - Trööndelage,Non-coniferous,5617.0
+2013,NO-55,Troms - Romsa - Tromssa,Non-coniferous,506.0
+2013,NO-03,Oslo - Oslove,Pine,1551.0
+2013,NO-11,Rogaland,Pine,24269.0
+2013,NO-15,Møre og Romsdal,Pine,16298.0
+2013,NO-18,Nordland - Nordlánnda,Pine,4823.0
+2013,NO-31,Østfold,Pine,96818.0
+2013,NO-32,Akershus,Pine,135457.0
+2013,NO-33,Buskerud,Pine,257464.0
+2013,NO-34,Innlandet,Pine,999465.0
+2013,NO-39,Vestfold,Pine,14423.0
+2013,NO-40,Telemark,Pine,162775.0
+2013,NO-42,Agder,Pine,193080.0
+2013,NO-46,Vestland,Pine,24711.0
+2013,NO-50,Trøndelag - Trööndelage,Pine,50849.0
+2013,NO-55,Troms - Romsa - Tromssa,Pine,4394.0
+2013,NO-56,Finnmark - Finnmárku - Finmarkku,Pine,5390.0
+2013,NO-03,Oslo - Oslove,Spruce,33474.0
+2013,NO-11,Rogaland,Spruce,97922.0
+2013,NO-15,Møre og Romsdal,Spruce,161659.0
+2013,NO-18,Nordland - Nordlánnda,Spruce,116346.0
+2013,NO-31,Østfold,Spruce,399501.0
+2013,NO-32,Akershus,Spruce,673985.0
+2013,NO-33,Buskerud,Spruce,517987.0
+2013,NO-34,Innlandet,Spruce,2828678.0
+2013,NO-39,Vestfold,Spruce,201830.0
+2013,NO-40,Telemark,Spruce,331490.0
+2013,NO-42,Agder,Spruce,328072.0
+2013,NO-46,Vestland,Spruce,293669.0
+2013,NO-50,Trøndelag - Trööndelage,Spruce,786348.0
+2013,NO-55,Troms - Romsa - Tromssa,Spruce,78.0
+2014,NO-03,Oslo - Oslove,Non-coniferous,1123.0
+2014,NO-11,Rogaland,Non-coniferous,120.0
+2014,NO-15,Møre og Romsdal,Non-coniferous,1344.0
+2014,NO-18,Nordland - Nordlánnda,Non-coniferous,1697.0
+2014,NO-31,Østfold,Non-coniferous,8046.0
+2014,NO-32,Akershus,Non-coniferous,11952.0
+2014,NO-33,Buskerud,Non-coniferous,5934.0
+2014,NO-34,Innlandet,Non-coniferous,80455.0
+2014,NO-39,Vestfold,Non-coniferous,4060.0
+2014,NO-40,Telemark,Non-coniferous,4909.0
+2014,NO-42,Agder,Non-coniferous,3182.0
+2014,NO-46,Vestland,Non-coniferous,196.0
+2014,NO-50,Trøndelag - Trööndelage,Non-coniferous,5250.0
+2014,NO-55,Troms - Romsa - Tromssa,Non-coniferous,110.0
+2014,NO-03,Oslo - Oslove,Pine,1728.0
+2014,NO-11,Rogaland,Pine,24349.0
+2014,NO-15,Møre og Romsdal,Pine,18856.0
+2014,NO-18,Nordland - Nordlánnda,Pine,4708.0
+2014,NO-31,Østfold,Pine,142097.0
+2014,NO-32,Akershus,Pine,132868.0
+2014,NO-33,Buskerud,Pine,362156.0
+2014,NO-34,Innlandet,Pine,1161831.0
+2014,NO-39,Vestfold,Pine,14890.0
+2014,NO-40,Telemark,Pine,198076.0
+2014,NO-42,Agder,Pine,186013.0
+2014,NO-46,Vestland,Pine,20802.0
+2014,NO-50,Trøndelag - Trööndelage,Pine,53292.0
+2014,NO-55,Troms - Romsa - Tromssa,Pine,3152.0
+2014,NO-56,Finnmark - Finnmárku - Finmarkku,Pine,9083.0
+2014,NO-03,Oslo - Oslove,Spruce,35505.0
+2014,NO-11,Rogaland,Spruce,109608.0
+2014,NO-15,Møre og Romsdal,Spruce,203106.0
+2014,NO-18,Nordland - Nordlánnda,Spruce,169066.0
+2014,NO-31,Østfold,Spruce,522841.0
+2014,NO-32,Akershus,Spruce,683130.0
+2014,NO-33,Buskerud,Spruce,553976.0
+2014,NO-34,Innlandet,Spruce,2801534.0
+2014,NO-39,Vestfold,Spruce,267802.0
+2014,NO-40,Telemark,Spruce,334273.0
+2014,NO-42,Agder,Spruce,343471.0
+2014,NO-46,Vestland,Spruce,330357.0
+2014,NO-50,Trøndelag - Trööndelage,Spruce,951296.0
+2014,NO-55,Troms - Romsa - Tromssa,Spruce,3707.0
+2015,NO-03,Oslo - Oslove,Non-coniferous,943.0
+2015,NO-11,Rogaland,Non-coniferous,22.0
+2015,NO-15,Møre og Romsdal,Non-coniferous,1166.0
+2015,NO-18,Nordland - Nordlánnda,Non-coniferous,3528.0
+2015,NO-31,Østfold,Non-coniferous,21294.0
+2015,NO-32,Akershus,Non-coniferous,14097.0
+2015,NO-33,Buskerud,Non-coniferous,10349.0
+2015,NO-34,Innlandet,Non-coniferous,89896.0
+2015,NO-39,Vestfold,Non-coniferous,8284.0
+2015,NO-40,Telemark,Non-coniferous,5172.0
+2015,NO-42,Agder,Non-coniferous,4409.0
+2015,NO-46,Vestland,Non-coniferous,265.0
+2015,NO-50,Trøndelag - Trööndelage,Non-coniferous,7881.0
+2015,NO-55,Troms - Romsa - Tromssa,Non-coniferous,996.0
+2015,NO-03,Oslo - Oslove,Pine,2253.0
+2015,NO-11,Rogaland,Pine,18469.0
+2015,NO-15,Møre og Romsdal,Pine,19203.0
+2015,NO-18,Nordland - Nordlánnda,Pine,2187.0
+2015,NO-31,Østfold,Pine,153520.0
+2015,NO-32,Akershus,Pine,179177.0
+2015,NO-33,Buskerud,Pine,382850.0
+2015,NO-34,Innlandet,Pine,1128997.0
+2015,NO-39,Vestfold,Pine,19847.0
+2015,NO-40,Telemark,Pine,209735.0
+2015,NO-42,Agder,Pine,229021.0
+2015,NO-46,Vestland,Pine,13764.0
+2015,NO-50,Trøndelag - Trööndelage,Pine,69777.0
+2015,NO-55,Troms - Romsa - Tromssa,Pine,9466.0
+2015,NO-56,Finnmark - Finnmárku - Finmarkku,Pine,10753.0
+2015,NO-03,Oslo - Oslove,Spruce,30214.0
+2015,NO-11,Rogaland,Spruce,117903.0
+2015,NO-15,Møre og Romsdal,Spruce,224164.0
+2015,NO-18,Nordland - Nordlánnda,Spruce,159346.0
+2015,NO-31,Østfold,Spruce,553943.0
+2015,NO-32,Akershus,Spruce,684184.0
+2015,NO-33,Buskerud,Spruce,558716.0
+2015,NO-34,Innlandet,Spruce,2831146.0
+2015,NO-39,Vestfold,Spruce,329412.0
+2015,NO-40,Telemark,Spruce,389136.0
+2015,NO-42,Agder,Spruce,377871.0
+2015,NO-46,Vestland,Spruce,327494.0
+2015,NO-50,Trøndelag - Trööndelage,Spruce,903991.0
+2015,NO-55,Troms - Romsa - Tromssa,Spruce,7885.0
+2016,NO-03,Oslo - Oslove,Non-coniferous,863.0
+2016,NO-11,Rogaland,Non-coniferous,1.0
+2016,NO-15,Møre og Romsdal,Non-coniferous,1676.0
+2016,NO-18,Nordland - Nordlánnda,Non-coniferous,2434.0
+2016,NO-31,Østfold,Non-coniferous,15605.0
+2016,NO-32,Akershus,Non-coniferous,19549.0
+2016,NO-33,Buskerud,Non-coniferous,22197.0
+2016,NO-34,Innlandet,Non-coniferous,106605.0
+2016,NO-39,Vestfold,Non-coniferous,8785.0
+2016,NO-40,Telemark,Non-coniferous,7736.0
+2016,NO-42,Agder,Non-coniferous,4384.0
+2016,NO-46,Vestland,Non-coniferous,20.0
+2016,NO-50,Trøndelag - Trööndelage,Non-coniferous,6578.0
+2016,NO-55,Troms - Romsa - Tromssa,Non-coniferous,974.0
+2016,NO-03,Oslo - Oslove,Pine,878.0
+2016,NO-11,Rogaland,Pine,17477.0
+2016,NO-15,Møre og Romsdal,Pine,15282.0
+2016,NO-18,Nordland - Nordlánnda,Pine,14824.0
+2016,NO-31,Østfold,Pine,155563.0
+2016,NO-32,Akershus,Pine,186003.0
+2016,NO-33,Buskerud,Pine,397715.0
+2016,NO-34,Innlandet,Pine,1145414.0
+2016,NO-39,Vestfold,Pine,20375.0
+2016,NO-40,Telemark,Pine,214882.0
+2016,NO-42,Agder,Pine,248013.0
+2016,NO-46,Vestland,Pine,17884.0
+2016,NO-50,Trøndelag - Trööndelage,Pine,71650.0
+2016,NO-55,Troms - Romsa - Tromssa,Pine,3187.0
+2016,NO-56,Finnmark - Finnmárku - Finmarkku,Pine,7328.0
+2016,NO-03,Oslo - Oslove,Spruce,35288.0
+2016,NO-11,Rogaland,Spruce,135321.0
+2016,NO-15,Møre og Romsdal,Spruce,284414.0
+2016,NO-18,Nordland - Nordlánnda,Spruce,153985.0
+2016,NO-31,Østfold,Spruce,499973.0
+2016,NO-32,Akershus,Spruce,723395.0
+2016,NO-33,Buskerud,Spruce,549681.0
+2016,NO-34,Innlandet,Spruce,2824963.0
+2016,NO-39,Vestfold,Spruce,307981.0
+2016,NO-40,Telemark,Spruce,390046.0
+2016,NO-42,Agder,Spruce,402458.0
+2016,NO-46,Vestland,Spruce,447132.0
+2016,NO-50,Trøndelag - Trööndelage,Spruce,830629.0
+2016,NO-55,Troms - Romsa - Tromssa,Spruce,4681.0
+2017,NO-03,Oslo - Oslove,Non-coniferous,215.0
+2017,NO-15,Møre og Romsdal,Non-coniferous,1883.0
+2017,NO-18,Nordland - Nordlánnda,Non-coniferous,5142.0
+2017,NO-31,Østfold,Non-coniferous,20430.0
+2017,NO-32,Akershus,Non-coniferous,30657.0
+2017,NO-33,Buskerud,Non-coniferous,25564.0
+2017,NO-34,Innlandet,Non-coniferous,116920.0
+2017,NO-39,Vestfold,Non-coniferous,13686.0
+2017,NO-40,Telemark,Non-coniferous,9437.0
+2017,NO-42,Agder,Non-coniferous,5769.0
+2017,NO-46,Vestland,Non-coniferous,181.0
+2017,NO-50,Trøndelag - Trööndelage,Non-coniferous,9812.0
+2017,NO-55,Troms - Romsa - Tromssa,Non-coniferous,3832.0
+2017,NO-03,Oslo - Oslove,Pine,561.0
+2017,NO-11,Rogaland,Pine,17794.0
+2017,NO-15,Møre og Romsdal,Pine,15557.0
+2017,NO-18,Nordland - Nordlánnda,Pine,7884.0
+2017,NO-31,Østfold,Pine,151390.0
+2017,NO-32,Akershus,Pine,206081.0
+2017,NO-33,Buskerud,Pine,404193.0
+2017,NO-34,Innlandet,Pine,1133035.0
+2017,NO-39,Vestfold,Pine,19451.0
+2017,NO-40,Telemark,Pine,243230.0
+2017,NO-42,Agder,Pine,260537.0
+2017,NO-46,Vestland,Pine,23637.0
+2017,NO-50,Trøndelag - Trööndelage,Pine,77608.0
+2017,NO-55,Troms - Romsa - Tromssa,Pine,4944.0
+2017,NO-56,Finnmark - Finnmárku - Finmarkku,Pine,3602.0
+2017,NO-03,Oslo - Oslove,Spruce,16708.0
+2017,NO-11,Rogaland,Spruce,108254.0
+2017,NO-15,Møre og Romsdal,Spruce,221287.0
+2017,NO-18,Nordland - Nordlánnda,Spruce,167110.0
+2017,NO-31,Østfold,Spruce,524159.0
+2017,NO-32,Akershus,Spruce,715033.0
+2017,NO-33,Buskerud,Spruce,608090.0
+2017,NO-34,Innlandet,Spruce,2983403.0
+2017,NO-39,Vestfold,Spruce,302144.0
+2017,NO-40,Telemark,Spruce,413978.0
+2017,NO-42,Agder,Spruce,415058.0
+2017,NO-46,Vestland,Spruce,426604.0
+2017,NO-50,Trøndelag - Trööndelage,Spruce,767087.0
+2017,NO-55,Troms - Romsa - Tromssa,Spruce,9081.0
+2018,NO-11,Rogaland,Non-coniferous,99.0
+2018,NO-15,Møre og Romsdal,Non-coniferous,1719.0
+2018,NO-18,Nordland - Nordlánnda,Non-coniferous,1295.0
+2018,NO-31,Østfold,Non-coniferous,28729.0
+2018,NO-32,Akershus,Non-coniferous,26026.0
+2018,NO-33,Buskerud,Non-coniferous,25450.0
+2018,NO-34,Innlandet,Non-coniferous,117962.0
+2018,NO-39,Vestfold,Non-coniferous,20219.0
+2018,NO-40,Telemark,Non-coniferous,11991.0
+2018,NO-42,Agder,Non-coniferous,13231.0
+2018,NO-46,Vestland,Non-coniferous,207.0
+2018,NO-50,Trøndelag - Trööndelage,Non-coniferous,9306.0
+2018,NO-55,Troms - Romsa - Tromssa,Non-coniferous,2031.0
+2018,NO-03,Oslo - Oslove,Pine,3136.0
+2018,NO-11,Rogaland,Pine,15572.0
+2018,NO-15,Møre og Romsdal,Pine,21665.0
+2018,NO-18,Nordland - Nordlánnda,Pine,16158.0
+2018,NO-31,Østfold,Pine,153078.0
+2018,NO-32,Akershus,Pine,208409.0
+2018,NO-33,Buskerud,Pine,370417.0
+2018,NO-34,Innlandet,Pine,1113131.0
+2018,NO-39,Vestfold,Pine,26934.0
+2018,NO-40,Telemark,Pine,240384.0
+2018,NO-42,Agder,Pine,263930.0
+2018,NO-46,Vestland,Pine,26880.0
+2018,NO-50,Trøndelag - Trööndelage,Pine,73402.0
+2018,NO-55,Troms - Romsa - Tromssa,Pine,13157.0
+2018,NO-56,Finnmark - Finnmárku - Finmarkku,Pine,4859.0
+2018,NO-03,Oslo - Oslove,Spruce,45149.0
+2018,NO-11,Rogaland,Spruce,83494.0
+2018,NO-15,Møre og Romsdal,Spruce,234550.0
+2018,NO-18,Nordland - Nordlánnda,Spruce,164083.0
+2018,NO-31,Østfold,Spruce,612825.0
+2018,NO-32,Akershus,Spruce,802818.0
+2018,NO-33,Buskerud,Spruce,608292.0
+2018,NO-34,Innlandet,Spruce,3065913.0
+2018,NO-39,Vestfold,Spruce,321880.0
+2018,NO-40,Telemark,Spruce,400352.0
+2018,NO-42,Agder,Spruce,462051.0
+2018,NO-46,Vestland,Spruce,404806.0
+2018,NO-50,Trøndelag - Trööndelage,Spruce,820118.0
+2018,NO-55,Troms - Romsa - Tromssa,Spruce,181.0
+2019,NO-03,Oslo - Oslove,Non-coniferous,71.0
+2019,NO-11,Rogaland,Non-coniferous,666.0
+2019,NO-15,Møre og Romsdal,Non-coniferous,1375.0
+2019,NO-18,Nordland - Nordlánnda,Non-coniferous,3612.0
+2019,NO-31,Østfold,Non-coniferous,32002.0
+2019,NO-32,Akershus,Non-coniferous,32624.0
+2019,NO-33,Buskerud,Non-coniferous,43619.0
+2019,NO-34,Innlandet,Non-coniferous,126196.0
+2019,NO-39,Vestfold,Non-coniferous,26730.0
+2019,NO-40,Telemark,Non-coniferous,12157.0
+2019,NO-42,Agder,Non-coniferous,13543.0
+2019,NO-46,Vestland,Non-coniferous,806.0
+2019,NO-50,Trøndelag - Trööndelage,Non-coniferous,8471.0
+2019,NO-55,Troms - Romsa - Tromssa,Non-coniferous,823.0
+2019,NO-56,Finnmark - Finnmárku - Finmarkku,Non-coniferous,7.0
+2019,NO-03,Oslo - Oslove,Pine,707.0
+2019,NO-11,Rogaland,Pine,25787.0
+2019,NO-15,Møre og Romsdal,Pine,16809.0
+2019,NO-18,Nordland - Nordlánnda,Pine,3342.0
+2019,NO-31,Østfold,Pine,177205.0
+2019,NO-32,Akershus,Pine,231064.0
+2019,NO-33,Buskerud,Pine,437294.0
+2019,NO-34,Innlandet,Pine,1226969.0
+2019,NO-39,Vestfold,Pine,22878.0
+2019,NO-40,Telemark,Pine,244073.0
+2019,NO-42,Agder,Pine,313108.0
+2019,NO-46,Vestland,Pine,23913.0
+2019,NO-50,Trøndelag - Trööndelage,Pine,59079.0
+2019,NO-55,Troms - Romsa - Tromssa,Pine,11579.0
+2019,NO-56,Finnmark - Finnmárku - Finmarkku,Pine,8325.0
+2019,NO-03,Oslo - Oslove,Spruce,28085.0
+2019,NO-11,Rogaland,Spruce,126259.0
+2019,NO-15,Møre og Romsdal,Spruce,249642.0
+2019,NO-18,Nordland - Nordlánnda,Spruce,203266.0
+2019,NO-31,Østfold,Spruce,500561.0
+2019,NO-32,Akershus,Spruce,839822.0
+2019,NO-33,Buskerud,Spruce,626648.0
+2019,NO-34,Innlandet,Spruce,2990080.0
+2019,NO-39,Vestfold,Spruce,325652.0
+2019,NO-40,Telemark,Spruce,452475.0
+2019,NO-42,Agder,Spruce,512134.0
+2019,NO-46,Vestland,Spruce,325603.0
+2019,NO-50,Trøndelag - Trööndelage,Spruce,748310.0
+2019,NO-55,Troms - Romsa - Tromssa,Spruce,5328.0
+2020,NO-03,Oslo - Oslove,Non-coniferous,1470.0
+2020,NO-11,Rogaland,Non-coniferous,519.0
+2020,NO-15,Møre og Romsdal,Non-coniferous,2113.0
+2020,NO-18,Nordland - Nordlánnda,Non-coniferous,2231.0
+2020,NO-31,Østfold,Non-coniferous,31412.0
+2020,NO-32,Akershus,Non-coniferous,35290.0
+2020,NO-33,Buskerud,Non-coniferous,41950.0
+2020,NO-34,Innlandet,Non-coniferous,131485.0
+2020,NO-39,Vestfold,Non-coniferous,19901.0
+2020,NO-40,Telemark,Non-coniferous,10677.0
+2020,NO-42,Agder,Non-coniferous,15616.0
+2020,NO-46,Vestland,Non-coniferous,219.0
+2020,NO-50,Trøndelag - Trööndelage,Non-coniferous,12064.0
+2020,NO-55,Troms - Romsa - Tromssa,Non-coniferous,1477.0
+2020,NO-03,Oslo - Oslove,Pine,5169.0
+2020,NO-11,Rogaland,Pine,17944.0
+2020,NO-15,Møre og Romsdal,Pine,24499.0
+2020,NO-18,Nordland - Nordlánnda,Pine,1621.0
+2020,NO-31,Østfold,Pine,144856.0
+2020,NO-32,Akershus,Pine,250051.0
+2020,NO-33,Buskerud,Pine,391782.0
+2020,NO-34,Innlandet,Pine,1244183.0
+2020,NO-39,Vestfold,Pine,22068.0
+2020,NO-40,Telemark,Pine,242345.0
+2020,NO-42,Agder,Pine,311661.0
+2020,NO-46,Vestland,Pine,15430.0
+2020,NO-50,Trøndelag - Trööndelage,Pine,77597.0
+2020,NO-55,Troms - Romsa - Tromssa,Pine,7469.0
+2020,NO-56,Finnmark - Finnmárku - Finmarkku,Pine,14880.0
+2020,NO-03,Oslo - Oslove,Spruce,71619.0
+2020,NO-11,Rogaland,Spruce,83863.0
+2020,NO-15,Møre og Romsdal,Spruce,244586.0
+2020,NO-18,Nordland - Nordlánnda,Spruce,181461.0
+2020,NO-31,Østfold,Spruce,415732.0
+2020,NO-32,Akershus,Spruce,705348.0
+2020,NO-33,Buskerud,Spruce,509189.0
+2020,NO-34,Innlandet,Spruce,2744126.0
+2020,NO-39,Vestfold,Spruce,289082.0
+2020,NO-40,Telemark,Spruce,403561.0
+2020,NO-42,Agder,Spruce,458184.0
+2020,NO-46,Vestland,Spruce,319061.0
+2020,NO-50,Trøndelag - Trööndelage,Spruce,733435.0
+2020,NO-55,Troms - Romsa - Tromssa,Spruce,4459.0
+2021,NO-03,Oslo - Oslove,Non-coniferous,814.0
+2021,NO-11,Rogaland,Non-coniferous,434.0
+2021,NO-15,Møre og Romsdal,Non-coniferous,1777.0
+2021,NO-18,Nordland - Nordlánnda,Non-coniferous,3363.0
+2021,NO-31,Østfold,Non-coniferous,26670.0
+2021,NO-32,Akershus,Non-coniferous,40110.0
+2021,NO-33,Buskerud,Non-coniferous,36600.0
+2021,NO-34,Innlandet,Non-coniferous,132386.0
+2021,NO-39,Vestfold,Non-coniferous,20463.0
+2021,NO-40,Telemark,Non-coniferous,13467.0
+2021,NO-42,Agder,Non-coniferous,13257.0
+2021,NO-46,Vestland,Non-coniferous,216.0
+2021,NO-50,Trøndelag - Trööndelage,Non-coniferous,8896.0
+2021,NO-55,Troms - Romsa - Tromssa,Non-coniferous,73.0
+2021,NO-56,Finnmark - Finnmárku - Finmarkku,Non-coniferous,79.0
+2021,NO-03,Oslo - Oslove,Pine,2419.0
+2021,NO-11,Rogaland,Pine,10661.0
+2021,NO-15,Møre og Romsdal,Pine,25167.0
+2021,NO-18,Nordland - Nordlánnda,Pine,4877.0
+2021,NO-31,Østfold,Pine,152116.0
+2021,NO-32,Akershus,Pine,239067.0
+2021,NO-33,Buskerud,Pine,412248.0
+2021,NO-34,Innlandet,Pine,1252719.0
+2021,NO-39,Vestfold,Pine,20134.0
+2021,NO-40,Telemark,Pine,260300.0
+2021,NO-42,Agder,Pine,307065.0
+2021,NO-46,Vestland,Pine,22529.0
+2021,NO-50,Trøndelag - Trööndelage,Pine,99144.0
+2021,NO-55,Troms - Romsa - Tromssa,Pine,2281.0
+2021,NO-56,Finnmark - Finnmárku - Finmarkku,Pine,8018.0
+2021,NO-03,Oslo - Oslove,Spruce,58755.0
+2021,NO-11,Rogaland,Spruce,86353.0
+2021,NO-15,Møre og Romsdal,Spruce,242987.0
+2021,NO-18,Nordland - Nordlánnda,Spruce,190464.0
+2021,NO-31,Østfold,Spruce,524201.0
+2021,NO-32,Akershus,Spruce,972972.0
+2021,NO-33,Buskerud,Spruce,593922.0
+2021,NO-34,Innlandet,Spruce,3088576.0
+2021,NO-39,Vestfold,Spruce,348952.0
+2021,NO-40,Telemark,Spruce,467332.0
+2021,NO-42,Agder,Spruce,521090.0
+2021,NO-46,Vestland,Spruce,407682.0
+2021,NO-50,Trøndelag - Trööndelage,Spruce,827142.0
+2021,NO-55,Troms - Romsa - Tromssa,Spruce,4104.0
+2022,NO-03,Oslo - Oslove,Non-coniferous,86.0
+2022,NO-11,Rogaland,Non-coniferous,108.0
+2022,NO-15,Møre og Romsdal,Non-coniferous,1195.0
+2022,NO-18,Nordland - Nordlánnda,Non-coniferous,3104.0
+2022,NO-31,Østfold,Non-coniferous,17311.0
+2022,NO-32,Akershus,Non-coniferous,23784.0
+2022,NO-33,Buskerud,Non-coniferous,17306.0
+2022,NO-34,Innlandet,Non-coniferous,106011.0
+2022,NO-39,Vestfold,Non-coniferous,19366.0
+2022,NO-40,Telemark,Non-coniferous,7608.0
+2022,NO-42,Agder,Non-coniferous,9111.0
+2022,NO-46,Vestland,Non-coniferous,666.0
+2022,NO-50,Trøndelag - Trööndelage,Non-coniferous,6232.0
+2022,NO-55,Troms - Romsa - Tromssa,Non-coniferous,1027.0
+2022,NO-56,Finnmark - Finnmárku - Finmarkku,Non-coniferous,39.0
+2022,NO-03,Oslo - Oslove,Pine,2671.0
+2022,NO-11,Rogaland,Pine,14954.0
+2022,NO-15,Møre og Romsdal,Pine,30008.0
+2022,NO-18,Nordland - Nordlánnda,Pine,5893.0
+2022,NO-31,Østfold,Pine,136599.0
+2022,NO-32,Akershus,Pine,203536.0
+2022,NO-33,Buskerud,Pine,486808.0
+2022,NO-34,Innlandet,Pine,1276975.0
+2022,NO-39,Vestfold,Pine,25317.0
+2022,NO-40,Telemark,Pine,236022.0
+2022,NO-42,Agder,Pine,310856.0
+2022,NO-46,Vestland,Pine,37593.0
+2022,NO-50,Trøndelag - Trööndelage,Pine,78758.0
+2022,NO-55,Troms - Romsa - Tromssa,Pine,832.0
+2022,NO-56,Finnmark - Finnmárku - Finmarkku,Pine,6079.0
+2022,NO-03,Oslo - Oslove,Spruce,42563.0
+2022,NO-11,Rogaland,Spruce,84582.0
+2022,NO-15,Møre og Romsdal,Spruce,228467.0
+2022,NO-18,Nordland - Nordlánnda,Spruce,186952.0
+2022,NO-31,Østfold,Spruce,538157.0
+2022,NO-32,Akershus,Spruce,848066.0
+2022,NO-33,Buskerud,Spruce,742325.0
+2022,NO-34,Innlandet,Spruce,3262712.0
+2022,NO-39,Vestfold,Spruce,333369.0
+2022,NO-40,Telemark,Spruce,471679.0
+2022,NO-42,Agder,Spruce,518740.0
+2022,NO-46,Vestland,Spruce,444688.0
+2022,NO-50,Trøndelag - Trööndelage,Spruce,747506.0
+2022,NO-55,Troms - Romsa - Tromssa,Spruce,1092.0
+2023,NO-03,Oslo - Oslove,Non-coniferous,162.0
+2023,NO-11,Rogaland,Non-coniferous,570.0
+2023,NO-15,Møre og Romsdal,Non-coniferous,1883.0
+2023,NO-18,Nordland - Nordlánnda,Non-coniferous,4069.0
+2023,NO-31,Østfold,Non-coniferous,19035.0
+2023,NO-32,Akershus,Non-coniferous,36775.0
+2023,NO-33,Buskerud,Non-coniferous,39701.0
+2023,NO-34,Innlandet,Non-coniferous,134070.0
+2023,NO-39,Vestfold,Non-coniferous,22125.0
+2023,NO-40,Telemark,Non-coniferous,8241.0
+2023,NO-42,Agder,Non-coniferous,13532.0
+2023,NO-46,Vestland,Non-coniferous,134.0
+2023,NO-50,Trøndelag - Trööndelage,Non-coniferous,14965.0
+2023,NO-55,Troms - Romsa - Tromssa,Non-coniferous,106.0
+2023,NO-56,Finnmark - Finnmárku - Finmarkku,Non-coniferous,98.0
+2023,NO-03,Oslo - Oslove,Pine,2348.0
+2023,NO-11,Rogaland,Pine,28094.0
+2023,NO-15,Møre og Romsdal,Pine,19003.0
+2023,NO-18,Nordland - Nordlánnda,Pine,2718.0
+2023,NO-31,Østfold,Pine,149018.0
+2023,NO-32,Akershus,Pine,211661.0
+2023,NO-33,Buskerud,Pine,389784.0
+2023,NO-34,Innlandet,Pine,1148752.0
+2023,NO-39,Vestfold,Pine,24799.0
+2023,NO-40,Telemark,Pine,207509.0
+2023,NO-42,Agder,Pine,283817.0
+2023,NO-46,Vestland,Pine,35251.0
+2023,NO-50,Trøndelag - Trööndelage,Pine,91243.0
+2023,NO-55,Troms - Romsa - Tromssa,Pine,406.0
+2023,NO-56,Finnmark - Finnmárku - Finmarkku,Pine,5683.0
+2023,NO-03,Oslo - Oslove,Spruce,45359.0
+2023,NO-11,Rogaland,Spruce,114269.0
+2023,NO-15,Møre og Romsdal,Spruce,255534.0
+2023,NO-18,Nordland - Nordlánnda,Spruce,216261.0
+2023,NO-31,Østfold,Spruce,501773.0
+2023,NO-32,Akershus,Spruce,753476.0
+2023,NO-33,Buskerud,Spruce,702230.0
+2023,NO-34,Innlandet,Spruce,3167012.0
+2023,NO-39,Vestfold,Spruce,322769.0
+2023,NO-40,Telemark,Spruce,421382.0
+2023,NO-42,Agder,Spruce,475190.0
+2023,NO-46,Vestland,Spruce,431329.0
+2023,NO-50,Trøndelag - Trööndelage,Spruce,682007.0
+2023,NO-55,Troms - Romsa - Tromssa,Spruce,10785.0
+2024,NO-03,Oslo - Oslove,Non-coniferous,1078.0
+2024,NO-11,Rogaland,Non-coniferous,19.0
+2024,NO-15,Møre og Romsdal,Non-coniferous,1455.0
+2024,NO-18,Nordland - Nordlánnda,Non-coniferous,4836.0
+2024,NO-31,Østfold,Non-coniferous,23274.0
+2024,NO-32,Akershus,Non-coniferous,32185.0
+2024,NO-33,Buskerud,Non-coniferous,41099.0
+2024,NO-34,Innlandet,Non-coniferous,128078.0
+2024,NO-39,Vestfold,Non-coniferous,9987.0
+2024,NO-40,Telemark,Non-coniferous,8437.0
+2024,NO-42,Agder,Non-coniferous,11989.0
+2024,NO-46,Vestland,Non-coniferous,285.0
+2024,NO-50,Trøndelag - Trööndelage,Non-coniferous,17874.0
+2024,NO-55,Troms - Romsa - Tromssa,Non-coniferous,80.0
+2024,NO-03,Oslo - Oslove,Pine,937.0
+2024,NO-11,Rogaland,Pine,14599.0
+2024,NO-15,Møre og Romsdal,Pine,17616.0
+2024,NO-18,Nordland - Nordlánnda,Pine,1625.0
+2024,NO-31,Østfold,Pine,179082.0
+2024,NO-32,Akershus,Pine,274752.0
+2024,NO-33,Buskerud,Pine,471740.0
+2024,NO-34,Innlandet,Pine,1337597.0
+2024,NO-39,Vestfold,Pine,28910.0
+2024,NO-40,Telemark,Pine,281417.0
+2024,NO-42,Agder,Pine,303831.0
+2024,NO-46,Vestland,Pine,28247.0
+2024,NO-50,Trøndelag - Trööndelage,Pine,95434.0
+2024,NO-55,Troms - Romsa - Tromssa,Pine,3053.0
+2024,NO-56,Finnmark - Finnmárku - Finmarkku,Pine,6856.0
+2024,NO-03,Oslo - Oslove,Spruce,36822.0
+2024,NO-11,Rogaland,Spruce,78862.0
+2024,NO-15,Møre og Romsdal,Spruce,282295.0
+2024,NO-18,Nordland - Nordlánnda,Spruce,202215.0
+2024,NO-31,Østfold,Spruce,458117.0
+2024,NO-32,Akershus,Spruce,862665.0
+2024,NO-33,Buskerud,Spruce,738660.0
+2024,NO-34,Innlandet,Spruce,3247590.0
+2024,NO-39,Vestfold,Spruce,240870.0
+2024,NO-40,Telemark,Spruce,435016.0
+2024,NO-42,Agder,Spruce,557085.0
+2024,NO-46,Vestland,Spruce,527296.0
+2024,NO-50,Trøndelag - Trööndelage,Spruce,791727.0
+2024,NO-55,Troms - Romsa - Tromssa,Spruce,14812.0
+2025,NO-03,Oslo - Oslove,Non-coniferous,540.0
+2025,NO-11,Rogaland,Non-coniferous,26.0
+2025,NO-15,Møre og Romsdal,Non-coniferous,1457.0
+2025,NO-18,Nordland - Nordlánnda,Non-coniferous,8477.0
+2025,NO-31,Østfold,Non-coniferous,22894.0
+2025,NO-32,Akershus,Non-coniferous,41917.0
+2025,NO-33,Buskerud,Non-coniferous,54530.0
+2025,NO-34,Innlandet,Non-coniferous,133414.0
+2025,NO-39,Vestfold,Non-coniferous,9921.0
+2025,NO-40,Telemark,Non-coniferous,10052.0
+2025,NO-42,Agder,Non-coniferous,11706.0
+2025,NO-46,Vestland,Non-coniferous,163.0
+2025,NO-50,Trøndelag - Trööndelage,Non-coniferous,23617.0
+2025,NO-55,Troms - Romsa - Tromssa,Non-coniferous,840.0
+2025,NO-56,Finnmark - Finnmárku - Finmarkku,Non-coniferous,137.0
+2025,NO-03,Oslo - Oslove,Pine,1994.0
+2025,NO-11,Rogaland,Pine,18480.0
+2025,NO-15,Møre og Romsdal,Pine,22685.0
+2025,NO-18,Nordland - Nordlánnda,Pine,923.0
+2025,NO-31,Østfold,Pine,185722.0
+2025,NO-32,Akershus,Pine,263741.0
+2025,NO-33,Buskerud,Pine,477530.0
+2025,NO-34,Innlandet,Pine,1379054.0
+2025,NO-39,Vestfold,Pine,18122.0
+2025,NO-40,Telemark,Pine,286348.0
+2025,NO-42,Agder,Pine,372404.0
+2025,NO-46,Vestland,Pine,24332.0
+2025,NO-50,Trøndelag - Trööndelage,Pine,76668.0
+2025,NO-55,Troms - Romsa - Tromssa,Pine,5475.0
+2025,NO-56,Finnmark - Finnmárku - Finmarkku,Pine,4944.0
+2025,NO-03,Oslo - Oslove,Spruce,59588.0
+2025,NO-11,Rogaland,Spruce,137215.0
+2025,NO-15,Møre og Romsdal,Spruce,276937.0
+2025,NO-18,Nordland - Nordlánnda,Spruce,196892.0
+2025,NO-31,Østfold,Spruce,472559.0
+2025,NO-32,Akershus,Spruce,858812.0
+2025,NO-33,Buskerud,Spruce,803133.0
+2025,NO-34,Innlandet,Spruce,3488178.0
+2025,NO-39,Vestfold,Spruce,260918.0
+2025,NO-40,Telemark,Spruce,499763.0
+2025,NO-42,Agder,Spruce,687779.0
+2025,NO-46,Vestland,Spruce,565129.0
+2025,NO-50,Trøndelag - Trööndelage,Spruce,1038980.0
+2025,NO-55,Troms - Romsa - Tromssa,Spruce,11542.0

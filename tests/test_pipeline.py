@@ -3,12 +3,13 @@
 from __future__ import annotations
 
 from circwood import build_sankey, constants as C
+from circwood.pipeline import SANKEY_COLUMNS
 from circwood.viz.sankey import make_sankey
 
 
 def test_cached_dataset_loads_with_expected_schema():
     df = build_sankey(use_cached_ssb=True)
-    assert list(df.columns) == ["source", "target", "volume", "year", "origin"]
+    assert list(df.columns) == SANKEY_COLUMNS
     assert len(df) > 0
     assert df["volume"].ge(0).all()
 

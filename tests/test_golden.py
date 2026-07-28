@@ -20,7 +20,7 @@ from pathlib import Path
 import pandas as pd
 import pandas.testing as pdt
 
-from circwood import build_sankey, config
+from circwood import build_sankey, config, constants as C
 
 GOLDEN_CSV = Path(__file__).parent / "fixtures" / "golden_sankey_data.csv"
 
@@ -48,3 +48,22 @@ def test_nodes_json_covers_dataset_exactly():
         f"nodes.json labels with no data behind them (would render as "
         f"orphan bars): {ghosts}"
     )
+
+
+def test_dataset_covers_exactly_the_declared_window():
+    """The shipped dataset spans the years every source table covers, no more.
+
+    Outside that intersection the rows are not extra information, they are a
+    partial picture: 1988–2011 had trade with no harvest behind it, and a
+    part-published 2025 showed firewood collapsing by 90 %. Widening
+    ``DATASET_MAX_YEAR`` is a deliberate act that needs every table to have
+    published the year — this test is what makes it deliberate.
+    """
+    df = build_sankey(use_cached_ssb=True)
+    assert int(df["year"].min()) == C.DATASET_MIN_YEAR
+    assert int(df["year"].max()) == C.DATASET_MAX_YEAR
+
+
+def test_the_paper_window_sits_inside_the_dataset_window():
+    assert C.DATASET_MIN_YEAR <= C.MIN_YEAR
+    assert C.MAX_YEAR <= C.DATASET_MAX_YEAR

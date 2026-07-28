@@ -14,6 +14,20 @@ from __future__ import annotations
 MIN_YEAR = 2012
 MAX_YEAR = 2022
 
+# Years the generated dataset covers. Narrower than what SSB will hand over:
+# the source tables' coverage differs (trade 08801 reaches back to 1988, harvest
+# 07410 starts in 2012, waste 10513 currently ends in 2024), and rows outside
+# the *intersection* are the ones that make the dataset misleading — a year with
+# trade but no harvest shows exports flowing out of species pools nothing flows
+# into, and a year where one table has published and another has not shows a
+# partial picture that reads as a real collapse or spike.
+#
+# So the dataset is clipped to the range every source table covers. Widen
+# DATASET_MAX_YEAR only when *all* tables have published the new year; that is a
+# deliberate act, and the vintage diff (Phase B) is what makes it visible.
+DATASET_MIN_YEAR = 2012
+DATASET_MAX_YEAR = 2024
+
 # ---------------------------------------------------------------------------
 # Harvest / standing-wood coefficients
 # ---------------------------------------------------------------------------

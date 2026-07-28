@@ -22,8 +22,10 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: pip
 
-      - name: Install package (with dev extras)
-        run: pip install -e .[dev]
+      # The ssb extras are installed so the ingestion tests actually run rather
+      # than skipping. They are fully mocked — CI never calls the SSB API.
+      - name: Install package (with dev + ssb extras)
+        run: pip install -e .[dev,ssb]
 
       - name: Run tests
         run: pytest -q

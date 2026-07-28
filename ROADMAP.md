@@ -19,13 +19,17 @@
 species-accurate carbon model driven by editable CSVs; closed mass balance
 (`validate.py`) and reconciliation to published aggregates (`reconcile.py`);
 golden-snapshot and node-coverage regression fences (`tests/test_golden.py`);
-Streamlit app off cached CSVs; CI on 3.11–3.12; SSB API ingestion written
-(`ingest/ssb.py`) but **not wired into routine use**.
-
-**Ordering constraint that matters:** Phase C (schema dimensions) must land
-**before** Phase D (web layer). Retrofitting a dimension into transforms, tests
-and app state after the frontend is built is materially more expensive than
-adding it now while every row is national.
+Streamlit app off cached CSVs; CI on 3.11–3.12 with the `ssb` extras; SSB API
+ingestion hardened for unattended runs (Phase A, 2026-07-28) — fetch split from
+parse, contract-enforced queries, retries, raw-response cache, per-table vintage,
+validate-on-load, and no path that returns silently partial data; and an
+automated refresh loop (Phase B, 2026-07-28) — `circwood-refresh` plus a monthly
+workflow that rebuilds, gates on mass balance, reconciliation and a vintage
+diff, and opens a PR. The dataset covers **2012–2024**, the years every SSB
+source table covers (`constants.DATASET_MIN_YEAR/MAX_YEAR`). Since Phase C
+(2026-07-28) every flow row carries the four filter dimensions — `region`,
+`species`, `assortment`, `entity_id` — with national totals unchanged and a
+per-slice balance gate; the schema Phase D filters on already exists.
 
 **Out of scope for the agent** — these are human tasks, do not attempt or stub
 them: negotiating member-level data agreements, contacting Treindustrien /
@@ -49,6 +53,28 @@ commercially confidential.
 
 ## Decision log
 
+- **2026-07-28 · Phase J shelved** (user decision): the year-window/drift
+  policy work is deferred until later in the project — it is not crucial for
+  progress, and setting the per-table lag expectations and drift thresholds
+  first needs a sit-down analysis of why and when the individual source tables
+  drift. The interim protections stand: the dataset stays clipped to
+  `DATASET_MIN/MAX_YEAR` and the vintage-diff gate still blocks. Phase C was
+  pulled forward in its place.
+- **2026-07-28 · Region semantics** (Phase C): counties come from SSB 03795 via
+  the `agg_KommFylker` codelist — the whole series backcast into the **2024
+  county boundaries** — so the region dimension is immune to the 2018–2024
+  county reforms. `region="NO"` means *not regionally attributed* (the
+  nationally-estimated 11181 firewood component, and everything downstream of
+  the pools), never "rest of Norway". `dimensions.FYLKE_CODES` is a closed map:
+  an unknown county label fails the run, like a new node.
+- **2026-07-28 · Dataset year window**: the shipped dataset is clipped to the
+  years *every* source table covers — 2012–2024 today
+  (`constants.DATASET_MIN_YEAR/DATASET_MAX_YEAR`). Rows outside that
+  intersection are a partial picture, not extra data: 1988–2011 carried trade
+  with no harvest behind it, and a part-published 2025 made firewood look like
+  it grew 808 %. Consequence: the `Export Boards` node, whose only data was
+  pre-2012, is gone from the dataset and from `config/nodes.json`. Widening the
+  window requires every table to have published the new year — see Phase J.
 - **2026-07-28 · Deployment**: the Streamlit app was never deployed and will
   not be — it stays the internal exploration tool. The public deployment is
   the Phase D static site, chosen for robustness and so Treteknisk can adopt
@@ -68,113 +94,163 @@ commercially confidential.
 
 ---
 
-## Phase A — Harden ingestion for unattended runs · **P1 · M**
+## Phase A — Harden ingestion for unattended runs · **DONE 2026-07-28**
 
-`ingest/ssb.py` works when a human watches it. It is not safe on a schedule.
+Delivered; details in [CHANGELOG.md](CHANGELOG.md). Acceptance met:
+`build_sankey(use_cached_ssb=False)` was run end-to-end against the live API and
+either completes with a validated dataset or raises with a precise reason — it
+has no path that returns silently partial data. The API for Phase B to build on:
 
-- [ ] **Split fetch from parse.** `fetch_table(spec) -> str` (network) and
-      `parse_table(raw: str) -> list[DataFrame]` (pure). This is what unblocks
-      testing; everything else in this phase is easier afterwards.
-- [ ] **Stop swallowing failures.** The current
-      `except Exception: print(); continue` produces a *partial* dataset that
-      the pipeline then builds on. Collect failures, raise
-      `SSBIngestError` listing them at the end. Add `allow_partial: bool = False`
-      as an explicit opt-out.
-- [ ] **Retries.** `requests.Session` + `HTTPAdapter(max_retries=Retry(
-      total=5, backoff_factor=1, status_forcelist=[429,500,502,503,504],
-      respect_retry_after_header=True))`. Set a descriptive `User-Agent`
-      identifying the project and a contact address.
-- [ ] **Enforce the contract the docstring already claims.** Both query formats
-      must resolve to `outputFormat=json-stat2` and `lang=no`; inject or assert,
-      do not assume. A wrong `lang` returns HTTP 200, parses cleanly, and yields
-      *zero matching rows* downstream — the worst class of bug in this codebase.
-- [ ] **Collision on duplicate table ids.** `dataset_output[table_id] = dataset`
-      silently discards the first of two files targeting the same table. Either
-      accumulate into a list or raise.
-- [ ] **Cache raw responses.** Write `result.text` to
-      `data/raw/ssb/{table_id}.json` *before* parsing. Enables offline debugging,
-      vintage diffing, and test fixtures.
-- [ ] **Capture vintage.** json-stat2 carries a top-level `updated` timestamp
-      (SSB's own last-revision date). Record it per table alongside the pull
-      timestamp — see Phase B manifest.
-- [ ] **Validate on load.** Expected columns present, year coverage within
-      bounds, value column not all-NaN. Fail loud with the table id in the
-      message.
-- [ ] **`logging` not `print`** (replaces the current `print` calls in this
-      module).
-- [ ] **Tests:** saved json-stat2 fixture → `parse_table` assertions; mocked
-      `fetch_table` for the failure paths (partial failure raises, retry
-      exhaustion raises, wrong-lang assertion fires).
+- `ingest.ssb.process_query_files(dir, *, allow_partial=False, session=None,
+  cache_dir=None)` → `IngestResult(datasets, vintages, failures)`.
+- `IngestResult.vintages[table_id]` is a `TableVintage` carrying SSB's `updated`
+  revision date, our `fetched_at`, `query_sha256`, `rows`, `year_min/max` —
+  i.e. most of the manifest Phase B has to write, already collected.
+- Errors: `SSBQueryError` (config, pre-network), `SSBIngestError` (aggregate
+  runtime failures), `SSBParseError`, `SSBValidationError`.
 
-**Acceptance:** `build_sankey(use_cached_ssb=False)` either produces a complete,
-validated dataset or raises with a precise reason. It never returns silently
-partial data.
+**Follow-up left open** (not Phase A scope, but noted while in there):
+
+- The committed `sankey_data.csv` is an older vintage than the live tables (a
+  fresh run now spans 1988–2025). Regenerating it is Phase B's job, behind the
+  vintage-diff gate.
+
+Two things that looked like bugs and are not:
+
+- **SSB 10513 is incineration-only by design.** The query selects
+  `AvfallsBehand=21` ("Levert til forbrenning") because that is the current
+  reality — Norwegian waste wood is effectively all incinerated — and the edge
+  exists to quantify the volume that *may* be recovered. So the whole
+  End-of-Life stream routes to Energy and there is no `Material recovery` node;
+  the recoverable potential is read off the Energy edge. The dead
+  `"Levert til materialgjenvinning"` branch has been replaced by a guard that
+  raises if the query is ever widened without adding explicit routing.
+- **`pyjstat.from_json_stat` is deprecated** upstream in favour of
+  `Dataset.read()`. Migrating (or a pyjstat version bump) could silently change
+  the parsed column names the transforms index by, so it is now fenced:
+  `tests/test_ssb_parse_golden.py` snapshots the parse output of the committed
+  raw responses and pins the year-is-a-string dtype contract. Migrate behind
+  that fence, regenerating the snapshot in the same commit.
 
 ---
 
-## Phase B — Automate the refresh loop · **P1 · M**
+## Phase B — Automate the refresh loop · **DONE 2026-07-28**
 
-Today "live" means a human remembers to rebuild and commit; that is the actual
-gap between this project and a maintained one.
+Delivered; details in [CHANGELOG.md](CHANGELOG.md). `circwood-refresh` runs the
+whole chain and the monthly workflow opens a PR. What Phase J below exists for
+is the one thing this phase surfaced rather than solved.
 
-- [ ] **`data/processed/manifest.json`**, written by the pipeline:
-      pull timestamp, per-table SSB `updated` date, table ids, query-file
-      hashes, year coverage, package version, git SHA.
-- [ ] **Scheduled workflow** `.github/workflows/refresh.yml` — monthly cron plus
-      `workflow_dispatch`. Steps: fresh ingest → `build_sankey` →
-      `build_carbon(write=True)` → `pytest` → `validate.assert_balanced` →
-      `reconcile` → **vintage diff** → open a PR.
-- [ ] **Vintage diff as a blocking gate.** New module
-      `src/circwood/diff.py`: compare the regenerated dataset against the
-      committed one per (source, target, year). Fail the job when any flow moves
-      more than a configurable threshold (start at 5 %) or when a
-      node/edge appears or disappears. This is the check that catches SSB
-      reclassifying a code — the realistic failure mode, and one that mass
-      balance alone will not detect, because a wrong-but-consistent dataset
-      still balances.
-- [ ] **PR, not direct commit.** CSV is the canonical committed artifact
-      precisely so the diff is human-readable in review.
-- [ ] **Notify on failure** so a broken fetch does not silently become stale
-      data.
-- [ ] **Surface vintage in every UI** — Streamlit app and static site both show
-      "data as of {date}" from the manifest.
+Deviation from the plan, deliberate: the roadmap put `pytest` between the
+rebuild and the data checks. That cannot pass — `tests/test_golden.py` compares
+the shipped dataset to the committed fixture, so it is red by construction from
+the moment the dataset is regenerated until the fixture is updated. The workflow
+runs pytest *before* the refresh (the code is sound against the committed data)
+and again *after* it (the regenerated dataset and its refreshed fixture agree).
 
-**Acceptance:** deleting `data/processed/*.csv` and running the workflow
-reproduces them; a deliberately corrupted query file fails the job before
-anything is committed.
+**Acceptance met:** a from-scratch build reproduces the outputs (a missing
+committed dataset is the documented baseline case, not an error); an
+off-contract query file fails in `load_query_spec` before a single network call,
+so nothing is written; a failed gate restores the previous outputs before the
+error propagates.
+
+**One thing that cannot be automated, by design:** `config/nodes.json` holds
+hand-placed diagram positions, so a refresh that introduces a *new node* cannot
+place it. That refresh fails the post-refresh `pytest` (node-coverage fence) and
+opens an issue. Correct: a new node is a modelling change and wants a human.
 
 ---
 
-## Phase C — Add the filter dimensions to the schema · **P1 · M**
+## Phase J — Year-window and vintage-drift policy · **P2 · M — SHELVED 2026-07-28**
 
-Do this **before** Phase D. Currently every flow row is implicitly national and
-all-species.
+Deferred by decision (see the decision log): not crucial for progress, and the
+lag/threshold design needs a real analysis of how each source table actually
+drifts. Pick it back up before handing the refresh loop to Treteknisk. The
+interim fix (the clipped year window plus the diff gate) remains in force.
 
-- [ ] **Extend the flow row** with `region`, `species`, `assortment`,
-      `entity_id`. Populate with defaults today: `region="NO"`,
-      `entity_id="national"`, `species` from the existing propagation where the
-      carbon model already knows it, `assortment` where the source distinguishes
-      sawtimber / pulpwood / fuelwood.
-- [ ] **Species is nearly free.** `carbon/species_model.py` already propagates
-      the spruce/pine/non-coniferous mix to a fixed point. Expose that as flow
-      dimensions rather than recomputing it in the carbon step only.
-- [ ] **Region where SSB publishes it.** Roundwood harvest and removals are
-      available by fylke; carry the county through rather than aggregating on
-      ingest. (The 03795 query currently selects the national `vs_Landet`
-      codelist; this needs the fylke codelist.)
-- [ ] **Update `validate.py` to balance per (region, species) slice**, not just
-      nationally. A dataset that balances in aggregate but not per slice will
-      produce nonsense the first time someone filters.
-- [ ] **Migrate transforms and tests** to the widened schema; keep national
-      totals byte-identical where the dimension is degenerate (the golden
-      snapshot in `tests/test_golden.py` is the regression fence — update the
-      fixture in the same commit as the schema change).
-- [ ] **Document the reason for `entity_id`** in the schema docstring: mill-level
-      data does not exist publicly and would require a data agreement, but the
-      column exists so its arrival is a data change, not a rewrite.
+New 2026-07-28, from what Phase B's first real run found.
 
-**Acceptance:** national totals unchanged; `validate` passes per-slice;
-filtering by species or region returns a coherent sub-Sankey.
+**What happened.** The first live refresh blocked on six flows, the worst
+`Firewood → Energy` in 2025 at **+808 %**. None of it was drift in the sense the
+gate was built for. SSB table 11181 (firewood) had published 2025; 07410, 03795,
+08801 and 10513 had not. The dataset was carrying years that only *some* source
+tables covered, and a part-published year reads exactly like a collapse. The
+same defect ran the other way at the start: 1988–2011 had trade data with no
+harvest behind it, so species pools exported wood that never entered them.
+
+**What was done as the interim fix.** The dataset is now clipped to the years
+every source table covers — `constants.DATASET_MIN_YEAR/DATASET_MAX_YEAR`,
+today 2012–2024 — fenced by `tests/test_golden.py`. Within that window the
+regenerated dataset is numerically identical to the committed one (every
+difference at floating-point epsilon; the 2012–2022 control total is still
+exactly 61,445,000 m³), and the full refresh chain passes including the diff
+gate. So the drift is gone, but the *policy* is two hard-coded integers that a
+human has to remember to bump.
+
+**Proposed solution:**
+
+- [ ] **Derive the window, then assert it.** Compute the intersection window at
+      ingest from `IngestResult.vintages` (which already carries `year_min` /
+      `year_max` per table) and compare it against the committed constants.
+      Disagreement fails the run with "10513 now covers 2025; widen
+      DATASET_MAX_YEAR". Derived so it is never stale, asserted so widening the
+      window stays a reviewed one-line diff rather than a silent change in
+      coverage.
+- [ ] **Per-table publication lag.** 10513 (waste) trails roundwood by roughly
+      18 months; that is normal, not a fault. Record the expected lag per table
+      alongside its `TableContract`, so "10513 has no 2025 yet" is an expected
+      state and "10513 has no 2024 either" is an alert. Without this, the
+      derived window silently pins the whole dataset to the slowest table
+      forever and nobody notices when that table stops publishing.
+- [ ] **Separate revision drift from reclassification.** Both look like a moved
+      flow; only one is alarming. The manifest already stores each table's SSB
+      `updated` date — if a table's `updated` is unchanged but its numbers moved,
+      the change came from *our* query or transform, not from SSB, and should be
+      reported as a different and more serious class of failure.
+- [ ] **A route from blocked to accepted.** `circwood-refresh --accept-drift`
+      exists for a human who has reviewed a blocked refresh. Wire it to a
+      `workflow_dispatch` input so acceptance is a reviewed button press with an
+      audit trail, not someone running the pipeline on a laptop.
+- [ ] **Reconsider the threshold once there is history.** 5 % is a guess made
+      before any real refresh had run. After a few cycles, set it from the
+      observed distribution of routine SSB revisions — and consider a tighter
+      threshold inside the paper window (2012–2022) than outside it, since those
+      are the numbers that get published.
+
+**Acceptance:** a table publishing a new year ahead of the others does not
+change the shipped dataset; widening the window is a reviewed one-line diff that
+the pipeline itself proposes; a blocked refresh has a documented, auditable
+route to acceptance.
+
+---
+
+## Phase C — Add the filter dimensions to the schema · **DONE 2026-07-28**
+
+Delivered; details in [CHANGELOG.md](CHANGELOG.md). Acceptance met: national
+totals unchanged (the 07410 control total is still exactly 61,445,000 m³ and
+pure flows kept their volumes bit-for-bit), `validate.assert_slices_balanced`
+gates every (region, species) slice of every process node in the refresh
+chain, and filtering by species or county returns a coherent sub-Sankey.
+What Phase D builds on:
+
+- Schema: `pipeline.SANKEY_COLUMNS` — the five national columns plus `region`,
+  `species`, `assortment`, `entity_id`; `transform/dimensions.py` documents
+  every dimension's semantics. `add_dimensions` / `collapse_national` are
+  exact inverses (token-based origin merge; fenced round-trip test).
+- Species: mixed flows split by the carbon model's fixed-point propagation
+  (`species_model.flow_species_shares`). The per-slice fence exposed a real
+  bug — inventory-withdrawal years carried a ⅓/⅓/⅓ mix — fixed by seeding
+  each year's fixed point with the previous year's (withdrawals now carry the
+  mix the wood went in with; total carbon moved −0.07 %).
+- Region: county harvest from 03795 via `agg_KommFylker` (2024 boundaries
+  backcast — reform-proof), committed as `data/raw/harvest_by_fylke.csv` and
+  refreshed by the `03795_fylke` query. Harvest edges split into exact county
+  rows plus a national remainder (the 11181 firewood estimate); see the
+  decision log for what `region="NO"` means.
+
+Left open, deliberately: 07410 removals are also published regionally — the
+mill-input edges could get the same treatment if Phase D wants regional
+filtering deeper than the harvest front. Do it the same way (separate query
+id, committed CSV, exact split with a loud tie-out guard).
 
 ---
 
@@ -325,14 +401,16 @@ edge with no resource behind it.
 
 ## Recommended sequence
 
-1. **A** — ingestion hardening. Everything else assumes the pipeline can be
-   trusted unattended.
-2. **B** — refresh loop. Turns "reproducible" into "self-maintaining".
-3. **C** — schema dimensions. Must precede D.
+1. ~~**A** — ingestion hardening.~~ Done 2026-07-28.
+2. ~~**B** — refresh loop.~~ Done 2026-07-28.
+3. ~~**C** — schema dimensions.~~ Done 2026-07-28.
 4. **E** — write the confidentiality rules (an hour, and cheap insurance).
+   **Next.**
 5. **D** — static site. The biggest visible win.
 6. **F** — β export. The research contribution.
-7. **G/H/I** as the work demands.
+7. **J** — year-window and drift policy. Shelved 2026-07-28; pick it up before
+   handing the refresh loop over.
+8. **G/H/I** as the work demands.
 
 ---
 

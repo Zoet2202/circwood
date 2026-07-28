@@ -3,12 +3,22 @@
 from __future__ import annotations
 
 import argparse
+import logging
 
 import pandas as pd
 
 from circwood import config
 
-SANKEY_COLUMNS = ["source", "target", "volume", "year", "origin"]
+# The flow schema. One row per (source, target, year, region, species,
+# assortment, entity_id); summing ``volume`` over the four dimension columns
+# recovers the pre-Phase-C national table. The columns are additive — new ones
+# append, existing ones never rename or reorder (house rule). See
+# ``circwood.transform.dimensions`` for what each dimension means, including
+# why ``entity_id`` exists while every row is still ``"national"``.
+SANKEY_COLUMNS = [
+    "source", "target", "volume", "year", "origin",
+    "region", "species", "assortment", "entity_id",
+]
 
 
 def build_sankey(use_cached_ssb: bool = True) -> pd.DataFrame:
@@ -35,6 +45,10 @@ def build_carbon(use_cached_ssb: bool = True, write: bool = False) -> pd.DataFra
     from circwood.carbon import add_carbon
 
     df = add_carbon(build_sankey(use_cached_ssb=use_cached_ssb))
+    # Keep the file additive: the pre-Phase-C columns stay in their original
+    # positions (…origin, carbon) and the dimension columns append after.
+    legacy = ["source", "target", "volume", "year", "origin", "carbon"]
+    df = df[legacy + [c for c in df.columns if c not in legacy]]
     if write:
         config.PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
         df.to_csv(config.CARBON_CSV, index=False)
@@ -63,7 +77,16 @@ def main() -> None:
         "--fresh", action="store_true",
         help="Fetch fresh data from the SSB API instead of the cached CSV.",
     )
+    parser.add_argument(
+        "--verbose", action="store_true",
+        help="Log every ingestion step (table vintages, retries, failures).",
+    )
     args = parser.parse_args()
+    # Only the CLI configures logging; the library just emits records.
+    logging.basicConfig(
+        level=logging.DEBUG if args.verbose else logging.INFO,
+        format="%(levelname)s %(name)s: %(message)s",
+    )
     df = build_sankey(use_cached_ssb=not args.fresh)
     print(f"Loaded {len(df)} rows ({df['year'].min()}-{df['year'].max()}).")
 

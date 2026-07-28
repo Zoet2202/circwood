@@ -6,9 +6,10 @@ sawmills, pulpmills, board mills and downstream use, visualised as a Sankey
 diagram.
 
 Data sources: **SSB** (Statistics Norway) tables and the **Treindustrien**
-annual report. The current build runs entirely off cached/processed data — no
-network access required. Live SSB API ingestion is scaffolded for later (see
-[ROADMAP.md](ROADMAP.md)).
+annual report. The default build runs entirely off cached/processed data — no
+network access required. Live SSB API ingestion works and is hardened for
+unattended runs; what is still manual is *triggering* the refresh (see
+[ROADMAP.md](ROADMAP.md), Phase B).
 
 ## Project layout
 
@@ -16,7 +17,7 @@ network access required. Live SSB API ingestion is scaffolded for later (see
 config/              # ssb_queries/*.json, nodes.json (Sankey node positions)
 data/
   raw/               # source spreadsheets + cached SSB inputs
-  processed/         # generated: sankey_data.csv, carbon_data.csv
+  processed/         # generated: sankey_data.csv, carbon_data.csv, manifest.json
 src/circwood/
   config.py          # all filesystem paths
   constants.py       # all model coefficients (yields, splits, year window)
@@ -24,6 +25,9 @@ src/circwood/
   transform/         # sawing.py, mills.py, firewood.py, inventory.py, assemble.py
   viz/sankey.py      # Plotly figure builder (pure, no I/O)
   pipeline.py        # build_sankey(use_cached_ssb=...)
+  manifest.py        # dataset provenance / "data as of"
+  diff.py            # vintage diff, the refresh gate
+  refresh.py         # the refresh loop (circwood-refresh)
 app/streamlit_app.py # the web app
 tests/               # pytest: locks in the sawing fix + cached-data sanity
 ```
@@ -33,7 +37,7 @@ tests/               # pytest: locks in the sawing fix + cached-data sanity
 ```bash
 pip install -e .          # core (cached pipeline + app)
 pip install -e .[dev]     # + pytest
-pip install -e .[ssb]     # + pyjstat/requests (only for live SSB fetch, later)
+pip install -e .[ssb]     # + pyjstat/requests (live SSB fetch)
 ```
 
 Requires Python ≥ 3.10.
@@ -48,7 +52,28 @@ df = build_sankey(use_cached_ssb=True)   # loads data/processed/sankey_data.csv
 ```
 
 CLI: `circwood-build` (or `python -m circwood.pipeline`). `--fresh` re-fetches
-from the SSB API (needs the `ssb` extras + network; not yet wired for routine use).
+from the SSB API and rewrites `sankey_data.csv` (needs the `ssb` extras +
+network); `--verbose` logs each table's vintage and any retries. A fresh run
+either produces a complete, validated dataset or raises — it never returns
+partial data unless you ask it to.
+
+The dataset covers **2012–2024**: the years every SSB source table covers
+(`constants.DATASET_MIN_YEAR/DATASET_MAX_YEAR`). Outside that intersection the
+rows are a partial picture rather than extra data — see the ROADMAP decision log.
+
+**Refresh from SSB**
+
+```bash
+circwood-refresh                 # rebuild, gate, and report
+circwood-refresh --report r.md   # also write the markdown report
+```
+
+Runs ingest → rebuild → `manifest.json` → mass balance → reconciliation →
+**vintage diff** against the committed dataset → golden-fixture update. Any
+failed gate restores the previous `data/processed` outputs and exits non-zero,
+so a bad vintage never reaches a commit. `.github/workflows/refresh.yml` runs
+this monthly and opens a PR. To adopt a change the gate blocked, review it and
+re-run with `--accept-drift`.
 
 **Run the web app**
 
@@ -157,10 +182,12 @@ python -c "from circwood import build_carbon; build_carbon(write=True)"  # carbo
 
 ## Status & roadmap
 
-Volume **and carbon** pipelines + the app are working off cached data. Still to
-do: live SSB API ingestion, an automated refresh loop, and a public static
-site. The live plan is [ROADMAP.md](ROADMAP.md); completed work is recorded in
-[CHANGELOG.md](CHANGELOG.md).
+Volume **and carbon** pipelines + the app work off cached data; live SSB
+ingestion is hardened for unattended runs (Phase A) and the refresh loop is
+automated behind gates (Phase B). Still to do: the year-window policy the first
+live refresh exposed (Phase J), filter dimensions in the schema, and a public
+static site. The live plan is [ROADMAP.md](ROADMAP.md); completed work is
+recorded in [CHANGELOG.md](CHANGELOG.md).
 
 The Streamlit app is the **internal exploration tool**; the public deployment
 will be a static site (see Phase D of the roadmap) so it is robust enough for
