@@ -1,39 +1,188 @@
 [
-    { "label": "Harvested wood", "x_position": 0.01, "y_position": 0.50, "node_color": "#1b4332" },
-
-    { "label": "Spruce", "x_position": 0.13, "y_position": 0.13, "node_color": "#2d6a4f" },
-    { "label": "Pine", "x_position": 0.13, "y_position": 0.30, "node_color": "#52b788" },
-    { "label": "Non-coniferous", "x_position": 0.13, "y_position": 0.47, "node_color": "#74c69d" },
-    { "label": "Import Firewood", "x_position": 0.13, "y_position": 0.60, "node_color": "#355070" },
-    { "label": "Residues from harvest", "x_position": 0.13, "y_position": 0.75, "node_color": "#8a5a44" },
-    { "label": "Bark", "x_position": 0.13, "y_position": 0.88, "node_color": "#6f4518" },
-
-    { "label": "Sawmills", "x_position": 0.32, "y_position": 0.22, "node_color": "#bc8a5f" },
-
-    { "label": "Shrinkage", "x_position": 0.50, "y_position": 0.02, "node_color": "#bc4749" },
-    { "label": "Timber inventory", "x_position": 0.50, "y_position": 0.07, "node_color": "#adb5bd" },
-    { "label": "Net export skurlast", "x_position": 0.32, "y_position": 0.02, "node_color": "#8d99ae" },
-    { "label": "Net export massevirke", "x_position": 0.32, "y_position": 0.98, "node_color": "#8d99ae" },
-    { "label": "Net export sawn timber", "x_position": 0.67, "y_position": 0.02, "node_color": "#8d99ae" },
-    { "label": "Planingmills", "x_position": 0.50, "y_position": 0.21, "node_color": "#a3744a" },
-    { "label": "Planed timber inventory", "x_position": 0.50, "y_position": 0.28, "node_color": "#adb5bd" },
-    { "label": "Import planed wood", "x_position": 0.50, "y_position": 0.35, "node_color": "#355070" },
-    { "label": "Boardmills", "x_position": 0.50, "y_position": 0.44, "node_color": "#c89f72" },
-    { "label": "Import Boards", "x_position": 0.50, "y_position": 0.54, "node_color": "#355070" },
-    { "label": "Pulpmills", "x_position": 0.50, "y_position": 0.82, "node_color": "#ddb892" },
-
-    { "label": "Export planed wood", "x_position": 0.67, "y_position": 0.08, "node_color": "#8d99ae" },
-    { "label": "Impregnation", "x_position": 0.67, "y_position": 0.17, "node_color": "#9c6644" },
-    { "label": "Wood Product processing & Logistics", "x_position": 0.67, "y_position": 0.33, "node_color": "#b08968" },
-    { "label": "Impregnated inventory", "x_position": 0.67, "y_position": 0.45, "node_color": "#adb5bd" },
-    { "label": "Loss Boardmills", "x_position": 0.67, "y_position": 0.51, "node_color": "#bc4749" },
-    { "label": "Export Boards", "x_position": 0.67, "y_position": 0.57, "node_color": "#8d99ae" },
-    { "label": "Short-term USE", "x_position": 0.67, "y_position": 0.63, "node_color": "#468faf" },
-    { "label": "Firewood", "x_position": 0.67, "y_position": 0.74, "node_color": "#d4a373" },
-    { "label": "Loss Pulpmills", "x_position": 0.67, "y_position": 0.88, "node_color": "#bc4749" },
-
-    { "label": "Long-term USE", "x_position": 0.80, "y_position": 0.30, "node_color": "#1d7874" },
-    { "label": "End-of-Life", "x_position": 0.80, "y_position": 0.50, "node_color": "#f4a261" },
-    { "label": "Export Firewood", "x_position": 0.80, "y_position": 0.62, "node_color": "#8d99ae" },
-    { "label": "Energy", "x_position": 0.80, "y_position": 0.72, "node_color": "#ee9b00" }
+  {
+    "label": "Harvested wood",
+    "x_position": 0.01,
+    "y_position": 0.5,
+    "node_color": "#1b4332"
+  },
+  {
+    "label": "Spruce",
+    "x_position": 0.13,
+    "y_position": 0.13,
+    "node_color": "#2d6a4f"
+  },
+  {
+    "label": "Pine",
+    "x_position": 0.13,
+    "y_position": 0.3,
+    "node_color": "#52b788"
+  },
+  {
+    "label": "Non-coniferous",
+    "x_position": 0.13,
+    "y_position": 0.47,
+    "node_color": "#74c69d"
+  },
+  {
+    "label": "Import Firewood",
+    "x_position": 0.13,
+    "y_position": 0.6,
+    "node_color": "#355070"
+  },
+  {
+    "label": "Residues from harvest",
+    "x_position": 0.13,
+    "y_position": 0.75,
+    "node_color": "#8a5a44"
+  },
+  {
+    "label": "Bark",
+    "x_position": 0.13,
+    "y_position": 0.88,
+    "node_color": "#6f4518"
+  },
+  {
+    "label": "Sawmills",
+    "x_position": 0.32,
+    "y_position": 0.22,
+    "node_color": "#bc8a5f"
+  },
+  {
+    "label": "Shrinkage",
+    "x_position": 0.5,
+    "y_position": 0.02,
+    "node_color": "#bc4749"
+  },
+  {
+    "label": "Timber inventory",
+    "x_position": 0.5,
+    "y_position": 0.07,
+    "node_color": "#adb5bd"
+  },
+  {
+    "label": "Net export skurlast",
+    "x_position": 0.32,
+    "y_position": 0.02,
+    "node_color": "#8d99ae"
+  },
+  {
+    "label": "Net export massevirke",
+    "x_position": 0.32,
+    "y_position": 0.98,
+    "node_color": "#8d99ae"
+  },
+  {
+    "label": "Net export sawn timber",
+    "x_position": 0.67,
+    "y_position": 0.02,
+    "node_color": "#8d99ae"
+  },
+  {
+    "label": "Planingmills",
+    "x_position": 0.5,
+    "y_position": 0.21,
+    "node_color": "#a3744a"
+  },
+  {
+    "label": "Planed timber inventory",
+    "x_position": 0.5,
+    "y_position": 0.28,
+    "node_color": "#adb5bd"
+  },
+  {
+    "label": "Import planed wood",
+    "x_position": 0.5,
+    "y_position": 0.35,
+    "node_color": "#355070"
+  },
+  {
+    "label": "Boardmills",
+    "x_position": 0.5,
+    "y_position": 0.44,
+    "node_color": "#c89f72"
+  },
+  {
+    "label": "Import Boards",
+    "x_position": 0.5,
+    "y_position": 0.54,
+    "node_color": "#355070"
+  },
+  {
+    "label": "Pulpmills",
+    "x_position": 0.5,
+    "y_position": 0.82,
+    "node_color": "#ddb892"
+  },
+  {
+    "label": "Export planed wood",
+    "x_position": 0.67,
+    "y_position": 0.08,
+    "node_color": "#8d99ae"
+  },
+  {
+    "label": "Impregnation",
+    "x_position": 0.67,
+    "y_position": 0.17,
+    "node_color": "#9c6644"
+  },
+  {
+    "label": "Wood Product processing & Logistics",
+    "x_position": 0.67,
+    "y_position": 0.33,
+    "node_color": "#b08968"
+  },
+  {
+    "label": "Impregnated inventory",
+    "x_position": 0.67,
+    "y_position": 0.45,
+    "node_color": "#adb5bd"
+  },
+  {
+    "label": "Loss Boardmills",
+    "x_position": 0.67,
+    "y_position": 0.51,
+    "node_color": "#bc4749"
+  },
+  {
+    "label": "Short-term USE",
+    "x_position": 0.67,
+    "y_position": 0.63,
+    "node_color": "#468faf"
+  },
+  {
+    "label": "Firewood",
+    "x_position": 0.67,
+    "y_position": 0.74,
+    "node_color": "#d4a373"
+  },
+  {
+    "label": "Loss Pulpmills",
+    "x_position": 0.67,
+    "y_position": 0.88,
+    "node_color": "#bc4749"
+  },
+  {
+    "label": "Long-term USE",
+    "x_position": 0.8,
+    "y_position": 0.3,
+    "node_color": "#1d7874"
+  },
+  {
+    "label": "End-of-Life",
+    "x_position": 0.8,
+    "y_position": 0.5,
+    "node_color": "#f4a261"
+  },
+  {
+    "label": "Export Firewood",
+    "x_position": 0.8,
+    "y_position": 0.62,
+    "node_color": "#8d99ae"
+  },
+  {
+    "label": "Energy",
+    "x_position": 0.8,
+    "y_position": 0.72,
+    "node_color": "#ee9b00"
+  }
 ]

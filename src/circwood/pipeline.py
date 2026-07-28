@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import logging
 
 import pandas as pd
 
@@ -63,7 +64,16 @@ def main() -> None:
         "--fresh", action="store_true",
         help="Fetch fresh data from the SSB API instead of the cached CSV.",
     )
+    parser.add_argument(
+        "--verbose", action="store_true",
+        help="Log every ingestion step (table vintages, retries, failures).",
+    )
     args = parser.parse_args()
+    # Only the CLI configures logging; the library just emits records.
+    logging.basicConfig(
+        level=logging.DEBUG if args.verbose else logging.INFO,
+        format="%(levelname)s %(name)s: %(message)s",
+    )
     df = build_sankey(use_cached_ssb=not args.fresh)
     print(f"Loaded {len(df)} rows ({df['year'].min()}-{df['year'].max()}).")
 

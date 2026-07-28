@@ -22,6 +22,9 @@ from circwood.transform.mills import boardmill_process, pulpmills_process
 
 SPECIES_POOLS = ("Spruce", "Pine", "Non-coniferous")
 
+# The only SSB 10513 waste-treatment category the End-of-Life transform models.
+EOL_INCINERATION = "Levert til forbrenning"
+
 # Edges produced by the assembly step (create_flow_rows, inventory routing, the
 # mill split functions, and the firewood/WPP aggregates). Everything else in a
 # dataset is a "primary" input row. Used to re-derive a balanced dataset from
@@ -96,12 +99,19 @@ def node_balance(sankey_df: pd.DataFrame, node: str) -> pd.DataFrame:
 
 
 def _finalize(sankey_df: pd.DataFrame) -> pd.DataFrame:
-    """Clean types, take magnitudes, and dedupe to one row per (year, src, tgt)."""
+    """Clean types, clip to the dataset window, and dedupe per (year, src, tgt)."""
     sankey_df = sankey_df.copy()
     sankey_df["year"] = pd.to_numeric(sankey_df["year"], errors="coerce")
     sankey_df = sankey_df.dropna(subset=["year", "volume"])
     sankey_df["year"] = sankey_df["year"].astype(int)
     sankey_df["volume"] = sankey_df["volume"].abs()
+    # Clip to the years every source table covers. Outside that intersection the
+    # dataset is not "more data", it is a partial picture: years with trade but
+    # no harvest, or where one table has published the year and another has not.
+    # See constants.DATASET_MIN_YEAR / DATASET_MAX_YEAR.
+    sankey_df = sankey_df[
+        sankey_df["year"].between(C.DATASET_MIN_YEAR, C.DATASET_MAX_YEAR)
+    ]
     deduped = dedupe_flows(sankey_df)
     # Canonical column order (dedupe groups by year first).
     return deduped[["source", "target", "volume", "year", "origin"]]
@@ -413,12 +423,18 @@ def effective_coefficients(
 def run_fresh_pipeline(
     coefficient_source: str = "manual",
     coefficients: SawmillCoefficients | None = None,
+    ingested=None,
 ) -> pd.DataFrame:
     """Fetch fresh SSB data and rebuild the full Sankey dataset.
 
     Requires ``pip install -e .[ssb]`` and network access. Writes the result to
     ``config.SANKEY_CSV`` and returns it. ``coefficient_source`` / ``coefficients``
     are forwarded to :func:`assemble_sankey`.
+
+    ``ingested`` accepts an already-fetched
+    :class:`~circwood.ingest.ssb.IngestResult`, so a caller that needs the
+    per-table vintages (the refresh loop, which writes them to the manifest) can
+    do the ingest itself instead of this function silently discarding them.
     """
     try:
         import pyjstat  # noqa: F401
@@ -440,7 +456,11 @@ def run_fresh_pipeline(
 
     treindustrien_df = tre.load_treindustrien()
     fao_boardmills_df = pd.read_csv(config.FAO_CSV)
-    ssb = process_query_files(str(config.SSB_QUERY_DIR))
+    # Raises rather than returning a partial dataset; every table below is
+    # therefore present, validated, and in Norwegian.
+    if ingested is None:
+        ingested = process_query_files(str(config.SSB_QUERY_DIR))
+    ssb = ingested.datasets
 
     # --- 11181 firewood ---
     rows_firewood = create_firewood_rows(pd.concat(ssb["11181"], ignore_index=True))
@@ -469,13 +489,26 @@ def run_fresh_pipeline(
     })
 
     # --- 10513 end-of-life ---
+    # Modelling decision: the query selects incineration only (AvfallsBehand=21,
+    # 'Levert til forbrenning') because that is the current reality — Norwegian
+    # waste wood is effectively all incinerated. The purpose of this edge is to
+    # quantify the volume that *may* be recovered, so the whole End-of-Life
+    # stream routes to Energy and there is no Material recovery node; the
+    # recoverable potential is read off the Energy edge, not split out of it.
     tbl_10513 = pd.concat(ssb["10513"], ignore_index=True)
     tbl_10513 = tbl_10513[tbl_10513["value"] != 0].copy()
     tbl_10513["volume"] = tbl_10513["value"] * 1000 / 483
+    unexpected = set(tbl_10513["behandlingsmåte"]) - {EOL_INCINERATION}
+    if unexpected:
+        # Widening the query without revisiting this would silently label
+        # recovered wood as incinerated — the number the model exists to state.
+        raise ValueError(
+            f"SSB 10513 returned treatment categories this transform does not "
+            f"model: {sorted(unexpected)}. The pipeline assumes incineration "
+            f"only ({EOL_INCINERATION!r}); add explicit routing before widening "
+            f"the AvfallsBehand selection in the query file."
+        )
     tbl_10513["target"] = "Energy"
-    tbl_10513.loc[
-        tbl_10513["behandlingsmåte"] == "Levert til materialgjenvinning", "target"
-    ] = "Material recovery"
     eol_sum = tbl_10513.groupby("år", as_index=False)["volume"].sum()
     rows_EOL = pd.DataFrame({
         "year": eol_sum["år"], "volume": eol_sum["volume"],
@@ -553,5 +586,9 @@ def run_fresh_pipeline(
 
     config.PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
     sankey_df.to_csv(config.SANKEY_CSV, index=False)
+    vintage = ", ".join(
+        f"{tid} updated {v.updated}" for tid, v in sorted(ingested.vintages.items())
+    )
     print(f"Wrote {len(sankey_df)} rows to {config.SANKEY_CSV}")
+    print(f"SSB vintage: {vintage}")
     return sankey_df

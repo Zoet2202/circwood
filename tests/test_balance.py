@@ -17,7 +17,7 @@ import pytest
 from circwood import build_sankey, constants as C
 from circwood.transform.sawing import create_flow_rows
 from circwood.transform.mills import boardmill_process, pulpmills_process
-from circwood.validate import assert_balanced
+from circwood.validate import PROCESS_NODES, assert_balanced, assert_window_balanced
 
 
 def _synthetic_primary():
@@ -79,13 +79,9 @@ def test_assembly_is_mass_conserving():
                            "Wood Product processing & Logistics"])
 
 
-# Process nodes expected to conserve volume (within ~1%). Reservoirs/stocks are
-# excluded: use phases (Long-term/Short-term USE) accumulate wood, and the
-# inventory nodes hold net stock changes over the window.
-PROCESS_NODES = [
-    "Sawmills", "Pulpmills", "Boardmills", "Planingmills", "Impregnation",
-    "Wood Product processing & Logistics",
-]
+# The list of nodes expected to conserve volume now lives in `circwood.validate`
+# (PROCESS_NODES), so the scheduled refresh gate and this test check the same
+# thing rather than drifting apart.
 
 
 def test_shipped_dataset_process_nodes_balance():
@@ -98,6 +94,11 @@ def test_shipped_dataset_process_nodes_balance():
     df = build_sankey()
     window = df[(df.year >= C.MIN_YEAR) & (df.year <= C.MAX_YEAR)]
     assert_balanced(window, rel_tol=0.01, nodes=PROCESS_NODES)
+
+
+def test_assert_window_balanced_matches_the_shipped_guarantee():
+    """The one-call form the refresh gate uses agrees with the explicit form."""
+    assert_window_balanced(build_sankey())
 
 
 def test_shipped_sawmills_pulp_share_about_26pct():

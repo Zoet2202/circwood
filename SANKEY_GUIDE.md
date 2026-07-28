@@ -105,6 +105,15 @@ transformed, and which Sankey edges it produces.
 > across tables — the model window is 2012–2022 (`constants.MIN_YEAR/MAX_YEAR`),
 > so every table must cover at least those years or node balances and control
 > totals break.
+>
+> **Two windows, not one.** `MIN_YEAR`/`MAX_YEAR` (2012–2022) is the *analysis*
+> window the paper and the balance guarantee are stated over.
+> `DATASET_MIN_YEAR`/`DATASET_MAX_YEAR` (2012–2024) is what the generated
+> dataset *contains*: the years every source table covers. `assemble._finalize`
+> clips to the latter. Rows outside it are not extra data — a year that only
+> some tables have published reads as a collapse or a spike (firewood appeared
+> to grow 808 % in 2025 for exactly this reason), and pre-2012 years carried
+> trade with no harvest behind them.
 
 > **SSB query format.** Each `config/ssb_queries/*.json` describes one request.
 > The current files use the **PxWebApi v2** shape — `url`, `params` (query
@@ -112,9 +121,12 @@ transformed, and which Sankey edges it produces.
 > body). `ingest/ssb.py` also still accepts the legacy v0 shape (`postUrl` +
 > `queryObj` + `tableIdForQuery`), so a directory may mix the two during
 > migration. The table id (the key the pipeline looks flows up by, e.g.
-> `ssb["07410"]`) is taken from `tableIdForQuery`, or parsed from the v2 `url`
-> /filename. All queries must request `json-stat2` and `lang=no` — the
-> transforms below filter on Norwegian category labels.
+> `ingested.datasets["07410"]`) is taken from `tableIdForQuery`, or parsed from
+> the v2 `url`/filename; two files resolving to the same id is an error, not a
+> silent overwrite. All queries must request `json-stat2` and `lang=no` — the
+> transforms below filter on Norwegian category labels — and `ingest/ssb.py` now
+> *enforces* that rather than trusting it: missing settings are injected,
+> conflicting ones raise `SSBQueryError` before any network call.
 
 ### 3.1 SSB 07410 — Roundwood removals (the backbone)
 
@@ -126,8 +138,10 @@ transformed, and which Sankey edges it produces.
   (v2) selects nine `Treslag` (species × assortment) codes — **explicit codes, no
   `I alt`**, since the total would double-count. `Tid` covers 2012 onward to match
   the model window.
-* **Ingest:** `ingest/ssb.py::process_query_files` POSTs the query and parses the
-  JSON-stat reply via `pyjstat`.
+* **Ingest:** `ingest/ssb.py::process_query_files` POSTs the query (retrying
+  429/5xx), caches the raw reply to `data/raw/ssb/07410.json`, parses it via
+  `pyjstat`, and validates the columns and year coverage before the pipeline sees
+  it. A failure raises rather than dropping the table.
 * **Transform** (`assemble.run_fresh_pipeline`):
   * `value` is multiplied by 1000 (1000 m³ → m³).
   * Each `(sortiment)` is mapped to a **species pool → mill** edge:

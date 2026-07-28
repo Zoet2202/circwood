@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-28T09:53:12+00:00",
+  "package_version": "0.1.0",
+  "git_sha": "96686c5ceb51d27a46d22d6c68cbdfe0cf17265c",
+  "git_branch": "phase-a-ingestion-hardening",
+  "git_dirty": true,
+  "tables": {
+    "03795": {
+      "table_id": "03795",
+      "query_file": "ssbapi_table_03795.json",
+      "query_sha256": "83d862f1cb5e9cc0df0e23f93c4f1d7d6d1d380b85944172ab4dc75a2f38cc6e",
+      "updated": "2026-05-21T06:00:00Z",
+      "fetched_at": "2026-07-28T09:53:07+00:00",
+      "rows": 120,
+      "year_min": 1996,
+      "year_max": 2025
+    },
+    "07410": {
+      "table_id": "07410",
+      "query_file": "ssbapi_table_07410.json",
+      "query_sha256": "3863a3572807c2de1298ce087d3cd566ff8496791dbb33237c539c36efa95f7b",
+      "updated": "2026-05-21T06:00:00Z",
+      "fetched_at": "2026-07-28T09:53:08+00:00",
+      "rows": 126,
+      "year_min": 2012,
+      "year_max": 2025
+    },
+    "08801": {
+      "table_id": "08801",
+      "query_file": "ssbapi_table_08801.json",
+      "query_sha256": "1382aaa38da351160fd1a1f3795e8e4f9382c6963056725b505d8b86eebc3ad8",
+      "updated": "2026-05-15T06:00:00Z",
+      "fetched_at": "2026-07-28T09:53:09+00:00",
+      "rows": 6992,
+      "year_min": 1988,
+      "year_max": 2025
+    },
+    "10513": {
+      "table_id": "10513",
+      "query_file": "ssbapi_table_10513.json",
+      "query_sha256": "384eeb186143468b4d5caf91d11e73e8aa86c93c2fde6e8a5915152c11aaa820",
+      "updated": "2026-03-24T07:00:00Z",
+      "fetched_at": "2026-07-28T09:53:10+00:00",
+      "rows": 13,
+      "year_min": 2012,
+      "year_max": 2024
+    },
+    "11181": {
+      "table_id": "11181",
+      "query_file": "ssbapi_table_11181.json",
+      "query_sha256": "fa6b99d0892358b361d27a14d268ac48f733470cd2da9469556c137ee54e6f2c",
+      "updated": "2026-06-29T06:00:00Z",
+      "fetched_at": "2026-07-28T09:53:11+00:00",
+      "rows": 38,
+      "year_min": 2007,
+      "year_max": 2025
+    }
+  },
+  "outputs": {
+    "carbon_data.csv": {
+      "path": "data\\processed\\carbon_data.csv",
+      "rows": 638,
+      "year_min": 2012,
+      "year_max": 2024,
+      "nodes": 31,
+      "total_volume": 577497196.6072714,
+      "sha256": "248591e50a15105b90d6d9d7f303b42bf94dfa3b3a5898676ab43a8a615ca665"
+    },
+    "sankey_data.csv": {
+      "path": "data\\processed\\sankey_data.csv",
+      "rows": 638,
+      "year_min": 2012,
+      "year_max": 2024,
+      "nodes": 31,
+      "total_volume": 577497196.6072714,
+      "sha256": "e9a7ce92b715a74e704a2fd0e5b5e05c3b79571433a3857cf7c2d9fdae38c406"
+    }
+  }
+}

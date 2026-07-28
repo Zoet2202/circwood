@@ -27,6 +27,7 @@ dev = [
 
 [project.scripts]
 circwood-build = "circwood.pipeline:main"
+circwood-refresh = "circwood.refresh:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

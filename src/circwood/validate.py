@@ -17,6 +17,26 @@ from __future__ import annotations
 
 import pandas as pd
 
+from circwood import constants as C
+
+#: The nodes expected to conserve volume, and the only ones the balance
+#: guarantee covers. Everything else is legitimately unbalanced over a window:
+#:
+#: * **species pools** (Spruce/Pine/Non-coniferous) and **Harvested wood** are
+#:   fed by tables whose year coverage differs from the trade table's, so
+#:   outside the analysis window they emit more than they receive;
+#: * **use phases** (Long-term/Short-term USE) accumulate wood — that is the
+#:   point of them;
+#: * **inventory** nodes hold net stock changes, and **net export** nodes hold a
+#:   signed residual.
+#:
+#: Kept here rather than in the test-suite so the scheduled refresh and the
+#: regression test check the same thing.
+PROCESS_NODES = [
+    "Sawmills", "Pulpmills", "Boardmills", "Planingmills", "Impregnation",
+    "Wood Product processing & Logistics",
+]
+
 
 def balance_report(df: pd.DataFrame, by_year: bool = False) -> pd.DataFrame:
     """Per-node inflow/outflow/imbalance.
@@ -85,3 +105,32 @@ def assert_balanced(df: pd.DataFrame, rel_tol: float = 0.01, abs_tol: float = 1.
             for r in bad.itertuples()
         )
         raise AssertionError(f"{len(bad)} node(s) out of balance:\n{lines}")
+
+
+def window(df: pd.DataFrame, min_year: int = C.MIN_YEAR,
+           max_year: int = C.MAX_YEAR) -> pd.DataFrame:
+    """Restrict to the analysis window the balance guarantee is stated over."""
+    return df[(df["year"] >= min_year) & (df["year"] <= max_year)]
+
+
+def assert_window_balanced(
+    df: pd.DataFrame,
+    rel_tol: float = 0.01,
+    min_year: int = C.MIN_YEAR,
+    max_year: int = C.MAX_YEAR,
+    nodes: list | None = None,
+) -> None:
+    """The project's actual balance guarantee, in one call.
+
+    Every node in :data:`PROCESS_NODES` conserves volume within ``rel_tol`` over
+    the paper window. Note the two qualifiers: asserting balance over *all* years
+    or over *all* nodes is a different and much stronger claim that the dataset
+    has never made — the source tables' year coverage differs (trade goes back to
+    1988, harvest to 2012), so the species pools cannot balance outside the
+    window.
+    """
+    assert_balanced(
+        window(df, min_year, max_year),
+        rel_tol=rel_tol,
+        nodes=list(PROCESS_NODES) if nodes is None else nodes,
+    )

@@ -1,307 +1,7 @@
 source,target,volume,year,origin,carbon
-Pulpmills,Energy,42988.16,1988,SSB table 08801,8167750.4
-Pulpmills,Loss Pulpmills,32241.12,1988,SSB table 08801,6125812.8
-Pulpmills,Short-term USE,462122.72,1988,SSB table 08801,87803316.8
-Wood Product processing & Logistics,Energy,44685.2,1988,SSB and Treindustrien,9071095.6
-Wood Product processing & Logistics,Long-term USE,402166.8,1988,SSB and Treindustrien,81639860.39999999
-Firewood,Energy,3593.0,1989,SSB various tables,862320.0
-Firewood,Export Firewood,187.0,1989,SSB table 08801,44880.0
-Import Firewood,Firewood,3593.0,1989,SSB table 08801,962924.0
-Pulpmills,Energy,37983.2,1989,SSB table 08801,7216807.999999999
-Pulpmills,Loss Pulpmills,28487.4,1989,SSB table 08801,5412606.0
-Pulpmills,Short-term USE,408319.4,1989,SSB table 08801,77580686.0
-Wood Product processing & Logistics,Energy,30736.2,1989,SSB and Treindustrien,6239448.600000001
-Wood Product processing & Logistics,Long-term USE,276625.8,1989,SSB and Treindustrien,56155037.4
-Firewood,Energy,1556.0,1990,SSB various tables,373440.0
-Firewood,Export Firewood,285.0,1990,SSB table 08801,68400.0
-Import Firewood,Firewood,1556.0,1990,SSB table 08801,417008.0
-Pulpmills,Energy,26468.88,1990,SSB table 08801,5029087.2
-Pulpmills,Loss Pulpmills,19851.66,1990,SSB table 08801,3771815.4
-Pulpmills,Short-term USE,284540.46,1990,SSB table 08801,54062687.400000006
-Wood Product processing & Logistics,Energy,29460.4,1990,SSB and Treindustrien,5980461.2
-Wood Product processing & Logistics,Long-term USE,265143.60000000003,1990,SSB and Treindustrien,53824150.800000004
-Firewood,Energy,1723.0,1991,SSB various tables,413520.0
-Firewood,Export Firewood,681.0,1991,SSB table 08801,163440.0
-Import Firewood,Firewood,1723.0,1991,SSB table 08801,461764.0
-Pulpmills,Energy,25920.48,1991,SSB table 08801,4924891.2
-Pulpmills,Loss Pulpmills,19440.36,1991,SSB table 08801,3693668.4
-Pulpmills,Short-term USE,278645.16,1991,SSB table 08801,52942580.4
-Wood Product processing & Logistics,Energy,29078.4,1991,SSB and Treindustrien,5902915.2
-Wood Product processing & Logistics,Long-term USE,261705.6,1991,SSB and Treindustrien,53126236.800000004
-Firewood,Energy,3954.0,1992,SSB various tables,948960.0
-Import Firewood,Firewood,3954.0,1992,SSB table 08801,1059672.0
-Pulpmills,Energy,34190.88,1992,SSB table 08801,6496267.199999999
-Pulpmills,Loss Pulpmills,25643.16,1992,SSB table 08801,4872200.4
-Pulpmills,Short-term USE,367551.96,1992,SSB table 08801,69834872.4
-Wood Product processing & Logistics,Energy,30152.9,1992,SSB and Treindustrien,6121038.7
-Wood Product processing & Logistics,Long-term USE,271376.10000000003,1992,SSB and Treindustrien,55089348.300000004
-Firewood,Energy,4878.0,1993,SSB various tables,1170720.0
-Import Firewood,Firewood,4878.0,1993,SSB table 08801,1307304.0
-Pulpmills,Energy,42947.28,1993,SSB table 08801,8159983.2
-Pulpmills,Loss Pulpmills,32210.46,1993,SSB table 08801,6119987.399999999
-Pulpmills,Short-term USE,461683.26,1993,SSB table 08801,87719819.4
-Wood Product processing & Logistics,Energy,34169.9,1993,SSB and Treindustrien,6936489.7
-Wood Product processing & Logistics,Long-term USE,307529.10000000003,1993,SSB and Treindustrien,62428407.300000004
-Firewood,Energy,7821.0,1994,SSB various tables,1877040.0
-Firewood,Export Firewood,139.0,1994,SSB table 08801,33360.0
-Import Firewood,Firewood,7821.0,1994,SSB table 08801,2096028.0
-Pulpmills,Energy,121615.6,1994,SSB table 08801,23106964.0
-Pulpmills,Loss Pulpmills,91211.7,1994,SSB table 08801,17330223.0
-Pulpmills,Short-term USE,1307367.7,1994,SSB table 08801,248399863.0
-Wood Product processing & Logistics,Energy,55193.4,1994,SSB and Treindustrien,11204260.200000001
-Wood Product processing & Logistics,Long-term USE,496740.6,1994,SSB and Treindustrien,100838341.8
-Firewood,Energy,10707.0,1995,SSB various tables,2569680.0
-Firewood,Export Firewood,10.0,1995,SSB table 08801,2400.0
-Import Firewood,Firewood,10707.0,1995,SSB table 08801,2869476.0
-Pulpmills,Energy,200526.4,1995,SSB table 08801,38100016.0
-Pulpmills,Loss Pulpmills,150394.8,1995,SSB table 08801,28575011.999999996
-Pulpmills,Short-term USE,2155658.8,1995,SSB table 08801,409575171.99999994
-Wood Product processing & Logistics,Energy,56082.2,1995,SSB and Treindustrien,11384686.6
-Wood Product processing & Logistics,Long-term USE,504739.8,1995,SSB and Treindustrien,102462179.39999999
-Firewood,Energy,11378.0,1996,SSB various tables,2730720.0
-Firewood,Export Firewood,498.0,1996,SSB table 08801,119520.0
-Harvested wood,Bark,821039.5,1996,SSB table 03795,161583576.61606508
-Harvested wood,Non-coniferous,215089.0,1996,SSB table 03795,51621360.0
-Harvested wood,Pine,1677778.0,1996,SSB table 03795,360722270.0
-Harvested wood,Spruce,5852805.0,1996,SSB table 03795,1112032950.0
-Import Firewood,Firewood,11378.0,1996,SSB table 08801,3049304.0
-Pulpmills,Energy,107453.2,1996,SSB table 08801,20416108.0
-Pulpmills,Loss Pulpmills,80589.9,1996,SSB table 08801,15312080.999999998
-Pulpmills,Short-term USE,1155121.9,1996,SSB table 08801,219473160.99999997
-Wood Product processing & Logistics,Energy,59415.3,1996,SSB and Treindustrien,12061305.9
-Wood Product processing & Logistics,Long-term USE,534737.7000000001,1996,SSB and Treindustrien,108551753.10000001
-Firewood,Energy,14718.0,1997,SSB various tables,3532320.0
-Firewood,Export Firewood,8.0,1997,SSB table 08801,1920.0
-Harvested wood,Bark,854359.3,1997,SSB table 03795,167599874.20877588
-Harvested wood,Non-coniferous,164430.0,1997,SSB table 03795,39463200.0
-Harvested wood,Pine,1655930.0,1997,SSB table 03795,356024950.0
-Harvested wood,Spruce,6221418.0,1997,SSB table 03795,1182069420.0
-Import Firewood,Firewood,14718.0,1997,SSB table 08801,3944424.0
-Pulpmills,Energy,126579.92,1997,SSB table 08801,24050184.8
-Pulpmills,Loss Pulpmills,94934.94,1997,SSB table 08801,18037638.6
-Pulpmills,Short-term USE,1360734.14,1997,SSB table 08801,258539486.6
-Wood Product processing & Logistics,Energy,69897.2,1997,SSB and Treindustrien,14189131.6
-Wood Product processing & Logistics,Long-term USE,629074.8,1997,SSB and Treindustrien,127702184.4
-Firewood,Energy,26209.0,1998,SSB various tables,6290160.0
-Firewood,Export Firewood,25080.0,1998,SSB table 08801,6019200.0
-Harvested wood,Bark,767017.4,1998,SSB table 03795,150699001.0
-Harvested wood,Non-coniferous,162213.0,1998,SSB table 03795,38931120.0
-Harvested wood,Pine,1661852.0,1998,SSB table 03795,357298180.0
-Harvested wood,Spruce,5846109.0,1998,SSB table 03795,1110760710.0
-Import Firewood,Firewood,26209.0,1998,SSB table 08801,7024012.0
-Pulpmills,Energy,168125.84,1998,SSB table 08801,31943909.599999998
-Pulpmills,Loss Pulpmills,126094.38,1998,SSB table 08801,23957932.2
-Pulpmills,Short-term USE,1807352.78,1998,SSB table 08801,343397028.2
-Wood Product processing & Logistics,Energy,74494.0,1998,SSB and Treindustrien,15122282.0
-Wood Product processing & Logistics,Long-term USE,670446.0,1998,SSB and Treindustrien,136100538.0
-Firewood,Energy,47577.0,1999,SSB various tables,11418480.0
-Firewood,Export Firewood,334.0,1999,SSB table 08801,80160.0
-Harvested wood,Bark,842389.5,1999,SSB table 03795,164867445.1922524
-Harvested wood,Non-coniferous,100031.0,1999,SSB table 03795,24007440.0
-Harvested wood,Pine,1561312.0,1999,SSB table 03795,335682080.0
-Harvested wood,Spruce,6045011.0,1999,SSB table 03795,1148552090.0
-Import Firewood,Firewood,47577.0,1999,SSB table 08801,12750636.0
-Pulpmills,Energy,151036.0,1999,SSB table 08801,28696840.0
-Pulpmills,Loss Pulpmills,113277.0,1999,SSB table 08801,21522630.0
-Pulpmills,Short-term USE,1623637.0,1999,SSB table 08801,308491030.0
-Wood Product processing & Logistics,Energy,61717.0,1999,SSB and Treindustrien,12528551.0
-Wood Product processing & Logistics,Long-term USE,555453.0,1999,SSB and Treindustrien,112756959.0
-Firewood,Energy,33257.0,2000,SSB various tables,7981680.0
-Firewood,Export Firewood,373.0,2000,SSB table 08801,89520.0
-Harvested wood,Bark,815626.4,2000,SSB table 03795,159681245.61288157
-Harvested wood,Non-coniferous,61231.0,2000,SSB table 03795,14695440.0
-Harvested wood,Pine,1605636.0,2000,SSB table 03795,345211740.0
-Harvested wood,Spruce,5810922.0,2000,SSB table 03795,1104075180.0
-Import Firewood,Firewood,33257.0,2000,SSB table 08801,8912876.0
-Pulpmills,Energy,163481.6,2000,SSB table 08801,31061504.0
-Pulpmills,Loss Pulpmills,122611.2,2000,SSB table 08801,23296128.0
-Pulpmills,Short-term USE,1757427.2,2000,SSB table 08801,333911168.0
-Wood Product processing & Logistics,Energy,70913.1,2000,SSB and Treindustrien,14395359.3
-Wood Product processing & Logistics,Long-term USE,638217.9,2000,SSB and Treindustrien,129558233.7
-Firewood,Energy,65758.0,2001,SSB various tables,15781920.0
-Firewood,Export Firewood,233.0,2001,SSB table 08801,55920.0
-Harvested wood,Bark,839634.8,2001,SSB table 03795,164509611.29938197
-Harvested wood,Non-coniferous,53292.0,2001,SSB table 03795,12790080.0
-Harvested wood,Pine,1716177.0,2001,SSB table 03795,368978055.0
-Harvested wood,Spruce,5915075.0,2001,SSB table 03795,1123864250.0
-Import Firewood,Firewood,65758.0,2001,SSB table 08801,17623144.0
-Pulpmills,Energy,150780.88,2001,SSB table 08801,28648367.2
-Pulpmills,Loss Pulpmills,113085.66,2001,SSB table 08801,21486275.400000002
-Pulpmills,Short-term USE,1620894.46,2001,SSB table 08801,307969947.4
-Wood Product processing & Logistics,Energy,68211.6,2001,SSB and Treindustrien,13846954.8
-Wood Product processing & Logistics,Long-term USE,613904.4,2001,SSB and Treindustrien,124622593.2
-Boardmills,Export Boards,60389.0,2002,FAOSTAT,14070637.0
-Firewood,Energy,147733.0,2002,SSB various tables,35455920.0
-Firewood,Export Firewood,629.0,2002,SSB table 08801,150960.0
-Harvested wood,Bark,805159.1000000001,2002,SSB table 03795,157977421.72947896
-Harvested wood,Non-coniferous,54860.0,2002,SSB table 03795,13166400.0
-Harvested wood,Pine,1693355.0,2002,SSB table 03795,364071325.0
-Harvested wood,Spruce,5514674.0,2002,SSB table 03795,1047788060.0
-Import Firewood,Firewood,147733.0,2002,SSB table 08801,39592444.0
-Pulpmills,Energy,141780.72,2002,SSB table 08801,26938336.8
-Pulpmills,Loss Pulpmills,106335.54,2002,SSB table 08801,20203752.599999998
-Pulpmills,Short-term USE,1524142.74,2002,SSB table 08801,289587120.6
-Wood Product processing & Logistics,Energy,60901.8,2002,SSB and Treindustrien,12363065.4
-Wood Product processing & Logistics,Long-term USE,548116.2000000001,2002,SSB and Treindustrien,111267588.60000001
-Boardmills,Export Boards,46574.0,2003,FAOSTAT,10851742.0
-Firewood,Energy,293490.0,2003,SSB various tables,70437600.0
-Firewood,Export Firewood,1971.0,2003,SSB table 08801,473040.0
-Harvested wood,Bark,769859.9,2003,SSB table 03795,150823768.3478231
-Harvested wood,Non-coniferous,50343.0,2003,SSB table 03795,12082320.0
-Harvested wood,Pine,1504557.0,2003,SSB table 03795,323479755.0
-Harvested wood,Spruce,5234699.0,2003,SSB table 03795,994592810.0
-Import Firewood,Firewood,293490.0,2003,SSB table 08801,78655320.0
-Pulpmills,Energy,128548.4,2003,SSB table 08801,24424196.0
-Pulpmills,Loss Pulpmills,96411.3,2003,SSB table 08801,18318147.0
-Pulpmills,Short-term USE,1381895.3,2003,SSB table 08801,262560107.0
-Wood Product processing & Logistics,Energy,54393.100000000006,2003,SSB and Treindustrien,11041799.3
-Wood Product processing & Logistics,Long-term USE,489537.9,2003,SSB and Treindustrien,99376193.7
-Boardmills,Export Boards,29246.0,2004,FAOSTAT,6814318.0
-Firewood,Energy,164071.0,2004,SSB various tables,39377040.0
-Firewood,Export Firewood,1653.0,2004,SSB table 08801,396720.0
-Harvested wood,Bark,818183.2000000001,2004,SSB table 03795,160462165.942401
-Harvested wood,Non-coniferous,48446.0,2004,SSB table 03795,11627040.0
-Harvested wood,Pine,1703185.0,2004,SSB table 03795,366184775.0
-Harvested wood,Spruce,5601512.0,2004,SSB table 03795,1064287280.0
-Import Firewood,Firewood,164071.0,2004,SSB table 08801,43971028.0
-Pulpmills,Energy,130784.16,2004,SSB table 08801,24848990.400000002
-Pulpmills,Loss Pulpmills,98088.12,2004,SSB table 08801,18636742.8
-Pulpmills,Short-term USE,1405929.72,2004,SSB table 08801,267126646.79999998
-Wood Product processing & Logistics,Energy,59895.2,2004,SSB and Treindustrien,12158725.6
-Wood Product processing & Logistics,Long-term USE,539056.8,2004,SSB and Treindustrien,109428530.4
-Boardmills,Loss Boardmills,267.8,2005,FAOSTAT,54363.4
-Boardmills,Wood Product processing & Logistics,5088.2,2005,FAOSTAT,1032904.6
-Firewood,Energy,111186.0,2005,SSB various tables,26684640.0
-Firewood,Export Firewood,1101.0,2005,SSB table 08801,264240.0
-Harvested wood,Bark,906717.9,2005,SSB table 03795,178046376.4714004
-Harvested wood,Non-coniferous,62971.0,2005,SSB table 03795,15113040.0
-Harvested wood,Pine,1984212.0,2005,SSB table 03795,426605580.0
-Harvested wood,Spruce,6242776.0,2005,SSB table 03795,1186127440.0
-Import Boards,Boardmills,5356.0,2005,FAOSTAT,1087268.0
-Import Firewood,Firewood,111186.0,2005,SSB table 08801,29797848.0
-Pulpmills,Energy,141125.92,2005,SSB table 08801,26813924.8
-Pulpmills,Loss Pulpmills,105844.44,2005,SSB table 08801,20110443.6
-Pulpmills,Short-term USE,1517103.64,2005,SSB table 08801,288249691.59999996
-Wood Product processing & Logistics,Energy,66664.02,2005,SSB and Treindustrien,13532796.06
-Wood Product processing & Logistics,Long-term USE,599976.1799999999,2005,SSB and Treindustrien,121795164.53999999
-Boardmills,Loss Boardmills,3046.3500000000004,2006,FAOSTAT,618409.05
-Boardmills,Wood Product processing & Logistics,57880.65,2006,FAOSTAT,11749771.950000001
-Firewood,Energy,174976.0,2006,SSB various tables,41994240.0
-Firewood,Export Firewood,5191.0,2006,SSB table 08801,1245840.0
-Harvested wood,Bark,728247.7000000001,2006,SSB table 03795,143036695.5
-Harvested wood,Non-coniferous,68106.0,2006,SSB table 03795,16345440.0
-Harvested wood,Pine,1731641.0,2006,SSB table 03795,372302815.0
-Harvested wood,Spruce,5482730.0,2006,SSB table 03795,1041718700.0
-Import Boards,Boardmills,60927.0,2006,FAOSTAT,12368181.0
-Import Firewood,Firewood,174976.0,2006,SSB table 08801,46893568.0
-Pulpmills,Energy,120880.8,2006,SSB table 08801,22967352.0
-Pulpmills,Loss Pulpmills,90660.6,2006,SSB table 08801,17225514.0
-Pulpmills,Short-term USE,1299468.6,2006,SSB table 08801,246899034.00000003
-Wood Product processing & Logistics,Energy,66593.96500000001,2006,SSB and Treindustrien,13518574.895000001
-Wood Product processing & Logistics,Long-term USE,599345.685,2006,SSB and Treindustrien,121667174.055
-Boardmills,Loss Boardmills,5335.900000000001,2007,FAOSTAT,1083187.7000000002
-Boardmills,Wood Product processing & Logistics,101382.1,2007,FAOSTAT,20580566.3
-Firewood,Energy,2823391.0,2007,SSB various tables,643713840.0000001
-Firewood,Export Firewood,2610.0,2007,SSB table 08801,595062.1512925415
-Harvested wood,Bark,821191.2000000001,2007,SSB table 03795,167383571.2825176
-Harvested wood,Non-coniferous,1828666.0,2007,SSB table 03795 | SSB table 11181,438879840.0
-Harvested wood,Pine,2356546.0,2007,SSB table 03795 | SSB table 11181,506657390.0
-Harvested wood,Spruce,6685700.0,2007,SSB table 03795 | SSB table 11181,1270283000.0
-Import Boards,Boardmills,106718.0,2007,FAOSTAT,21663754.0
-Import Firewood,Firewood,164391.0,2007,SSB table 08801,44056788.0
-Non-coniferous,Firewood,1755000.0,2007,SSB table 11181,421200000.0
-Pine,Firewood,452000.0,2007,SSB table 11181,97180000.0
-Pulpmills,Energy,136122.0,2007,SSB table 08801,25863180.0
-Pulpmills,Loss Pulpmills,102091.5,2007,SSB table 08801,19397385.0
-Pulpmills,Short-term USE,1463311.5,2007,SSB table 08801,278029185.0
-Spruce,Firewood,452000.0,2007,SSB table 11181,85880000.0
-Wood Product processing & Logistics,Energy,81064.81,2007,SSB and Treindustrien,16456156.43
-Wood Product processing & Logistics,Long-term USE,729583.29,2007,SSB and Treindustrien,148105407.87
-Boardmills,Loss Boardmills,5883.55,2008,FAOSTAT,1194360.6500000001
-Boardmills,Wood Product processing & Logistics,111787.45,2008,FAOSTAT,22692852.349999998
-Firewood,Energy,2794062.0,2008,SSB various tables,636712380.0
-Firewood,Export Firewood,2305.0,2008,SSB table 08801,525264.6633825591
-Harvested wood,Bark,807078.0,2008,SSB table 03795,164728267.18721274
-Harvested wood,Non-coniferous,1841364.0,2008,SSB table 03795 | SSB table 11181,441927360.0
-Harvested wood,Pine,2369115.0,2008,SSB table 03795 | SSB table 11181,509359725.0
-Harvested wood,Spruce,6516301.0,2008,SSB table 03795 | SSB table 11181,1238097190.0
-Import Boards,Boardmills,117671.0,2008,FAOSTAT,23887213.0
-Import Firewood,Firewood,138062.0,2008,SSB table 08801,37000616.0
-Non-coniferous,Firewood,1753000.0,2008,SSB table 11181,420720000.0
-Pine,Firewood,451500.0,2008,SSB table 11181,97072500.0
-Pulpmills,Energy,109577.68,2008,SSB table 08801,20819759.2
-Pulpmills,Loss Pulpmills,82183.26,2008,SSB table 08801,15614819.399999999
-Pulpmills,Short-term USE,1177960.06,2008,SSB table 08801,223812411.4
-Spruce,Firewood,451500.0,2008,SSB table 11181,85785000.0
-Wood Product processing & Logistics,Energy,61675.945,2008,SSB and Treindustrien,12520216.834999999
-Wood Product processing & Logistics,Long-term USE,555083.505,2008,SSB and Treindustrien,112681951.515
-Boardmills,Loss Boardmills,5850.450000000001,2009,FAOSTAT,1187641.35
-Boardmills,Wood Product processing & Logistics,111158.55,2009,FAOSTAT,22565185.650000002
-Firewood,Energy,3089427.0,2009,SSB various tables,703662480.0
-Firewood,Export Firewood,16489.0,2009,SSB table 08801,3755612.49148143
-Harvested wood,Bark,663082.6000000001,2009,SSB table 03795,136812512.0876649
-Harvested wood,Non-coniferous,2059615.0,2009,SSB table 03795 | SSB table 11181,494307600.0
-Harvested wood,Pine,2147999.0,2009,SSB table 03795 | SSB table 11181,461819785.0
-Harvested wood,Spruce,5388212.0,2009,SSB table 03795 | SSB table 11181,1023760280.0
-Import Boards,Boardmills,117009.0,2009,FAOSTAT,23752827.0
-Import Firewood,Firewood,124427.0,2009,SSB table 08801,33346436.0
-Non-coniferous,Firewood,1957000.0,2009,SSB table 11181,469680000.0
-Pine,Firewood,504000.0,2009,SSB table 11181,108360000.0
-Pulpmills,Energy,55408.56,2009,SSB table 08801,10527626.4
-Pulpmills,Loss Pulpmills,41556.42,2009,SSB table 08801,7895719.8
-Pulpmills,Short-term USE,595642.02,2009,SSB table 08801,113171983.8
-Spruce,Firewood,504000.0,2009,SSB table 11181,95760000.0
-Wood Product processing & Logistics,Energy,60851.45500000001,2009,SSB and Treindustrien,12352845.365000002
-Wood Product processing & Logistics,Long-term USE,547663.0950000001,2009,SSB and Treindustrien,111175608.28500001
-Boardmills,Loss Boardmills,5747.85,2010,FAOSTAT,1166813.55
-Boardmills,Wood Product processing & Logistics,109209.15,2010,FAOSTAT,22169457.45
-Firewood,Energy,3464390.0,2010,SSB various tables,790091099.9999999
-Firewood,Export Firewood,26182.0,2010,SSB table 08801,5971084.4276192915
-Harvested wood,Bark,832243.0,2010,SSB table 03795,170344969.23217016
-Harvested wood,Non-coniferous,2214494.0,2010,SSB table 03795 | SSB table 11181,531478560.0
-Harvested wood,Pine,2363638.0,2010,SSB table 03795 | SSB table 11181,508182170.0
-Harvested wood,Spruce,6988298.0,2010,SSB table 03795 | SSB table 11181,1327776620.0
-Import Boards,Boardmills,114957.0,2010,FAOSTAT,23336271.0
-Import Firewood,Firewood,220390.0,2010,SSB table 08801,59064520.0
-Non-coniferous,Firewood,2141000.0,2010,SSB table 11181,513840000.0
-Pine,Firewood,551500.0,2010,SSB table 11181,118572500.0
-Pulpmills,Energy,77515.12,2010,SSB table 08801,14727872.799999999
-Pulpmills,Loss Pulpmills,58136.34,2010,SSB table 08801,11045904.6
-Pulpmills,Short-term USE,833287.54,2010,SSB table 08801,158324632.6
-Spruce,Firewood,551500.0,2010,SSB table 11181,104785000.0
-Wood Product processing & Logistics,Energy,69572.71500000001,2010,SSB and Treindustrien,14123261.145000001
-Wood Product processing & Logistics,Long-term USE,626154.435,2010,SSB and Treindustrien,127109350.305
-Boardmills,Loss Boardmills,10224.0689275,2011,FAOSTAT | Treindustrien årsrapport,2075485.9922825
-Boardmills,Wood Product processing & Logistics,194257.3096225,2011,FAOSTAT | Treindustrien årsrapport,39434233.8533675
-Firewood,Energy,2822168.0,2011,SSB various tables,645482820.0
-Firewood,Export Firewood,37347.0,2011,SSB table 08801,8541960.251317427
-Harvested wood,Bark,850629.4,2011,SSB table 03795,172810285.80823925
-Harvested wood,Non-coniferous,1686691.0,2011,SSB table 03795 | SSB table 11181,404805840.0
-Harvested wood,Pine,2416898.0,2011,SSB table 03795 | SSB table 11181,519633070.0
-Harvested wood,Spruce,6899705.0,2011,SSB table 03795 | SSB table 11181,1310943950.0
-Import Boards,Boardmills,114143.0,2011,FAOSTAT,23171029.0
-Import Firewood,Firewood,325168.0,2011,SSB table 08801,87145024.0
-Impregnation,Wood Product processing & Logistics,375581.968,2011,Treindustrien årsrapport,76243139.504
-Non-coniferous,Firewood,1648000.0,2011,SSB table 11181,395520000.0
-Pine,Firewood,424500.0,2011,SSB table 11181,91267500.0
-Planingmills,Boardmills,66812.91855,2011,Treindustrien årsrapport,13563022.46565
-Planingmills,Impregnation,375581.968,2011,Treindustrien årsrapport,76243139.504
-Planingmills,Wood Product processing & Logistics,897045.052,2011,Treindustrien årsrapport,182100145.556
-Pulpmills,Energy,80294.9712,2011,SSB table 08801 | Treindustrien årsrapport,15256044.528
-Pulpmills,Loss Pulpmills,60221.2284,2011,SSB table 08801 | Treindustrien årsrapport,11442033.396
-Pulpmills,Short-term USE,863170.9404000001,2011,SSB table 08801 | Treindustrien årsrapport,164002478.67600003
-Sawmills,Boardmills,23525.460000000003,2011,Treindustrien årsrapport,4775668.380000001
-Sawmills,Energy,8401.95,2011,Treindustrien årsrapport,1705595.85
-Sawmills,Planingmills,1336258.371,2011,Treindustrien årsrapport,271260449.313
-Sawmills,Pulpmills,43690.14,2011,Treindustrien årsrapport,8869098.42
-Sawmills,Shrinkage,8401.95,2011,Treindustrien årsrapport,1705595.85
-Sawmills,Wood Product processing & Logistics,2049950.871,2011,Treindustrien årsrapport,416140026.813
-Spruce,Firewood,424500.0,2011,SSB table 11181,80655000.0
-Wood Product processing & Logistics,Energy,36588.24586225,2011,SSB and Treindustrien,7427413.910036749
-Wood Product processing & Logistics,Long-term USE,329294.21276025,2011,SSB and Treindustrien,66846725.19033076
 Boardmills,Loss Boardmills,48871.21021710001,2012,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,10170650.017193854
 Boardmills,Wood Product processing & Logistics,928552.9941249,2012,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,193242350.32668316
-End-of-Life,Energy,1378.8819875776398,2012,SSB table 10513,288416.0358991759
+End-of-Life,Energy,1378.8819875776398,2012,SSB table 10513,288416.03589917585
 Firewood,Energy,3253122.0,2012,SSB various tables,742274280.0000001
 Firewood,Export Firewood,81713.0,2012,SSB table 08801,18644692.15776107
 Harvested wood,Bark,878740.9,2012,SSB table 03795,179495798.95978457
@@ -313,7 +13,7 @@ Import Boards,Boardmills,113248.0,2012,FAOSTAT,22989344.0
 Import Firewood,Firewood,235122.0,2012,SSB table 08801,63012696.0
 Impregnated inventory,Impregnation,4433.840000000011,2012,Treindustrien årsrapport,1033084.7200000025
 Impregnation,Wood Product processing & Logistics,364821.28,2012,Treindustrien årsrapport,76723676.13343242
-Long-term USE,End-of-Life,1378.8819875776398,2012,SSB table 10513,288416.0358991759
+Long-term USE,End-of-Life,1378.8819875776398,2012,SSB table 10513,288416.03589917585
 Non-coniferous,Firewood,1992000.0,2012,SSB table 11181,478080000.0
 Non-coniferous,Pulpmills,63281.0991163124,2012,SSB table 07410,15187463.787914976
 Non-coniferous,Sawmills,1869.0513815939712,2012,SSB table 07410,448572.3315825531
@@ -323,8 +23,8 @@ Pine,Pulpmills,720036.2899450681,2012,SSB table 07410,154807802.33818963
 Pine,Sawmills,1145728.4969171043,2012,SSB table 07410,246331626.83717743
 Planingmills,Boardmills,70418.9535,2012,Treindustrien årsrapport,14790022.529406684
 Planingmills,Impregnation,364821.28,2012,Treindustrien årsrapport,76623049.3670569
-Planingmills,Wood Product processing & Logistics,976492.12,2012,Treindustrien årsrapport,205091665.47878468
 Planingmills,Planed timber inventory,41620.59999999998,2012,Treindustrien årsrapport,8741533.082956472
+Planingmills,Wood Product processing & Logistics,976492.12,2012,Treindustrien årsrapport,205091665.47878468
 Pulpmills,Energy,371536.40298224,2012,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,72882666.0462489
 Pulpmills,Loss Pulpmills,278652.30223668,2012,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,54661999.53468667
 Pulpmills,Short-term USE,3994016.33205908,2012,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,783488659.9971756
@@ -334,14 +34,14 @@ Sawmills,Planingmills,1408379.07,2012,Treindustrien årsrapport,295800450.588133
 Sawmills,Pulpmills,1063692.037278,2012,Treindustrien årsrapport,223406177.08401638
 Sawmills,Shrinkage,204556.161015,2012,Treindustrien årsrapport,42962726.362310834
 Sawmills,Timber inventory,1164.7797000000137,2012,Treindustrien årsrapport,244637.51800565684
-Sawmills,Wood Product processing & Logistics,665696.5969499998,2012,Treindustrien årsrapport,139815591.92923617
+Sawmills,Wood Product processing & Logistics,665696.59695,2012,Treindustrien årsrapport,139815591.92923623
 Spruce,Boardmills,202000.0,2012,SSB table 07410,38380000.0
 Spruce,Firewood,513000.0,2012,SSB table 11181,97470000.0
 Spruce,Pulpmills,2797195.61093862,2012,SSB table 07410,531467166.0783378
 Spruce,Sawmills,2944690.4517013016,2012,SSB table 07410,559491185.8232473
 Timber inventory,Sawmills,28514.05680000002,2012,Treindustrien årsrapport,5617900.809500714
 Wood Product processing & Logistics,Energy,307366.19910749,2012,SSB and Treindustrien,64290738.08681366
-Wood Product processing & Logistics,Long-term USE,2766295.7919674097,2012,SSB and Treindustrien,578616642.7813228
+Wood Product processing & Logistics,Long-term USE,2766295.79196741,2012,SSB and Treindustrien,578616642.781323
 Boardmills,Loss Boardmills,54265.00932310001,2013,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,11284043.689825099
 Boardmills,Wood Product processing & Logistics,1031035.1771389,2013,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,214396830.10667685
 End-of-Life,Energy,1407.8674948240166,2013,SSB table 10513,295161.48911967693
@@ -364,6 +64,7 @@ Pine,Boardmills,27000.0,2013,SSB table 07410,5805000.0
 Pine,Firewood,369500.0,2013,SSB table 11181,79442500.0
 Pine,Pulpmills,541898.8509803922,2013,SSB table 07410,116508252.96078432
 Pine,Sawmills,1021613.718266928,2013,SSB table 07410,219646949.4273895
+Planed timber inventory,Planingmills,46895.79999999999,2013,Treindustrien årsrapport,10926721.399999997
 Planingmills,Boardmills,67655.57400000001,2013,Treindustrien årsrapport,14271344.493784599
 Planingmills,Impregnation,368555.92,2013,Treindustrien årsrapport,77743609.11554334
 Planingmills,Wood Product processing & Logistics,920121.6800000002,2013,Treindustrien årsrapport,194091524.0994014
@@ -375,15 +76,14 @@ Sawmills,Energy,206656.290165,2013,Treindustrien årsrapport,43434324.39382762
 Sawmills,Planingmills,1353111.4800000002,2013,Treindustrien årsrapport,284392422.395696
 Sawmills,Pulpmills,1074612.708858,2013,Treindustrien årsrapport,225858486.8479036
 Sawmills,Shrinkage,206656.290165,2013,Treindustrien årsrapport,43434324.39382762
-Sawmills,Wood Product processing & Logistics,731901.7598499992,2013,Treindustrien årsrapport,153828651.60482875
+Sawmills,Wood Product processing & Logistics,731901.7598499994,2013,Treindustrien årsrapport,153828651.60482877
 Spruce,Boardmills,190000.0,2013,SSB table 07410,36100000.0
 Spruce,Firewood,369500.0,2013,SSB table 11181,70205000.0
 Spruce,Pulpmills,2151937.52254902,2013,SSB table 07410,408868129.2843138
 Spruce,Sawmills,2992243.6046157195,2013,SSB table 07410,568526284.8769867
 Timber inventory,Sawmills,134220.14149999997,2013,Treindustrien årsrapport,28857330.422499992
-Wood Product processing & Logistics,Energy,310362.95369889,2013,SSB and Treindustrien,65068049.31439703
-Wood Product processing & Logistics,Long-term USE,2793266.5832900098,2013,SSB and Treindustrien,585612443.8295733
-Planed timber inventory,Planingmills,46895.79999999999,2013,Treindustrien årsrapport,10926721.399999997
+Wood Product processing & Logistics,Energy,310362.95369889,2013,SSB and Treindustrien,65068049.31439702
+Wood Product processing & Logistics,Long-term USE,2793266.5832900098,2013,SSB and Treindustrien,585612443.8295732
 Boardmills,Loss Boardmills,65106.46791390001,2014,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,13496527.036313545
 Boardmills,Wood Product processing & Logistics,1237022.8903641,2014,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,256434013.68995732
 End-of-Life,Energy,1383.022774327122,2014,SSB table 10513,288372.8824761042
@@ -408,8 +108,8 @@ Pine,Pulpmills,479070.7882882883,2014,SSB table 07410,103000219.48198198
 Pine,Sawmills,1122585.458294283,2014,SSB table 07410,241355873.53327084
 Planingmills,Boardmills,68675.57025000002,2014,Treindustrien årsrapport,14377780.937484775
 Planingmills,Impregnation,412745.4968,2014,Treindustrien årsrapport,86411577.13464668
-Planingmills,Wood Product processing & Logistics,895360.6032,2014,Treindustrien årsrapport,187450916.9126823
 Planingmills,Planed timber inventory,13415.080000000016,2014,Treindustrien årsrapport,2808554.494657923
+Planingmills,Wood Product processing & Logistics,895360.6032,2014,Treindustrien årsrapport,187450916.9126823
 Pulpmills,Energy,252577.19136416,2014,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,49763503.797442794
 Pulpmills,Loss Pulpmills,189432.89352312,2014,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,37322627.848082095
 Pulpmills,Short-term USE,2715204.80716472,2014,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,534957665.82251
@@ -419,13 +119,13 @@ Sawmills,Planingmills,1373511.4050000005,2014,Treindustrien årsrapport,28755561
 Sawmills,Pulpmills,1098755.892052,2014,Treindustrien årsrapport,230033350.46488848
 Sawmills,Shrinkage,211299.21001,2014,Treindustrien årsrapport,44237182.78170933
 Sawmills,Timber inventory,249224.6011,2014,Treindustrien årsrapport,52177167.3071448
-Sawmills,Wood Product processing & Logistics,703851.8937999993,2014,Treindustrien årsrapport,147357034.01735038
+Sawmills,Wood Product processing & Logistics,703851.8937999997,2014,Treindustrien årsrapport,147357034.01735047
 Spruce,Boardmills,386000.0,2014,SSB table 07410,73340000.0
 Spruce,Firewood,310500.0,2014,SSB table 11181,58995000.0
 Spruce,Pulpmills,1514996.9767267269,2014,SSB table 07410,287849425.5780781
 Spruce,Sawmills,3314498.058106841,2014,SSB table 07410,629754631.0402998
 Wood Product processing & Logistics,Energy,331459.88841641,2014,SSB and Treindustrien,69112414.64866856
-Wood Product processing & Logistics,Long-term USE,2983138.9957476896,2014,SSB and Treindustrien,622011731.8380169
+Wood Product processing & Logistics,Long-term USE,2983138.99574769,2014,SSB and Treindustrien,622011731.838017
 Boardmills,Loss Boardmills,67948.6804383,2015,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,14120278.69194102
 Boardmills,Wood Product processing & Logistics,1291024.9283277,2015,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,268285295.14687935
 End-of-Life,Energy,1401.656314699793,2015,SSB table 10513,293728.8382867039
@@ -448,6 +148,7 @@ Pine,Boardmills,56000.0,2015,SSB table 07410,12040000.0
 Pine,Firewood,346500.0,2015,SSB table 11181,74497500.0
 Pine,Pulpmills,425827.8656752218,2015,SSB table 07410,91552991.12017268
 Pine,Sawmills,1094463.9785635762,2015,SSB table 07410,235309755.3911689
+Planed timber inventory,Planingmills,7341.880000000005,2015,Treindustrien årsrapport,1710658.040000001
 Planingmills,Boardmills,69463.8504,2015,Treindustrien årsrapport,14634581.983010728
 Planingmills,Impregnation,431269.144,2015,Treindustrien årsrapport,90859398.20881076
 Planingmills,Wood Product processing & Logistics,891851.816,2015,Treindustrien årsrapport,187894544.3247269
@@ -459,15 +160,14 @@ Sawmills,Energy,217300.270845,2015,Treindustrien årsrapport,45754994.591360584
 Sawmills,Planingmills,1389277.008,2015,Treindustrien årsrapport,292527762.3435795
 Sawmills,Pulpmills,1129961.408394,2015,Treindustrien årsrapport,237925971.87507507
 Sawmills,Shrinkage,217300.270845,2015,Treindustrien årsrapport,45754994.591360584
-Sawmills,Wood Product processing & Logistics,774822.8848499993,2015,Treindustrien årsrapport,163147596.49269837
+Sawmills,Wood Product processing & Logistics,774822.8848499998,2015,Treindustrien årsrapport,163147596.49269846
 Spruce,Boardmills,430000.0,2015,SSB table 07410,81700000.0
 Spruce,Firewood,346500.0,2015,SSB table 11181,65835000.0
 Spruce,Pulpmills,1341976.1990885106,2015,SSB table 07410,254975477.826817
 Spruce,Sawmills,3085025.1264199344,2015,SSB table 07410,586154774.0197875
 Timber inventory,Sawmills,187003.6013,2015,Treindustrien årsrapport,40205774.2795
-Wood Product processing & Logistics,Energy,338896.8773177699,2015,SSB and Treindustrien,71018683.41731153
-Wood Product processing & Logistics,Long-term USE,3050071.8958599293,2015,SSB and Treindustrien,639168150.7558037
-Planed timber inventory,Planingmills,7341.880000000005,2015,Treindustrien årsrapport,1710658.040000001
+Wood Product processing & Logistics,Energy,338896.87731777,2015,SSB and Treindustrien,71018683.41731153
+Wood Product processing & Logistics,Long-term USE,3050071.8958599297,2015,SSB and Treindustrien,639168150.7558038
 Boardmills,Loss Boardmills,69553.67236360001,2016,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,14454756.964103976
 Boardmills,Wood Product processing & Logistics,1321519.7749084,2016,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,274640382.31797546
 End-of-Life,Energy,1465.83850931677,2016,SSB table 10513,306419.57220735616
@@ -490,6 +190,7 @@ Pine,Boardmills,83000.0,2016,SSB table 07410,17845000.0
 Pine,Firewood,335500.0,2016,SSB table 11181,72132500.0
 Pine,Pulpmills,528973.8323353294,2016,SSB table 07410,113729373.95209582
 Pine,Sawmills,1150603.1578176492,2016,SSB table 07410,247379678.93079457
+Planed timber inventory,Planingmills,16013.200000000012,2016,Treindustrien årsrapport,3731075.600000003
 Planingmills,Boardmills,73200.84030000001,2016,Treindustrien årsrapport,15357860.122070288
 Planingmills,Impregnation,413416.364,2016,Treindustrien årsrapport,86736582.04558744
 Planingmills,Wood Product processing & Logistics,980885.356,2016,Treindustrien årsrapport,205794086.94622752
@@ -502,18 +203,17 @@ Sawmills,Planingmills,1464016.806,2016,Treindustrien årsrapport,306785767.04087
 Sawmills,Pulpmills,1172038.412948,2016,Treindustrien årsrapport,245601486.29715988
 Sawmills,Shrinkage,225392.00249,2016,Treindustrien årsrapport,47231055.05714613
 Sawmills,Timber inventory,8131.907299999963,2016,Treindustrien årsrapport,1704046.9810944034
-Sawmills,Wood Product processing & Logistics,748484.3115999995,2016,Treindustrien årsrapport,156845421.93176597
+Sawmills,Wood Product processing & Logistics,748484.3116,2016,Treindustrien årsrapport,156845421.93176606
 Spruce,Boardmills,417000.0,2016,SSB table 07410,79230000.0
 Spruce,Firewood,335500.0,2016,SSB table 11181,63745000.0
 Spruce,Pulpmills,1623742.2245508982,2016,SSB table 07410,308511022.66467065
 Spruce,Sawmills,3291392.755767118,2016,SSB table 07410,625364623.5957525
 Timber inventory,Sawmills,60144.04979999998,2016,Treindustrien årsrapport,11820199.739672866
-Wood Product processing & Logistics,Energy,346430.58065083995,2016,SSB and Treindustrien,72418011.70311356
+Wood Product processing & Logistics,Energy,346430.58065084,2016,SSB and Treindustrien,72418011.70311357
 Wood Product processing & Logistics,Long-term USE,3117875.22585756,2016,SSB and Treindustrien,651762105.3280221
-Planed timber inventory,Planingmills,16013.200000000012,2016,Treindustrien årsrapport,3731075.600000003
 Boardmills,Loss Boardmills,71219.3932553,2017,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,14796101.245078692
 Boardmills,Wood Product processing & Logistics,1353168.4718507,2017,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,281125923.65649515
-End-of-Life,Energy,1490.6832298136646,2017,SSB table 10513,310577.66090100183
+End-of-Life,Energy,1490.6832298136646,2017,SSB table 10513,310577.6609010018
 Firewood,Energy,2208261.0,2017,SSB various tables,504370139.99999994
 Firewood,Export Firewood,89510.0,2017,SSB table 08801,20444218.88146374
 Harvested wood,Bark,1049102.8,2017,SSB table 03795,212150602.07689297
@@ -537,8 +237,8 @@ Pine,Sawmills,1199441.5117139334,2017,SSB table 07410,257879925.01849568
 Planingmills,Boardmills,73692.28335000001,2017,Treindustrien årsrapport,15450858.678548774
 Planingmills,Export planed wood,62497.0,2017,SSB table 08801,13103574.362691566
 Planingmills,Impregnation,381079.96,2017,Treindustrien årsrapport,79899988.7033222
-Planingmills,Wood Product processing & Logistics,960085.58,2017,Treindustrien årsrapport,201298507.00158188
 Planingmills,Planed timber inventory,26765.20000000001,2017,Treindustrien årsrapport,5611785.982244147
+Planingmills,Wood Product processing & Logistics,960085.58,2017,Treindustrien årsrapport,201298507.00158188
 Pulpmills,Energy,311267.92643232003,2017,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,61588522.431564294
 Pulpmills,Loss Pulpmills,233450.94482424,2017,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,46191391.82367322
 Pulpmills,Short-term USE,3346130.20914744,2017,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,662076616.1393161
@@ -548,13 +248,13 @@ Sawmills,Planingmills,1473845.667,2017,Treindustrien årsrapport,309017173.57097
 Sawmills,Pulpmills,1157352.080404,2017,Treindustrien årsrapport,242658832.41418946
 Sawmills,Shrinkage,222567.70777,2017,Treindustrien årsrapport,46665160.079651825
 Sawmills,Timber inventory,91450.47150000004,2017,Treindustrien årsrapport,19174169.220977906
-Sawmills,Wood Product processing & Logistics,600064.7837999992,2017,Treindustrien årsrapport,125813935.34018794
+Sawmills,Wood Product processing & Logistics,600064.7837999996,2017,Treindustrien årsrapport,125813935.34018803
 Spruce,Boardmills,371000.0,2017,SSB table 07410,70490000.0
 Spruce,Firewood,341500.0,2017,SSB table 11181,64885000.0
 Spruce,Pulpmills,1967013.903625516,2017,SSB table 07410,373732641.688848
 Spruce,Sawmills,3333025.013563502,2017,SSB table 07410,633274752.5770653
-Wood Product processing & Logistics,Energy,367186.8795650699,2017,SSB and Treindustrien,76501861.62160842
-Wood Product processing & Logistics,Long-term USE,3304681.9160856293,2017,SSB and Treindustrien,688516754.5944759
+Wood Product processing & Logistics,Energy,367186.87956507,2017,SSB and Treindustrien,76501861.62160842
+Wood Product processing & Logistics,Long-term USE,3304681.9160856297,2017,SSB and Treindustrien,688516754.5944757
 Boardmills,Loss Boardmills,76587.1909003,2018,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,15891840.326235225
 Boardmills,Wood Product processing & Logistics,1455156.6271057,2018,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,301944966.1984693
 End-of-Life,Energy,1457.5569358178054,2018,SSB table 10513,303248.15285723715
@@ -581,8 +281,8 @@ Pine,Sawmills,1171647.285472401,2018,SSB table 07410,251904166.3765662
 Planingmills,Boardmills,71735.1915,2018,Treindustrien årsrapport,15022826.072549442
 Planingmills,Export planed wood,61701.0,2018,SSB table 08801,12921459.776159838
 Planingmills,Impregnation,371070.0,2018,Treindustrien årsrapport,77709698.04605487
-Planingmills,Wood Product processing & Logistics,933613.6,2018,Treindustrien årsrapport,195517910.2263461
 Planingmills,Planed timber inventory,6351.799999999988,2018,Treindustrien årsrapport,1330197.6986793068
+Planingmills,Wood Product processing & Logistics,933613.6,2018,Treindustrien årsrapport,195517910.2263461
 Pulpmills,Energy,317863.36165232,2018,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,62851113.74278505
 Pulpmills,Loss Pulpmills,238397.52123924,2018,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,47138335.30708879
 Pulpmills,Short-term USE,3417031.13776244,2018,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,675649472.7349393
@@ -592,16 +292,16 @@ Sawmills,Planingmills,1434703.83,2018,Treindustrien årsrapport,300456521.450988
 Sawmills,Pulpmills,1188008.020654,2018,Treindustrien årsrapport,248793339.69685948
 Sawmills,Shrinkage,228463.080895,2018,Treindustrien årsrapport,47844873.01862682
 Sawmills,Timber inventory,68161.26209999999,2018,Treindustrien årsrapport,14274371.671730407
-Sawmills,Wood Product processing & Logistics,564067.0989499994,2018,Treindustrien årsrapport,118127264.22809336
+Sawmills,Wood Product processing & Logistics,564067.0989499999,2018,Treindustrien årsrapport,118127264.22809345
 Spruce,Boardmills,433000.0,2018,SSB table 07410,82270000.0
 Spruce,Firewood,323000.0,2018,SSB table 11181,61370000.0
 Spruce,Pulpmills,2023361.816118048,2018,SSB table 07410,384438745.06242913
 Spruce,Sawmills,3411675.395868608,2018,SSB table 07410,648218325.2150354
 Wood Product processing & Logistics,Energy,370153.23260557,2018,SSB and Treindustrien,77011251.70715484
-Wood Product processing & Logistics,Long-term USE,3331379.093450129,2018,SSB and Treindustrien,693101265.3643934
+Wood Product processing & Logistics,Long-term USE,3331379.09345013,2018,SSB and Treindustrien,693101265.3643935
 Boardmills,Loss Boardmills,68904.7177512,2019,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,14297966.05050281
 Boardmills,Wood Product processing & Logistics,1309189.6372728,2019,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,271661354.9595534
-End-of-Life,Energy,1565.2173913043478,2019,SSB table 10513,325781.6580926992
+End-of-Life,Energy,1565.2173913043478,2019,SSB table 10513,325781.65809269913
 Firewood,Energy,1923489.0,2019,SSB various tables,440412359.99999994
 Firewood,Export Firewood,33950.0,2019,SSB table 08801,7773374.12483253
 Harvested wood,Bark,1103869.9,2019,SSB table 03795,222523842.52079645
@@ -614,7 +314,7 @@ Import Firewood,Firewood,259489.0,2019,SSB table 08801,69543052.0
 Import planed wood,Wood Product processing & Logistics,418774.0,2019,SSB table 08801,85011122.0
 Impregnation,Impregnated inventory,33354.880000000005,2019,Treindustrien årsrapport,6997633.529280272
 Impregnation,Wood Product processing & Logistics,411346.96,2019,Treindustrien årsrapport,86297875.4372227
-Long-term USE,End-of-Life,1565.2173913043478,2019,SSB table 10513,325781.6580926992
+Long-term USE,End-of-Life,1565.2173913043478,2019,SSB table 10513,325781.65809269913
 Non-coniferous,Firewood,1098000.0,2019,SSB table 11181,263520000.0
 Non-coniferous,Pulpmills,183909.7942230656,2019,SSB table 07410,44138350.61353575
 Non-coniferous,Sawmills,788.1696867061812,2019,SSB table 07410,189160.72480948348
@@ -625,8 +325,8 @@ Pine,Sawmills,1262647.8381033023,2019,SSB table 07410,271469285.19221
 Planingmills,Boardmills,69606.7638,2019,Treindustrien årsrapport,14603039.322329214
 Planingmills,Export planed wood,69488.0,2019,SSB table 08801,14578123.461473329
 Planingmills,Impregnation,411346.96,2019,Treindustrien årsrapport,86297875.4372227
-Planingmills,Wood Product processing & Logistics,845008.1600000001,2019,Treindustrien årsrapport,177277131.05043188
 Planingmills,Planed timber inventory,43044.40000000002,2019,Treindustrien årsrapport,9030430.83014395
+Planingmills,Wood Product processing & Logistics,845008.1600000001,2019,Treindustrien årsrapport,177277131.05043188
 Pulpmills,Energy,326058.77355328004,2019,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,64723394.03389135
 Pulpmills,Loss Pulpmills,244544.08016496,2019,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,48542545.525418505
 Pulpmills,Short-term USE,3505131.8156977603,2019,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,695776485.864332
@@ -636,7 +336,7 @@ Sawmills,Planingmills,1392135.276,2019,Treindustrien årsrapport,292060786.44658
 Sawmills,Pulpmills,1177780.669416,2019,Treindustrien årsrapport,247090605.70577872
 Sawmills,Shrinkage,226496.28258000003,2019,Treindustrien årsrapport,47517424.17418823
 Sawmills,Timber inventory,172890.44019999995,2019,Treindustrien årsrapport,36271272.48653107
-Sawmills,Wood Product processing & Logistics,545880.4579999996,2019,Treindustrien årsrapport,114522114.78139536
+Sawmills,Wood Product processing & Logistics,545880.4580000001,2019,Treindustrien årsrapport,114522114.78139545
 Spruce,Boardmills,333000.0,2019,SSB table 07410,63270000.0
 Spruce,Firewood,283000.0,2019,SSB table 11181,53770000.0
 Spruce,Pulpmills,2015675.7845245623,2019,SSB table 07410,382978399.0596668
@@ -666,6 +366,7 @@ Pine,Boardmills,55000.0,2020,SSB table 07410,11825000.0
 Pine,Firewood,314000.0,2020,SSB table 11181,67510000.0
 Pine,Pulpmills,663792.8786227937,2020,SSB table 07410,142715468.90390065
 Pine,Sawmills,1260124.5215707964,2020,SSB table 07410,270926772.13772124
+Planed timber inventory,Planingmills,137233.2,2020,Treindustrien årsrapport,31975335.6
 Planingmills,Boardmills,66578.358,2020,Treindustrien årsrapport,14237536.432538947
 Planingmills,Export planed wood,67303.0,2020,SSB table 08801,14392498.453013347
 Planingmills,Impregnation,463639.52,2020,Treindustrien årsrapport,99147602.25184391
@@ -678,15 +379,14 @@ Sawmills,Energy,224142.163125,2020,Treindustrien årsrapport,47489517.34499024
 Sawmills,Planingmills,1331567.16,2020,Treindustrien årsrapport,282122206.9922387
 Sawmills,Pulpmills,1165539.2482500002,2020,Treindustrien årsrapport,246945490.19394928
 Sawmills,Shrinkage,224142.163125,2020,Treindustrien årsrapport,47489517.34499024
-Sawmills,Wood Product processing & Logistics,617630.4947499997,2020,Treindustrien årsrapport,130858798.20329772
+Sawmills,Wood Product processing & Logistics,617630.4947500002,2020,Treindustrien årsrapport,130858798.20329782
 Spruce,Boardmills,174000.0,2020,SSB table 07410,33060000.0
 Spruce,Firewood,314000.0,2020,SSB table 11181,59660000.0
 Spruce,Pulpmills,1853333.2142078883,2020,SSB table 07410,352133310.6994988
 Spruce,Sawmills,3045102.419800885,2020,SSB table 07410,578569459.7621682
 Timber inventory,Sawmills,312625.286,2020,Treindustrien årsrapport,67214436.49000001
 Wood Product processing & Logistics,Energy,333178.29387625004,2020,SSB and Treindustrien,70300189.56572933
-Wood Product processing & Logistics,Long-term USE,2998604.64488625,2020,SSB and Treindustrien,632701706.0915639
-Planed timber inventory,Planingmills,137233.2,2020,Treindustrien årsrapport,31975335.6
+Wood Product processing & Logistics,Long-term USE,2998604.6448862506,2020,SSB and Treindustrien,632701706.0915639
 Boardmills,Loss Boardmills,61012.38964200001,2021,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,12711183.345315564
 Boardmills,Wood Product processing & Logistics,1159235.403198,2021,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,241512483.5609957
 End-of-Life,Energy,1167.7018633540372,2021,SSB table 10513,243215.4399080449
@@ -713,8 +413,8 @@ Pine,Sawmills,1316884.7410275503,2021,SSB table 07410,283130219.3209233
 Planingmills,Boardmills,74409.39660000002,2021,Treindustrien årsrapport,15591067.910081912
 Planingmills,Export planed wood,52607.0,2021,SSB table 08801,11022792.107222637
 Planingmills,Impregnation,435952.72,2021,Treindustrien årsrapport,91345566.20104244
-Planingmills,Wood Product processing & Logistics,928762.12,2021,Treindustrien årsrapport,194604363.78853315
 Planingmills,Planed timber inventory,104715.91999999998,2021,Treindustrien årsrapport,21941221.063291136
+Planingmills,Wood Product processing & Logistics,928762.12,2021,Treindustrien årsrapport,194604363.78853315
 Pulpmills,Energy,319915.9560128,2021,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,63422996.54869799
 Pulpmills,Loss Pulpmills,239936.9670096,2021,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,47567247.41152349
 Pulpmills,Short-term USE,3439096.5271376004,2021,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,681797212.8985035
@@ -724,12 +424,12 @@ Sawmills,Planingmills,1488187.9320000005,2021,Treindustrien årsrapport,31182135
 Sawmills,Pulpmills,1251878.4501600002,2021,Treindustrien årsrapport,262307219.56442598
 Sawmills,Shrinkage,240745.8558,2021,Treindustrien årsrapport,50443696.07008191
 Sawmills,Timber inventory,265943.7123,2021,Treindustrien årsrapport,55723425.64498884
-Sawmills,Wood Product processing & Logistics,632390.7976999995,2021,Treindustrien årsrapport,132505413.60594183
+Sawmills,Wood Product processing & Logistics,632390.7977,2021,Treindustrien årsrapport,132505413.60594194
 Spruce,Boardmills,247000.0,2021,SSB table 07410,46930000.0
 Spruce,Firewood,360500.0,2021,SSB table 11181,68495000.0
 Spruce,Pulpmills,1938780.278644068,2021,SSB table 07410,368368252.9423729
 Spruce,Sawmills,3737573.387341772,2021,SSB table 07410,710138943.5949367
-Wood Product processing & Logistics,Energy,363832.5040898,2021,SSB and Treindustrien,75781057.91565132
+Wood Product processing & Logistics,Energy,363832.50408980006,2021,SSB and Treindustrien,75781057.91565134
 Wood Product processing & Logistics,Long-term USE,3274492.5368082,2021,SSB and Treindustrien,682029521.2408619
 Boardmills,Loss Boardmills,70000.06872160001,2022,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,14551104.612431407
 Boardmills,Wood Product processing & Logistics,1330001.3057104,2022,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,276470987.6361967
@@ -757,8 +457,8 @@ Pine,Sawmills,1217283.0587164315,2022,SSB table 07410,261715857.62403277
 Planingmills,Boardmills,62148.72342000001,2022,Treindustrien årsrapport,13034664.5828936
 Planingmills,Export planed wood,49300.0,2022,SSB table 08801,10339857.82127678
 Planingmills,Impregnation,308199.456,2022,Treindustrien årsrapport,64639727.294824526
-Planingmills,Wood Product processing & Logistics,826285.7520000001,2022,Treindustrien årsrapport,173299740.27234823
 Planingmills,Planed timber inventory,28985.679999999997,2022,Treindustrien årsrapport,6079265.923996469
+Planingmills,Wood Product processing & Logistics,826285.7520000001,2022,Treindustrien årsrapport,173299740.27234823
 Pulpmills,Energy,313235.75386464,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,61902957.0446489
 Pulpmills,Loss Pulpmills,234926.81539848,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,46427217.78348667
 Pulpmills,Short-term USE,3367284.3540448803,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,665456788.2299757
@@ -768,7 +468,7 @@ Sawmills,Planingmills,1242974.4684,2022,Treindustrien årsrapport,260693291.6578
 Sawmills,Pulpmills,1207587.923308,2022,Treindustrien årsrapport,253271550.37922126
 Sawmills,Shrinkage,232228.44679,2022,Treindustrien årsrapport,48706067.380619474
 Sawmills,Timber inventory,79228.31949999998,2022,Treindustrien årsrapport,16616826.75555153
-Sawmills,Wood Product processing & Logistics,1000081.6799999996,2022,Treindustrien årsrapport,209750555.39277115
+Sawmills,Wood Product processing & Logistics,1000081.68,2022,Treindustrien årsrapport,209750555.39277124
 Spruce,Boardmills,408000.0,2022,SSB table 07410,77520000.0
 Spruce,Firewood,381500.0,2022,SSB table 11181,72485000.0
 Spruce,Pulpmills,1967576.60942078,2022,SSB table 07410,373839555.7899482
@@ -778,7 +478,7 @@ Wood Product processing & Logistics,Energy,381408.31937104,2022,SSB and Treindus
 Wood Product processing & Logistics,Long-term USE,3432674.87433936,2022,SSB and Treindustrien,715913546.4155788
 Boardmills,Loss Boardmills,53219.123566525006,2023,SSB table 07410 | Treindustrien årsrapport,11136627.289942617
 Boardmills,Wood Product processing & Logistics,1011163.347763975,2023,SSB table 07410 | Treindustrien årsrapport,211595918.5089097
-End-of-Life,Energy,795.0310559006211,2023,SSB table 10513,166912.66692625138
+End-of-Life,Energy,795.0310559006211,2023,SSB table 10513,166912.6669262514
 Firewood,Energy,2563158.0,2023,SSB various tables,585795420.0000001
 Firewood,Export Firewood,217151.0,2023,SSB table 08801,49628646.08752953
 Harvested wood,Bark,1099492.8,2023,SSB table 03795,222595731.55206618
@@ -790,7 +490,7 @@ Import Firewood,Firewood,259158.0,2023,SSB table 08801,69454344.0
 Import planed wood,Wood Product processing & Logistics,264944.0,2023,SSB table 08801,53783632.0
 Impregnated inventory,Impregnation,37928.56,2023,Treindustrien årsrapport,8837354.479999999
 Impregnation,Wood Product processing & Logistics,327370.0,2023,Treindustrien årsrapport,69933927.38521229
-Long-term USE,End-of-Life,795.0310559006211,2023,SSB table 10513,166912.66692625138
+Long-term USE,End-of-Life,795.0310559006211,2023,SSB table 10513,166912.6669262514
 Non-coniferous,Firewood,1521000.0,2023,SSB table 11181,365040000.0
 Non-coniferous,Pulpmills,183025.98221343875,2023,SSB table 07410,43926235.7312253
 Non-coniferous,Sawmills,2060.460646230323,2023,SSB table 07410,494510.55509527755
@@ -798,6 +498,7 @@ Pine,Boardmills,74000.0,2023,SSB table 07410,15910000.0
 Pine,Firewood,391500.0,2023,SSB table 11181,84172500.0
 Pine,Pulpmills,625911.3794466404,2023,SSB table 07410,134570946.5810277
 Pine,Sawmills,1046714.0082850042,2023,SSB table 07410,225043511.7812759
+Planed timber inventory,Planingmills,65483.31999999998,2023,Treindustrien årsrapport,15257613.559999995
 Planingmills,Boardmills,60202.14968249999,2023,Treindustrien årsrapport,12725444.758642126
 Planingmills,Export planed wood,65580.0,2023,SSB table 08801,13862207.108433861
 Planingmills,Impregnation,327370.0,2023,Treindustrien årsrapport,69199004.89612676
@@ -810,15 +511,14 @@ Sawmills,Energy,213635.82916,2023,Treindustrien årsrapport,44906821.800075054
 Sawmills,Planingmills,1204042.9936499998,2023,Treindustrien årsrapport,253093052.64040965
 Sawmills,Pulpmills,1110906.311632,2023,Treindustrien årsrapport,233515473.36039028
 Sawmills,Shrinkage,213635.82916,2023,Treindustrien årsrapport,44906821.800075054
-Sawmills,Wood Product processing & Logistics,960410.3415499998,2023,Treindustrien årsrapport,201880818.55236992
+Sawmills,Wood Product processing & Logistics,960410.3415500002,2023,Treindustrien årsrapport,201880818.55237
 Spruce,Boardmills,332000.0,2023,SSB table 07410,63080000.0
 Spruce,Firewood,391500.0,2023,SSB table 11181,74385000.0
 Spruce,Pulpmills,2035773.638339921,2023,SSB table 07410,386796991.284585
 Spruce,Sawmills,3096185.5310687656,2023,SSB table 07410,588275250.9030654
 Timber inventory,Sawmills,155851.62679999997,2023,Treindustrien årsrapport,33508099.761999995
-Wood Product processing & Logistics,Energy,331764.5302313975,2023,SSB and Treindustrien,69652250.8416067
-Wood Product processing & Logistics,Long-term USE,2985880.772082577,2023,SSB and Treindustrien,626870257.5744603
-Planed timber inventory,Planingmills,65483.31999999998,2023,Treindustrien årsrapport,15257613.559999995
+Wood Product processing & Logistics,Energy,331764.53023139754,2023,SSB and Treindustrien,69652250.84160672
+Wood Product processing & Logistics,Long-term USE,2985880.772082577,2023,SSB and Treindustrien,626870257.5744604
 Boardmills,Loss Boardmills,18250.0,2024,SSB table 07410,3779750.0
 Boardmills,Wood Product processing & Logistics,346750.0,2024,SSB table 07410,71815250.0
 End-of-Life,Energy,935.8178053830228,2024,SSB table 10513,192275.41089684766
@@ -849,55 +549,6 @@ Spruce,Pulpmills,1996794.504085481,2024,SSB table 07410,379390955.77624136
 Spruce,Sawmills,3280273.38856371,2024,SSB table 07410,623251943.8271048
 Wood Product processing & Logistics,Energy,57869.4,2024,SSB and Treindustrien,11889988.2
 Wood Product processing & Logistics,Long-term USE,520824.6,2024,SSB and Treindustrien,107009893.79999998
-Boardmills,Loss Boardmills,21850.0,2025,SSB table 07410,4538050.000000001
-Boardmills,Wood Product processing & Logistics,415150.0,2025,SSB table 07410,86222950.00000001
-Firewood,Energy,241685.0,2025,SSB various tables,58004400.0
-Firewood,Export Firewood,158714.0,2025,SSB table 08801,38091360.0
-Harvested wood,Bark,1281553.8,2025,SSB table 03795,252939731.99999997
-Harvested wood,Non-coniferous,319691.0,2025,SSB table 03795,76725840.0
-Harvested wood,Pine,3138422.0,2025,SSB table 03795,674760730.0
-Harvested wood,Residues from harvest,1281600.0,2025,SSB table 07410,252948850.4744787
-Harvested wood,Spruce,9357425.0,2025,SSB table 03795,1777910750.0
-Import Firewood,Firewood,241685.0,2025,SSB table 08801,64771580.0
-Import planed wood,Wood Product processing & Logistics,246762.0,2025,SSB table 08801,50092686.0
-Non-coniferous,Pulpmills,180043.82865168538,2025,SSB table 07410,43210518.876404494
-Non-coniferous,Sawmills,1263.184854631508,2025,SSB table 07410,303164.3651115619
-Pine,Boardmills,82000.0,2025,SSB table 07410,17630000.0
-Pine,Pulpmills,667520.9873595505,2025,SSB table 07410,143517012.28230336
-Pine,Sawmills,1186130.578498986,2025,SSB table 07410,255018074.377282
-Planingmills,Export planed wood,82465.0,2025,SSB table 08801,19214345.0
-Pulpmills,Energy,225745.52,2025,SSB table 07410 | SSB table 08801,44946866.08932584
-Pulpmills,Loss Pulpmills,169309.13999999998,2025,SSB table 07410 | SSB table 08801,33710149.56699438
-Pulpmills,Short-term USE,2426764.34,2025,SSB table 07410 | SSB table 08801,483178810.46025276
-Spruce,Boardmills,355000.0,2025,SSB table 07410,67450000.0
-Spruce,Pulpmills,1974254.183988764,2025,SSB table 07410,375108294.9578652
-Spruce,Sawmills,3483232.236646383,2025,SSB table 07410,661814124.9628128
-Wood Product processing & Logistics,Energy,66191.2,2025,SSB and Treindustrien,13631563.6
-Wood Product processing & Logistics,Long-term USE,595720.8,2025,SSB and Treindustrien,122684072.4
-Net export skurlast,Sawmills,169340.0,1988,SSB table 08801 (net),34376020.0
-Net export skurlast,Sawmills,227572.0,1989,SSB table 08801 (net),46197116.0
-Net export skurlast,Sawmills,357526.0,1990,SSB table 08801 (net),72577778.0
-Net export skurlast,Sawmills,322856.0,1991,SSB table 08801 (net),65539768.0
-Net export skurlast,Sawmills,270681.0,1992,SSB table 08801 (net),54948243.0
-Net export skurlast,Sawmills,306103.0,1993,SSB table 08801 (net),62138909.0
-Net export skurlast,Sawmills,483546.0,1994,SSB table 08801 (net),98159838.0
-Net export skurlast,Sawmills,555213.0,1995,SSB table 08801 (net),112708239.0
-Net export skurlast,Sawmills,670745.0,1996,SSB table 08801 (net),136161235.0
-Net export skurlast,Sawmills,716196.0,1997,SSB table 08801 (net),145387788.0
-Net export skurlast,Sawmills,702206.0,1998,SSB table 08801 (net),142547818.0
-Net export skurlast,Sawmills,534336.0,1999,SSB table 08801 (net),108470208.0
-Net export skurlast,Sawmills,534999.0,2000,SSB table 08801 (net),108604797.0
-Net export skurlast,Sawmills,401537.0,2001,SSB table 08801 (net),81512011.0
-Net export skurlast,Sawmills,295737.0,2002,SSB table 08801 (net),60034611.0
-Net export skurlast,Sawmills,497769.0,2003,SSB table 08801 (net),101047107.0
-Net export skurlast,Sawmills,577391.0,2004,SSB table 08801 (net),117210373.0
-Net export skurlast,Sawmills,582571.0,2005,SSB table 08801 (net),118261913.0
-Net export skurlast,Sawmills,241280.0,2006,SSB table 08801 (net),48979840.0
-Net export skurlast,Sawmills,288378.0,2007,SSB table 08801 (net),58540734.0
-Net export skurlast,Sawmills,199171.0,2008,SSB table 08801 (net),40431713.0
-Net export skurlast,Sawmills,237229.0,2009,SSB table 08801 (net),48157487.0
-Net export skurlast,Sawmills,311141.0,2010,SSB table 08801 (net),63161623.0
-Net export skurlast,Sawmills,168039.0,2011,SSB table 08801 (net),34111917.0
 Spruce,Net export skurlast,206309.54829869836,2012,SSB table 08801 (net),39198814.17675269
 Pine,Net export skurlast,80271.50308289562,2012,SSB table 08801 (net),17258373.16282256
 Non-coniferous,Net export skurlast,130.94861840602877,2012,SSB table 08801 (net),31427.668417446905
@@ -937,33 +588,6 @@ Non-coniferous,Net export skurlast,939.5393537696768,2023,SSB table 08801 (net),
 Spruce,Net export skurlast,1555726.61143629,2024,SSB table 08801 (net),295588056.1728951
 Pine,Net export skurlast,587418.6915803693,2024,SSB table 08801 (net),126295018.68977939
 Non-coniferous,Net export skurlast,321.69698334083745,2024,SSB table 08801 (net),77207.27600180099
-Spruce,Net export skurlast,2031767.7633536167,2025,SSB table 08801 (net),386035875.03718716
-Pine,Net export skurlast,691869.4215010143,2025,SSB table 08801 (net),148751925.62271807
-Non-coniferous,Net export skurlast,736.8151453684923,2025,SSB table 08801 (net),176835.63488843816
-Net export massevirke,Pulpmills,537352.0,1988,SSB table 08801 (net),109082456.0
-Net export massevirke,Pulpmills,474790.0,1989,SSB table 08801 (net),96382370.0
-Net export massevirke,Pulpmills,330861.0,1990,SSB table 08801 (net),67164783.0
-Net export massevirke,Pulpmills,324006.0,1991,SSB table 08801 (net),65773218.0
-Net export massevirke,Pulpmills,427386.0,1992,SSB table 08801 (net),86759358.0
-Net export massevirke,Pulpmills,536841.0,1993,SSB table 08801 (net),108978723.0
-Net export massevirke,Pulpmills,1520195.0,1994,SSB table 08801 (net),308599585.0
-Net export massevirke,Pulpmills,2506580.0,1995,SSB table 08801 (net),508835740.0
-Net export massevirke,Pulpmills,1343165.0,1996,SSB table 08801 (net),272662495.0
-Net export massevirke,Pulpmills,1582249.0,1997,SSB table 08801 (net),321196547.0
-Net export massevirke,Pulpmills,2101573.0,1998,SSB table 08801 (net),426619319.0
-Net export massevirke,Pulpmills,1887950.0,1999,SSB table 08801 (net),383253850.0
-Net export massevirke,Pulpmills,2043520.0,2000,SSB table 08801 (net),414834560.0
-Net export massevirke,Pulpmills,1884761.0,2001,SSB table 08801 (net),382606483.0
-Net export massevirke,Pulpmills,1772259.0,2002,SSB table 08801 (net),359768577.0
-Net export massevirke,Pulpmills,1606855.0,2003,SSB table 08801 (net),326191565.0
-Net export massevirke,Pulpmills,1634802.0,2004,SSB table 08801 (net),331864806.0
-Net export massevirke,Pulpmills,1764074.0,2005,SSB table 08801 (net),358107022.0
-Net export massevirke,Pulpmills,1511010.0,2006,SSB table 08801 (net),306735030.0
-Net export massevirke,Pulpmills,1701525.0,2007,SSB table 08801 (net),345409575.0
-Net export massevirke,Pulpmills,1369721.0,2008,SSB table 08801 (net),278053363.0
-Net export massevirke,Pulpmills,692607.0,2009,SSB table 08801 (net),140599221.0
-Net export massevirke,Pulpmills,968939.0,2010,SSB table 08801 (net),196694617.0
-Net export massevirke,Pulpmills,959997.0,2011,SSB table 08801 (net),194879391.0
 Spruce,Net export massevirke,473804.3890613805,2012,SSB table 08801 (net),90022833.9216623
 Pine,Net export massevirke,121963.71005493191,2012,SSB table 08801 (net),26222197.66181036
 Non-coniferous,Net export massevirke,10718.900883687604,2012,SSB table 08801 (net),2572536.212085025
@@ -1003,56 +627,6 @@ Non-coniferous,Net export massevirke,109974.01778656123,2023,SSB table 08801 (ne
 Spruce,Net export massevirke,1336205.495914519,2024,SSB table 08801 (net),253879044.2237586
 Pine,Net export massevirke,465046.0171799707,2024,SSB table 08801 (net),99984893.6936937
 Non-coniferous,Net export massevirke,112252.48690551016,2024,SSB table 08801 (net),26940596.85732244
-Spruce,Net export massevirke,1512745.816011236,2025,SSB table 08801 (net),287421705.0421348
-Pine,Net export massevirke,511479.0126404494,2025,SSB table 08801 (net),109967987.71769662
-Non-coniferous,Net export massevirke,137956.1713483146,2025,SSB table 08801 (net),33109481.123595502
-Sawmills,Wood Product processing & Logistics,292030.0,1988,SSB table 08801 (net),59282090.0
-Net export sawn timber,Wood Product processing & Logistics,154822.0,1988,SSB table 08801 (net),31428866.0
-Sawmills,Wood Product processing & Logistics,307362.0,1989,SSB table 08801 (net),62394486.0
-Sawmills,Net export sawn timber,286315.0,1989,SSB table 08801 (net),58121945.0
-Sawmills,Wood Product processing & Logistics,294604.0,1990,SSB table 08801 (net),59804612.0
-Sawmills,Net export sawn timber,275156.0,1990,SSB table 08801 (net),55856668.0
-Sawmills,Wood Product processing & Logistics,290784.0,1991,SSB table 08801 (net),59029152.0
-Sawmills,Net export sawn timber,283361.0,1991,SSB table 08801 (net),57522283.0
-Sawmills,Wood Product processing & Logistics,301529.0,1992,SSB table 08801 (net),61210387.0
-Sawmills,Net export sawn timber,411908.0,1992,SSB table 08801 (net),83617324.0
-Sawmills,Wood Product processing & Logistics,341699.0,1993,SSB table 08801 (net),69364897.0
-Sawmills,Net export sawn timber,427646.0,1993,SSB table 08801 (net),86812138.0
-Sawmills,Wood Product processing & Logistics,551934.0,1994,SSB table 08801 (net),112042602.0
-Sawmills,Net export sawn timber,107865.0,1994,SSB table 08801 (net),21896595.0
-Sawmills,Wood Product processing & Logistics,560822.0,1995,SSB table 08801 (net),113846866.0
-Sawmills,Net export sawn timber,98648.0,1995,SSB table 08801 (net),20025544.0
-Sawmills,Wood Product processing & Logistics,594153.0,1996,SSB table 08801 (net),120613059.0
-Sawmills,Net export sawn timber,73717.0,1996,SSB table 08801 (net),14964551.0
-Sawmills,Wood Product processing & Logistics,618983.0,1997,SSB table 08801 (net),125653549.0
-Net export sawn timber,Wood Product processing & Logistics,79989.0,1997,SSB table 08801 (net),16237767.0
-Sawmills,Wood Product processing & Logistics,633480.0,1998,SSB table 08801 (net),128596440.0
-Net export sawn timber,Wood Product processing & Logistics,111460.0,1998,SSB table 08801 (net),22626380.0
-Sawmills,Wood Product processing & Logistics,617170.0,1999,SSB table 08801 (net),125285510.0
-Sawmills,Net export sawn timber,97658.0,1999,SSB table 08801 (net),19824574.0
-Sawmills,Wood Product processing & Logistics,572865.0,2000,SSB table 08801 (net),116291595.0
-Net export sawn timber,Wood Product processing & Logistics,136266.0,2000,SSB table 08801 (net),27661998.0
-Sawmills,Wood Product processing & Logistics,454558.0,2001,SSB table 08801 (net),92275274.0
-Net export sawn timber,Wood Product processing & Logistics,227558.0,2001,SSB table 08801 (net),46194274.0
-Sawmills,Wood Product processing & Logistics,500104.0,2002,SSB table 08801 (net),101521112.0
-Net export sawn timber,Wood Product processing & Logistics,108914.0,2002,SSB table 08801 (net),22109542.0
-Sawmills,Wood Product processing & Logistics,496567.0,2003,SSB table 08801 (net),100803101.0
-Net export sawn timber,Wood Product processing & Logistics,47364.0,2003,SSB table 08801 (net),9614892.0
-Sawmills,Wood Product processing & Logistics,422915.0,2004,SSB table 08801 (net),85851745.0
-Net export sawn timber,Wood Product processing & Logistics,176037.0,2004,SSB table 08801 (net),35735511.0
-Sawmills,Wood Product processing & Logistics,393796.0,2005,SSB table 08801 (net),79940588.0
-Net export sawn timber,Wood Product processing & Logistics,267756.0,2005,SSB table 08801 (net),54354468.0
-Sawmills,Wood Product processing & Logistics,423536.0,2006,SSB table 08801 (net),85977808.0
-Net export sawn timber,Wood Product processing & Logistics,184523.0,2006,SSB table 08801 (net),37458169.0
-Sawmills,Wood Product processing & Logistics,339335.0,2007,SSB table 08801 (net),68885005.0
-Net export sawn timber,Wood Product processing & Logistics,369931.0,2007,SSB table 08801 (net),75095993.0
-Sawmills,Wood Product processing & Logistics,365156.0,2008,SSB table 08801 (net),74126668.0
-Net export sawn timber,Wood Product processing & Logistics,139816.0,2008,SSB table 08801 (net),28382648.0
-Sawmills,Wood Product processing & Logistics,381454.0,2009,SSB table 08801 (net),77435162.0
-Net export sawn timber,Wood Product processing & Logistics,115902.0,2009,SSB table 08801 (net),23528106.0
-Sawmills,Wood Product processing & Logistics,415770.0,2010,SSB table 08801 (net),84401310.0
-Net export sawn timber,Wood Product processing & Logistics,170748.0,2010,SSB table 08801 (net),34661844.0
-Net export sawn timber,Wood Product processing & Logistics,151237.0,2011,SSB table 08801 (net),30701111.0
 Net export sawn timber,Wood Product processing & Logistics,138099.0,2012,SSB table 08801 (net),28034097.0
 Net export sawn timber,Wood Product processing & Logistics,52015.0,2013,SSB table 08801 (net),10559045.0
 Net export sawn timber,Wood Product processing & Logistics,65618.0,2014,SSB table 08801 (net),13320454.0
