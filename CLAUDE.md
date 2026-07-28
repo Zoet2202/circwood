@@ -46,6 +46,8 @@ src/circwood/
                      dimensions.py (region/species/assortment/entity_id)
   carbon/            species_model.py (species propagation), carbon.py
   viz/sankey.py      Plotly figure builder — pure, no I/O
+  export/bundle.py   public-bundle confidentiality gate (Phase E); the Phase D
+                     bundle builder lands here and must route through it
   pipeline.py        build_sankey() / build_carbon()      → circwood-build
   manifest.py        provenance / "data as of"
   validate.py        mass balance (aggregate + per-slice);
@@ -53,7 +55,8 @@ src/circwood/
   diff.py            vintage diff — the refresh gate
   refresh.py         the whole gated chain              → circwood-refresh
 app/streamlit_app.py internal exploration tool (NOT the public deployment)
-tests/               121 tests, incl. the golden + node-coverage fences
+tests/               130 tests, incl. the golden + node-coverage fences
+docs/                DATA_CONFIDENTIALITY.md — the member-data rules (Phase E)
 papers/              PDFs, git-ignored — read for context, never commit
 ```
 
@@ -183,7 +186,8 @@ the middle (mid-run the golden fence is red by construction).
 ### Where to start
 
 `ROADMAP.md` is the single live plan; completed work is in `CHANGELOG.md`.
-Phases A, B and C are done; Phase J is shelved (decision 2026-07-28 — needs a
-human analysis of per-table drift first). **Phase E (confidentiality rules,
-small) is next**, then D (the static site), which now has the dimensioned
-schema it filters on.
+Phases A, B, C and E are done; Phase J is shelved (decision 2026-07-28 — needs
+a human analysis of per-table drift first). **Phase D (the static site) is
+next**: it has the dimensioned schema it filters on, and its bundle builder
+must route every frame through `export.bundle.assert_publishable` (see
+`docs/DATA_CONFIDENTIALITY.md`).

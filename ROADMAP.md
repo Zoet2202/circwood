@@ -29,7 +29,10 @@ diff, and opens a PR. The dataset covers **2012–2024**, the years every SSB
 source table covers (`constants.DATASET_MIN_YEAR/MAX_YEAR`). Since Phase C
 (2026-07-28) every flow row carries the four filter dimensions — `region`,
 `species`, `assortment`, `entity_id` — with national totals unchanged and a
-per-slice balance gate; the schema Phase D filters on already exists.
+per-slice balance gate; the schema Phase D filters on already exists. Since
+Phase E (2026-07-28) the public export path has its confidentiality gate:
+`export.bundle.assert_publishable` refuses any member-level row, per
+`docs/DATA_CONFIDENTIALITY.md` — inert today, since every row is national.
 
 **Out of scope for the agent** — these are human tasks, do not attempt or stub
 them: negotiating member-level data agreements, contacting Treindustrien /
@@ -291,25 +294,31 @@ JavaScript-only hosting, and shows the data vintage.
 
 ---
 
-## Phase E — Confidentiality guardrails · **P1 · S** (write now, enforce later)
+## Phase E — Confidentiality guardrails · **DONE 2026-07-28**
 
-No member-level data exists in the repo today. Write these rules **before** any
-arrives, because the failure mode is unrecoverable.
+Delivered; details in [CHANGELOG.md](CHANGELOG.md). The rules exist before any
+member-level data does, because the failure mode is unrecoverable. What Phase D
+builds on:
 
-- [ ] `docs/DATA_CONFIDENTIALITY.md` stating the rules plainly:
-      - **Anything shipped to the browser is public.** One bundle filtered
-        client-side means any member can read every competitor's volumes in
-        devtools. Member views require per-entity bundles built server-side
-        behind authentication — never client-side filtering of a combined
-        bundle.
-      - **Suppression happens at build time, not render time.** Do not emit a
-        cell derived from fewer than `MIN_ENTITIES` (default 5) contributors.
-      - **Re-identification via benchmark views.** If a peer group is small and
-        you are in it, you can often solve for the others. Suppress the group,
-        not just the cell.
-- [ ] Implement `export.bundle` with a `min_entities` guard that raises when
-      `entity_id != "national"` and the guard is not satisfied. Inert today;
-      correct by construction later.
+- `docs/DATA_CONFIDENTIALITY.md` states the rules: anything shipped to the
+  browser is public (member views need per-entity bundles built server-side
+  behind authentication, never client-side filtering of a combined bundle);
+  suppression happens at build time against `MIN_ENTITIES` (5); small peer
+  groups are suppressed as groups, not cells; member data and entity ids never
+  enter this public repo — not even in error messages.
+- `circwood.export.bundle.assert_publishable(df, *, min_entities=5)` — the
+  gate **Phase D's bundle builder must route every frame through before
+  serialising**. National frames pass untouched; any `entity_id != "national"`
+  row raises `ConfidentialityError`, reporting counts (rows, entities, cells
+  below the floor) and never ids — fenced by `tests/test_export_guard.py`.
+  Inert today by construction (every row is national), not by being off.
+
+One deliberate strengthening over the plan: the guard refuses per-entity rows
+*unconditionally*, not only when `min_entities` is unsatisfied — a public
+bundle containing per-entity rows leaks in devtools no matter how many
+entities contribute. `min_entities` licenses build-time *aggregates*; the
+refusal message counts the cells that fall below it so an aggregation step
+knows what to suppress.
 
 ---
 
@@ -404,9 +413,8 @@ edge with no resource behind it.
 1. ~~**A** — ingestion hardening.~~ Done 2026-07-28.
 2. ~~**B** — refresh loop.~~ Done 2026-07-28.
 3. ~~**C** — schema dimensions.~~ Done 2026-07-28.
-4. **E** — write the confidentiality rules (an hour, and cheap insurance).
-   **Next.**
-5. **D** — static site. The biggest visible win.
+4. ~~**E** — confidentiality rules.~~ Done 2026-07-28.
+5. **D** — static site. The biggest visible win. **Next.**
 6. **F** — β export. The research contribution.
 7. **J** — year-window and drift policy. Shelved 2026-07-28; pick it up before
    handing the refresh loop over.
