@@ -2,6 +2,38 @@
 
 Completed work, newest first. The live plan is [ROADMAP.md](ROADMAP.md).
 
+## 2026-07-28 — Phase E: confidentiality guardrails
+
+The rules for member-level data, written and enforced **before any such data
+exists** — cheap insurance against an unrecoverable failure mode (a member's
+confidential volumes shipped in a public bundle cannot be unshipped).
+
+- **`docs/DATA_CONFIDENTIALITY.md`** — the rules, plainly: anything shipped to
+  the browser is public, so member views need per-entity bundles built
+  server-side behind authentication (never client-side filtering of a combined
+  bundle); suppression happens at build time against `MIN_ENTITIES = 5`
+  contributors per cell; small peer groups are suppressed as *groups* (a
+  three-member benchmark is solvable by subtraction, and so is a lone
+  suppressed cell next to a published total); and — this repo being public —
+  member data never lands in `data/` or fixtures, and no entity id ever
+  appears in an error message or CI log. Plus a checklist for the day member
+  data actually arrives.
+- **`circwood.export.bundle`** — the new module where Phase D's bundle builder
+  will land, holding its gate: `assert_publishable(df, *, min_entities=5)`.
+  National frames (and pre-Phase-C frames without `entity_id`) pass untouched;
+  any `entity_id != "national"` row raises `ConfidentialityError`. One
+  deliberate strengthening over the roadmap's wording: per-entity rows are
+  refused *unconditionally*, not only when the floor is unmet — rows in a
+  public bundle leak in devtools regardless of contributor count.
+  `min_entities` licenses build-time aggregates, and the refusal counts the
+  cells below the floor so an aggregation step knows what to suppress.
+- **The refusal message reports counts, never ids** — quoting an entity id in
+  a public CI log would itself be a leak. Fenced by
+  `tests/test_export_guard.py` (9 cases, synthetic ids only).
+- Inert today **by construction, not by being switched off**: every row is
+  `entity_id == "national"`, so the shipped dataset passes the gate unchanged.
+- 130 tests (was 121); no data or schema change, so no fixture regeneration.
+
 ## 2026-07-28 — Phase C: the filter dimensions
 
 The flow row grew four columns — `region`, `species`, `assortment`,
