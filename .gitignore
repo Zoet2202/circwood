@@ -12,6 +12,9 @@ env/
 # Office lock / temp files
 ~$*
 
+# Papers / reports — never commit PDFs, the repo is public
+*.pdf
+
 # OS
 .DS_Store
 Thumbs.db
