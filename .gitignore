@@ -19,6 +19,11 @@ env/
 # fresh run, not an input. Committed test fixtures live in tests/fixtures/ssb/.
 data/raw/ssb/
 
+# Static-site data bundle — generated from the committed CSVs by
+# `circwood-bundle` (locally and in the deploy workflow), never committed:
+# the CSVs are the canonical artifact and one committed copy is enough.
+site/data/
+
 # OS
 .DS_Store
 Thumbs.db

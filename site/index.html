@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wood flows in Norway — Circwood WP4</title>
+  <meta name="description"
+        content="Interactive material- and carbon-flow Sankey of Norwegian wood, 2012–2024 — from standing forest through sawmills, pulpmills and board mills to use. Built from Statistics Norway data.">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Apply the stored theme before first paint to avoid a flash.
+    (function () {
+      var t = localStorage.getItem("circwood-theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    })();
+  </script>
+  <script defer src="vendor/plotly.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <header class="site-header">
+      <div>
+        <h1>Wood flows in Norway</h1>
+        <p class="subtitle">
+          A national material- and carbon-flow analysis of Norwegian wood —
+          Circwood WP4, Norwegian Institute of Wood Technology (NTI).
+        </p>
+      </div>
+      <button id="theme-toggle" type="button" title="Switch theme">Theme: auto</button>
+    </header>
+
+    <nav class="filters" aria-label="Filters">
+      <label class="ctl">View
+        <select id="preset"></select>
+      </label>
+
+      <div class="seg" role="group" aria-label="Metric">
+        <button id="metric-volume" type="button" aria-pressed="true">Volume (Mm³)</button>
+        <button id="metric-carbon" type="button" aria-pressed="false">Carbon (Mt C)</button>
+      </div>
+
+      <div class="seg" role="group" aria-label="Aggregation">
+        <button id="mode-avg" type="button" aria-pressed="true">Annual average</button>
+        <button id="mode-year" type="button" aria-pressed="false">Single year</button>
+      </div>
+
+      <label class="ctl" id="range-ctl">Years
+        <select id="year0" aria-label="First year"></select>
+        –
+        <select id="year1" aria-label="Last year"></select>
+      </label>
+      <label class="ctl" id="single-ctl" hidden>Year
+        <select id="yearSel" aria-label="Year"></select>
+      </label>
+
+      <label class="ctl">Species
+        <select id="species"></select>
+      </label>
+      <label class="ctl">Region
+        <select id="region"></select>
+      </label>
+      <label class="ctl">Assortment
+        <select id="assortment"></select>
+      </label>
+
+      <details class="dropdown" id="focus-dd">
+        <summary id="focus-summary">Nodes: all</summary>
+        <div class="menu" id="focus-menu"></div>
+      </details>
+
+      <span class="sep"></span>
+      <button id="copy-link" type="button" title="Copy a link to this exact view">Copy link</button>
+      <button id="reset" type="button">Reset</button>
+    </nav>
+
+    <p class="note" id="region-note" hidden>
+      Regional data exists for the harvest edges only — SSB publishes no
+      regional mill data, so a county view shows what that county contributes
+      to the national species pools. Everything downstream is attributed
+      nationally. “National (not regionally attributed)” carries the firewood
+      estimate SSB never regionalises.
+    </p>
+    <p class="note error" id="load-error" hidden></p>
+
+    <main>
+      <section class="card">
+        <div class="card-head">
+          <h2 id="sankey-title">Sankey</h2>
+          <div class="export-buttons">
+            <button id="export-png" type="button">PNG</button>
+            <button id="export-svg" type="button">SVG</button>
+          </div>
+        </div>
+        <div id="sankey" role="img"
+             aria-label="Sankey diagram of Norwegian wood flows. The same figures are available in the data table below."></div>
+        <p class="hint">Click a node or a flow to see its history and balance; click it again (or press Clear) to deselect.</p>
+      </section>
+
+      <section class="companion" id="companion" hidden>
+        <div class="card">
+          <div class="card-head">
+            <h2 id="ts-title">Time series</h2>
+            <button id="clear-sel" type="button">Clear selection</button>
+          </div>
+          <div id="timeseries"></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h2 id="table-title">Balance</h2></div>
+          <div id="balance-table" class="table-scroll"></div>
+        </div>
+      </section>
+
+      <details class="card data-table">
+        <summary>Data table — current view</summary>
+        <div id="flows-table" class="table-scroll"></div>
+      </details>
+    </main>
+
+    <footer>
+      <p id="vintage-line">Loading data…</p>
+      <p>
+        Sources: Statistics Norway (SSB) tables 03795, 07410, 08801, 10513 and
+        11181; Treindustrien annual report; FAOSTAT. Companion site to
+        Modaresi &amp; Landaas, <em>“Wood extraction and utilisation in Norway
+        2012–2022: a national material and carbon flow analysis”</em>, Wood
+        Material Science &amp; Engineering (2026).
+        <a href="https://github.com/Zoet2202/circwood">Source code and data</a>.
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

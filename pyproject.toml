@@ -28,6 +28,7 @@ dev = [
 [project.scripts]
 circwood-build = "circwood.pipeline:main"
 circwood-refresh = "circwood.refresh:main"
+circwood-bundle = "circwood.export.bundle:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

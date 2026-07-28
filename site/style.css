@@ -1,0 +1,290 @@
+/* Circwood WP4 — public static site.
+   Chrome tokens follow the project's dataviz conventions: charts are written
+   against roles (surface/ink/grid), light and dark are both *selected* sets,
+   and the viewer's explicit choice (data-theme) beats the OS setting. */
+
+:root {
+  color-scheme: light;
+  --page: #f9f9f7;
+  --surface: #fcfcfb;
+  --ink: #0b0b0b;
+  --ink-2: #52514e;
+  --muted: #898781;
+  --grid: #e1e0d9;
+  --baseline: #c3c2b7;
+  --border: rgba(11, 11, 11, 0.10);
+  --series-1: #2a78d6;
+  --series-2: #eb6834;
+  --accent: #2a78d6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d;
+    --surface: #1a1a19;
+    --ink: #ffffff;
+    --ink-2: #c3c2b7;
+    --muted: #898781;
+    --grid: #2c2c2a;
+    --baseline: #383835;
+    --border: rgba(255, 255, 255, 0.10);
+    --series-1: #3987e5;
+    --series-2: #d95926;
+    --accent: #3987e5;
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d;
+  --surface: #1a1a19;
+  --ink: #ffffff;
+  --ink-2: #c3c2b7;
+  --muted: #898781;
+  --grid: #2c2c2a;
+  --baseline: #383835;
+  --border: rgba(255, 255, 255, 0.10);
+  --series-1: #3987e5;
+  --series-2: #d95926;
+  --accent: #3987e5;
+}
+
+* { box-sizing: border-box; }
+
+/* display:grid/flex on a class would otherwise beat the hidden attribute. */
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  background: var(--page);
+  color: var(--ink);
+  font: 15px/1.45 system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+a { color: var(--accent); }
+
+.wrap {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header ------------------------------------------------------------- */
+
+.site-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 22px 0 10px;
+}
+.site-header h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+.subtitle {
+  margin: 4px 0 0;
+  color: var(--ink-2);
+  font-size: 14px;
+}
+
+/* Filter row ---------------------------------------------------------- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 0 14px;
+}
+.filters label.ctl {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--ink-2);
+  font-size: 13px;
+  white-space: nowrap;
+}
+select, button {
+  font: inherit;
+  font-size: 13px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 5px 8px;
+}
+button { cursor: pointer; }
+button:hover, select:hover { border-color: var(--baseline); }
+button:focus-visible, select:focus-visible, summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.seg {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  overflow: hidden;
+}
+.seg button {
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink-2);
+  padding: 5px 10px;
+}
+.seg button[aria-pressed="true"] {
+  background: var(--accent);
+  color: #fff;
+}
+
+.sep { flex: 1; }
+
+/* Node-focus dropdown */
+.dropdown { position: relative; }
+.dropdown > summary {
+  list-style: none;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  padding: 5px 8px;
+  white-space: nowrap;
+}
+.dropdown > summary::-webkit-details-marker { display: none; }
+.dropdown .menu {
+  position: absolute;
+  z-index: 30;
+  top: calc(100% + 4px);
+  left: 0;
+  max-height: 320px;
+  overflow-y: auto;
+  min-width: 240px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+  padding: 6px;
+}
+.dropdown .menu label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 3px 6px;
+  border-radius: 5px;
+  font-size: 13px;
+}
+.dropdown .menu label:hover { background: var(--page); }
+.dropdown .menu .menu-actions {
+  display: flex;
+  gap: 6px;
+  padding: 6px 4px 2px;
+  border-top: 1px solid var(--grid);
+  margin-top: 6px;
+}
+
+/* Notes ---------------------------------------------------------------- */
+
+.note {
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 7px;
+  background: var(--surface);
+  color: var(--ink-2);
+  font-size: 13px;
+}
+
+/* Cards ---------------------------------------------------------------- */
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+.card h2 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+}
+.card .hint {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 12.5px;
+}
+.export-buttons { display: inline-flex; gap: 6px; }
+
+#sankey { width: 100%; min-height: 560px; }
+#timeseries { width: 100%; min-height: 300px; }
+
+.companion {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 16px;
+}
+@media (max-width: 900px) {
+  .companion { grid-template-columns: 1fr; }
+  .site-header { flex-direction: column; align-items: flex-start; }
+}
+
+/* Tables ---------------------------------------------------------------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+th, td {
+  text-align: left;
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--grid);
+}
+th {
+  color: var(--ink-2);
+  font-weight: 600;
+}
+td.num, th.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+tr.total td {
+  font-weight: 600;
+  border-top: 1px solid var(--baseline);
+}
+.table-scroll { overflow-x: auto; }
+
+details.data-table > summary {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+/* Footer ---------------------------------------------------------------- */
+
+footer {
+  margin: 8px 0 28px;
+  color: var(--ink-2);
+  font-size: 13px;
+}
+footer p { margin: 4px 0; }
+#vintage-line { color: var(--muted); }
+
+.error {
+  border-left-color: #d03b3b;
+  color: var(--ink);
+}

@@ -33,6 +33,10 @@ per-slice balance gate; the schema Phase D filters on already exists. Since
 Phase E (2026-07-28) the public export path has its confidentiality gate:
 `export.bundle.assert_publishable` refuses any member-level row, per
 `docs/DATA_CONFIDENTIALITY.md` — inert today, since every row is national.
+Since Phase D (2026-07-28) the public deployment exists: `circwood-bundle`
+builds `site/data/circwood.json` through that gate, and `site/` is a static,
+host-anywhere Plotly.js site (see the decision log for why not ECharts)
+deployed to GitHub Pages on merge to `main`.
 
 **Out of scope for the agent** — these are human tasks, do not attempt or stub
 them: negotiating member-level data agreements, contacting Treindustrien /
@@ -82,6 +86,22 @@ commercially confidential.
   not be — it stays the internal exploration tool. The public deployment is
   the Phase D static site, chosen for robustness and so Treteknisk can adopt
   it. Streamlit Community Cloud is dropped.
+- **2026-07-28 · Plotly.js, not ECharts, for the static site** (Phase D,
+  reversing this roadmap's earlier ECharts choice on evidence): the shipped
+  dataset contains two-way inventory flows — `Sawmills ⇄ Timber inventory`,
+  `Planingmills ⇄ Planed timber inventory`, `Impregnation ⇄ Impregnated
+  inventory`, including both directions *within the same year* (2012, 2016,
+  2022) — and ECharts' sankey topologically sorts its graph and throws on any
+  cycle, so it cannot render this dataset at all without netting the two
+  directions, which would misstate the gross deposits/withdrawals the paper's
+  diagram shows. ECharts also cannot honour the hand-placed `nodes.json`
+  positions (its sankey computes its own layout), while Plotly's
+  `arrangement: "fixed"` reproduces the published figure exactly — the
+  internal app already proves it renders this data. The event-hook advantage
+  that motivated ECharts turned out minor: `plotly_click` distinguishes node
+  and link clicks well enough for cross-filtering. Cost accepted: a ~1.1 MB
+  gzipped vendored library (`site/vendor/plotly.min.js`, committed so deploys
+  need no CDN and no build step).
 - **2026-07-28 · HWP stock model**: Phase G "HWP pool as a stock" is **not**
   in the paper's scope. Kept in the backlog as P3; carbon stays an annual
   flow.
@@ -257,40 +277,33 @@ id, committed CSV, exact split with a loud tie-out guard).
 
 ---
 
-## Phase D — Web artifact and static site · **P1 · L**
+## Phase D — Web artifact and static site · **DONE 2026-07-28**
 
-The public deployment (decision 2026-07-28): robust, host-anywhere static
-output that Treteknisk can adopt — not a Streamlit process.
+Delivered; details in [CHANGELOG.md](CHANGELOG.md). The public deployment:
+robust, host-anywhere static output in `site/`, deployed to GitHub Pages by
+`.github/workflows/site.yml` on every merge to `main` that touches the data or
+the site.
 
-- [ ] **Bundle builder** `src/circwood/export/bundle.py` → a single
-      `site/data/circwood.json`: flow rows (long format, all dimensions),
-      `config/nodes.json` positions, palette/categories, manifest. Gzip; expect
-      well under 1 MB. Do **not** reach for Parquet or DuckDB-WASM at this size.
-- [ ] **Static site** in `site/`. **ECharts**, not Plotly.js — its sankey has
-      the event hooks needed for click-to-cross-filter; Plotly's sankey is
-      awkward to wire into custom selection.
-- [ ] **Filters:** year range, single-year vs annual average, metric
-      (volume Mm³ / carbon Mt C), species, region, assortment, node selector.
-      All client-side over the bundle — filtering is row selection plus
-      aggregation plus index remapping, roughly 100 lines. Do not precompute
-      figure specs; the node-selection space is 2³³.
-- [ ] **Cross-filter:** clicking a node or link filters companion charts —
-      a time series of the selected flow across all years, and a per-node
-      inflow/outflow/balance table. This is what makes it read as a tool rather
-      than a picture.
-- [ ] **URL state** — filters serialised to query params so a view is
-      shareable, plus 3–4 named presets ("sawmill chain", "carbon to long-term
-      use").
-- [ ] **PNG/SVG export** of the current view.
-- [ ] **Build + deploy in the same workflow as Phase B.** GitHub Pages for the
-      public/portfolio copy; keep the build output host-agnostic so an Azure
-      Static Web Apps target can be added without changes.
-- [ ] **Keep the Streamlit app** as the internal exploration tool. Do not
-      migrate it or delete it; it is the right shape for poking at the model and
-      the wrong shape for a public report.
+- **Bundle builder** — `export.bundle.build_bundle` (`circwood-bundle`)
+  serialises `carbon_data.csv` (volume + carbon in one table), the
+  `nodes.json` positions and the manifest vintage into
+  `site/data/circwood.json` (+ `.json.gz`), columnar with index-coded
+  categoricals: 69 KB / 17 KB gz for the full dataset. Every frame goes
+  through `assert_publishable` first, and `entity_id` never reaches the
+  bundle. Node coverage is checked exactly, both ways, like the golden fence.
+- **One deviation, forced by the data: Plotly.js, not ECharts** — see the
+  decision log entry. Cycles and fixed positions, not preference.
+- Filters (year range / single year vs average, metric, species, region,
+  assortment, node focus) are all client-side; click-to-cross-filter renders
+  a per-year time series and an inflow/outflow/balance table; URL query-param
+  state plus four presets; PNG/SVG export; light/dark theming; a data-table
+  fallback for everything the charts show.
+- The Streamlit app stays, untouched, as the internal tool.
 
-**Acceptance:** site loads from a cold cache in under two seconds, works with
-JavaScript-only hosting, and shows the data vintage.
+**Acceptance met:** total cold-cache payload ≈ 1.4 MB gzipped (dominated by
+the vendored plotly.min.js), well under two seconds on ordinary broadband;
+plain static hosting with no build step; the footer states the data vintage
+from the manifest ("Data as of …, oldest source table …").
 
 ---
 
@@ -414,8 +427,8 @@ edge with no resource behind it.
 2. ~~**B** — refresh loop.~~ Done 2026-07-28.
 3. ~~**C** — schema dimensions.~~ Done 2026-07-28.
 4. ~~**E** — confidentiality rules.~~ Done 2026-07-28.
-5. **D** — static site. The biggest visible win. **Next.**
-6. **F** — β export. The research contribution.
+5. ~~**D** — static site.~~ Done 2026-07-28.
+6. **F** — β export. The research contribution. **Next.**
 7. **J** — year-window and drift policy. Shelved 2026-07-28; pick it up before
    handing the refresh loop over.
 8. **G/H/I** as the work demands.

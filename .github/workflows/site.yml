@@ -1,0 +1,65 @@
+name: Deploy static site
+
+# The public deployment (Phase D): build the data bundle from the *committed*
+# dataset and publish site/ to GitHub Pages. Runs on merge to main, so a data
+# refresh (Phase B's PR) redeploys the site only after a human has reviewed
+# and merged it — deploying from the refresh run itself would publish
+# unreviewed data. The build output is host-agnostic: `site/` after
+# `circwood-bundle` is a plain static directory any host (e.g. Azure Static
+# Web Apps) can serve unchanged; only the upload/deploy steps are
+# GitHub-specific.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "data/processed/**"
+      - "config/**"
+      - "site/**"
+      - "src/circwood/**"
+      - ".github/workflows/site.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: deploy-site
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      # No ssb extras: the bundle is built from the committed CSVs, offline —
+      # the deploy can never ship data the refresh gates have not passed.
+      - name: Install package
+        run: pip install -e .
+
+      - name: Build the data bundle
+        run: circwood-bundle
+
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
