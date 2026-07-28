@@ -138,11 +138,23 @@ def species_mix(df: pd.DataFrame, model: CarbonModel | None = None) -> pd.DataFr
     """Return species composition per (year, node).
 
     Columns: ['year', 'node', 'spruce', 'pine', 'non-coniferous'].
+
+    Years are solved in ascending order and each year's fixed point seeds the
+    next. That seeding is what a propagate node with **no inflow this year**
+    keeps — which is exactly the inventory-withdrawal case: wood flowing out of
+    ``Timber inventory`` in a withdrawal year was deposited in earlier years,
+    so it carries the mix it went in with (the first year falls back to the
+    harvest mix). The former ⅓/⅓/⅓ initialisation counted withdrawn wood as
+    one-third non-coniferous against a real share of a few percent, which the
+    per-slice balance fence (Phase C) exposed as a −5.6 % non-coniferous
+    imbalance at Planingmills. Nodes with inflow converge to the same fixed
+    point regardless of the seed.
     """
     model = model or load_model()
     propagate_nodes = [n for n, r in model.nodes.items() if r.mode == "propagate"]
 
     rows = []
+    prev_mix: dict = {}
     for year, edges in df.groupby("year"):
         harvest = _harvest_mix_for_year(edges)
         # Pre-group inflows per node for speed.
@@ -150,8 +162,7 @@ def species_mix(df: pd.DataFrame, model: CarbonModel | None = None) -> pd.DataFr
             node: list(zip(g["source"], g["volume"]))
             for node, g in edges.groupby("target")
         }
-        mix = {n: {"spruce": 1 / 3, "pine": 1 / 3, "non-coniferous": 1 / 3}
-               for n in propagate_nodes}
+        mix = {n: dict(prev_mix.get(n, harvest)) for n in propagate_nodes}
 
         for _ in range(_MAX_ITER):
             max_delta = 0.0
@@ -170,6 +181,7 @@ def species_mix(df: pd.DataFrame, model: CarbonModel | None = None) -> pd.DataFr
                     mix[node] = new
             if max_delta < _TOL:
                 break
+        prev_mix = mix
 
         # Emit mixes for all configured nodes for this year.
         for node, rule in model.nodes.items():
@@ -181,14 +193,63 @@ def species_mix(df: pd.DataFrame, model: CarbonModel | None = None) -> pd.DataFr
     return pd.DataFrame(rows)
 
 
+def flow_species_shares(df: pd.DataFrame, model: CarbonModel | None = None) -> pd.DataFrame:
+    """Species composition of every flow row, index-aligned with ``df``.
+
+    Returns a frame with columns ``['spruce', 'pine', 'non-coniferous']`` and
+    the same index as ``df``; each row sums to 1. This is the propagation the
+    carbon overlay has always used, exposed per-flow so the schema can carry
+    species as a real dimension (Phase C) instead of recomputing the mix inside
+    the carbon step only.
+    """
+    model = model or load_model()
+
+    mixframe = species_mix(df, model)
+    mix_by_year: dict = {}
+    for _, mr in mixframe.iterrows():
+        mix_by_year.setdefault(mr["year"], {})[mr["node"]] = {sp: mr[sp] for sp in SPECIES}
+
+    shares = {sp: pd.Series(0.0, index=df.index) for sp in SPECIES}
+    for year, edges in df.groupby("year"):
+        harvest = _harvest_mix_for_year(edges)
+        cache = mix_by_year.get(year, {})
+        for r in edges.itertuples():
+            es = _edge_species(r.source, r.target, model, cache, harvest)
+            for sp in SPECIES:
+                shares[sp].at[r.Index] = es.get(sp, 0.0)
+    return pd.DataFrame(shares)
+
+
 # ---------------------------------------------------------------------------
 # Carbon computation
 # ---------------------------------------------------------------------------
+def _state_for_row(source: str, target: str, model: CarbonModel) -> str:
+    """Moisture state of the wood on an edge (from the emitting node's rule)."""
+    if source == STANDING_WOOD:
+        rule = model.nodes.get(target)
+        return rule.state if rule else "raw"
+    rule = model.nodes.get(source)
+    return rule.state if rule else "dry"
+
+
 def add_carbon(df: pd.DataFrame, model: CarbonModel | None = None,
                out_col: str = "carbon") -> pd.DataFrame:
     """Return a copy of ``df`` with a species-accurate carbon column (kg C)."""
     model = model or load_model()
     out = df.copy()
+
+    # A Phase C frame already carries one concrete species per row (the same
+    # propagation, applied when the dataset was widened), so the density lookup
+    # is direct. Per-edge totals are identical to the mixed-density path —
+    # Σ_sp share·vol·ρ(sp) == vol·Σ_sp share·ρ(sp) — but each row's carbon now
+    # reflects its own species rather than the source node's average.
+    if "species" in out.columns and out["species"].isin(SPECIES).all():
+        out[out_col] = [
+            float(r.volume)
+            * model.density(r.species, _state_for_row(r.source, r.target, model))
+            for r in out.itertuples()
+        ]
+        return out
 
     # Solve species mixes once, indexed by (year, node).
     mixframe = species_mix(out, model)
@@ -202,12 +263,7 @@ def add_carbon(df: pd.DataFrame, model: CarbonModel | None = None,
         cache = mix_by_year.get(year, {})
         for r in edges.itertuples():
             es = _edge_species(r.source, r.target, model, cache, harvest)
-            if r.source == STANDING_WOOD:
-                rule = model.nodes.get(r.target)
-                state = rule.state if rule else "raw"
-            else:
-                rule = model.nodes.get(r.source)
-                state = rule.state if rule else "dry"
+            state = _state_for_row(r.source, r.target, model)
             dens = sum(es.get(sp, 0.0) * model.density(sp, state) for sp in SPECIES)
             carbon.at[r.Index] = float(r.volume) * dens
 

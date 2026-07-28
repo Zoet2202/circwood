@@ -145,6 +145,11 @@ class TableContract:
 TABLE_CONTRACTS: dict[str, TableContract] = {
     # Avvirkning for salg — roundwood harvest by species.
     "03795": TableContract(("år", "sortiment", "value")),
+    # The same table selected by county (agg_KommFylker, the 2024-boundary
+    # backcast series) — the data behind the `region` dimension. A separate
+    # query file with an explicit tableIdForQuery, because process_query_files
+    # correctly refuses two files with the same table id.
+    "03795_fylke": TableContract(("år", "sortiment", "region", "value")),
     # Industrivirke avvirket for salg — removals by assortment.
     "07410": TableContract(("år", "sortiment", "value")),
     # Utenrikshandel — imports/exports by commodity code.

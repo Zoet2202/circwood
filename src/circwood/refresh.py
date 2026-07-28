@@ -162,10 +162,15 @@ def refresh(
     from circwood.transform.assemble import run_fresh_pipeline
     from circwood.reconcile import treindustrien_reconciliation
     from circwood.validate import (
-        PROCESS_NODES, assert_window_balanced, process_imbalances, window,
+        PROCESS_NODES, assert_slices_balanced, assert_window_balanced,
+        process_imbalances, window,
     )
 
-    managed = [config.PROCESSED_DIR / name for name in MANAGED_OUTPUTS] + [GOLDEN_FIXTURE]
+    # The county-harvest CSV is an input the fresh run rewrites (same vintage
+    # as the national 03795 pull), so a failed refresh must restore it too.
+    managed = [config.PROCESSED_DIR / name for name in MANAGED_OUTPUTS] + [
+        GOLDEN_FIXTURE, config.HARVEST_FYLKE_CSV,
+    ]
     snapshot = _snapshot(managed)
 
     # Read the committed dataset before the rebuild overwrites it — this is the
@@ -204,6 +209,10 @@ def refresh(
         # coverage differs (see validate.assert_window_balanced).
         log.info("Checking mass balance")
         assert_window_balanced(sankey)
+        # Phase C: the same guarantee per (region, species) slice — a dataset
+        # that balances in aggregate but not per slice produces nonsense the
+        # first time someone filters.
+        assert_slices_balanced(sankey)
         balance = process_imbalances(window(sankey))
         balance = balance[balance["node"].isin(PROCESS_NODES)].reset_index(drop=True)
 

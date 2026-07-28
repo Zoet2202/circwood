@@ -26,12 +26,10 @@ validate-on-load, and no path that returns silently partial data; and an
 automated refresh loop (Phase B, 2026-07-28) — `circwood-refresh` plus a monthly
 workflow that rebuilds, gates on mass balance, reconciliation and a vintage
 diff, and opens a PR. The dataset covers **2012–2024**, the years every SSB
-source table covers (`constants.DATASET_MIN_YEAR/MAX_YEAR`).
-
-**Ordering constraint that matters:** Phase C (schema dimensions) must land
-**before** Phase D (web layer). Retrofitting a dimension into transforms, tests
-and app state after the frontend is built is materially more expensive than
-adding it now while every row is national.
+source table covers (`constants.DATASET_MIN_YEAR/MAX_YEAR`). Since Phase C
+(2026-07-28) every flow row carries the four filter dimensions — `region`,
+`species`, `assortment`, `entity_id` — with national totals unchanged and a
+per-slice balance gate; the schema Phase D filters on already exists.
 
 **Out of scope for the agent** — these are human tasks, do not attempt or stub
 them: negotiating member-level data agreements, contacting Treindustrien /
@@ -55,6 +53,20 @@ commercially confidential.
 
 ## Decision log
 
+- **2026-07-28 · Phase J shelved** (user decision): the year-window/drift
+  policy work is deferred until later in the project — it is not crucial for
+  progress, and setting the per-table lag expectations and drift thresholds
+  first needs a sit-down analysis of why and when the individual source tables
+  drift. The interim protections stand: the dataset stays clipped to
+  `DATASET_MIN/MAX_YEAR` and the vintage-diff gate still blocks. Phase C was
+  pulled forward in its place.
+- **2026-07-28 · Region semantics** (Phase C): counties come from SSB 03795 via
+  the `agg_KommFylker` codelist — the whole series backcast into the **2024
+  county boundaries** — so the region dimension is immune to the 2018–2024
+  county reforms. `region="NO"` means *not regionally attributed* (the
+  nationally-estimated 11181 firewood component, and everything downstream of
+  the pools), never "rest of Norway". `dimensions.FYLKE_CODES` is a closed map:
+  an unknown county label fails the run, like a new node.
 - **2026-07-28 · Dataset year window**: the shipped dataset is clipped to the
   years *every* source table covers — 2012–2024 today
   (`constants.DATASET_MIN_YEAR/DATASET_MAX_YEAR`). Rows outside that
@@ -148,10 +160,14 @@ opens an issue. Correct: a new node is a modelling change and wants a human.
 
 ---
 
-## Phase J — Year-window and vintage-drift policy · **P1 · M**
+## Phase J — Year-window and vintage-drift policy · **P2 · M — SHELVED 2026-07-28**
 
-New 2026-07-28, from what Phase B's first real run found. The letter is only a
-label — this runs **right after B**, before C.
+Deferred by decision (see the decision log): not crucial for progress, and the
+lag/threshold design needs a real analysis of how each source table actually
+drifts. Pick it back up before handing the refresh loop to Treteknisk. The
+interim fix (the clipped year window plus the diff gate) remains in force.
+
+New 2026-07-28, from what Phase B's first real run found.
 
 **What happened.** The first live refresh blocked on six flows, the worst
 `Firewood → Energy` in 2025 at **+808 %**. None of it was drift in the sense the
@@ -207,36 +223,34 @@ route to acceptance.
 
 ---
 
-## Phase C — Add the filter dimensions to the schema · **P1 · M**
+## Phase C — Add the filter dimensions to the schema · **DONE 2026-07-28**
 
-Do this **before** Phase D. Currently every flow row is implicitly national and
-all-species.
+Delivered; details in [CHANGELOG.md](CHANGELOG.md). Acceptance met: national
+totals unchanged (the 07410 control total is still exactly 61,445,000 m³ and
+pure flows kept their volumes bit-for-bit), `validate.assert_slices_balanced`
+gates every (region, species) slice of every process node in the refresh
+chain, and filtering by species or county returns a coherent sub-Sankey.
+What Phase D builds on:
 
-- [ ] **Extend the flow row** with `region`, `species`, `assortment`,
-      `entity_id`. Populate with defaults today: `region="NO"`,
-      `entity_id="national"`, `species` from the existing propagation where the
-      carbon model already knows it, `assortment` where the source distinguishes
-      sawtimber / pulpwood / fuelwood.
-- [ ] **Species is nearly free.** `carbon/species_model.py` already propagates
-      the spruce/pine/non-coniferous mix to a fixed point. Expose that as flow
-      dimensions rather than recomputing it in the carbon step only.
-- [ ] **Region where SSB publishes it.** Roundwood harvest and removals are
-      available by fylke; carry the county through rather than aggregating on
-      ingest. (The 03795 query currently selects the national `vs_Landet`
-      codelist; this needs the fylke codelist.)
-- [ ] **Update `validate.py` to balance per (region, species) slice**, not just
-      nationally. A dataset that balances in aggregate but not per slice will
-      produce nonsense the first time someone filters.
-- [ ] **Migrate transforms and tests** to the widened schema; keep national
-      totals byte-identical where the dimension is degenerate (the golden
-      snapshot in `tests/test_golden.py` is the regression fence — update the
-      fixture in the same commit as the schema change).
-- [ ] **Document the reason for `entity_id`** in the schema docstring: mill-level
-      data does not exist publicly and would require a data agreement, but the
-      column exists so its arrival is a data change, not a rewrite.
+- Schema: `pipeline.SANKEY_COLUMNS` — the five national columns plus `region`,
+  `species`, `assortment`, `entity_id`; `transform/dimensions.py` documents
+  every dimension's semantics. `add_dimensions` / `collapse_national` are
+  exact inverses (token-based origin merge; fenced round-trip test).
+- Species: mixed flows split by the carbon model's fixed-point propagation
+  (`species_model.flow_species_shares`). The per-slice fence exposed a real
+  bug — inventory-withdrawal years carried a ⅓/⅓/⅓ mix — fixed by seeding
+  each year's fixed point with the previous year's (withdrawals now carry the
+  mix the wood went in with; total carbon moved −0.07 %).
+- Region: county harvest from 03795 via `agg_KommFylker` (2024 boundaries
+  backcast — reform-proof), committed as `data/raw/harvest_by_fylke.csv` and
+  refreshed by the `03795_fylke` query. Harvest edges split into exact county
+  rows plus a national remainder (the 11181 firewood estimate); see the
+  decision log for what `region="NO"` means.
 
-**Acceptance:** national totals unchanged; `validate` passes per-slice;
-filtering by species or region returns a coherent sub-Sankey.
+Left open, deliberately: 07410 removals are also published regionally — the
+mill-input edges could get the same treatment if Phase D wants regional
+filtering deeper than the harvest front. Do it the same way (separate query
+id, committed CSV, exact split with a loud tie-out guard).
 
 ---
 
@@ -389,12 +403,13 @@ edge with no resource behind it.
 
 1. ~~**A** — ingestion hardening.~~ Done 2026-07-28.
 2. ~~**B** — refresh loop.~~ Done 2026-07-28.
-3. **J** — year-window and drift policy. **Next.** Small, and it closes the one
-   loose end the first live refresh exposed.
-4. **C** — schema dimensions. Must precede D.
-5. **E** — write the confidentiality rules (an hour, and cheap insurance).
-6. **D** — static site. The biggest visible win.
-7. **F** — β export. The research contribution.
+3. ~~**C** — schema dimensions.~~ Done 2026-07-28.
+4. **E** — write the confidentiality rules (an hour, and cheap insurance).
+   **Next.**
+5. **D** — static site. The biggest visible win.
+6. **F** — β export. The research contribution.
+7. **J** — year-window and drift policy. Shelved 2026-07-28; pick it up before
+   handing the refresh loop over.
 8. **G/H/I** as the work demands.
 
 ---

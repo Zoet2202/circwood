@@ -67,7 +67,7 @@ def test_every_cached_flow_gets_carbon():
 def test_carbon_sankey_preserves_schema():
     df = build_sankey()
     cs = carbon_sankey(df)
-    assert list(cs.columns) == ["source", "target", "volume", "year", "origin"]
+    assert list(cs.columns) == list(df.columns)
     assert len(cs) == len(df)
     assert cs["volume"].gt(0).all()
 

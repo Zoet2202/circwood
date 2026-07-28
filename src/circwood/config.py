@@ -37,6 +37,12 @@ CARBON_CSV = PROCESSED_DIR / "carbon_data.csv"
 TREINDUSTRIEN_CSV = RAW_DIR / "treindustrien_production_data.csv"
 FAO_CSV = RAW_DIR / "FAO_Data.csv"
 
+# Harvest by county (SSB 03795, agg_KommFylker backcast codelist) — the data
+# behind the `region` dimension. Committed, like the Treindustrien CSV: the
+# cached pipeline reads it; a fresh run regenerates it from the 03795_fylke
+# query. If absent, the dataset simply stays national (region == "NO").
+HARVEST_FYLKE_CSV = RAW_DIR / "harvest_by_fylke.csv"
+
 __all__ = [
     "ROOT_DIR",
     "CONFIG_DIR",
@@ -52,4 +58,5 @@ __all__ = [
     "CARBON_CSV",
     "TREINDUSTRIEN_CSV",
     "FAO_CSV",
+    "HARVEST_FYLKE_CSV",
 ]

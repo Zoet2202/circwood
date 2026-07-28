@@ -2,6 +2,73 @@
 
 Completed work, newest first. The live plan is [ROADMAP.md](ROADMAP.md).
 
+## 2026-07-28 — Phase C: the filter dimensions
+
+The flow row grew four columns — `region`, `species`, `assortment`,
+`entity_id` — while every national number stayed exactly what it was. This is
+the schema Phase D's static site filters on, landed before the frontend exists
+because retrofitting it after would be materially more expensive. 638 → 1,878
+rows; summing `volume` over the new columns recovers the old table.
+
+**Species** (`spruce` / `pine` / `non-coniferous`)
+
+- Mixed flows are split per species using the carbon model's own fixed-point
+  propagation (`species_model.flow_species_shares`) — the model result made
+  explicit, not new data. Pure flows (pool outflows, harvest-to-pool) keep
+  their volumes bit-for-bit; the 07410 control total is still exactly
+  61,445,000 m³.
+- **A real bug surfaced by the new per-slice fence:** in years where an
+  inventory node only withdraws, the propagation left it at its ⅓/⅓/⅓
+  initialisation — withdrawn wood counted as one-third non-coniferous against
+  a real share of a few percent (−5.6 % non-coniferous imbalance at
+  Planingmills). Fixed: each year's fixed point now seeds the next, so
+  withdrawals carry the mix the wood went in with. The carbon overlay had
+  silently used those ⅓ mixes all along; inventory-withdrawal edges moved
+  about −10 % carbon each, total carbon −0.07 %.
+- `add_carbon` takes a direct density lookup when the frame carries species
+  (identical edge totals by algebra; honest per-row values), fenced by a test
+  against the mixed-density path.
+
+**Region** (`NO-xx` counties on the harvest edge, `"NO"` elsewhere)
+
+- SSB 03795 is now also pulled per county via the **`agg_KommFylker`**
+  codelist — the whole series backcast into the 2024 county boundaries, which
+  sidesteps the 2018–2024 county reforms entirely. Committed as
+  `data/raw/harvest_by_fylke.csv` (like the Treindustrien CSV); the fresh
+  pipeline rewrites it from the new `03795_fylke` query so both 03795 pulls
+  share a vintage, and the refresh loop restores it on failure.
+- The county figures sum to *less* than the harvest edges because those edges
+  also carry the 11181 firewood component, which SSB only estimates
+  nationally. So each `Harvested wood → pool` edge splits into exact
+  per-county rows (verified bit-for-bit against the published figures, tied
+  out 2012–2023 exactly; 2024 within 6 m³) plus one `"NO"` remainder row for
+  the firewood estimate. `"NO"` therefore means *not regionally attributed*,
+  never "rest of Norway". A negative remainder (the two 03795 pulls
+  disagreeing) raises instead of clamping.
+- An unknown county label raises (`dimensions.FYLKE_CODES` is a closed map) —
+  same policy as a new node: a new region is a human decision.
+
+**Assortment** — `sawtimber` / `pulpwood` / `sams` / `fuelwood` where the
+source distinguishes them (07410 pool outflows, their netted trade
+counterparts, the firewood stream); `all` where the distinction has no meaning.
+
+**`entity_id`** — always `"national"`, documented in the schema docstring:
+mill-level data would need a member agreement, but its arrival must be a data
+change, not a rewrite. Phase E's `min_entities` guard is where it gets teeth.
+
+**Guarantees widened, none weakened**
+
+- `validate.assert_slices_balanced`: every (region, species) slice of every
+  process node balances within 1 % over the paper window (absolute floor
+  1,000 m³ per slice — same rationale as the vintage diff's volume floor).
+  Wired into the refresh gate alongside the aggregate check.
+- `dimensions.collapse_national` is the exact inverse of the expansion;
+  origin merging is token-based so collapse → re-expand round-trips
+  byte-stable (fenced by tests).
+- Carbon file stays additive: columns `…origin, carbon` keep their positions,
+  dimensions append after.
+- 121 tests (was 106), golden fixture regenerated in the same commit.
+
 > Roadmap lineage: the original `ROADMAP.md` (2026-06 refactor) was followed by
 > `ROADMAP_NEXT.md` (improvements backlog) and `ROADMAP_CONSOLIDATION.md`
 > (live/public/research reordering). On 2026-07-28 these were consolidated:

@@ -22,10 +22,12 @@ itself safely), **Public** (an interactive static site, not a local app), and
 model — see `papers/` for the thesis that motivates it).
 
 **The artifact is a tidy flow table.** `data/processed/sankey_data.csv`:
-one row per `(source, target, volume, year, origin)` — currently **638 rows,
-31 nodes, 2012–2024**. `carbon_data.csv` is the same table plus a `carbon`
-column (kg C). Both are **committed** and are the canonical output; everything
-else either produces them or reads them.
+one row per `(source, target, volume, year, origin, region, species,
+assortment, entity_id)` — currently **1,878 rows, 31 nodes, 2012–2024**.
+Summing `volume` over the four dimension columns recovers the national table
+(`transform/dimensions.py` documents each dimension). `carbon_data.csv` is the
+same table plus a `carbon` column (kg C). Both are **committed** and are the
+canonical output; everything else either produces them or reads them.
 
 Sources: SSB (Statistics Norway) PxWeb tables **03795, 07410, 08801, 10513,
 11181**, the Treindustrien annual report, and FAOSTAT.
@@ -33,22 +35,25 @@ Sources: SSB (Statistics Norway) PxWeb tables **03795, 07410, 08801, 10513,
 ```
 config/              ssb_queries/*.json, nodes.json (hand-placed positions),
                      carbon_densities.csv, carbon_nodes.csv
-data/raw/            source spreadsheets; ssb/ is a git-ignored response cache
+data/raw/            source spreadsheets incl. harvest_by_fylke.csv (county
+                     harvest); ssb/ is a git-ignored response cache
 data/processed/      sankey_data.csv, carbon_data.csv, manifest.json  ← the artifact
 src/circwood/
   config.py          every filesystem path
   constants.py       every model coefficient and the year window
   ingest/            ssb.py (API), treindustrien.py, trade.py
-  transform/         sawing.py, mills.py, firewood.py, inventory.py, assemble.py
+  transform/         sawing.py, mills.py, firewood.py, inventory.py, assemble.py,
+                     dimensions.py (region/species/assortment/entity_id)
   carbon/            species_model.py (species propagation), carbon.py
   viz/sankey.py      Plotly figure builder — pure, no I/O
   pipeline.py        build_sankey() / build_carbon()      → circwood-build
   manifest.py        provenance / "data as of"
-  validate.py        mass balance;  reconcile.py  source + control totals
+  validate.py        mass balance (aggregate + per-slice);
+                     reconcile.py  source + control totals
   diff.py            vintage diff — the refresh gate
   refresh.py         the whole gated chain              → circwood-refresh
 app/streamlit_app.py internal exploration tool (NOT the public deployment)
-tests/               106 tests, incl. the golden + node-coverage fences
+tests/               121 tests, incl. the golden + node-coverage fences
 papers/              PDFs, git-ignored — read for context, never commit
 ```
 
@@ -151,7 +156,16 @@ the middle (mid-run the golden fence is red by construction).
   `Sawing_function_diagnosis.docx`; `tests/test_sawing.py` guards all three.
   Expected result: Sawmills → Pulpmills ≈ 26 % of log input.
 - Species pools, use phases and inventory nodes are **legitimately unbalanced** —
-  reservoirs and differing table coverage. Only `PROCESS_NODES` must balance.
+  reservoirs and differing table coverage. Only `PROCESS_NODES` must balance
+  (in aggregate within ~1 %, and per (region, species) slice with a 1,000 m³
+  absolute floor — `validate.assert_slices_balanced`).
+- **County harvest rows sum to less than the harvest edges on purpose.** The
+  `Harvested wood → pool` edges carry SSB 03795 commercial harvest *plus* the
+  11181 firewood estimate, which SSB never regionalises. Each edge is split
+  into exact per-county rows plus one `region="NO"` remainder row for the
+  firewood component — so `"NO"` means *not regionally attributed*, never
+  "rest of Norway", and the remainder must stay positive (a negative one means
+  the two 03795 pulls are from different vintages, and raises).
 
 ### What needs a human — do not attempt or stub
 
@@ -161,12 +175,15 @@ the middle (mid-run the golden fence is red by construction).
 - **Placing a new node.** `config/nodes.json` holds hand-placed diagram
   positions, so a refresh that introduces a new node fails the node-coverage
   fence and opens an issue. A new node is a modelling change and wants a human.
+- **Adding a new region.** `dimensions.FYLKE_CODES` is a closed map; an SSB
+  county label not in it fails the run. Same reasoning as a new node.
 - **Widening `DATASET_MAX_YEAR`** or running `--accept-drift`: both are
   deliberate, reviewed acts.
 
 ### Where to start
 
 `ROADMAP.md` is the single live plan; completed work is in `CHANGELOG.md`.
-Phases A and B are done. **Phase J (year-window and drift policy) is next**,
-then C (schema dimensions), which must land **before** D (the static site) —
-retrofitting a dimension after the frontend exists is materially more expensive.
+Phases A, B and C are done; Phase J is shelved (decision 2026-07-28 — needs a
+human analysis of per-table drift first). **Phase E (confidentiality rules,
+small) is next**, then D (the static site), which now has the dimensioned
+schema it filters on.

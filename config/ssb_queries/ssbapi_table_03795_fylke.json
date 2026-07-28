@@ -1,0 +1,20 @@
+{
+  "tableIdForQuery": "03795_fylke",
+  "url": "https://data.ssb.no/api/pxwebapi/v2/tables/03795/data",
+  "params": {
+    "lang": "no",
+    "outputFormat": "json-stat2"
+  },
+  "payload": {
+    "selection": [
+      { "variableCode": "ContentsCode", "valueCodes": ["*"] },
+      { "variableCode": "Tid", "valueCodes": ["*"] },
+      { "variableCode": "Region", "valueCodes": ["*"], "codelist": "agg_KommFylker" },
+      { "variableCode": "Treslag", "valueCodes": ["*"] }
+    ],
+    "placement": {
+      "heading": ["Treslag", "Region", "ContentsCode"],
+      "stub": ["Tid"]
+    }
+  }
+}

@@ -12,6 +12,12 @@ import pandas as pd
 
 from circwood import config, constants as C
 from circwood.ingest import treindustrien as tre
+from circwood.transform.dimensions import (
+    add_dimensions,
+    build_regional_harvest,
+    collapse_national,
+    merge_origins,
+)
 from circwood.transform.sawing import (
     SawmillCoefficients,
     create_flow_rows,
@@ -72,10 +78,7 @@ def dedupe_flows(sankey_df: pd.DataFrame) -> pd.DataFrame:
     return (
         sankey_df
         .groupby(["year", "source", "target"], as_index=False)
-        .agg(
-            volume=("volume", "sum"),
-            origin=("origin", lambda s: " | ".join(sorted({str(x) for x in s}))),
-        )
+        .agg(volume=("volume", "sum"), origin=("origin", merge_origins))
     )
 
 
@@ -345,11 +348,21 @@ def assemble_sankey(
     wpp_energy = df_wpp.assign(volume=df_wpp["volume"] * C.WPP_ENERGY, target="Energy")
 
     sankey_df = pd.concat([sankey_df, df_firewood, wpp_ltu, wpp_energy], ignore_index=True)
-    return _apply_net_exports(_finalize(sankey_df))
+    # Phase C: widen the national table with the filter dimensions (region /
+    # species / assortment / entity_id). Summing volume over them recovers the
+    # national table exactly, so nothing downstream loses its guarantees.
+    return add_dimensions(_apply_net_exports(_finalize(sankey_df)))
 
 
 def _strip_derived(df: pd.DataFrame) -> pd.DataFrame:
-    """Return only the primary (non-derived) rows of ``df`` (see ``DERIVED_EDGES``)."""
+    """Return only the primary (non-derived) rows of ``df`` (see ``DERIVED_EDGES``).
+
+    Collapses the Phase C dimension columns back to the national schema first:
+    the assembly math is national, and ``assemble_sankey`` re-derives the
+    dimensions on its way out, so carrying split rows into it would only make
+    the dedupe re-sum what the expansion just divided.
+    """
+    df = collapse_national(df)
     is_derived = [(s, t) in DERIVED_EDGES for s, t in zip(df["source"], df["target"])]
     return df[~pd.Series(is_derived, index=df.index)].copy()
 
@@ -461,6 +474,18 @@ def run_fresh_pipeline(
     if ingested is None:
         ingested = process_query_files(str(config.SSB_QUERY_DIR))
     ssb = ingested.datasets
+
+    # --- 03795 by county (agg_KommFylker) — the region dimension's data ---
+    # Rewritten before assembly so add_dimensions picks up the same vintage as
+    # the national 03795 pull. Tolerated as absent (e.g. a test feeding a
+    # partial IngestResult): the dataset then keeps its committed regional
+    # file, or stays national if none exists.
+    if "03795_fylke" in ssb:
+        regional = build_regional_harvest(
+            pd.concat(ssb["03795_fylke"], ignore_index=True)
+        )
+        config.RAW_DIR.mkdir(parents=True, exist_ok=True)
+        regional.to_csv(config.HARVEST_FYLKE_CSV, index=False)
 
     # --- 11181 firewood ---
     rows_firewood = create_firewood_rows(pd.concat(ssb["11181"], ignore_index=True))
