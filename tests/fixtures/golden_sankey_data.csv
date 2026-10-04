@@ -1,10 +1,10 @@
 source,target,volume,year,origin,region,species,assortment,entity_id
-Boardmills,Loss Boardmills,38902.93687915625,2012,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
-Boardmills,Loss Boardmills,9953.585596261963,2012,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
-Boardmills,Loss Boardmills,14.687741681779562,2012,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
-Boardmills,Wood Product processing & Logistics,739155.8007039687,2012,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
-Boardmills,Wood Product processing & Logistics,189118.12632897726,2012,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
-Boardmills,Wood Product processing & Logistics,279.06709195381166,2012,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Boardmills,Loss Boardmills,38902.93687915626,2012,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
+Boardmills,Loss Boardmills,9953.585596261964,2012,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
+Boardmills,Loss Boardmills,14.687741681779565,2012,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Boardmills,Wood Product processing & Logistics,739155.8007039689,2012,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
+Boardmills,Wood Product processing & Logistics,189118.12632897732,2012,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
+Boardmills,Wood Product processing & Logistics,279.0670919538117,2012,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
 End-of-Life,Energy,1041.2002897005714,2012,SSB table 10513,NO,spruce,all,national
 End-of-Life,Energy,336.80191863442997,2012,SSB table 10513,NO,pine,all,national
 End-of-Life,Energy,0.8797792426384379,2012,SSB table 10513,NO,non-coniferous,all,national
@@ -76,16 +76,11 @@ Impregnation,Wood Product processing & Logistics,932.0172573084081,2012,Treindus
 Long-term USE,End-of-Life,1041.2002897005714,2012,SSB table 10513,NO,spruce,all,national
 Long-term USE,End-of-Life,336.80191863442997,2012,SSB table 10513,NO,pine,all,national
 Long-term USE,End-of-Life,0.8797792426384379,2012,SSB table 10513,NO,non-coniferous,all,national
-Net export sawn timber,Wood Product processing & Logistics,138099.0,2012,SSB table 08801 (net),NO,spruce,all,national
 Non-coniferous,Firewood,1992000.0,2012,SSB table 11181,NO,non-coniferous,fuelwood,national
-Non-coniferous,Net export massevirke,10718.900883687604,2012,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
-Non-coniferous,Net export skurlast,130.94861840602877,2012,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
 Non-coniferous,Pulpmills,63281.0991163124,2012,SSB table 07410,NO,non-coniferous,pulpwood,national
 Non-coniferous,Sawmills,1869.0513815939712,2012,SSB table 07410,NO,non-coniferous,sawtimber,national
 Pine,Boardmills,19000.0,2012,SSB table 07410,NO,pine,sams,national
 Pine,Firewood,513000.0,2012,SSB table 11181,NO,pine,fuelwood,national
-Pine,Net export massevirke,121963.71005493191,2012,SSB table 08801 (net),NO,pine,pulpwood,national
-Pine,Net export skurlast,80271.50308289562,2012,SSB table 08801 (net),NO,pine,sawtimber,national
 Pine,Pulpmills,720036.2899450681,2012,SSB table 07410,NO,pine,pulpwood,national
 Pine,Sawmills,1145728.4969171043,2012,SSB table 07410,NO,pine,sawtimber,national
 Planingmills,Boardmills,50671.41413060918,2012,Treindustrien årsrapport,NO,spruce,all,national
@@ -94,15 +89,15 @@ Planingmills,Boardmills,32.16211643176011,2012,Treindustrien årsrapport,NO,non-
 Planingmills,Impregnation,262514.69588423986,2012,Treindustrien årsrapport,NO,spruce,all,national
 Planingmills,Impregnation,102139.96101358438,2012,Treindustrien årsrapport,NO,pine,all,national
 Planingmills,Impregnation,166.62310217580495,2012,Treindustrien årsrapport,NO,non-coniferous,all,national
-Planingmills,Planed timber inventory,29948.96337055664,2012,Treindustrien årsrapport,NO,spruce,all,national
-Planingmills,Planed timber inventory,11652.627449149864,2012,Treindustrien årsrapport,NO,pine,all,national
-Planingmills,Planed timber inventory,19.009180293480423,2012,Treindustrien årsrapport,NO,non-coniferous,all,national
-Planingmills,Wood Product processing & Logistics,702655.0970797444,2012,Treindustrien årsrapport,NO,spruce,all,national
-Planingmills,Wood Product processing & Logistics,273391.03428087407,2012,Treindustrien årsrapport,NO,pine,all,national
-Planingmills,Wood Product processing & Logistics,445.9886393815305,2012,Treindustrien årsrapport,NO,non-coniferous,all,national
-Pulpmills,Energy,285007.776930892,2012,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
-Pulpmills,Energy,81427.27291834423,2012,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
-Pulpmills,Energy,5101.353133003848,2012,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Planingmills,Planed timber inventory,29948.963370556634,2012,Treindustrien årsrapport,NO,spruce,all,national
+Planingmills,Planed timber inventory,11652.627449149863,2012,Treindustrien årsrapport,NO,pine,all,national
+Planingmills,Planed timber inventory,19.00918029348042,2012,Treindustrien årsrapport,NO,non-coniferous,all,national
+Planingmills,Wood Product processing & Logistics,702655.0970797443,2012,Treindustrien årsrapport,NO,spruce,all,national
+Planingmills,Wood Product processing & Logistics,273391.034280874,2012,Treindustrien årsrapport,NO,pine,all,national
+Planingmills,Wood Product processing & Logistics,445.98863938153045,2012,Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Energy,285007.77693089197,2012,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
+Pulpmills,Energy,81427.27291834421,2012,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
+Pulpmills,Energy,5101.353133003847,2012,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Pulpmills,Loss Pulpmills,213755.83269816896,2012,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
 Pulpmills,Loss Pulpmills,61070.45468875815,2012,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
 Pulpmills,Loss Pulpmills,3826.014849752885,2012,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
@@ -112,18 +107,18 @@ Pulpmills,Short-term USE,54839.546179791345,2012,SSB table 07410 | SSB table 088
 Sawmills,Boardmills,412139.32345251605,2012,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Boardmills,160356.33467228024,2012,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Boardmills,261.59271720383117,2012,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Energy,147192.6155187557,2012,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Energy,57270.119525814356,2012,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Energy,93.42597042993968,2012,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Planingmills,1013428.2826121836,2012,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Planingmills,394307.54505918146,2012,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Planingmills,643.2423286352023,2012,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Energy,147192.61551875572,2012,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Energy,57270.11952581436,2012,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Energy,93.4259704299397,2012,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Planingmills,1013428.2826121835,2012,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Planingmills,394307.5450591814,2012,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Planingmills,643.2423286352022,2012,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Pulpmills,765401.6006975296,2012,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Pulpmills,297804.62153423467,2012,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Pulpmills,485.8150462356864,2012,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Shrinkage,147192.6155187557,2012,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Shrinkage,57270.119525814356,2012,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Shrinkage,93.42597042993968,2012,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Shrinkage,147192.61551875572,2012,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Shrinkage,57270.11952581436,2012,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Shrinkage,93.4259704299397,2012,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Timber inventory,838.1413187236218,2012,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Timber inventory,326.1063969388406,2012,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Timber inventory,0.5319843375512681,2012,Treindustrien årsrapport,NO,non-coniferous,all,national
@@ -132,8 +127,6 @@ Sawmills,Wood Product processing & Logistics,186376.8047175011,2012,Treindustrie
 Sawmills,Wood Product processing & Logistics,304.0404663118486,2012,Treindustrien årsrapport,NO,non-coniferous,all,national
 Spruce,Boardmills,202000.0,2012,SSB table 07410,NO,spruce,sams,national
 Spruce,Firewood,513000.0,2012,SSB table 11181,NO,spruce,fuelwood,national
-Spruce,Net export massevirke,473804.3890613805,2012,SSB table 08801 (net),NO,spruce,pulpwood,national
-Spruce,Net export skurlast,206309.5482986984,2012,SSB table 08801 (net),NO,spruce,sawtimber,national
 Spruce,Pulpmills,2797195.61093862,2012,SSB table 07410,NO,spruce,pulpwood,national
 Spruce,Sawmills,2944690.4517013016,2012,SSB table 07410,NO,spruce,sawtimber,national
 Timber inventory,Sawmills,20517.879190813503,2012,Treindustrien årsrapport,NO,spruce,all,national
@@ -151,9 +144,9 @@ Boardmills,Loss Boardmills,27.664425547232156,2013,FAOSTAT | SSB table 07410 | T
 Boardmills,Wood Product processing & Logistics,848161.7182725542,2013,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
 Boardmills,Wood Product processing & Logistics,182347.83478094835,2013,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
 Boardmills,Wood Product processing & Logistics,525.6240853974109,2013,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
-End-of-Life,Energy,1089.6288466957058,2013,SSB table 10513,NO,spruce,all,national
+End-of-Life,Energy,1089.6288466957055,2013,SSB table 10513,NO,spruce,all,national
 End-of-Life,Energy,317.00400829530327,2013,SSB table 10513,NO,pine,all,national
-End-of-Life,Energy,1.2346398330082042,2013,SSB table 10513,NO,non-coniferous,all,national
+End-of-Life,Energy,1.2346398330082038,2013,SSB table 10513,NO,non-coniferous,all,national
 Firewood,Energy,369499.99999999994,2013,SSB various tables,NO,spruce,fuelwood,national
 Firewood,Energy,369499.99999999994,2013,SSB various tables,NO,pine,fuelwood,national
 Firewood,Energy,1650373.0,2013,SSB various tables,NO,non-coniferous,fuelwood,national
@@ -161,8 +154,8 @@ Firewood,Export Firewood,6500.1125818363225,2013,SSB table 08801,NO,spruce,fuelw
 Firewood,Export Firewood,6500.1125818363225,2013,SSB table 08801,NO,pine,fuelwood,national
 Firewood,Export Firewood,29032.774836327353,2013,SSB table 08801,NO,non-coniferous,fuelwood,national
 Harvested wood,Bark,573740.796508463,2013,SSB table 03795,NO,spruce,all,national
-Harvested wood,Bark,189727.30340792885,2013,SSB table 03795,NO,pine,all,national
-Harvested wood,Bark,125481.30008360834,2013,SSB table 03795,NO,non-coniferous,all,national
+Harvested wood,Bark,189727.30340792882,2013,SSB table 03795,NO,pine,all,national
+Harvested wood,Bark,125481.30008360832,2013,SSB table 03795,NO,non-coniferous,all,national
 Harvested wood,Non-coniferous,673.0,2013,SSB table 03795,NO-03,non-coniferous,all,national
 Harvested wood,Non-coniferous,25.0,2013,SSB table 03795,NO-11,non-coniferous,all,national
 Harvested wood,Non-coniferous,1745.0,2013,SSB table 03795,NO-15,non-coniferous,all,national
@@ -196,7 +189,7 @@ Harvested wood,Pine,5390.0,2013,SSB table 03795,NO-56,pine,all,national
 Harvested wood,Pine,369500.0,2013,SSB table 03795 | SSB table 11181,NO,pine,all,national
 Harvested wood,Residues from harvest,573773.4544801128,2013,SSB table 07410,NO,spruce,all,national
 Harvested wood,Residues from harvest,189738.10289949994,2013,SSB table 07410,NO,pine,all,national
-Harvested wood,Residues from harvest,125488.4426203874,2013,SSB table 07410,NO,non-coniferous,all,national
+Harvested wood,Residues from harvest,125488.44262038739,2013,SSB table 07410,NO,non-coniferous,all,national
 Harvested wood,Spruce,33474.0,2013,SSB table 03795,NO-03,spruce,all,national
 Harvested wood,Spruce,97922.0,2013,SSB table 03795,NO-11,spruce,all,national
 Harvested wood,Spruce,161659.0,2013,SSB table 03795,NO-15,spruce,all,national
@@ -220,21 +213,16 @@ Impregnated inventory,Impregnation,486.7489531281801,2013,Treindustrien årsrapp
 Impregnation,Wood Product processing & Logistics,273526.22335969534,2013,Treindustrien årsrapport,NO,spruce,all,national
 Impregnation,Wood Product processing & Logistics,94237.82846389667,2013,Treindustrien årsrapport,NO,pine,all,national
 Impregnation,Wood Product processing & Logistics,791.8681764079753,2013,Treindustrien årsrapport,NO,non-coniferous,all,national
-Long-term USE,End-of-Life,1089.6288466957058,2013,SSB table 10513,NO,spruce,all,national
+Long-term USE,End-of-Life,1089.6288466957055,2013,SSB table 10513,NO,spruce,all,national
 Long-term USE,End-of-Life,317.00400829530327,2013,SSB table 10513,NO,pine,all,national
-Long-term USE,End-of-Life,1.2346398330082042,2013,SSB table 10513,NO,non-coniferous,all,national
-Net export sawn timber,Wood Product processing & Logistics,52015.0,2013,SSB table 08801 (net),NO,spruce,all,national
+Long-term USE,End-of-Life,1.2346398330082038,2013,SSB table 10513,NO,non-coniferous,all,national
 Non-coniferous,Firewood,1435000.0,2013,SSB table 11181,NO,non-coniferous,fuelwood,national
-Non-coniferous,Net export massevirke,39264.373529411765,2013,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
-Non-coniferous,Net export skurlast,501.322882647507,2013,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
 Non-coniferous,Pulpmills,83735.62647058822,2013,SSB table 07410,NO,non-coniferous,pulpwood,national
 Non-coniferous,Sawmills,3498.677117352493,2013,SSB table 07410,NO,non-coniferous,sawtimber,national
 Pine,Boardmills,27000.0,2013,SSB table 07410,NO,pine,sams,national
 Pine,Firewood,369500.0,2013,SSB table 11181,NO,pine,fuelwood,national
-Pine,Net export massevirke,254101.14901960784,2013,SSB table 08801 (net),NO,pine,pulpwood,national
-Pine,Net export skurlast,146386.28173307207,2013,SSB table 08801 (net),NO,pine,sawtimber,national
 Pine,Pulpmills,541898.8509803922,2013,SSB table 07410,NO,pine,pulpwood,national
-Pine,Sawmills,1021613.718266928,2013,SSB table 07410,NO,pine,sawtimber,national
+Pine,Sawmills,1021613.7182669279,2013,SSB table 07410,NO,pine,sawtimber,national
 Planed timber inventory,Planingmills,33744.84261238306,2013,Treindustrien årsrapport,NO,spruce,all,national
 Planed timber inventory,Planingmills,13129.538890113123,2013,Treindustrien årsrapport,NO,pine,all,national
 Planed timber inventory,Planingmills,21.418497503808194,2013,Treindustrien årsrapport,NO,non-coniferous,all,national
@@ -248,37 +236,35 @@ Planingmills,Wood Product processing & Logistics,683828.6931578807,2013,Treindus
 Planingmills,Wood Product processing & Logistics,235516.33434706042,2013,Treindustrien årsrapport,NO,pine,all,national
 Planingmills,Wood Product processing & Logistics,776.6524950590729,2013,Treindustrien årsrapport,NO,non-coniferous,all,national
 Pulpmills,Energy,236117.0235824181,2013,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
-Pulpmills,Energy,65285.18452895281,2013,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
-Pulpmills,Energy,6772.568597269053,2013,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Energy,65285.184528952814,2013,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
+Pulpmills,Energy,6772.5685972690535,2013,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Pulpmills,Loss Pulpmills,177087.76768681357,2013,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
 Pulpmills,Loss Pulpmills,48963.88839671461,2013,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
-Pulpmills,Loss Pulpmills,5079.42644795179,2013,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Loss Pulpmills,5079.426447951791,2013,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Pulpmills,Short-term USE,2538258.0035109944,2013,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
 Pulpmills,Short-term USE,701815.7336862427,2013,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
-Pulpmills,Short-term USE,72805.11242064231,2013,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Short-term USE,72805.11242064233,2013,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Boardmills,430513.6081244961,2013,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Boardmills,147627.8222631251,2013,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Boardmills,496.18207437882523,2013,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Energy,153754.86004446293,2013,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Energy,52724.22223683041,2013,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Energy,177.20788370672332,2013,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Planingmills,1006731.8350960689,2013,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Planingmills,345219.35105757153,2013,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Planingmills,1160.2938463601754,2013,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Pulpmills,799525.2722312073,2013,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Pulpmills,274165.95563151815,2013,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Pulpmills,921.4809952749614,2013,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Shrinkage,153754.86004446293,2013,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Shrinkage,52724.22223683041,2013,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Shrinkage,177.20788370672332,2013,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Wood Product processing & Logistics,544544.0473270038,2013,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Wood Product processing & Logistics,186730.1063570249,2013,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Wood Product processing & Logistics,627.6061659709939,2013,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Energy,153754.8600444629,2013,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Energy,52724.22223683039,2013,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Energy,177.2078837067233,2013,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Planingmills,1006731.8350960687,2013,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Planingmills,345219.3510575715,2013,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Planingmills,1160.2938463601752,2013,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Pulpmills,799525.272231207,2013,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Pulpmills,274165.95563151804,2013,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Pulpmills,921.4809952749611,2013,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Shrinkage,153754.8600444629,2013,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Shrinkage,52724.22223683039,2013,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Shrinkage,177.2078837067233,2013,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Wood Product processing & Logistics,544544.0473270037,2013,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Wood Product processing & Logistics,186730.10635702487,2013,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Wood Product processing & Logistics,627.6061659709937,2013,Treindustrien årsrapport,NO,non-coniferous,all,national
 Spruce,Boardmills,190000.0,2013,SSB table 07410,NO,spruce,sams,national
 Spruce,Firewood,369500.0,2013,SSB table 11181,NO,spruce,fuelwood,national
-Spruce,Net export massevirke,1009062.4774509805,2013,SSB table 08801 (net),NO,spruce,pulpwood,national
-Spruce,Net export skurlast,428756.3953842804,2013,SSB table 08801 (net),NO,spruce,sawtimber,national
-Spruce,Pulpmills,2151937.52254902,2013,SSB table 07410,NO,spruce,pulpwood,national
+Spruce,Pulpmills,2151937.5225490197,2013,SSB table 07410,NO,spruce,pulpwood,national
 Spruce,Sawmills,2992243.6046157195,2013,SSB table 07410,NO,spruce,sawtimber,national
 Timber inventory,Sawmills,96580.8782519817,2013,Treindustrien årsrapport,NO,spruce,all,national
 Timber inventory,Sawmills,37577.961515972354,2013,Treindustrien årsrapport,NO,pine,all,national
@@ -286,17 +272,17 @@ Timber inventory,Sawmills,61.301732045908864,2013,Treindustrien årsrapport,NO,n
 Wood Product processing & Logistics,Energy,240207.56821171346,2013,SSB and Treindustrien,NO,spruce,all,national
 Wood Product processing & Logistics,Energy,69883.21039489303,2013,SSB and Treindustrien,NO,pine,all,national
 Wood Product processing & Logistics,Energy,272.1750922835453,2013,SSB and Treindustrien,NO,non-coniferous,all,national
-Wood Product processing & Logistics,Long-term USE,2161868.1139054215,2013,SSB and Treindustrien,NO,spruce,all,national
+Wood Product processing & Logistics,Long-term USE,2161868.113905421,2013,SSB and Treindustrien,NO,spruce,all,national
 Wood Product processing & Logistics,Long-term USE,628948.8935540373,2013,SSB and Treindustrien,NO,pine,all,national
-Wood Product processing & Logistics,Long-term USE,2449.575830551908,2013,SSB and Treindustrien,NO,non-coniferous,all,national
-Boardmills,Loss Boardmills,53939.610740593,2014,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
-Boardmills,Loss Boardmills,11148.29166182776,2014,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
+Wood Product processing & Logistics,Long-term USE,2449.5758305519075,2013,SSB and Treindustrien,NO,non-coniferous,all,national
+Boardmills,Loss Boardmills,53939.61074059301,2014,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
+Boardmills,Loss Boardmills,11148.291661827761,2014,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
 Boardmills,Loss Boardmills,18.565511479231493,2014,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Boardmills,Wood Product processing & Logistics,1024852.6040712671,2014,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
 Boardmills,Wood Product processing & Logistics,211817.54157472742,2014,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
-Boardmills,Wood Product processing & Logistics,352.74471810539836,2014,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Boardmills,Wood Product processing & Logistics,352.7447181053983,2014,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
 End-of-Life,Energy,1081.3729634207793,2014,SSB table 10513,NO,spruce,all,national
-End-of-Life,Energy,300.56782669276697,2014,SSB table 10513,NO,pine,all,national
+End-of-Life,Energy,300.56782669276686,2014,SSB table 10513,NO,pine,all,national
 End-of-Life,Energy,1.0819842135759108,2014,SSB table 10513,NO,non-coniferous,all,national
 Firewood,Energy,310500.0,2014,SSB various tables,NO,spruce,fuelwood,national
 Firewood,Energy,310500.0,2014,SSB various tables,NO,pine,fuelwood,national
@@ -304,9 +290,9 @@ Firewood,Energy,1381089.0,2014,SSB various tables,NO,non-coniferous,fuelwood,nat
 Firewood,Export Firewood,5320.139114694701,2014,SSB table 08801,NO,spruce,fuelwood,national
 Firewood,Export Firewood,5320.139114694701,2014,SSB table 08801,NO,pine,fuelwood,national
 Firewood,Export Firewood,23663.721770610595,2014,SSB table 08801,NO,non-coniferous,fuelwood,national
-Harvested wood,Bark,642043.9903183932,2014,SSB table 03795,NO,spruce,all,national
-Harvested wood,Bark,222806.22668910222,2014,SSB table 03795,NO,pine,all,national
-Harvested wood,Bark,112344.88299250443,2014,SSB table 03795,NO,non-coniferous,all,national
+Harvested wood,Bark,642043.9903183933,2014,SSB table 03795,NO,spruce,all,national
+Harvested wood,Bark,222806.22668910227,2014,SSB table 03795,NO,pine,all,national
+Harvested wood,Bark,112344.88299250446,2014,SSB table 03795,NO,non-coniferous,all,national
 Harvested wood,Non-coniferous,1123.0,2014,SSB table 03795,NO-03,non-coniferous,all,national
 Harvested wood,Non-coniferous,120.0,2014,SSB table 03795,NO-11,non-coniferous,all,national
 Harvested wood,Non-coniferous,1344.0,2014,SSB table 03795,NO-15,non-coniferous,all,national
@@ -362,95 +348,88 @@ Impregnated inventory,Impregnation,3899.769277898968,2014,Treindustrien årsrapp
 Impregnated inventory,Impregnation,1420.5421873664852,2014,Treindustrien årsrapport,NO,pine,all,national
 Impregnated inventory,Impregnation,1129.9605347345437,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
 Impregnation,Wood Product processing & Logistics,307245.423454453,2014,Treindustrien årsrapport,NO,spruce,all,national
-Impregnation,Wood Product processing & Logistics,104158.9743222148,2014,Treindustrien årsrapport,NO,pine,all,national
+Impregnation,Wood Product processing & Logistics,104158.97432221474,2014,Treindustrien årsrapport,NO,pine,all,national
 Impregnation,Wood Product processing & Logistics,1341.0990233322862,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
 Long-term USE,End-of-Life,1081.3729634207793,2014,SSB table 10513,NO,spruce,all,national
-Long-term USE,End-of-Life,300.56782669276697,2014,SSB table 10513,NO,pine,all,national
+Long-term USE,End-of-Life,300.56782669276686,2014,SSB table 10513,NO,pine,all,national
 Long-term USE,End-of-Life,1.0819842135759108,2014,SSB table 10513,NO,non-coniferous,all,national
-Net export sawn timber,Wood Product processing & Logistics,65618.0,2014,SSB table 08801 (net),NO,spruce,all,national
 Non-coniferous,Firewood,1205000.0,2014,SSB table 11181,NO,non-coniferous,fuelwood,national
-Non-coniferous,Net export massevirke,60608.76501501502,2014,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
-Non-coniferous,Net export skurlast,503.51640112464855,2014,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
 Non-coniferous,Pulpmills,64391.23498498498,2014,SSB table 07410,NO,non-coniferous,pulpwood,national
 Non-coniferous,Sawmills,2496.483598875351,2014,SSB table 07410,NO,non-coniferous,sawtimber,national
 Pine,Boardmills,56000.0,2014,SSB table 07410,NO,pine,sams,national
 Pine,Firewood,310500.0,2014,SSB table 11181,NO,pine,fuelwood,national
-Pine,Net export massevirke,450929.2117117117,2014,SSB table 08801 (net),NO,pine,pulpwood,national
-Pine,Net export skurlast,226414.54170571693,2014,SSB table 08801 (net),NO,pine,sawtimber,national
 Pine,Pulpmills,479070.7882882883,2014,SSB table 07410,NO,pine,pulpwood,national
 Pine,Sawmills,1122585.458294283,2014,SSB table 07410,NO,pine,sawtimber,national
 Planingmills,Boardmills,51271.75188486412,2014,Treindustrien årsrapport,NO,spruce,all,national
-Planingmills,Boardmills,17365.200424976578,2014,Treindustrien årsrapport,NO,pine,all,national
-Planingmills,Boardmills,38.61794015932522,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
-Planingmills,Impregnation,308147.20032884734,2014,Treindustrien årsrapport,NO,spruce,all,national
-Planingmills,Impregnation,104366.19965945646,2014,Treindustrien årsrapport,NO,pine,all,national
-Planingmills,Impregnation,232.09681169634493,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
+Planingmills,Boardmills,17365.20042497657,2014,Treindustrien årsrapport,NO,pine,all,national
+Planingmills,Boardmills,38.617940159325215,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
+Planingmills,Impregnation,308147.2003288473,2014,Treindustrien årsrapport,NO,spruce,all,national
+Planingmills,Impregnation,104366.19965945641,2014,Treindustrien årsrapport,NO,pine,all,national
+Planingmills,Impregnation,232.09681169634487,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
 Planingmills,Planed timber inventory,10015.419613870677,2014,Treindustrien årsrapport,NO,spruce,all,national
 Planingmills,Planed timber inventory,3392.1167610121875,2014,Treindustrien årsrapport,NO,pine,all,national
 Planingmills,Planed timber inventory,7.543625117150898,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
 Planingmills,Wood Product processing & Logistics,668457.5974780881,2014,Treindustrien årsrapport,NO,spruce,all,national
-Planingmills,Wood Product processing & Logistics,226399.5227210497,2014,Treindustrien årsrapport,NO,pine,all,national
-Planingmills,Wood Product processing & Logistics,503.4830008622306,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
+Planingmills,Wood Product processing & Logistics,226399.52272104964,2014,Treindustrien årsrapport,NO,pine,all,national
+Planingmills,Wood Product processing & Logistics,503.4830008622305,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
 Pulpmills,Energy,186824.42120157753,2014,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
 Pulpmills,Energy,60552.04279506903,2014,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
 Pulpmills,Energy,5200.727367513415,2014,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
-Pulpmills,Loss Pulpmills,140118.31590118312,2014,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
-Pulpmills,Loss Pulpmills,45414.03209630176,2014,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
-Pulpmills,Loss Pulpmills,3900.54552563506,2014,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
-Pulpmills,Short-term USE,2008362.5279169579,2014,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
-Pulpmills,Short-term USE,650934.4600469918,2014,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
-Pulpmills,Short-term USE,55907.81920076919,2014,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Loss Pulpmills,140118.31590118314,2014,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
+Pulpmills,Loss Pulpmills,45414.032096301766,2014,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
+Pulpmills,Loss Pulpmills,3900.545525635061,2014,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Short-term USE,2008362.5279169583,2014,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
+Pulpmills,Short-term USE,650934.4600469919,2014,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
+Pulpmills,Short-term USE,55907.8192007692,2014,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Boardmills,441704.4629269961,2014,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Boardmills,149600.63281157866,2014,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Boardmills,332.69228942530464,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Boardmills,149600.63281157863,2014,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Boardmills,332.6922894253046,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Energy,157751.5939024986,2014,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Energy,53428.79743270666,2014,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Energy,118.81867479475164,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Planingmills,1025435.0376972825,2014,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Planingmills,347304.00849953154,2014,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Planingmills,772.3588031865045,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Energy,53428.79743270665,2014,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Energy,118.81867479475163,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Planingmills,1025435.0376972824,2014,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Planingmills,347304.0084995314,2014,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Planingmills,772.3588031865042,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Pulpmills,820308.2882929926,2014,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Pulpmills,277829.7466500746,2014,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Pulpmills,617.8571089327085,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Pulpmills,277829.74665007455,2014,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Pulpmills,617.8571089327083,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Shrinkage,157751.5939024986,2014,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Shrinkage,53428.79743270666,2014,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Shrinkage,118.81867479475164,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Timber inventory,186065.9018146767,2014,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Timber inventory,63018.554242530474,2014,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Timber inventory,140.14504279287723,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Shrinkage,53428.79743270665,2014,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Shrinkage,118.81867479475163,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Timber inventory,186065.90181467665,2014,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Timber inventory,63018.554242530445,2014,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Timber inventory,140.14504279287718,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Wood Product processing & Logistics,525481.1795698968,2014,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Wood Product processing & Logistics,177974.92122515463,2014,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Wood Product processing & Logistics,395.79300494845353,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Wood Product processing & Logistics,177974.92122515454,2014,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Wood Product processing & Logistics,395.7930049484534,2014,Treindustrien årsrapport,NO,non-coniferous,all,national
 Spruce,Boardmills,386000.0,2014,SSB table 07410,NO,spruce,sams,national
 Spruce,Firewood,310500.0,2014,SSB table 11181,NO,spruce,fuelwood,national
-Spruce,Net export massevirke,1426003.0232732731,2014,SSB table 08801 (net),NO,spruce,pulpwood,national
-Spruce,Net export skurlast,668501.9418931585,2014,SSB table 08801 (net),NO,spruce,sawtimber,national
 Spruce,Pulpmills,1514996.9767267269,2014,SSB table 07410,NO,spruce,pulpwood,national
-Spruce,Sawmills,3314498.058106841,2014,SSB table 07410,NO,spruce,sawtimber,national
+Spruce,Sawmills,3314498.0581068415,2014,SSB table 07410,NO,spruce,sawtimber,national
 Wood Product processing & Logistics,Energy,259165.48045737055,2014,SSB and Treindustrien,NO,spruce,all,national
-Wood Product processing & Logistics,Energy,72035.09598431467,2014,SSB and Treindustrien,NO,pine,all,national
+Wood Product processing & Logistics,Energy,72035.09598431466,2014,SSB and Treindustrien,NO,pine,all,national
 Wood Product processing & Logistics,Energy,259.3119747248369,2014,SSB and Treindustrien,NO,non-coniferous,all,national
-Wood Product processing & Logistics,Long-term USE,2332489.3241163353,2014,SSB and Treindustrien,NO,spruce,all,national
-Wood Product processing & Logistics,Long-term USE,648315.8638588322,2014,SSB and Treindustrien,NO,pine,all,national
-Wood Product processing & Logistics,Long-term USE,2333.8077725235325,2014,SSB and Treindustrien,NO,non-coniferous,all,national
+Wood Product processing & Logistics,Long-term USE,2332489.324116335,2014,SSB and Treindustrien,NO,spruce,all,national
+Wood Product processing & Logistics,Long-term USE,648315.8638588318,2014,SSB and Treindustrien,NO,pine,all,national
+Wood Product processing & Logistics,Long-term USE,2333.807772523532,2014,SSB and Treindustrien,NO,non-coniferous,all,national
 Boardmills,Loss Boardmills,56280.707860738105,2015,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
 Boardmills,Loss Boardmills,11661.20553326841,2015,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
-Boardmills,Loss Boardmills,6.767044293489208,2015,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
-Boardmills,Wood Product processing & Logistics,1069333.449354024,2015,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
-Boardmills,Wood Product processing & Logistics,221562.90513209975,2015,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
+Boardmills,Loss Boardmills,6.767044293489207,2015,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Boardmills,Wood Product processing & Logistics,1069333.4493540241,2015,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
+Boardmills,Wood Product processing & Logistics,221562.9051320998,2015,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
 Boardmills,Wood Product processing & Logistics,128.57384157629497,2015,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
-End-of-Life,Energy,1082.9713995526938,2015,SSB table 10513,NO,spruce,all,national
-End-of-Life,Energy,318.45763146154246,2015,SSB table 10513,NO,pine,all,national
-End-of-Life,Energy,0.22728368555646186,2015,SSB table 10513,NO,non-coniferous,all,national
+End-of-Life,Energy,1082.9713995526943,2015,SSB table 10513,NO,spruce,all,national
+End-of-Life,Energy,318.4576314615426,2015,SSB table 10513,NO,pine,all,national
+End-of-Life,Energy,0.22728368555646192,2015,SSB table 10513,NO,non-coniferous,all,national
 Firewood,Energy,346500.0,2015,SSB various tables,NO,spruce,fuelwood,national
 Firewood,Energy,346500.0,2015,SSB various tables,NO,pine,fuelwood,national
 Firewood,Energy,1515423.0,2015,SSB various tables,NO,non-coniferous,fuelwood,national
 Firewood,Export Firewood,9539.790610766144,2015,SSB table 08801,NO,spruce,fuelwood,national
 Firewood,Export Firewood,9539.790610766144,2015,SSB table 08801,NO,pine,fuelwood,national
 Firewood,Export Firewood,41722.41877846771,2015,SSB table 08801,NO,non-coniferous,fuelwood,national
-Harvested wood,Bark,652607.1817536866,2015,SSB table 03795,NO,spruce,all,national
-Harvested wood,Bark,232644.4628095959,2015,SSB table 03795,NO,pine,all,national
-Harvested wood,Bark,126020.95543671736,2015,SSB table 03795,NO,non-coniferous,all,national
+Harvested wood,Bark,652607.1817536867,2015,SSB table 03795,NO,spruce,all,national
+Harvested wood,Bark,232644.46280959595,2015,SSB table 03795,NO,pine,all,national
+Harvested wood,Bark,126020.95543671738,2015,SSB table 03795,NO,non-coniferous,all,national
 Harvested wood,Non-coniferous,943.0,2015,SSB table 03795,NO-03,non-coniferous,all,national
 Harvested wood,Non-coniferous,22.0,2015,SSB table 03795,NO-11,non-coniferous,all,national
 Harvested wood,Non-coniferous,1166.0,2015,SSB table 03795,NO-15,non-coniferous,all,national
@@ -502,97 +481,88 @@ Harvested wood,Spruce,7885.0,2015,SSB table 03795,NO-55,spruce,all,national
 Harvested wood,Spruce,346500.0,2015,SSB table 03795 | SSB table 11181,NO,spruce,all,national
 Import Boards,Boardmills,195069.0,2015,FAOSTAT,NO,spruce,all,national
 Import Firewood,Firewood,169423.0,2015,SSB table 08801,NO,non-coniferous,fuelwood,national
-Impregnation,Impregnated inventory,5769.721728675674,2015,Treindustrien årsrapport,NO,spruce,all,national
-Impregnation,Impregnated inventory,2042.4169176140595,2015,Treindustrien årsrapport,NO,pine,all,national
+Impregnation,Impregnated inventory,5769.721728675675,2015,Treindustrien årsrapport,NO,spruce,all,national
+Impregnation,Impregnated inventory,2042.4169176140597,2015,Treindustrien årsrapport,NO,pine,all,national
 Impregnation,Impregnated inventory,1.5733537102666646,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
-Impregnation,Wood Product processing & Logistics,318453.37415099994,2015,Treindustrien årsrapport,NO,spruce,all,national
+Impregnation,Wood Product processing & Logistics,318453.374151,2015,Treindustrien årsrapport,NO,spruce,all,national
 Impregnation,Wood Product processing & Logistics,112728.930340731,2015,Treindustrien årsrapport,NO,pine,all,national
 Impregnation,Wood Product processing & Logistics,86.83950826904402,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
-Long-term USE,End-of-Life,1082.9713995526938,2015,SSB table 10513,NO,spruce,all,national
-Long-term USE,End-of-Life,318.45763146154246,2015,SSB table 10513,NO,pine,all,national
-Long-term USE,End-of-Life,0.22728368555646186,2015,SSB table 10513,NO,non-coniferous,all,national
+Long-term USE,End-of-Life,1082.9713995526943,2015,SSB table 10513,NO,spruce,all,national
+Long-term USE,End-of-Life,318.4576314615426,2015,SSB table 10513,NO,pine,all,national
+Long-term USE,End-of-Life,0.22728368555646192,2015,SSB table 10513,NO,non-coniferous,all,national
 Non-coniferous,Firewood,1346000.0,2015,SSB table 11181,NO,non-coniferous,fuelwood,national
-Non-coniferous,Net export massevirke,93231.06476373233,2015,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
-Non-coniferous,Net export skurlast,234.10498351044336,2015,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
 Non-coniferous,Pulpmills,73768.9352362677,2015,SSB table 07410,NO,non-coniferous,pulpwood,national
 Non-coniferous,Sawmills,765.8950164895566,2015,SSB table 07410,NO,non-coniferous,sawtimber,national
 Pine,Boardmills,56000.0,2015,SSB table 07410,NO,pine,sams,national
 Pine,Firewood,346500.0,2015,SSB table 11181,NO,pine,fuelwood,national
-Pine,Net export massevirke,538172.1343247781,2015,SSB table 08801 (net),NO,pine,pulpwood,national
-Pine,Net export skurlast,334536.02143642365,2015,SSB table 08801 (net),NO,pine,sawtimber,national
-Pine,Pulpmills,425827.8656752218,2015,SSB table 07410,NO,pine,pulpwood,national
+Pine,Pulpmills,425827.86567522184,2015,SSB table 07410,NO,pine,pulpwood,national
 Pine,Sawmills,1094463.9785635762,2015,SSB table 07410,NO,pine,sawtimber,national
-Planed timber inventory,Planingmills,5481.294852858487,2015,Treindustrien årsrapport,NO,spruce,all,national
-Planed timber inventory,Planingmills,1856.456629803188,2015,Treindustrien årsrapport,NO,pine,all,national
-Planed timber inventory,Planingmills,4.128517338331775,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
-Planingmills,Boardmills,51292.78977909045,2015,Treindustrien årsrapport,NO,spruce,all,national
+Planed timber inventory,Planingmills,5481.294852858486,2015,Treindustrien årsrapport,NO,spruce,all,national
+Planed timber inventory,Planingmills,1856.4566298031875,2015,Treindustrien årsrapport,NO,pine,all,national
+Planed timber inventory,Planingmills,4.128517338331773,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
+Planingmills,Boardmills,51292.78977909046,2015,Treindustrien årsrapport,NO,spruce,all,national
 Planingmills,Boardmills,18157.073516348206,2015,Treindustrien årsrapport,NO,pine,all,national
-Planingmills,Boardmills,13.987104561346584,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
-Planingmills,Impregnation,318453.37415099994,2015,Treindustrien årsrapport,NO,spruce,all,national
+Planingmills,Boardmills,13.987104561346582,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
+Planingmills,Impregnation,318453.374151,2015,Treindustrien årsrapport,NO,spruce,all,national
 Planingmills,Impregnation,112728.930340731,2015,Treindustrien årsrapport,NO,pine,all,national
 Planingmills,Impregnation,86.83950826904402,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
-Planingmills,Wood Product processing & Logistics,658552.145450723,2015,Treindustrien årsrapport,NO,spruce,all,national
+Planingmills,Wood Product processing & Logistics,658552.1454507231,2015,Treindustrien årsrapport,NO,spruce,all,national
 Planingmills,Wood Product processing & Logistics,233120.08901828242,2015,Treindustrien årsrapport,NO,pine,all,national
 Planingmills,Wood Product processing & Logistics,179.58153099470044,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
 Pulpmills,Energy,174104.16194609497,2015,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
 Pulpmills,Energy,57699.04620187216,2015,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
 Pulpmills,Energy,5919.544523552957,2015,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Pulpmills,Loss Pulpmills,130578.12145957121,2015,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
-Pulpmills,Loss Pulpmills,43274.28465140411,2015,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
+Pulpmills,Loss Pulpmills,43274.284651404116,2015,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
 Pulpmills,Loss Pulpmills,4439.658392664717,2015,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
-Pulpmills,Short-term USE,1871619.740920521,2015,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
+Pulpmills,Short-term USE,1871619.7409205206,2015,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
 Pulpmills,Short-term USE,620264.7466701256,2015,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
-Pulpmills,Short-term USE,63635.10362819429,2015,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Short-term USE,63635.10362819428,2015,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Boardmills,449252.3674356716,2015,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Boardmills,159067.03714902,2015,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Boardmills,121.35378130843759,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Boardmills,121.35378130843758,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Energy,160447.27408416843,2015,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Energy,56809.656124650006,2015,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Energy,43.340636181584856,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Net export sawn timber,22266.184843982282,2015,SSB table 08801 (net),NO,spruce,all,national
-Sawmills,Net export sawn timber,7883.800528334061,2015,SSB table 08801 (net),NO,pine,all,national
-Sawmills,Net export sawn timber,6.0146276836633135,2015,SSB table 08801 (net),NO,non-coniferous,all,national
-Sawmills,Planingmills,1025795.8170719807,2015,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Planingmills,363204.099007586,2015,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Planingmills,277.09192043353687,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Energy,56809.65612465,2015,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Energy,43.34063618158484,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Planingmills,1025795.8170719806,2015,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Planingmills,363204.09900758596,2015,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Planingmills,277.0919204335368,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Pulpmills,834325.8252376758,2015,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Pulpmills,295410.21184818,2015,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Pulpmills,225.37130814424123,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Pulpmills,225.3713081442412,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Shrinkage,160447.27408416843,2015,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Shrinkage,56809.656124650006,2015,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Shrinkage,43.340636181584856,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Shrinkage,56809.65612465,2015,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Shrinkage,43.34063618158484,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Wood Product processing & Logistics,572103.381596289,2015,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Wood Product processing & Logistics,202564.96448288066,2015,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Wood Product processing & Logistics,154.53877083017244,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Wood Product processing & Logistics,154.5387708301724,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
 Spruce,Boardmills,430000.0,2015,SSB table 07410,NO,spruce,sams,national
 Spruce,Firewood,346500.0,2015,SSB table 11181,NO,spruce,fuelwood,national
-Spruce,Net export massevirke,1696023.8009114896,2015,SSB table 08801 (net),NO,spruce,pulpwood,national
-Spruce,Net export skurlast,942974.873580066,2015,SSB table 08801 (net),NO,spruce,sawtimber,national
 Spruce,Pulpmills,1341976.1990885106,2015,SSB table 07410,NO,spruce,pulpwood,national
 Spruce,Sawmills,3085025.1264199344,2015,SSB table 07410,NO,spruce,sawtimber,national
 Timber inventory,Sawmills,139612.99793400188,2015,Treindustrien årsrapport,NO,spruce,all,national
-Timber inventory,Sawmills,47285.44670172447,2015,Treindustrien årsrapport,NO,pine,all,national
-Timber inventory,Sawmills,105.15666427366449,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
+Timber inventory,Sawmills,47285.446701724446,2015,Treindustrien årsrapport,NO,pine,all,national
+Timber inventory,Sawmills,105.15666427366445,2015,Treindustrien årsrapport,NO,non-coniferous,all,national
 Wood Product processing & Logistics,Energy,261844.2350552036,2015,SSB and Treindustrien,NO,spruce,all,national
 Wood Product processing & Logistics,Energy,76997.68889739939,2015,SSB and Treindustrien,NO,pine,all,national
-Wood Product processing & Logistics,Energy,54.95336516702119,2015,SSB and Treindustrien,NO,non-coniferous,all,national
-Wood Product processing & Logistics,Long-term USE,2356598.115496832,2015,SSB and Treindustrien,NO,spruce,all,national
-Wood Product processing & Logistics,Long-term USE,692979.2000765944,2015,SSB and Treindustrien,NO,pine,all,national
+Wood Product processing & Logistics,Energy,54.953365167021175,2015,SSB and Treindustrien,NO,non-coniferous,all,national
+Wood Product processing & Logistics,Long-term USE,2356598.1154968324,2015,SSB and Treindustrien,NO,spruce,all,national
+Wood Product processing & Logistics,Long-term USE,692979.2000765945,2015,SSB and Treindustrien,NO,pine,all,national
 Wood Product processing & Logistics,Long-term USE,494.58028650319056,2015,SSB and Treindustrien,NO,non-coniferous,all,national
 Boardmills,Loss Boardmills,56248.82588527338,2016,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
-Boardmills,Loss Boardmills,13259.744155904802,2016,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
+Boardmills,Loss Boardmills,13259.7441559048,2016,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
 Boardmills,Loss Boardmills,45.10232242182915,2016,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Boardmills,Wood Product processing & Logistics,1068727.691820194,2016,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
-Boardmills,Wood Product processing & Logistics,251935.13896219118,2016,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
-Boardmills,Wood Product processing & Logistics,856.9441260147536,2016,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
-End-of-Life,Energy,1123.198399746119,2016,SSB table 10513,NO,spruce,all,national
-End-of-Life,Energy,341.12333620008036,2016,SSB table 10513,NO,pine,all,national
-End-of-Life,Energy,1.5167733705693187,2016,SSB table 10513,NO,non-coniferous,all,national
+Boardmills,Wood Product processing & Logistics,251935.1389621912,2016,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
+Boardmills,Wood Product processing & Logistics,856.9441260147538,2016,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
+End-of-Life,Energy,1123.1983997461195,2016,SSB table 10513,NO,spruce,all,national
+End-of-Life,Energy,341.12333620008064,2016,SSB table 10513,NO,pine,all,national
+End-of-Life,Energy,1.5167733705693203,2016,SSB table 10513,NO,non-coniferous,all,national
 Firewood,Energy,335500.0,2016,SSB various tables,NO,spruce,fuelwood,national
 Firewood,Energy,335500.0,2016,SSB various tables,NO,pine,fuelwood,national
 Firewood,Energy,1453137.0,2016,SSB various tables,NO,non-coniferous,fuelwood,national
-Firewood,Export Firewood,16198.992814493606,2016,SSB table 08801,NO,spruce,fuelwood,national
-Firewood,Export Firewood,16198.992814493606,2016,SSB table 08801,NO,pine,fuelwood,national
+Firewood,Export Firewood,16198.992814493604,2016,SSB table 08801,NO,spruce,fuelwood,national
+Firewood,Export Firewood,16198.992814493604,2016,SSB table 08801,NO,pine,fuelwood,national
 Firewood,Export Firewood,70162.0143710128,2016,SSB table 08801,NO,non-coniferous,fuelwood,national
 Harvested wood,Bark,665121.2574842263,2016,SSB table 03795,NO,spruce,all,national
 Harvested wood,Bark,239344.12763262136,2016,SSB table 03795,NO,pine,all,national
@@ -629,8 +599,8 @@ Harvested wood,Pine,3187.0,2016,SSB table 03795,NO-55,pine,all,national
 Harvested wood,Pine,7328.0,2016,SSB table 03795,NO-56,pine,all,national
 Harvested wood,Pine,335500.0,2016,SSB table 03795 | SSB table 11181,NO,pine,all,national
 Harvested wood,Residues from harvest,665132.2956851736,2016,SSB table 07410,NO,spruce,all,national
-Harvested wood,Residues from harvest,239348.09973326712,2016,SSB table 07410,NO,pine,all,national
-Harvested wood,Residues from harvest,125919.60458155915,2016,SSB table 07410,NO,non-coniferous,all,national
+Harvested wood,Residues from harvest,239348.09973326715,2016,SSB table 07410,NO,pine,all,national
+Harvested wood,Residues from harvest,125919.60458155916,2016,SSB table 07410,NO,non-coniferous,all,national
 Harvested wood,Spruce,35288.0,2016,SSB table 03795,NO-03,spruce,all,national
 Harvested wood,Spruce,135321.0,2016,SSB table 03795,NO-11,spruce,all,national
 Harvested wood,Spruce,284414.0,2016,SSB table 03795,NO-15,spruce,all,national
@@ -648,95 +618,86 @@ Harvested wood,Spruce,4681.0,2016,SSB table 03795,NO-55,spruce,all,national
 Harvested wood,Spruce,335500.0,2016,SSB table 03795 | SSB table 11181,NO,spruce,all,national
 Import Boards,Boardmills,186775.0,2016,FAOSTAT,NO,spruce,all,national
 Import Firewood,Firewood,150137.0,2016,SSB table 08801,NO,non-coniferous,fuelwood,national
-Impregnated inventory,Impregnation,5299.892231024889,2016,Treindustrien årsrapport,NO,spruce,all,national
-Impregnated inventory,Impregnation,1876.1025337457872,2016,Treindustrien årsrapport,NO,pine,all,national
-Impregnated inventory,Impregnation,1.445235229327159,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
-Impregnation,Wood Product processing & Logistics,305954.6482086053,2016,Treindustrien årsrapport,NO,spruce,all,national
-Impregnation,Wood Product processing & Logistics,106942.67213058202,2016,Treindustrien årsrapport,NO,pine,all,national
-Impregnation,Wood Product processing & Logistics,519.0436608124458,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
-Long-term USE,End-of-Life,1123.198399746119,2016,SSB table 10513,NO,spruce,all,national
-Long-term USE,End-of-Life,341.12333620008036,2016,SSB table 10513,NO,pine,all,national
-Long-term USE,End-of-Life,1.5167733705693187,2016,SSB table 10513,NO,non-coniferous,all,national
+Impregnated inventory,Impregnation,5299.89223102489,2016,Treindustrien årsrapport,NO,spruce,all,national
+Impregnated inventory,Impregnation,1876.102533745787,2016,Treindustrien årsrapport,NO,pine,all,national
+Impregnated inventory,Impregnation,1.4452352293271589,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
+Impregnation,Wood Product processing & Logistics,305954.6482086054,2016,Treindustrien årsrapport,NO,spruce,all,national
+Impregnation,Wood Product processing & Logistics,106942.67213058205,2016,Treindustrien årsrapport,NO,pine,all,national
+Impregnation,Wood Product processing & Logistics,519.0436608124459,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
+Long-term USE,End-of-Life,1123.1983997461195,2016,SSB table 10513,NO,spruce,all,national
+Long-term USE,End-of-Life,341.12333620008064,2016,SSB table 10513,NO,pine,all,national
+Long-term USE,End-of-Life,1.5167733705693203,2016,SSB table 10513,NO,non-coniferous,all,national
 Non-coniferous,Firewood,1303000.0,2016,SSB table 11181,NO,non-coniferous,fuelwood,national
-Non-coniferous,Net export massevirke,91947.05688622755,2016,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
-Non-coniferous,Net export skurlast,1299.9135847674845,2016,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
 Non-coniferous,Pulpmills,99052.94311377245,2016,SSB table 07410,NO,non-coniferous,pulpwood,national
 Non-coniferous,Sawmills,5700.086415232516,2016,SSB table 07410,NO,non-coniferous,sawtimber,national
 Pine,Boardmills,83000.0,2016,SSB table 07410,NO,pine,sams,national
 Pine,Firewood,335500.0,2016,SSB table 11181,NO,pine,fuelwood,national
-Pine,Net export massevirke,491026.1676646707,2016,SSB table 08801 (net),NO,pine,pulpwood,national
-Pine,Net export skurlast,262396.84218235075,2016,SSB table 08801 (net),NO,pine,sawtimber,national
 Pine,Pulpmills,528973.8323353294,2016,SSB table 07410,NO,pine,pulpwood,national
 Pine,Sawmills,1150603.1578176492,2016,SSB table 07410,NO,pine,sawtimber,national
-Planed timber inventory,Planingmills,11955.121949390828,2016,Treindustrien årsrapport,NO,spruce,all,national
-Planed timber inventory,Planingmills,4049.0734395501445,2016,Treindustrien årsrapport,NO,pine,all,national
-Planed timber inventory,Planingmills,9.004611059044057,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
-Planingmills,Boardmills,54175.42334618869,2016,Treindustrien årsrapport,NO,spruce,all,national
-Planingmills,Boardmills,18932.17373638089,2016,Treindustrien årsrapport,NO,pine,all,national
-Planingmills,Boardmills,93.24321743039873,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
-Planingmills,Impregnation,305966.52232613834,2016,Treindustrien årsrapport,NO,spruce,all,national
-Planingmills,Impregnation,106923.23198250061,2016,Treindustrien årsrapport,NO,pine,all,national
-Planingmills,Impregnation,526.6096913608362,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
-Planingmills,Wood Product processing & Logistics,725946.3033155508,2016,Treindustrien årsrapport,NO,spruce,all,national
-Planingmills,Wood Product processing & Logistics,253689.60109142103,2016,Treindustrien årsrapport,NO,pine,all,national
-Planingmills,Wood Product processing & Logistics,1249.4515930277107,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
-Pulpmills,Energy,199286.11198316465,2016,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
-Pulpmills,Energy,66574.08055210972,2016,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
+Planed timber inventory,Planingmills,11955.121949390825,2016,Treindustrien årsrapport,NO,spruce,all,national
+Planed timber inventory,Planingmills,4049.073439550143,2016,Treindustrien årsrapport,NO,pine,all,national
+Planed timber inventory,Planingmills,9.004611059044054,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
+Planingmills,Boardmills,54175.4233461887,2016,Treindustrien årsrapport,NO,spruce,all,national
+Planingmills,Boardmills,18932.173736380893,2016,Treindustrien årsrapport,NO,pine,all,national
+Planingmills,Boardmills,93.24321743039876,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
+Planingmills,Impregnation,305966.5223261384,2016,Treindustrien årsrapport,NO,spruce,all,national
+Planingmills,Impregnation,106923.23198250064,2016,Treindustrien årsrapport,NO,pine,all,national
+Planingmills,Impregnation,526.6096913608363,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
+Planingmills,Wood Product processing & Logistics,725946.3033155509,2016,Treindustrien årsrapport,NO,spruce,all,national
+Planingmills,Wood Product processing & Logistics,253689.60109142106,2016,Treindustrien årsrapport,NO,pine,all,national
+Planingmills,Wood Product processing & Logistics,1249.451593027711,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Energy,199286.11198316468,2016,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
+Pulpmills,Energy,66574.08055210974,2016,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
 Pulpmills,Energy,8044.400500565572,2016,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Pulpmills,Loss Pulpmills,149464.5839873735,2016,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
 Pulpmills,Loss Pulpmills,49930.560414082305,2016,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
-Pulpmills,Loss Pulpmills,6033.30037542418,2016,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Loss Pulpmills,6033.300375424178,2016,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Pulpmills,Short-term USE,2142325.70381902,2016,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
 Pulpmills,Short-term USE,715671.3659351796,2016,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
-Pulpmills,Short-term USE,86477.3053810799,2016,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Boardmills,467026.0943592786,2016,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Boardmills,163262.70938171507,2016,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Boardmills,808.803231006184,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Energy,166795.03369974234,2016,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Energy,58308.11049346967,2016,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Energy,288.8582967879228,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Net export sawn timber,24633.111314629077,2016,SSB table 08801 (net),NO,spruce,all,national
-Sawmills,Net export sawn timber,8611.22867073439,2016,SSB table 08801 (net),NO,pine,all,national
-Sawmills,Net export sawn timber,42.66001463652726,2016,SSB table 08801 (net),NO,non-coniferous,all,national
-Sawmills,Planingmills,1083404.600855761,2016,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Planingmills,378735.94779536116,2016,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Planingmills,1876.257348877396,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Pulpmills,867334.1752386602,2016,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Pulpmills,303202.17456604226,2016,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Pulpmills,1502.0631432971986,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Shrinkage,166795.03369974234,2016,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Shrinkage,58308.11049346967,2016,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Shrinkage,288.8582967879228,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Short-term USE,86477.30538107987,2016,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Boardmills,467026.0943592787,2016,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Boardmills,163262.7093817151,2016,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Boardmills,808.8032310061841,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Energy,166795.03369974237,2016,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Energy,58308.11049346968,2016,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Energy,288.8582967879229,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Planingmills,1083404.6008557612,2016,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Planingmills,378735.9477953612,2016,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Planingmills,1876.2573488773962,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Pulpmills,867334.1752386603,2016,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Pulpmills,303202.1745660423,2016,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Pulpmills,1502.0631432971988,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Shrinkage,166795.03369974237,2016,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Shrinkage,58308.11049346968,2016,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Shrinkage,288.8582967879229,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Timber inventory,6017.790059817462,2016,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Timber inventory,2103.6955354797356,2016,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Timber inventory,10.421704702763277,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Timber inventory,10.421704702763279,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Wood Product processing & Logistics,553894.8347672159,2016,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Wood Product processing & Logistics,193630.2329331214,2016,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Wood Product processing & Logistics,959.2438996625417,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Wood Product processing & Logistics,193630.23293312144,2016,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Wood Product processing & Logistics,959.2438996625418,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
 Spruce,Boardmills,417000.0,2016,SSB table 07410,NO,spruce,sams,national
 Spruce,Firewood,335500.0,2016,SSB table 11181,NO,spruce,fuelwood,national
-Spruce,Net export massevirke,1507257.7754491018,2016,SSB table 08801 (net),NO,spruce,pulpwood,national
-Spruce,Net export skurlast,750607.2442328817,2016,SSB table 08801 (net),NO,spruce,sawtimber,national
 Spruce,Pulpmills,1623742.2245508982,2016,SSB table 07410,NO,spruce,pulpwood,national
 Spruce,Sawmills,3291392.755767118,2016,SSB table 07410,NO,spruce,sawtimber,national
-Timber inventory,Sawmills,44507.91821539922,2016,Treindustrien årsrapport,NO,spruce,all,national
-Timber inventory,Sawmills,15559.052062722285,2016,Treindustrien årsrapport,NO,pine,all,national
+Timber inventory,Sawmills,44507.91821539923,2016,Treindustrien årsrapport,NO,spruce,all,national
+Timber inventory,Sawmills,15559.052062722287,2016,Treindustrien årsrapport,NO,pine,all,national
 Timber inventory,Sawmills,77.07952187845174,2016,Treindustrien årsrapport,NO,non-coniferous,all,national
-Wood Product processing & Logistics,Energy,265452.34781115653,2016,SSB and Treindustrien,NO,spruce,all,national
-Wood Product processing & Logistics,Energy,80619.76451173154,2016,SSB and Treindustrien,NO,pine,all,national
-Wood Product processing & Logistics,Energy,358.4683279517451,2016,SSB and Treindustrien,NO,non-coniferous,all,national
+Wood Product processing & Logistics,Energy,265452.3478111566,2016,SSB and Treindustrien,NO,spruce,all,national
+Wood Product processing & Logistics,Energy,80619.76451173157,2016,SSB and Treindustrien,NO,pine,all,national
+Wood Product processing & Logistics,Energy,358.46832795174527,2016,SSB and Treindustrien,NO,non-coniferous,all,national
 Wood Product processing & Logistics,Long-term USE,2389071.130300409,2016,SSB and Treindustrien,NO,spruce,all,national
-Wood Product processing & Logistics,Long-term USE,725577.8806055839,2016,SSB and Treindustrien,NO,pine,all,national
-Wood Product processing & Logistics,Long-term USE,3226.2149515657056,2016,SSB and Treindustrien,NO,non-coniferous,all,national
-Boardmills,Loss Boardmills,57725.91880709113,2017,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
-Boardmills,Loss Boardmills,13462.785622019608,2017,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
-Boardmills,Loss Boardmills,30.688826189272515,2017,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
-Boardmills,Wood Product processing & Logistics,1096792.4573347315,2017,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
-Boardmills,Wood Product processing & Logistics,255792.92681837254,2017,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
-Boardmills,Wood Product processing & Logistics,583.0876975961778,2017,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
-End-of-Life,Energy,1177.5525265974916,2017,SSB table 10513,NO,spruce,all,national
+Wood Product processing & Logistics,Long-term USE,725577.8806055841,2016,SSB and Treindustrien,NO,pine,all,national
+Wood Product processing & Logistics,Long-term USE,3226.2149515657075,2016,SSB and Treindustrien,NO,non-coniferous,all,national
+Boardmills,Loss Boardmills,57725.918807091126,2017,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
+Boardmills,Loss Boardmills,13462.785622019606,2017,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
+Boardmills,Loss Boardmills,30.688826189272504,2017,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Boardmills,Wood Product processing & Logistics,1096792.4573347312,2017,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
+Boardmills,Wood Product processing & Logistics,255792.92681837248,2017,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
+Boardmills,Wood Product processing & Logistics,583.0876975961776,2017,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
+End-of-Life,Energy,1177.5525265974918,2017,SSB table 10513,NO,spruce,all,national
 End-of-Life,Energy,312.20287858903885,2017,SSB table 10513,NO,pine,all,national
-End-of-Life,Energy,0.9278246271336252,2017,SSB table 10513,NO,non-coniferous,all,national
+End-of-Life,Energy,0.9278246271336256,2017,SSB table 10513,NO,non-coniferous,all,national
 Firewood,Energy,341500.0,2017,SSB various tables,NO,spruce,fuelwood,national
 Firewood,Energy,341500.0,2017,SSB various tables,NO,pine,fuelwood,national
 Firewood,Energy,1525261.0,2017,SSB various tables,NO,non-coniferous,fuelwood,national
@@ -797,92 +758,83 @@ Harvested wood,Spruce,341500.0,2017,SSB table 03795 | SSB table 11181,NO,spruce,
 Import Boards,Boardmills,271506.0,2017,FAOSTAT,NO,spruce,all,national
 Import Firewood,Firewood,159261.0,2017,SSB table 08801,NO,non-coniferous,fuelwood,national
 Import planed wood,Wood Product processing & Logistics,377470.0,2017,SSB table 08801,NO,spruce,all,national
-Impregnated inventory,Impregnation,8269.717483733877,2017,Treindustrien årsrapport,NO,spruce,all,national
+Impregnated inventory,Impregnation,8269.717483733879,2017,Treindustrien årsrapport,NO,spruce,all,national
 Impregnated inventory,Impregnation,2927.3874351204904,2017,Treindustrien årsrapport,NO,pine,all,national
-Impregnated inventory,Impregnation,2.2550811456337367,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
-Impregnation,Wood Product processing & Logistics,280026.8574011412,2017,Treindustrien årsrapport,NO,spruce,all,national
-Impregnation,Wood Product processing & Logistics,100724.85911095272,2017,Treindustrien årsrapport,NO,pine,all,national
-Impregnation,Wood Product processing & Logistics,328.24348790629654,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
-Long-term USE,End-of-Life,1177.5525265974916,2017,SSB table 10513,NO,spruce,all,national
+Impregnated inventory,Impregnation,2.2550811456337363,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
+Impregnation,Wood Product processing & Logistics,280026.8574011411,2017,Treindustrien årsrapport,NO,spruce,all,national
+Impregnation,Wood Product processing & Logistics,100724.85911095269,2017,Treindustrien årsrapport,NO,pine,all,national
+Impregnation,Wood Product processing & Logistics,328.24348790629637,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
+Long-term USE,End-of-Life,1177.5525265974918,2017,SSB table 10513,NO,spruce,all,national
 Long-term USE,End-of-Life,312.20287858903885,2017,SSB table 10513,NO,pine,all,national
-Long-term USE,End-of-Life,0.9278246271336252,2017,SSB table 10513,NO,non-coniferous,all,national
+Long-term USE,End-of-Life,0.9278246271336256,2017,SSB table 10513,NO,non-coniferous,all,national
 Non-coniferous,Firewood,1366000.0,2017,SSB table 11181,NO,non-coniferous,fuelwood,national
-Non-coniferous,Net export massevirke,88717.69481413494,2017,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
-Non-coniferous,Net export skurlast,1004.525277435265,2017,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
 Non-coniferous,Pulpmills,149282.3051858651,2017,SSB table 07410,NO,non-coniferous,pulpwood,national
-Non-coniferous,Sawmills,3995.474722564735,2017,SSB table 07410,NO,non-coniferous,sawtimber,national
+Non-coniferous,Sawmills,3995.4747225647347,2017,SSB table 07410,NO,non-coniferous,sawtimber,national
 Pine,Boardmills,85000.0,2017,SSB table 07410,NO,pine,sams,national
 Pine,Firewood,341500.0,2017,SSB table 11181,NO,pine,fuelwood,national
-Pine,Net export massevirke,366799.20881138137,2017,SSB table 08801 (net),NO,pine,pulpwood,national
-Pine,Net export skurlast,301558.4882860666,2017,SSB table 08801 (net),NO,pine,sawtimber,national
 Pine,Pulpmills,617200.7911886188,2017,SSB table 07410,NO,pine,pulpwood,national
 Pine,Sawmills,1199441.5117139334,2017,SSB table 07410,NO,pine,sawtimber,national
-Planingmills,Boardmills,54143.12380709005,2017,Treindustrien årsrapport,NO,spruce,all,national
-Planingmills,Boardmills,19484.25529475957,2017,Treindustrien årsrapport,NO,pine,all,national
-Planingmills,Boardmills,64.90424815043161,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
-Planingmills,Export planed wood,45917.73595208738,2017,SSB table 08801,NO,spruce,all,national
-Planingmills,Export planed wood,16524.220010568966,2017,SSB table 08801,NO,pine,all,national
-Planingmills,Export planed wood,55.04403734366744,2017,SSB table 08801,NO,non-coniferous,all,national
-Planingmills,Impregnation,279986.7030403383,2017,Treindustrien årsrapport,NO,spruce,all,national
-Planingmills,Impregnation,100757.62197639601,2017,Treindustrien årsrapport,NO,pine,all,national
-Planingmills,Impregnation,335.6349832658095,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
-Planingmills,Planed timber inventory,19664.90209617757,2017,Treindustrien årsrapport,NO,spruce,all,national
-Planingmills,Planed timber inventory,7076.724537607896,2017,Treindustrien årsrapport,NO,pine,all,national
-Planingmills,Planed timber inventory,23.573366214549953,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
+Planingmills,Boardmills,54143.12380709003,2017,Treindustrien årsrapport,NO,spruce,all,national
+Planingmills,Boardmills,19484.25529475956,2017,Treindustrien årsrapport,NO,pine,all,national
+Planingmills,Boardmills,64.90424815043157,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
+Planingmills,Export planed wood,45917.73595208737,2017,SSB table 08801,NO,spruce,all,national
+Planingmills,Export planed wood,16524.220010568963,2017,SSB table 08801,NO,pine,all,national
+Planingmills,Export planed wood,55.044037343667426,2017,SSB table 08801,NO,non-coniferous,all,national
+Planingmills,Impregnation,279986.70304033824,2017,Treindustrien årsrapport,NO,spruce,all,national
+Planingmills,Impregnation,100757.621976396,2017,Treindustrien årsrapport,NO,pine,all,national
+Planingmills,Impregnation,335.6349832658094,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
+Planingmills,Planed timber inventory,19664.902096177568,2017,Treindustrien årsrapport,NO,spruce,all,national
+Planingmills,Planed timber inventory,7076.724537607895,2017,Treindustrien årsrapport,NO,pine,all,national
+Planingmills,Planed timber inventory,23.573366214549946,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
 Planingmills,Wood Product processing & Logistics,705393.1573330986,2017,Treindustrien årsrapport,NO,spruce,all,national
 Planingmills,Wood Product processing & Logistics,253846.8302941695,2017,Treindustrien årsrapport,NO,pine,all,national
-Planingmills,Wood Product processing & Logistics,845.5923727320769,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
-Pulpmills,Energy,225387.4012083445,2017,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
-Pulpmills,Energy,73856.39407101208,2017,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
-Pulpmills,Energy,12024.131152963559,2017,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
-Pulpmills,Loss Pulpmills,169040.55090625834,2017,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
-Pulpmills,Loss Pulpmills,55392.29555325905,2017,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
-Pulpmills,Loss Pulpmills,9018.098364722668,2017,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
-Pulpmills,Short-term USE,2422914.562989703,2017,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
-Pulpmills,Short-term USE,793956.2362633797,2017,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
-Pulpmills,Short-term USE,129259.40989435822,2017,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Boardmills,457869.2523347326,2017,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Boardmills,164771.45714563262,2017,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Boardmills,548.8722756350187,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
+Planingmills,Wood Product processing & Logistics,845.5923727320768,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Energy,225387.4012083444,2017,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
+Pulpmills,Energy,73856.39407101205,2017,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
+Pulpmills,Energy,12024.131152963553,2017,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Loss Pulpmills,169040.5509062583,2017,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
+Pulpmills,Loss Pulpmills,55392.295553259035,2017,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
+Pulpmills,Loss Pulpmills,9018.098364722664,2017,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Short-term USE,2422914.562989702,2017,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
+Pulpmills,Short-term USE,793956.2362633795,2017,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
+Pulpmills,Short-term USE,129259.40989435818,2017,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Boardmills,457869.2523347325,2017,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Boardmills,164771.4571456326,2017,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Boardmills,548.8722756350185,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Energy,163524.73297669017,2017,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Energy,58846.94898058306,2017,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Energy,196.02581272679234,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Net export sawn timber,106845.78192707417,2017,SSB table 08801 (net),NO,spruce,all,national
-Sawmills,Net export sawn timber,38450.136339616,2017,SSB table 08801 (net),NO,pine,all,national
-Sawmills,Net export sawn timber,128.08173330984675,2017,SSB table 08801 (net),NO,non-coniferous,all,national
+Sawmills,Energy,58846.94898058305,2017,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Energy,196.02581272679228,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Planingmills,1082862.4761418004,2017,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Planingmills,389685.1058951912,2017,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Planingmills,1298.0849630086316,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Planingmills,1298.0849630086313,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Pulpmills,850328.6114787888,2017,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Pulpmills,306004.1346990319,2017,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Pulpmills,1019.33422617932,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Pulpmills,1019.3342261793199,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Shrinkage,163524.73297669017,2017,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Shrinkage,58846.94898058306,2017,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Shrinkage,196.02581272679234,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Timber inventory,67190.40278782813,2017,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Timber inventory,24179.52399533206,2017,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Timber inventory,80.54471683988028,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Wood Product processing & Logistics,440879.02293989767,2017,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Wood Product processing & Logistics,158657.25567796367,2017,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Wood Product processing & Logistics,528.5051821384532,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Shrinkage,58846.94898058305,2017,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Shrinkage,196.02581272679228,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Timber inventory,67190.40278782812,2017,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Timber inventory,24179.523995332056,2017,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Timber inventory,80.54471683988025,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Wood Product processing & Logistics,440879.0229398976,2017,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Wood Product processing & Logistics,158657.25567796364,2017,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Wood Product processing & Logistics,528.505182138453,2017,Treindustrien årsrapport,NO,non-coniferous,all,national
 Spruce,Boardmills,371000.0,2017,SSB table 07410,NO,spruce,sams,national
 Spruce,Firewood,341500.0,2017,SSB table 11181,NO,spruce,fuelwood,national
-Spruce,Net export massevirke,1168986.096374484,2017,SSB table 08801 (net),NO,spruce,pulpwood,national
-Spruce,Net export skurlast,837974.9864364981,2017,SSB table 08801 (net),NO,spruce,sawtimber,national
-Spruce,Pulpmills,1967013.903625516,2017,SSB table 07410,NO,spruce,pulpwood,national
+Spruce,Pulpmills,1967013.9036255162,2017,SSB table 07410,NO,spruce,pulpwood,national
 Spruce,Sawmills,3333025.013563502,2017,SSB table 07410,NO,spruce,sawtimber,national
 Wood Product processing & Logistics,Energy,290056.14950088685,2017,SSB and Treindustrien,NO,spruce,all,national
 Wood Product processing & Logistics,Energy,76902.18719014582,2017,SSB and Treindustrien,NO,pine,all,national
-Wood Product processing & Logistics,Energy,228.54287403730044,2017,SSB and Treindustrien,NO,non-coniferous,all,national
+Wood Product processing & Logistics,Energy,228.54287403730038,2017,SSB and Treindustrien,NO,non-coniferous,all,national
 Wood Product processing & Logistics,Long-term USE,2610505.3455079813,2017,SSB and Treindustrien,NO,spruce,all,national
 Wood Product processing & Logistics,Long-term USE,692119.6847113123,2017,SSB and Treindustrien,NO,pine,all,national
 Wood Product processing & Logistics,Long-term USE,2056.8858663357037,2017,SSB and Treindustrien,NO,non-coniferous,all,national
 Boardmills,Loss Boardmills,62830.478160500876,2018,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
 Boardmills,Loss Boardmills,13738.643865315393,2018,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
 Boardmills,Loss Boardmills,18.06887448372841,2018,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
-Boardmills,Wood Product processing & Logistics,1193779.0850495168,2018,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
-Boardmills,Wood Product processing & Logistics,261034.23344099245,2018,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
-Boardmills,Wood Product processing & Logistics,343.3086151908398,2018,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Boardmills,Wood Product processing & Logistics,1193779.0850495165,2018,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
+Boardmills,Wood Product processing & Logistics,261034.23344099242,2018,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
+Boardmills,Wood Product processing & Logistics,343.30861519083976,2018,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
 End-of-Life,Energy,1166.231355203168,2018,SSB table 10513,NO,spruce,all,national
 End-of-Life,Energy,290.81740206359234,2018,SSB table 10513,NO,pine,all,national
 End-of-Life,Energy,0.5081785510450663,2018,SSB table 10513,NO,non-coniferous,all,national
@@ -892,9 +844,9 @@ Firewood,Energy,1468169.0,2018,SSB various tables,NO,non-coniferous,fuelwood,nat
 Firewood,Export Firewood,11629.514953629536,2018,SSB table 08801,NO,spruce,fuelwood,national
 Firewood,Export Firewood,11629.514953629536,2018,SSB table 08801,NO,pine,fuelwood,national
 Firewood,Export Firewood,52860.970092740936,2018,SSB table 08801,NO,non-coniferous,fuelwood,national
-Harvested wood,Bark,710445.0241864533,2018,SSB table 03795,NO,spruce,all,national
-Harvested wood,Bark,244553.04326223806,2018,SSB table 03795,NO,pine,all,national
-Harvested wood,Bark,128590.83255130844,2018,SSB table 03795,NO,non-coniferous,all,national
+Harvested wood,Bark,710445.0241864534,2018,SSB table 03795,NO,spruce,all,national
+Harvested wood,Bark,244553.04326223812,2018,SSB table 03795,NO,pine,all,national
+Harvested wood,Bark,128590.83255130847,2018,SSB table 03795,NO,non-coniferous,all,national
 Harvested wood,Non-coniferous,99.0,2018,SSB table 03795,NO-11,non-coniferous,all,national
 Harvested wood,Non-coniferous,1719.0,2018,SSB table 03795,NO-15,non-coniferous,all,national
 Harvested wood,Non-coniferous,1295.0,2018,SSB table 03795,NO-18,non-coniferous,all,national
@@ -948,7 +900,7 @@ Import Firewood,Firewood,215169.0,2018,SSB table 08801,NO,non-coniferous,fuelwoo
 Import planed wood,Wood Product processing & Logistics,377625.0,2018,SSB table 08801,NO,spruce,all,national
 Impregnated inventory,Impregnation,4935.117776327073,2018,Treindustrien årsrapport,NO,spruce,all,national
 Impregnated inventory,Impregnation,1746.976459313898,2018,Treindustrien årsrapport,NO,pine,all,national
-Impregnated inventory,Impregnation,1.3457643590325115,2018,Treindustrien årsrapport,NO,non-coniferous,all,national
+Impregnated inventory,Impregnation,1.3457643590325112,2018,Treindustrien årsrapport,NO,non-coniferous,all,national
 Impregnation,Wood Product processing & Logistics,276035.4295062599,2018,Treindustrien årsrapport,NO,spruce,all,national
 Impregnation,Wood Product processing & Logistics,94848.09540327224,2018,Treindustrien årsrapport,NO,pine,all,national
 Impregnation,Wood Product processing & Logistics,186.47509046787886,2018,Treindustrien årsrapport,NO,non-coniferous,all,national
@@ -956,14 +908,10 @@ Long-term USE,End-of-Life,1166.231355203168,2018,SSB table 10513,NO,spruce,all,n
 Long-term USE,End-of-Life,290.81740206359234,2018,SSB table 10513,NO,pine,all,national
 Long-term USE,End-of-Life,0.5081785510450663,2018,SSB table 10513,NO,non-coniferous,all,national
 Non-coniferous,Firewood,1253000.0,2018,SSB table 11181,NO,non-coniferous,fuelwood,national
-Non-coniferous,Net export massevirke,94131.0547105562,2018,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
-Non-coniferous,Net export skurlast,670.6813410091432,2018,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
 Non-coniferous,Pulpmills,161868.94528944383,2018,SSB table 07410,NO,non-coniferous,pulpwood,national
 Non-coniferous,Sawmills,2329.318658990857,2018,SSB table 07410,NO,non-coniferous,sawtimber,national
 Pine,Boardmills,93000.0,2018,SSB table 07410,NO,pine,sams,national
 Pine,Firewood,323000.0,2018,SSB table 11181,NO,pine,fuelwood,national
-Pine,Net export massevirke,348946.7614074915,2018,SSB table 08801 (net),NO,pine,pulpwood,national
-Pine,Net export skurlast,337352.71452759905,2018,SSB table 08801 (net),NO,pine,sawtimber,national
 Pine,Pulpmills,600053.2385925086,2018,SSB table 07410,NO,pine,pulpwood,national
 Pine,Sawmills,1171647.285472401,2018,SSB table 07410,NO,pine,sawtimber,national
 Planingmills,Boardmills,53370.20512207925,2018,Treindustrien årsrapport,NO,spruce,all,national
@@ -978,13 +926,13 @@ Planingmills,Impregnation,188.48797832712495,2018,Treindustrien årsrapport,NO,n
 Planingmills,Planed timber inventory,4725.670369116145,2018,Treindustrien årsrapport,NO,spruce,all,national
 Planingmills,Planed timber inventory,1622.903183203519,2018,Treindustrien årsrapport,NO,pine,all,national
 Planingmills,Planed timber inventory,3.226447680325087,2018,Treindustrien årsrapport,NO,non-coniferous,all,national
-Planingmills,Wood Product processing & Logistics,694598.4013545547,2018,Treindustrien årsrapport,NO,spruce,all,national
-Planingmills,Wood Product processing & Logistics,238540.9621401964,2018,Treindustrien årsrapport,NO,pine,all,national
-Planingmills,Wood Product processing & Logistics,474.2365052488994,2018,Treindustrien årsrapport,NO,non-coniferous,all,national
-Pulpmills,Energy,232578.15277679468,2018,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
+Planingmills,Wood Product processing & Logistics,694598.4013545548,2018,Treindustrien årsrapport,NO,spruce,all,national
+Planingmills,Wood Product processing & Logistics,238540.96214019644,2018,Treindustrien årsrapport,NO,pine,all,national
+Planingmills,Wood Product processing & Logistics,474.23650524889945,2018,Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Energy,232578.15277679465,2018,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
 Pulpmills,Energy,72287.41659728062,2018,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
 Pulpmills,Energy,12997.792278244731,2018,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
-Pulpmills,Loss Pulpmills,174433.614582596,2018,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
+Pulpmills,Loss Pulpmills,174433.61458259597,2018,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
 Pulpmills,Loss Pulpmills,54215.56244796047,2018,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
 Pulpmills,Loss Pulpmills,9748.344208683548,2018,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Pulpmills,Short-term USE,2500215.1423505424,2018,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
@@ -993,21 +941,18 @@ Pulpmills,Short-term USE,139726.26699113083,2018,SSB table 07410 | SSB table 088
 Sawmills,Boardmills,475927.3580879384,2018,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Boardmills,163444.32939342264,2018,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Boardmills,324.93902463901117,2018,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Energy,169974.05645997796,2018,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Energy,58372.97478336521,2018,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Energy,116.04965165678968,2018,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Net export sawn timber,174159.6793091771,2018,SSB table 08801 (net),NO,spruce,all,national
-Sawmills,Net export sawn timber,59810.41330849983,2018,SSB table 08801 (net),NO,pine,all,national
-Sawmills,Net export sawn timber,118.90738232306128,2018,SSB table 08801 (net),NO,non-coniferous,all,national
+Sawmills,Energy,169974.056459978,2018,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Energy,58372.97478336522,2018,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Energy,116.0496516567897,2018,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Planingmills,1067404.102441585,2018,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Planingmills,366570.95825770404,2018,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Planingmills,728.7693007111412,2018,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Pulpmills,883865.0935918855,2018,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Pulpmills,303539.4688734992,2018,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Pulpmills,603.4581886153065,2018,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Shrinkage,169974.05645997796,2018,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Shrinkage,58372.97478336521,2018,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Shrinkage,116.04965165678968,2018,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Shrinkage,169974.056459978,2018,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Shrinkage,58372.97478336522,2018,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Shrinkage,116.0496516567897,2018,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Timber inventory,50711.24037714188,2018,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Timber inventory,17415.39866388418,2018,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Timber inventory,34.62305897392481,2018,Treindustrien årsrapport,NO,non-coniferous,all,national
@@ -1016,9 +961,7 @@ Sawmills,Wood Product processing & Logistics,144120.76740866064,2018,Treindustri
 Sawmills,Wood Product processing & Logistics,286.5224004148323,2018,Treindustrien årsrapport,NO,non-coniferous,all,national
 Spruce,Boardmills,433000.0,2018,SSB table 07410,NO,spruce,sams,national
 Spruce,Firewood,323000.0,2018,SSB table 11181,NO,spruce,fuelwood,national
-Spruce,Net export massevirke,1176638.1838819522,2018,SSB table 08801 (net),NO,spruce,pulpwood,national
-Spruce,Net export skurlast,982324.604131392,2018,SSB table 08801 (net),NO,spruce,sawtimber,national
-Spruce,Pulpmills,2023361.816118048,2018,SSB table 07410,NO,spruce,pulpwood,national
+Spruce,Pulpmills,2023361.8161180476,2018,SSB table 07410,NO,spruce,pulpwood,national
 Spruce,Sawmills,3411675.395868608,2018,SSB table 07410,NO,spruce,sawtimber,national
 Wood Product processing & Logistics,Energy,296169.7725051256,2018,SSB and Treindustrien,NO,spruce,all,national
 Wood Product processing & Logistics,Energy,73854.40583931217,2018,SSB and Treindustrien,NO,pine,all,national
@@ -1026,13 +969,13 @@ Wood Product processing & Logistics,Energy,129.05426113224505,2018,SSB and Trein
 Wood Product processing & Logistics,Long-term USE,2665527.9525461304,2018,SSB and Treindustrien,NO,spruce,all,national
 Wood Product processing & Logistics,Long-term USE,664689.6525538095,2018,SSB and Treindustrien,NO,pine,all,national
 Wood Product processing & Logistics,Long-term USE,1161.4883501902052,2018,SSB and Treindustrien,NO,non-coniferous,all,national
-Boardmills,Loss Boardmills,56501.91879181414,2019,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
+Boardmills,Loss Boardmills,56501.918791814125,2019,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
 Boardmills,Loss Boardmills,12396.839633771788,2019,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
-Boardmills,Loss Boardmills,5.959325614089757,2019,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
-Boardmills,Wood Product processing & Logistics,1073536.4570444687,2019,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
-Boardmills,Wood Product processing & Logistics,235539.953041664,2019,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
-Boardmills,Wood Product processing & Logistics,113.2271866677054,2019,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
-End-of-Life,Energy,1243.813123691572,2019,SSB table 10513,NO,spruce,all,national
+Boardmills,Loss Boardmills,5.959325614089756,2019,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Boardmills,Wood Product processing & Logistics,1073536.4570444683,2019,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
+Boardmills,Wood Product processing & Logistics,235539.95304166398,2019,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
+Boardmills,Wood Product processing & Logistics,113.22718666770535,2019,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
+End-of-Life,Energy,1243.8131236915713,2019,SSB table 10513,NO,spruce,all,national
 End-of-Life,Energy,321.21874342284707,2019,SSB table 10513,NO,pine,all,national
 End-of-Life,Energy,0.18552418992923905,2019,SSB table 10513,NO,non-coniferous,all,national
 Firewood,Energy,283000.0,2019,SSB various tables,NO,spruce,fuelwood,national
@@ -1041,9 +984,9 @@ Firewood,Energy,1357489.0,2019,SSB various tables,NO,non-coniferous,fuelwood,nat
 Firewood,Export Firewood,4995.011668899588,2019,SSB table 08801,NO,spruce,fuelwood,national
 Firewood,Export Firewood,4995.011668899588,2019,SSB table 08801,NO,pine,fuelwood,national
 Firewood,Export Firewood,23959.976662200825,2019,SSB table 08801,NO,non-coniferous,fuelwood,national
-Harvested wood,Bark,714049.0336631214,2019,SSB table 03795,NO,spruce,all,national
-Harvested wood,Bark,268099.2718418975,2019,SSB table 03795,NO,pine,all,national
-Harvested wood,Bark,121721.59449498095,2019,SSB table 03795,NO,non-coniferous,all,national
+Harvested wood,Bark,714049.0336631216,2019,SSB table 03795,NO,spruce,all,national
+Harvested wood,Bark,268099.2718418976,2019,SSB table 03795,NO,pine,all,national
+Harvested wood,Bark,121721.59449498096,2019,SSB table 03795,NO,non-coniferous,all,national
 Harvested wood,Non-coniferous,71.0,2019,SSB table 03795,NO-03,non-coniferous,all,national
 Harvested wood,Non-coniferous,666.0,2019,SSB table 03795,NO-11,non-coniferous,all,national
 Harvested wood,Non-coniferous,1375.0,2019,SSB table 03795,NO-15,non-coniferous,all,national
@@ -1097,94 +1040,85 @@ Harvested wood,Spruce,283000.0,2019,SSB table 03795 | SSB table 11181,NO,spruce,
 Import Boards,Boardmills,284298.0,2019,FAOSTAT,NO,spruce,all,national
 Import Firewood,Firewood,259489.0,2019,SSB table 08801,NO,non-coniferous,fuelwood,national
 Import planed wood,Wood Product processing & Logistics,418774.0,2019,SSB table 08801,NO,spruce,all,national
-Impregnation,Impregnated inventory,24300.20216088062,2019,Treindustrien årsrapport,NO,spruce,all,national
-Impregnation,Impregnated inventory,9049.029256562239,2019,Treindustrien årsrapport,NO,pine,all,national
-Impregnation,Impregnated inventory,5.648582557154956,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
-Impregnation,Wood Product processing & Logistics,299680.71497375116,2019,Treindustrien årsrapport,NO,spruce,all,national
-Impregnation,Wood Product processing & Logistics,111596.58423708724,2019,Treindustrien årsrapport,NO,pine,all,national
-Impregnation,Wood Product processing & Logistics,69.66078916172737,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
-Long-term USE,End-of-Life,1243.813123691572,2019,SSB table 10513,NO,spruce,all,national
+Impregnation,Impregnated inventory,24300.202160880617,2019,Treindustrien årsrapport,NO,spruce,all,national
+Impregnation,Impregnated inventory,9049.029256562237,2019,Treindustrien årsrapport,NO,pine,all,national
+Impregnation,Impregnated inventory,5.6485825571549535,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
+Impregnation,Wood Product processing & Logistics,299680.7149737511,2019,Treindustrien årsrapport,NO,spruce,all,national
+Impregnation,Wood Product processing & Logistics,111596.58423708723,2019,Treindustrien årsrapport,NO,pine,all,national
+Impregnation,Wood Product processing & Logistics,69.66078916172735,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
+Long-term USE,End-of-Life,1243.8131236915713,2019,SSB table 10513,NO,spruce,all,national
 Long-term USE,End-of-Life,321.21874342284707,2019,SSB table 10513,NO,pine,all,national
 Long-term USE,End-of-Life,0.18552418992923905,2019,SSB table 10513,NO,non-coniferous,all,national
 Non-coniferous,Firewood,1098000.0,2019,SSB table 11181,NO,non-coniferous,fuelwood,national
-Non-coniferous,Net export massevirke,117090.20577693442,2019,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
-Non-coniferous,Net export skurlast,211.8303132938188,2019,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
-Non-coniferous,Pulpmills,183909.7942230656,2019,SSB table 07410,NO,non-coniferous,pulpwood,national
+Non-coniferous,Pulpmills,183909.79422306558,2019,SSB table 07410,NO,non-coniferous,pulpwood,national
 Non-coniferous,Sawmills,788.1696867061812,2019,SSB table 07410,NO,non-coniferous,sawtimber,national
 Pine,Boardmills,57000.0,2019,SSB table 07410,NO,pine,sams,national
 Pine,Firewood,283000.0,2019,SSB table 11181,NO,pine,fuelwood,national
-Pine,Net export massevirke,444631.57874762814,2019,SSB table 08801 (net),NO,pine,pulpwood,national
-Pine,Net export skurlast,339352.1618966977,2019,SSB table 08801 (net),NO,pine,sawtimber,national
 Pine,Pulpmills,698368.4212523719,2019,SSB table 07410,NO,pine,pulpwood,national
 Pine,Sawmills,1262647.8381033023,2019,SSB table 07410,NO,pine,sawtimber,national
-Planingmills,Boardmills,50710.973389940744,2019,Treindustrien årsrapport,NO,spruce,all,national
-Planingmills,Boardmills,18884.002643116008,2019,Treindustrien årsrapport,NO,pine,all,national
-Planingmills,Boardmills,11.78776694326842,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
-Planingmills,Export planed wood,50624.449788315,2019,SSB table 08801,NO,spruce,all,national
-Planingmills,Export planed wood,18851.78255715496,2019,SSB table 08801,NO,pine,all,national
-Planingmills,Export planed wood,11.767654530059275,2019,SSB table 08801,NO,non-coniferous,all,national
-Planingmills,Impregnation,299680.71497375116,2019,Treindustrien årsrapport,NO,spruce,all,national
-Planingmills,Impregnation,111596.58423708724,2019,Treindustrien årsrapport,NO,pine,all,national
-Planingmills,Impregnation,69.66078916172737,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
-Planingmills,Planed timber inventory,31359.357967823904,2019,Treindustrien årsrapport,NO,spruce,all,national
-Planingmills,Planed timber inventory,11677.752548687562,2019,Treindustrien årsrapport,NO,pine,all,national
-Planingmills,Planed timber inventory,7.289483488569015,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
-Planingmills,Wood Product processing & Logistics,615618.137903472,2019,Treindustrien årsrapport,NO,spruce,all,national
-Planingmills,Wood Product processing & Logistics,229246.92164606275,2019,Treindustrien årsrapport,NO,pine,all,national
+Planingmills,Boardmills,50710.97338994074,2019,Treindustrien årsrapport,NO,spruce,all,national
+Planingmills,Boardmills,18884.002643116004,2019,Treindustrien årsrapport,NO,pine,all,national
+Planingmills,Boardmills,11.787766943268418,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
+Planingmills,Export planed wood,50624.449788314996,2019,SSB table 08801,NO,spruce,all,national
+Planingmills,Export planed wood,18851.782557154955,2019,SSB table 08801,NO,pine,all,national
+Planingmills,Export planed wood,11.767654530059273,2019,SSB table 08801,NO,non-coniferous,all,national
+Planingmills,Impregnation,299680.7149737511,2019,Treindustrien årsrapport,NO,spruce,all,national
+Planingmills,Impregnation,111596.58423708723,2019,Treindustrien årsrapport,NO,pine,all,national
+Planingmills,Impregnation,69.66078916172735,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
+Planingmills,Planed timber inventory,31359.3579678239,2019,Treindustrien årsrapport,NO,spruce,all,national
+Planingmills,Planed timber inventory,11677.75254868756,2019,Treindustrien årsrapport,NO,pine,all,national
+Planingmills,Planed timber inventory,7.289483488569013,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
+Planingmills,Wood Product processing & Logistics,615618.1379034718,2019,Treindustrien årsrapport,NO,spruce,all,national
+Planingmills,Wood Product processing & Logistics,229246.9216460627,2019,Treindustrien årsrapport,NO,pine,all,national
 Planingmills,Wood Product processing & Logistics,143.10045046570707,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
 Pulpmills,Energy,229898.43112542154,2019,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
-Pulpmills,Energy,81431.60250499156,2019,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
-Pulpmills,Energy,14728.739922866976,2019,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Energy,81431.60250499155,2019,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
+Pulpmills,Energy,14728.739922866973,2019,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Pulpmills,Loss Pulpmills,172423.82334406613,2019,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
-Pulpmills,Loss Pulpmills,61073.70187874366,2019,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
-Pulpmills,Loss Pulpmills,11046.554942150231,2019,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
-Pulpmills,Short-term USE,2471408.134598281,2019,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
-Pulpmills,Short-term USE,875389.726928659,2019,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
+Pulpmills,Loss Pulpmills,61073.701878743654,2019,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
+Pulpmills,Loss Pulpmills,11046.554942150227,2019,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Short-term USE,2471408.1345982812,2019,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
+Pulpmills,Short-term USE,875389.7269286591,2019,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
 Pulpmills,Short-term USE,158333.95417081995,2019,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Boardmills,462029.40244634193,2019,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Boardmills,172052.79003231978,2019,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Boardmills,107.39874533852671,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Energy,165010.50087369356,2019,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Energy,61447.42501154278,2019,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Boardmills,462029.4024463419,2019,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Boardmills,172052.79003231975,2019,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Boardmills,107.3987453385267,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Energy,165010.50087369353,2019,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Energy,61447.42501154277,2019,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Energy,38.356694763759535,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Net export sawn timber,202731.6589331076,2019,SSB table 08801 (net),NO,spruce,all,national
-Sawmills,Net export sawn timber,75494.21608806099,2019,SSB table 08801 (net),NO,pine,all,national
-Sawmills,Net export sawn timber,47.124978831498744,2019,SSB table 08801 (net),NO,non-coniferous,all,national
-Sawmills,Planingmills,1014219.4677988149,2019,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Planingmills,377680.05286232015,2019,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Planingmills,235.7553388653684,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Planingmills,1014219.4677988148,2019,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Planingmills,377680.0528623201,2019,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Planingmills,235.75533886536834,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Pulpmills,858054.6045432063,2019,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Pulpmills,319526.6100600224,2019,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Pulpmills,199.45481277154957,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Shrinkage,165010.50087369356,2019,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Shrinkage,61447.42501154278,2019,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Shrinkage,165010.50087369353,2019,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Shrinkage,61447.42501154277,2019,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Shrinkage,38.356694763759535,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Timber inventory,125956.76100599492,2019,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Timber inventory,46904.40054198137,2019,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Timber inventory,29.27865202370872,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Wood Product processing & Logistics,397693.0957351399,2019,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Wood Product processing & Logistics,148094.91849551233,2019,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Wood Product processing & Logistics,92.4437693480102,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Timber inventory,125956.76100599491,2019,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Timber inventory,46904.40054198136,2019,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Timber inventory,29.278652023708716,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Wood Product processing & Logistics,397693.09573513985,2019,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Wood Product processing & Logistics,148094.9184955123,2019,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Wood Product processing & Logistics,92.44376934801018,2019,Treindustrien årsrapport,NO,non-coniferous,all,national
 Spruce,Boardmills,333000.0,2019,SSB table 07410,NO,spruce,sams,national
 Spruce,Firewood,283000.0,2019,SSB table 11181,NO,spruce,fuelwood,national
-Spruce,Net export massevirke,1283324.2154754377,2019,SSB table 08801 (net),NO,spruce,pulpwood,national
-Spruce,Net export skurlast,911294.0077900086,2019,SSB table 08801 (net),NO,spruce,sawtimber,national
-Spruce,Pulpmills,2015675.7845245623,2019,SSB table 07410,NO,spruce,pulpwood,national
+Spruce,Pulpmills,2015675.7845245625,2019,SSB table 07410,NO,spruce,pulpwood,national
 Spruce,Sawmills,3390705.992209992,2019,SSB table 07410,NO,spruce,sawtimber,national
-Wood Product processing & Logistics,Energy,280530.24056568317,2019,SSB and Treindustrien,NO,spruce,all,national
-Wood Product processing & Logistics,Energy,72447.83774203263,2019,SSB and Treindustrien,NO,pine,all,national
-Wood Product processing & Logistics,Energy,41.843219564315,2019,SSB and Treindustrien,NO,non-coniferous,all,national
-Wood Product processing & Logistics,Long-term USE,2524772.1650911486,2019,SSB and Treindustrien,NO,spruce,all,national
+Wood Product processing & Logistics,Energy,280530.24056568305,2019,SSB and Treindustrien,NO,spruce,all,national
+Wood Product processing & Logistics,Energy,72447.83774203261,2019,SSB and Treindustrien,NO,pine,all,national
+Wood Product processing & Logistics,Energy,41.84321956431499,2019,SSB and Treindustrien,NO,non-coniferous,all,national
+Wood Product processing & Logistics,Long-term USE,2524772.165091147,2019,SSB and Treindustrien,NO,spruce,all,national
 Wood Product processing & Logistics,Long-term USE,652030.5396782935,2019,SSB and Treindustrien,NO,pine,all,national
 Wood Product processing & Logistics,Long-term USE,376.58897607883495,2019,SSB and Treindustrien,NO,non-coniferous,all,national
-Boardmills,Loss Boardmills,43565.68778105256,2020,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
-Boardmills,Loss Boardmills,12849.21087862431,2020,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
-Boardmills,Loss Boardmills,12.272077823121776,2020,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Boardmills,Loss Boardmills,43565.68778105257,2020,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
+Boardmills,Loss Boardmills,12849.210878624312,2020,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
+Boardmills,Loss Boardmills,12.272077823121778,2020,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Boardmills,Wood Product processing & Logistics,827748.0678399989,2020,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
 Boardmills,Wood Product processing & Logistics,244135.00669386194,2020,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
 Boardmills,Wood Product processing & Logistics,233.16947863931378,2020,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
-End-of-Life,Energy,1072.3630020532962,2020,SSB table 10513,NO,spruce,all,national
-End-of-Life,Energy,322.725829406525,2020,SSB table 10513,NO,pine,all,national
+End-of-Life,Energy,1072.363002053296,2020,SSB table 10513,NO,spruce,all,national
+End-of-Life,Energy,322.7258294065249,2020,SSB table 10513,NO,pine,all,national
 End-of-Life,Energy,0.35630311574835494,2020,SSB table 10513,NO,non-coniferous,all,national
 Firewood,Energy,314000.0,2020,SSB various tables,NO,spruce,fuelwood,national
 Firewood,Energy,314000.0,2020,SSB various tables,NO,pine,fuelwood,national
@@ -1247,35 +1181,31 @@ Harvested wood,Spruce,314000.0,2020,SSB table 03795 | SSB table 11181,NO,spruce,
 Import Boards,Boardmills,205367.0,2020,FAOSTAT,NO,spruce,all,national
 Import Firewood,Firewood,159304.0,2020,SSB table 08801,NO,non-coniferous,fuelwood,national
 Import planed wood,Wood Product processing & Logistics,441180.0,2020,SSB table 08801,NO,spruce,all,national
-Impregnated inventory,Impregnation,36367.25023539375,2020,Treindustrien årsrapport,NO,spruce,all,national
-Impregnated inventory,Impregnation,13542.616196443698,2020,Treindustrien årsrapport,NO,pine,all,national
-Impregnated inventory,Impregnation,8.453568162574093,2020,Treindustrien årsrapport,NO,non-coniferous,all,national
-Impregnation,Wood Product processing & Logistics,330174.0180619939,2020,Treindustrien årsrapport,NO,spruce,all,national
+Impregnated inventory,Impregnation,36367.250235393745,2020,Treindustrien årsrapport,NO,spruce,all,national
+Impregnated inventory,Impregnation,13542.616196443694,2020,Treindustrien årsrapport,NO,pine,all,national
+Impregnated inventory,Impregnation,8.45356816257409,2020,Treindustrien årsrapport,NO,non-coniferous,all,national
+Impregnation,Wood Product processing & Logistics,330174.0180619938,2020,Treindustrien årsrapport,NO,spruce,all,national
 Impregnation,Wood Product processing & Logistics,133316.4467142596,2020,Treindustrien årsrapport,NO,pine,all,national
-Impregnation,Wood Product processing & Logistics,149.05522374658423,2020,Treindustrien årsrapport,NO,non-coniferous,all,national
-Long-term USE,End-of-Life,1072.3630020532962,2020,SSB table 10513,NO,spruce,all,national
-Long-term USE,End-of-Life,322.725829406525,2020,SSB table 10513,NO,pine,all,national
+Impregnation,Wood Product processing & Logistics,149.0552237465842,2020,Treindustrien årsrapport,NO,non-coniferous,all,national
+Long-term USE,End-of-Life,1072.363002053296,2020,SSB table 10513,NO,spruce,all,national
+Long-term USE,End-of-Life,322.7258294065249,2020,SSB table 10513,NO,pine,all,national
 Long-term USE,End-of-Life,0.35630311574835494,2020,SSB table 10513,NO,non-coniferous,all,national
 Non-coniferous,Firewood,1219000.0,2020,SSB table 11181,NO,non-coniferous,fuelwood,national
-Non-coniferous,Net export massevirke,125422.09283068209,2020,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
-Non-coniferous,Net export skurlast,411.941371681416,2020,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
 Non-coniferous,Pulpmills,178577.90716931794,2020,SSB table 07410,NO,non-coniferous,pulpwood,national
 Non-coniferous,Sawmills,1588.0586283185842,2020,SSB table 07410,NO,non-coniferous,sawtimber,national
 Pine,Boardmills,55000.0,2020,SSB table 07410,NO,pine,sams,national
 Pine,Firewood,314000.0,2020,SSB table 11181,NO,pine,fuelwood,national
-Pine,Net export massevirke,466207.1213772064,2020,SSB table 08801 (net),NO,pine,pulpwood,national
-Pine,Net export skurlast,326875.4784292036,2020,SSB table 08801 (net),NO,pine,sawtimber,national
 Pine,Pulpmills,663792.8786227937,2020,SSB table 07410,NO,pine,pulpwood,national
 Pine,Sawmills,1260124.5215707964,2020,SSB table 07410,NO,pine,sawtimber,national
-Planed timber inventory,Planingmills,99979.20853513975,2020,Treindustrien årsrapport,NO,spruce,all,national
-Planed timber inventory,Planingmills,37230.75129551229,2020,Treindustrien årsrapport,NO,pine,all,national
-Planed timber inventory,Planingmills,23.24016934801017,2020,Treindustrien årsrapport,NO,non-coniferous,all,national
-Planingmills,Boardmills,47295.232896468355,2020,Treindustrien årsrapport,NO,spruce,all,national
-Planingmills,Boardmills,19260.630275836265,2020,Treindustrien årsrapport,NO,pine,all,national
-Planingmills,Boardmills,22.494827695381876,2020,Treindustrien årsrapport,NO,non-coniferous,all,national
-Planingmills,Export planed wood,47809.99645006279,2020,SSB table 08801,NO,spruce,all,national
-Planingmills,Export planed wood,19470.26388747239,2020,SSB table 08801,NO,pine,all,national
-Planingmills,Export planed wood,22.73966246482508,2020,SSB table 08801,NO,non-coniferous,all,national
+Planed timber inventory,Planingmills,99979.20853513974,2020,Treindustrien årsrapport,NO,spruce,all,national
+Planed timber inventory,Planingmills,37230.75129551228,2020,Treindustrien årsrapport,NO,pine,all,national
+Planed timber inventory,Planingmills,23.240169348010163,2020,Treindustrien årsrapport,NO,non-coniferous,all,national
+Planingmills,Boardmills,47295.23289646835,2020,Treindustrien årsrapport,NO,spruce,all,national
+Planingmills,Boardmills,19260.63027583626,2020,Treindustrien årsrapport,NO,pine,all,national
+Planingmills,Boardmills,22.494827695381872,2020,Treindustrien årsrapport,NO,non-coniferous,all,national
+Planingmills,Export planed wood,47809.99645006278,2020,SSB table 08801,NO,spruce,all,national
+Planingmills,Export planed wood,19470.263887472385,2020,SSB table 08801,NO,pine,all,national
+Planingmills,Export planed wood,22.739662464825077,2020,SSB table 08801,NO,non-coniferous,all,national
 Planingmills,Impregnation,329355.36016683973,2020,Treindustrien årsrapport,NO,spruce,all,national
 Planingmills,Impregnation,134127.50996331562,2020,Treindustrien årsrapport,NO,pine,all,national
 Planingmills,Impregnation,156.64986984463567,2020,Treindustrien årsrapport,NO,non-coniferous,all,national
@@ -1289,44 +1219,39 @@ Pulpmills,Loss Pulpmills,160746.87681321256,2020,SSB table 07410 | SSB table 088
 Pulpmills,Loss Pulpmills,60188.20101613719,2020,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
 Pulpmills,Loss Pulpmills,10739.517065650261,2020,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Pulpmills,Short-term USE,2304038.5676560467,2020,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
-Pulpmills,Short-term USE,862697.5478979665,2020,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
-Pulpmills,Short-term USE,153933.0779409871,2020,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Boardmills,444651.52272458293,2020,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Boardmills,182723.58729664993,2020,Treindustrien årsrapport,NO,pine,all,national
+Pulpmills,Short-term USE,862697.5478979663,2020,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
+Pulpmills,Short-term USE,153933.07794098707,2020,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Boardmills,444651.522724583,2020,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Boardmills,182723.58729664996,2020,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Boardmills,222.94672876705366,2020,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Energy,158804.11525877958,2020,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Energy,65258.424034517826,2020,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Energy,158804.11525877964,2020,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Energy,65258.42403451784,2020,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Energy,79.62383170251915,2020,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Net export sawn timber,303818.5166054984,2020,SSB table 08801 (net),NO,spruce,all,national
-Sawmills,Net export sawn timber,124850.14984574635,2020,SSB table 08801 (net),NO,pine,all,national
-Sawmills,Net export sawn timber,152.33354875523477,2020,SSB table 08801 (net),NO,non-coniferous,all,national
-Sawmills,Planingmills,943411.7249663525,2020,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Planingmills,387682.4116721776,2020,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Planingmills,943411.7249663526,2020,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Planingmills,387682.41167217767,2020,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Planingmills,473.0233614695396,2020,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Pulpmills,825781.3993456542,2020,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Pulpmills,339343.8049794928,2020,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Pulpmills,414.0439248530997,2020,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Shrinkage,158804.11525877958,2020,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Shrinkage,65258.424034517826,2020,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Pulpmills,414.04392485309967,2020,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Shrinkage,158804.11525877964,2020,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Shrinkage,65258.42403451784,2020,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Shrinkage,79.62383170251915,2020,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Wood Product processing & Logistics,437589.53205478535,2020,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Wood Product processing & Logistics,179821.5568240361,2020,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Wood Product processing & Logistics,219.4058711786944,2020,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Wood Product processing & Logistics,219.40587117869438,2020,Treindustrien årsrapport,NO,non-coniferous,all,national
 Spruce,Boardmills,174000.0,2020,SSB table 07410,NO,spruce,sams,national
 Spruce,Firewood,314000.0,2020,SSB table 11181,NO,spruce,fuelwood,national
-Spruce,Net export massevirke,1301666.7857921117,2020,SSB table 08801 (net),NO,spruce,pulpwood,national
-Spruce,Net export skurlast,789897.580199115,2020,SSB table 08801 (net),NO,spruce,sawtimber,national
 Spruce,Pulpmills,1853333.2142078883,2020,SSB table 07410,NO,spruce,pulpwood,national
 Spruce,Sawmills,3045102.419800885,2020,SSB table 07410,NO,spruce,sawtimber,national
-Timber inventory,Sawmills,227758.50641354788,2020,Treindustrien årsrapport,NO,spruce,all,national
-Timber inventory,Sawmills,84813.8371163421,2020,Treindustrien årsrapport,NO,pine,all,national
-Timber inventory,Sawmills,52.942470110076215,2020,Treindustrien årsrapport,NO,non-coniferous,all,national
+Timber inventory,Sawmills,227758.50641354785,2020,Treindustrien årsrapport,NO,spruce,all,national
+Timber inventory,Sawmills,84813.83711634208,2020,Treindustrien årsrapport,NO,pine,all,national
+Timber inventory,Sawmills,52.9424701100762,2020,Treindustrien årsrapport,NO,non-coniferous,all,national
 Wood Product processing & Logistics,Energy,256038.78403202246,2020,SSB and Treindustrien,NO,spruce,all,national
 Wood Product processing & Logistics,Energy,77054.43844925365,2020,SSB and Treindustrien,NO,pine,all,national
-Wood Product processing & Logistics,Energy,85.07139497385958,2020,SSB and Treindustrien,NO,non-coniferous,all,national
+Wood Product processing & Logistics,Energy,85.0713949738596,2020,SSB and Treindustrien,NO,non-coniferous,all,national
 Wood Product processing & Logistics,Long-term USE,2304349.0562882023,2020,SSB and Treindustrien,NO,spruce,all,national
 Wood Product processing & Logistics,Long-term USE,693489.9460432829,2020,SSB and Treindustrien,NO,pine,all,national
-Wood Product processing & Logistics,Long-term USE,765.6425547647362,2020,SSB and Treindustrien,NO,non-coniferous,all,national
+Wood Product processing & Logistics,Long-term USE,765.6425547647365,2020,SSB and Treindustrien,NO,non-coniferous,all,national
 Boardmills,Loss Boardmills,48003.494368263295,2021,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
 Boardmills,Loss Boardmills,12997.748620083099,2021,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
 Boardmills,Loss Boardmills,11.146653653611319,2021,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
@@ -1408,14 +1333,10 @@ Long-term USE,End-of-Life,921.2375990282844,2021,SSB table 10513,NO,spruce,all,n
 Long-term USE,End-of-Life,246.20538834996427,2021,SSB table 10513,NO,pine,all,national
 Long-term USE,End-of-Life,0.25887597578842164,2021,SSB table 10513,NO,non-coniferous,all,national
 Non-coniferous,Firewood,1401000.0,2021,SSB table 11181,NO,non-coniferous,fuelwood,national
-Non-coniferous,Net export massevirke,112620.31932203389,2021,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
-Non-coniferous,Net export skurlast,494.1283693224125,2021,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
 Non-coniferous,Pulpmills,184379.6806779661,2021,SSB table 07410,NO,non-coniferous,pulpwood,national
 Non-coniferous,Sawmills,1505.8716306775873,2021,SSB table 07410,NO,non-coniferous,sawtimber,national
 Pine,Boardmills,65000.0,2021,SSB table 07410,NO,pine,sams,national
 Pine,Firewood,360500.0,2021,SSB table 11181,NO,pine,fuelwood,national
-Pine,Net export massevirke,381088.9593220339,2021,SSB table 08801 (net),NO,pine,pulpwood,national
-Pine,Net export skurlast,432115.2589724497,2021,SSB table 08801 (net),NO,pine,sawtimber,national
 Pine,Pulpmills,623911.0406779662,2021,SSB table 07410,NO,pine,pulpwood,national
 Pine,Sawmills,1316884.7410275503,2021,SSB table 07410,NO,pine,sawtimber,national
 Planingmills,Boardmills,55006.44001822787,2021,Treindustrien årsrapport,NO,spruce,all,national
@@ -1433,44 +1354,39 @@ Planingmills,Planed timber inventory,31.188658227848094,2021,Treindustrien årsr
 Planingmills,Wood Product processing & Logistics,686578.5798481014,2021,Treindustrien årsrapport,NO,spruce,all,national
 Planingmills,Wood Product processing & Logistics,241906.91703350708,2021,Treindustrien årsrapport,NO,pine,all,national
 Planingmills,Wood Product processing & Logistics,276.62311839166046,2021,Treindustrien årsrapport,NO,non-coniferous,all,national
-Pulpmills,Energy,229137.56304022812,2021,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
-Pulpmills,Energy,75998.18969450342,2021,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
-Pulpmills,Energy,14780.203278068348,2021,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
-Pulpmills,Loss Pulpmills,171853.1722801711,2021,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
-Pulpmills,Loss Pulpmills,56998.64227087757,2021,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
-Pulpmills,Loss Pulpmills,11085.152458551262,2021,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Energy,229137.56304022818,2021,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
+Pulpmills,Energy,75998.18969450344,2021,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
+Pulpmills,Energy,14780.203278068351,2021,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Loss Pulpmills,171853.17228017113,2021,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
+Pulpmills,Loss Pulpmills,56998.64227087758,2021,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
+Pulpmills,Loss Pulpmills,11085.152458551263,2021,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Pulpmills,Short-term USE,2463228.8026824533,2021,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
 Pulpmills,Short-term USE,816980.5392159121,2021,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
 Pulpmills,Short-term USE,158887.1852392348,2021,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Boardmills,498313.44734703813,2021,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Boardmills,175574.1779633299,2021,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Boardmills,200.77092963216683,2021,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Energy,177969.08833822786,2021,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Energy,62705.06355833208,2021,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Energy,177969.08833822788,2021,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Energy,62705.06355833209,2021,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Energy,71.70390344005956,2021,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Net export sawn timber,193668.44556962023,2021,SSB table 08801 (net),NO,spruce,all,national
-Sawmills,Net export sawn timber,68236.52524199552,2021,SSB table 08801 (net),NO,pine,all,national
-Sawmills,Net export sawn timber,78.02918838421444,2021,SSB table 08801 (net),NO,non-coniferous,all,national
-Sawmills,Planingmills,1100128.8003645577,2021,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Planingmills,387615.888766642,2021,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Planingmills,443.24286880119155,2021,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Planingmills,1100128.8003645572,2021,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Planingmills,387615.8887666419,2021,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Planingmills,443.2428688011914,2021,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Pulpmills,925439.259358785,2021,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Pulpmills,326066.3305033269,2021,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Pulpmills,372.8602978883098,2021,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Shrinkage,177969.08833822786,2021,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Shrinkage,62705.06355833208,2021,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Shrinkage,177969.08833822788,2021,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Shrinkage,62705.06355833209,2021,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Shrinkage,71.70390344005956,2021,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Timber inventory,196596.36453569628,2021,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Timber inventory,69268.1389147729,2021,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Timber inventory,79.20884953090098,2021,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Timber inventory,196596.3645356962,2021,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Timber inventory,69268.13891477288,2021,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Timber inventory,79.20884953090095,2021,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Wood Product processing & Logistics,467488.8934896203,2021,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Wood Product processing & Logistics,164713.55252081904,2021,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Wood Product processing & Logistics,188.351689560685,2021,Treindustrien årsrapport,NO,non-coniferous,all,national
 Spruce,Boardmills,247000.0,2021,SSB table 07410,NO,spruce,sams,national
 Spruce,Firewood,360500.0,2021,SSB table 11181,NO,spruce,fuelwood,national
-Spruce,Net export massevirke,1184219.7213559323,2021,SSB table 08801 (net),NO,spruce,pulpwood,national
-Spruce,Net export skurlast,1226426.612658228,2021,SSB table 08801 (net),NO,spruce,sawtimber,national
-Spruce,Pulpmills,1938780.278644068,2021,SSB table 07410,NO,spruce,pulpwood,national
+Spruce,Pulpmills,1938780.2786440677,2021,SSB table 07410,NO,spruce,pulpwood,national
 Spruce,Sawmills,3737573.387341772,2021,SSB table 07410,NO,spruce,sawtimber,national
 Wood Product processing & Logistics,Energy,287039.1775803079,2021,SSB and Treindustrien,NO,spruce,all,national
 Wood Product processing & Logistics,Energy,76712.66594237681,2021,SSB and Treindustrien,NO,pine,all,national
@@ -1484,9 +1400,9 @@ Boardmills,Loss Boardmills,10.808502115452129,2022,FAOSTAT | SSB table 07410 | T
 Boardmills,Wood Product processing & Logistics,1071100.9810992891,2022,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
 Boardmills,Wood Product processing & Logistics,258694.96307091718,2022,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
 Boardmills,Wood Product processing & Logistics,205.3615401935904,2022,FAOSTAT | SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
-End-of-Life,Energy,545.4011818678043,2022,SSB table 10513,NO,spruce,all,national
+End-of-Life,Energy,545.4011818678046,2022,SSB table 10513,NO,spruce,all,national
 End-of-Life,Energy,152.16534342905646,2022,SSB table 10513,NO,pine,all,national
-End-of-Life,Energy,0.15604199092369678,2022,SSB table 10513,NO,non-coniferous,all,national
+End-of-Life,Energy,0.1560419909236968,2022,SSB table 10513,NO,non-coniferous,all,national
 Firewood,Energy,381500.0,2022,SSB various tables,NO,spruce,fuelwood,national
 Firewood,Energy,381500.0,2022,SSB various tables,NO,pine,fuelwood,national
 Firewood,Energy,1853698.0,2022,SSB various tables,NO,non-coniferous,fuelwood,national
@@ -1555,26 +1471,22 @@ Impregnated inventory,Impregnation,4.66706775874907,2022,Treindustrien årsrappo
 Impregnation,Wood Product processing & Logistics,225460.24473746456,2022,Treindustrien årsrapport,NO,spruce,all,national
 Impregnation,Wood Product processing & Logistics,82645.77351477521,2022,Treindustrien årsrapport,NO,pine,all,national
 Impregnation,Wood Product processing & Logistics,93.43774776025172,2022,Treindustrien årsrapport,NO,non-coniferous,all,national
-Long-term USE,End-of-Life,545.4011818678043,2022,SSB table 10513,NO,spruce,all,national
+Long-term USE,End-of-Life,545.4011818678046,2022,SSB table 10513,NO,spruce,all,national
 Long-term USE,End-of-Life,152.16534342905646,2022,SSB table 10513,NO,pine,all,national
-Long-term USE,End-of-Life,0.15604199092369678,2022,SSB table 10513,NO,non-coniferous,all,national
+Long-term USE,End-of-Life,0.1560419909236968,2022,SSB table 10513,NO,non-coniferous,all,national
 Non-coniferous,Firewood,1480000.0,2022,SSB table 11181,NO,non-coniferous,fuelwood,national
-Non-coniferous,Net export massevirke,82228.7020509353,2022,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
-Non-coniferous,Net export skurlast,624.5389167045972,2022,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
 Non-coniferous,Pulpmills,128771.29794906468,2022,SSB table 07410,NO,non-coniferous,pulpwood,national
 Non-coniferous,Sawmills,1375.461083295403,2022,SSB table 07410,NO,non-coniferous,sawtimber,national
 Pine,Boardmills,81000.0,2022,SSB table 07410,NO,pine,sams,national
 Pine,Firewood,381500.0,2022,SSB table 11181,NO,pine,fuelwood,national
-Pine,Net export massevirke,390488.9073698445,2022,SSB table 08801 (net),NO,pine,pulpwood,national
-Pine,Net export skurlast,552716.9412835685,2022,SSB table 08801 (net),NO,pine,sawtimber,national
 Pine,Pulpmills,611511.0926301556,2022,SSB table 07410,NO,pine,pulpwood,national
 Pine,Sawmills,1217283.0587164315,2022,SSB table 07410,NO,pine,sawtimber,national
 Planingmills,Boardmills,45439.94813558226,2022,Treindustrien årsrapport,NO,spruce,all,national
 Planingmills,Boardmills,16689.916621568478,2022,Treindustrien årsrapport,NO,pine,all,national
 Planingmills,Boardmills,18.8586628492725,2022,Treindustrien årsrapport,NO,non-coniferous,all,national
-Planingmills,Export planed wood,36045.62281907293,2022,SSB table 08801,NO,spruce,all,national
-Planingmills,Export planed wood,13239.41738726909,2022,SSB table 08801,NO,pine,all,national
-Planingmills,Export planed wood,14.959793657964951,2022,SSB table 08801,NO,non-coniferous,all,national
+Planingmills,Export planed wood,36045.62281907294,2022,SSB table 08801,NO,spruce,all,national
+Planingmills,Export planed wood,13239.417387269092,2022,SSB table 08801,NO,pine,all,national
+Planingmills,Export planed wood,14.959793657964955,2022,SSB table 08801,NO,non-coniferous,all,national
 Planingmills,Impregnation,225339.58101459366,2022,Treindustrien årsrapport,NO,spruce,all,national
 Planingmills,Impregnation,82766.35368181087,2022,Treindustrien årsrapport,NO,pine,all,national
 Planingmills,Impregnation,93.52130359547766,2022,Treindustrien årsrapport,NO,non-coniferous,all,national
@@ -1585,50 +1497,48 @@ Planingmills,Wood Product processing & Logistics,604137.6177964716,2022,Treindus
 Planingmills,Wood Product processing & Logistics,221897.4026750815,2022,Treindustrien årsrapport,NO,pine,all,national
 Planingmills,Wood Product processing & Logistics,250.7315284469859,2022,Treindustrien årsrapport,NO,non-coniferous,all,national
 Pulpmills,Energy,228040.22011987376,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
-Pulpmills,Energy,74864.51507532134,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
-Pulpmills,Energy,10331.018669444911,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Energy,74864.51507532135,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
+Pulpmills,Energy,10331.018669444913,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Pulpmills,Loss Pulpmills,171030.1650899053,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
-Pulpmills,Loss Pulpmills,56148.38630649099,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
-Pulpmills,Loss Pulpmills,7748.264002083681,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Loss Pulpmills,56148.386306491004,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
+Pulpmills,Loss Pulpmills,7748.264002083683,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Pulpmills,Short-term USE,2451432.366288643,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
-Pulpmills,Short-term USE,804793.5370597044,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
-Pulpmills,Short-term USE,111058.45069653279,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Short-term USE,804793.5370597045,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
+Pulpmills,Short-term USE,111058.45069653282,2022,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Boardmills,475421.768811038,2022,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Boardmills,174620.57082150225,2022,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Boardmills,197.31137945977005,2022,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Energy,169793.48886108494,2022,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Energy,62364.489579107925,2022,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Energy,70.46834980706072,2022,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Planingmills,908798.9627116447,2022,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Planingmills,333798.3324313694,2022,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Planingmills,377.1732569854498,2022,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Energy,169793.488861085,2022,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Energy,62364.48957910794,2022,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Energy,70.46834980706073,2022,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Planingmills,908798.962711645,2022,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Planingmills,333798.3324313696,2022,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Planingmills,377.17325698544994,2022,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Pulpmills,882926.1420776419,2022,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Pulpmills,324295.3458113613,2022,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Pulpmills,366.4354189967158,2022,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Shrinkage,169793.48886108494,2022,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Shrinkage,62364.489579107925,2022,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Shrinkage,70.46834980706072,2022,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Shrinkage,169793.488861085,2022,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Shrinkage,62364.48957910794,2022,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Shrinkage,70.46834980706073,2022,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Timber inventory,57927.66980296148,2022,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Timber inventory,21276.6083316919,2022,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Timber inventory,24.0413653465988,2022,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Wood Product processing & Logistics,731208.2560962435,2022,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Wood Product processing & Logistics,268569.955028018,2022,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Wood Product processing & Logistics,731208.2560962434,2022,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Wood Product processing & Logistics,268569.9550280179,2022,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Wood Product processing & Logistics,303.46887573855855,2022,Treindustrien årsrapport,NO,non-coniferous,all,national
 Spruce,Boardmills,408000.0,2022,SSB table 07410,NO,spruce,sams,national
 Spruce,Firewood,381500.0,2022,SSB table 11181,NO,spruce,fuelwood,national
-Spruce,Net export massevirke,1256423.39057922,2022,SSB table 08801 (net),NO,spruce,pulpwood,national
-Spruce,Net export skurlast,1504826.519799727,2022,SSB table 08801 (net),NO,spruce,sawtimber,national
-Spruce,Pulpmills,1967576.60942078,2022,SSB table 07410,NO,spruce,pulpwood,national
+Spruce,Pulpmills,1967576.6094207799,2022,SSB table 07410,NO,spruce,pulpwood,national
 Spruce,Sawmills,3314173.480200273,2022,SSB table 07410,NO,spruce,sawtimber,national
 Timber inventory,Sawmills,81696.29701431576,2022,Treindustrien årsrapport,NO,spruce,all,national
-Timber inventory,Sawmills,30006.732872833465,2022,Treindustrien årsrapport,NO,pine,all,national
+Timber inventory,Sawmills,30006.73287283347,2022,Treindustrien årsrapport,NO,pine,all,national
 Timber inventory,Sawmills,33.90591285073584,2022,Treindustrien årsrapport,NO,non-coniferous,all,national
-Wood Product processing & Logistics,Energy,298142.2099729468,2022,SSB and Treindustrien,NO,spruce,all,national
-Wood Product processing & Logistics,Energy,83180.80942887916,2022,SSB and Treindustrien,NO,pine,all,national
-Wood Product processing & Logistics,Energy,85.29996921393862,2022,SSB and Treindustrien,NO,non-coniferous,all,national
-Wood Product processing & Logistics,Long-term USE,2683279.8897565207,2022,SSB and Treindustrien,NO,spruce,all,national
-Wood Product processing & Logistics,Long-term USE,748627.2848599125,2022,SSB and Treindustrien,NO,pine,all,national
-Wood Product processing & Logistics,Long-term USE,767.6997229254476,2022,SSB and Treindustrien,NO,non-coniferous,all,national
+Wood Product processing & Logistics,Energy,298142.20997294685,2022,SSB and Treindustrien,NO,spruce,all,national
+Wood Product processing & Logistics,Energy,83180.80942887918,2022,SSB and Treindustrien,NO,pine,all,national
+Wood Product processing & Logistics,Energy,85.29996921393865,2022,SSB and Treindustrien,NO,non-coniferous,all,national
+Wood Product processing & Logistics,Long-term USE,2683279.8897565217,2022,SSB and Treindustrien,NO,spruce,all,national
+Wood Product processing & Logistics,Long-term USE,748627.2848599126,2022,SSB and Treindustrien,NO,pine,all,national
+Wood Product processing & Logistics,Long-term USE,767.6997229254479,2022,SSB and Treindustrien,NO,non-coniferous,all,national
 Boardmills,Loss Boardmills,41168.54521778152,2023,SSB table 07410 | Treindustrien årsrapport,NO,spruce,all,national
 Boardmills,Loss Boardmills,12034.474237658365,2023,SSB table 07410 | Treindustrien årsrapport,NO,pine,all,national
 Boardmills,Loss Boardmills,16.104111085135656,2023,SSB table 07410 | Treindustrien årsrapport,NO,non-coniferous,all,national
@@ -1702,21 +1612,17 @@ Import planed wood,Wood Product processing & Logistics,264944.0,2023,SSB table 0
 Impregnated inventory,Impregnation,28038.327898734176,2023,Treindustrien årsrapport,NO,spruce,all,national
 Impregnated inventory,Impregnation,9878.935434102754,2023,Treindustrien årsrapport,NO,pine,all,national
 Impregnated inventory,Impregnation,11.296667163067754,2023,Treindustrien årsrapport,NO,non-coniferous,all,national
-Impregnation,Wood Product processing & Logistics,243875.49054150583,2023,Treindustrien årsrapport,NO,spruce,all,national
-Impregnation,Wood Product processing & Logistics,83343.42987600905,2023,Treindustrien årsrapport,NO,pine,all,national
+Impregnation,Wood Product processing & Logistics,243875.4905415058,2023,Treindustrien årsrapport,NO,spruce,all,national
+Impregnation,Wood Product processing & Logistics,83343.42987600903,2023,Treindustrien årsrapport,NO,pine,all,national
 Impregnation,Wood Product processing & Logistics,151.07958248520765,2023,Treindustrien årsrapport,NO,non-coniferous,all,national
 Long-term USE,End-of-Life,615.8406054294173,2023,SSB table 10513,NO,spruce,all,national
 Long-term USE,End-of-Life,178.88134607304713,2023,SSB table 10513,NO,pine,all,national
 Long-term USE,End-of-Life,0.30910439815688207,2023,SSB table 10513,NO,non-coniferous,all,national
 Non-coniferous,Firewood,1521000.0,2023,SSB table 11181,NO,non-coniferous,fuelwood,national
-Non-coniferous,Net export massevirke,109974.01778656123,2023,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
-Non-coniferous,Net export skurlast,939.5393537696768,2023,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
 Non-coniferous,Pulpmills,183025.98221343875,2023,SSB table 07410,NO,non-coniferous,pulpwood,national
 Non-coniferous,Sawmills,2060.460646230323,2023,SSB table 07410,NO,non-coniferous,sawtimber,national
 Pine,Boardmills,74000.0,2023,SSB table 07410,NO,pine,sams,national
 Pine,Firewood,391500.0,2023,SSB table 11181,NO,pine,fuelwood,national
-Pine,Net export massevirke,376088.6205533596,2023,SSB table 08801 (net),NO,pine,pulpwood,national
-Pine,Net export skurlast,477285.9917149958,2023,SSB table 08801 (net),NO,pine,sawtimber,national
 Pine,Pulpmills,625911.3794466404,2023,SSB table 07410,NO,pine,pulpwood,national
 Pine,Sawmills,1046714.0082850042,2023,SSB table 07410,NO,pine,sawtimber,national
 Planed timber inventory,Planingmills,47878.03354281247,2023,Treindustrien årsrapport,NO,spruce,all,national
@@ -1735,36 +1641,34 @@ Planingmills,Wood Product processing & Logistics,562013.4452795509,2023,Treindus
 Planingmills,Wood Product processing & Logistics,191382.02064913997,2023,Treindustrien årsrapport,NO,pine,all,national
 Planingmills,Wood Product processing & Logistics,362.14707130907254,2023,Treindustrien årsrapport,NO,non-coniferous,all,national
 Pulpmills,Energy,229196.54410008588,2023,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
-Pulpmills,Energy,72567.20738599873,2023,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
+Pulpmills,Energy,72567.20738599874,2023,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
 Pulpmills,Energy,14685.633444475425,2023,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Pulpmills,Loss Pulpmills,171897.40807506442,2023,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
-Pulpmills,Loss Pulpmills,54425.40553949905,2023,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
-Pulpmills,Loss Pulpmills,11014.22508335657,2023,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
+Pulpmills,Loss Pulpmills,54425.40553949906,2023,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
+Pulpmills,Loss Pulpmills,11014.225083356569,2023,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
 Pulpmills,Short-term USE,2463862.849075923,2023,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,spruce,all,national
-Pulpmills,Short-term USE,780097.4793994863,2023,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
+Pulpmills,Short-term USE,780097.4793994864,2023,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,pine,all,national
 Pulpmills,Short-term USE,157870.5595281108,2023,SSB table 07410 | SSB table 08801 | Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Boardmills,446483.24156754365,2023,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Boardmills,151403.9223191082,2023,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Boardmills,293.15776134833686,2023,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Boardmills,446483.2415675436,2023,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Boardmills,151403.92231910818,2023,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Boardmills,293.1577613483368,2023,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Energy,159458.300559837,2023,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Energy,54072.8293996815,2023,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Energy,104.69920048154886,2023,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Planingmills,898700.6080549132,2023,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Planingmills,304752.3050862309,2023,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Planingmills,590.0805088558095,2023,Treindustrien årsrapport,NO,non-coniferous,all,national
-Sawmills,Pulpmills,829183.1629111522,2023,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Pulpmills,281178.7128783437,2023,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Pulpmills,544.435842504054,2023,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Pulpmills,829183.1629111525,2023,Treindustrien årsrapport,NO,spruce,all,national
+Sawmills,Pulpmills,281178.71287834377,2023,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Pulpmills,544.4358425040541,2023,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Shrinkage,159458.300559837,2023,Treindustrien årsrapport,NO,spruce,all,national
 Sawmills,Shrinkage,54072.8293996815,2023,Treindustrien årsrapport,NO,pine,all,national
 Sawmills,Shrinkage,104.69920048154886,2023,Treindustrien årsrapport,NO,non-coniferous,all,national
 Sawmills,Wood Product processing & Logistics,716852.6061654163,2023,Treindustrien årsrapport,NO,spruce,all,national
-Sawmills,Wood Product processing & Logistics,243087.05499688946,2023,Treindustrien årsrapport,NO,pine,all,national
-Sawmills,Wood Product processing & Logistics,470.68038769464755,2023,Treindustrien årsrapport,NO,non-coniferous,all,national
+Sawmills,Wood Product processing & Logistics,243087.05499688943,2023,Treindustrien årsrapport,NO,pine,all,national
+Sawmills,Wood Product processing & Logistics,470.6803876946475,2023,Treindustrien årsrapport,NO,non-coniferous,all,national
 Spruce,Boardmills,332000.0,2023,SSB table 07410,NO,spruce,sams,national
 Spruce,Firewood,391500.0,2023,SSB table 11181,NO,spruce,fuelwood,national
-Spruce,Net export massevirke,1223226.361660079,2023,SSB table 08801 (net),NO,spruce,pulpwood,national
-Spruce,Net export skurlast,1411814.4689312344,2023,SSB table 08801 (net),NO,spruce,sawtimber,national
 Spruce,Pulpmills,2035773.638339921,2023,SSB table 07410,NO,spruce,pulpwood,national
 Spruce,Sawmills,3096185.5310687656,2023,SSB table 07410,NO,spruce,sawtimber,national
 Timber inventory,Sawmills,113950.68874993344,2023,Treindustrien årsrapport,NO,spruce,all,national
@@ -1780,7 +1684,7 @@ Boardmills,Loss Boardmills,15250.0,2024,SSB table 07410,NO,spruce,all,national
 Boardmills,Loss Boardmills,3000.0,2024,SSB table 07410,NO,pine,all,national
 Boardmills,Wood Product processing & Logistics,289750.0,2024,SSB table 07410,NO,spruce,all,national
 Boardmills,Wood Product processing & Logistics,57000.0,2024,SSB table 07410,NO,pine,all,national
-End-of-Life,Energy,843.6419492192603,2024,SSB table 10513,NO,spruce,all,national
+End-of-Life,Energy,843.6419492192604,2024,SSB table 10513,NO,spruce,all,national
 End-of-Life,Energy,92.17585616376236,2024,SSB table 10513,NO,pine,all,national
 Firewood,Energy,356500.0,2024,SSB various tables,NO,spruce,fuelwood,national
 Firewood,Energy,356500.0,2024,SSB various tables,NO,pine,fuelwood,national
@@ -1842,38 +1746,134 @@ Harvested wood,Spruce,14812.0,2024,SSB table 03795,NO-55,spruce,all,national
 Harvested wood,Spruce,356500.0,2024,SSB table 03795 | SSB table 11181,NO,spruce,all,national
 Import Firewood,Firewood,275922.0,2024,SSB table 08801,NO,non-coniferous,fuelwood,national
 Import planed wood,Wood Product processing & Logistics,231944.0,2024,SSB table 08801,NO,spruce,all,national
-Long-term USE,End-of-Life,843.6419492192603,2024,SSB table 10513,NO,spruce,all,national
+Long-term USE,End-of-Life,843.6419492192604,2024,SSB table 10513,NO,spruce,all,national
 Long-term USE,End-of-Life,92.17585616376236,2024,SSB table 10513,NO,pine,all,national
 Non-coniferous,Firewood,1383000.0,2024,SSB table 11181,NO,non-coniferous,fuelwood,national
-Non-coniferous,Net export massevirke,112252.48690551016,2024,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
-Non-coniferous,Net export skurlast,321.69698334083745,2024,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
 Non-coniferous,Pulpmills,167747.51309448984,2024,SSB table 07410,NO,non-coniferous,pulpwood,national
 Non-coniferous,Sawmills,678.3030166591625,2024,SSB table 07410,NO,non-coniferous,sawtimber,national
 Pine,Boardmills,60000.0,2024,SSB table 07410,NO,pine,sams,national
 Pine,Firewood,356500.0,2024,SSB table 11181,NO,pine,fuelwood,national
-Pine,Net export massevirke,465046.0171799707,2024,SSB table 08801 (net),NO,pine,pulpwood,national
-Pine,Net export skurlast,587418.6915803693,2024,SSB table 08801 (net),NO,pine,sawtimber,national
 Pine,Pulpmills,694953.9828200293,2024,SSB table 07410,NO,pine,pulpwood,national
 Pine,Sawmills,1238581.3084196306,2024,SSB table 07410,NO,pine,sawtimber,national
 Planingmills,Export planed wood,51180.54696301812,2024,SSB table 08801,NO,spruce,all,national
 Planingmills,Export planed wood,17428.47360322219,2024,SSB table 08801,NO,pine,all,national
 Planingmills,Export planed wood,32.979433759692405,2024,SSB table 08801,NO,non-coniferous,all,national
 Pulpmills,Energy,159743.5603268385,2024,SSB table 07410 | SSB table 08801,NO,spruce,all,national
-Pulpmills,Energy,55596.31862560235,2024,SSB table 07410 | SSB table 08801,NO,pine,all,national
-Pulpmills,Energy,13419.80104755919,2024,SSB table 07410 | SSB table 08801,NO,non-coniferous,all,national
+Pulpmills,Energy,55596.31862560234,2024,SSB table 07410 | SSB table 08801,NO,pine,all,national
+Pulpmills,Energy,13419.801047559187,2024,SSB table 07410 | SSB table 08801,NO,non-coniferous,all,national
 Pulpmills,Loss Pulpmills,119807.67024512884,2024,SSB table 07410 | SSB table 08801,NO,spruce,all,national
 Pulpmills,Loss Pulpmills,41697.23896920175,2024,SSB table 07410 | SSB table 08801,NO,pine,all,national
 Pulpmills,Loss Pulpmills,10064.85078566939,2024,SSB table 07410 | SSB table 08801,NO,non-coniferous,all,national
-Pulpmills,Short-term USE,1717243.273513514,2024,SSB table 07410 | SSB table 08801,NO,spruce,all,national
-Pulpmills,Short-term USE,597660.4252252253,2024,SSB table 07410 | SSB table 08801,NO,pine,all,national
-Pulpmills,Short-term USE,144262.8612612613,2024,SSB table 07410 | SSB table 08801,NO,non-coniferous,all,national
+Pulpmills,Short-term USE,1717243.2735135139,2024,SSB table 07410 | SSB table 08801,NO,spruce,all,national
+Pulpmills,Short-term USE,597660.4252252252,2024,SSB table 07410 | SSB table 08801,NO,pine,all,national
+Pulpmills,Short-term USE,144262.86126126128,2024,SSB table 07410 | SSB table 08801,NO,non-coniferous,all,national
 Spruce,Boardmills,305000.0,2024,SSB table 07410,NO,spruce,sams,national
 Spruce,Firewood,356500.0,2024,SSB table 11181,NO,spruce,fuelwood,national
-Spruce,Net export massevirke,1336205.495914519,2024,SSB table 08801 (net),NO,spruce,pulpwood,national
-Spruce,Net export skurlast,1555726.61143629,2024,SSB table 08801 (net),NO,spruce,sawtimber,national
 Spruce,Pulpmills,1996794.504085481,2024,SSB table 07410,NO,spruce,pulpwood,national
 Spruce,Sawmills,3280273.38856371,2024,SSB table 07410,NO,spruce,sawtimber,national
 Wood Product processing & Logistics,Energy,52169.4,2024,SSB and Treindustrien,NO,spruce,all,national
 Wood Product processing & Logistics,Energy,5700.0,2024,SSB and Treindustrien,NO,pine,all,national
 Wood Product processing & Logistics,Long-term USE,469524.6,2024,SSB and Treindustrien,NO,spruce,all,national
 Wood Product processing & Logistics,Long-term USE,51300.0,2024,SSB and Treindustrien,NO,pine,all,national
+Spruce,Net export skurlast,206309.54829869833,2012,SSB table 08801 (net),NO,spruce,sawtimber,national
+Pine,Net export skurlast,80271.50308289562,2012,SSB table 08801 (net),NO,pine,sawtimber,national
+Non-coniferous,Net export skurlast,130.94861840602877,2012,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
+Spruce,Net export skurlast,428756.3953842804,2013,SSB table 08801 (net),NO,spruce,sawtimber,national
+Pine,Net export skurlast,146386.28173307207,2013,SSB table 08801 (net),NO,pine,sawtimber,national
+Non-coniferous,Net export skurlast,501.322882647507,2013,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
+Spruce,Net export skurlast,668501.9418931585,2014,SSB table 08801 (net),NO,spruce,sawtimber,national
+Pine,Net export skurlast,226414.54170571698,2014,SSB table 08801 (net),NO,pine,sawtimber,national
+Non-coniferous,Net export skurlast,503.51640112464855,2014,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
+Spruce,Net export skurlast,942974.8735800659,2015,SSB table 08801 (net),NO,spruce,sawtimber,national
+Pine,Net export skurlast,334536.02143642365,2015,SSB table 08801 (net),NO,pine,sawtimber,national
+Non-coniferous,Net export skurlast,234.10498351044336,2015,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
+Spruce,Net export skurlast,750607.2442328817,2016,SSB table 08801 (net),NO,spruce,sawtimber,national
+Pine,Net export skurlast,262396.84218235075,2016,SSB table 08801 (net),NO,pine,sawtimber,national
+Non-coniferous,Net export skurlast,1299.9135847674843,2016,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
+Spruce,Net export skurlast,837974.9864364981,2017,SSB table 08801 (net),NO,spruce,sawtimber,national
+Pine,Net export skurlast,301558.4882860666,2017,SSB table 08801 (net),NO,pine,sawtimber,national
+Non-coniferous,Net export skurlast,1004.525277435265,2017,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
+Spruce,Net export skurlast,982324.6041313919,2018,SSB table 08801 (net),NO,spruce,sawtimber,national
+Pine,Net export skurlast,337352.71452759905,2018,SSB table 08801 (net),NO,pine,sawtimber,national
+Non-coniferous,Net export skurlast,670.6813410091432,2018,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
+Spruce,Net export skurlast,911294.0077900086,2019,SSB table 08801 (net),NO,spruce,sawtimber,national
+Pine,Net export skurlast,339352.1618966977,2019,SSB table 08801 (net),NO,pine,sawtimber,national
+Non-coniferous,Net export skurlast,211.83031329381882,2019,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
+Spruce,Net export skurlast,789897.580199115,2020,SSB table 08801 (net),NO,spruce,sawtimber,national
+Pine,Net export skurlast,326875.47842920356,2020,SSB table 08801 (net),NO,pine,sawtimber,national
+Non-coniferous,Net export skurlast,411.94137168141594,2020,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
+Spruce,Net export skurlast,1226426.612658228,2021,SSB table 08801 (net),NO,spruce,sawtimber,national
+Pine,Net export skurlast,432115.2589724497,2021,SSB table 08801 (net),NO,pine,sawtimber,national
+Non-coniferous,Net export skurlast,494.12836932241254,2021,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
+Spruce,Net export skurlast,1504826.519799727,2022,SSB table 08801 (net),NO,spruce,sawtimber,national
+Pine,Net export skurlast,552716.9412835685,2022,SSB table 08801 (net),NO,pine,sawtimber,national
+Non-coniferous,Net export skurlast,624.5389167045972,2022,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
+Spruce,Net export skurlast,1411814.4689312344,2023,SSB table 08801 (net),NO,spruce,sawtimber,national
+Pine,Net export skurlast,477285.9917149958,2023,SSB table 08801 (net),NO,pine,sawtimber,national
+Non-coniferous,Net export skurlast,939.5393537696768,2023,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
+Spruce,Net export skurlast,1555726.61143629,2024,SSB table 08801 (net),NO,spruce,sawtimber,national
+Pine,Net export skurlast,587418.6915803693,2024,SSB table 08801 (net),NO,pine,sawtimber,national
+Non-coniferous,Net export skurlast,321.69698334083745,2024,SSB table 08801 (net),NO,non-coniferous,sawtimber,national
+Spruce,Net export massevirke,473804.3890613805,2012,SSB table 08801 (net),NO,spruce,pulpwood,national
+Pine,Net export massevirke,121963.71005493193,2012,SSB table 08801 (net),NO,pine,pulpwood,national
+Non-coniferous,Net export massevirke,10718.900883687604,2012,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
+Spruce,Net export massevirke,1009062.4774509803,2013,SSB table 08801 (net),NO,spruce,pulpwood,national
+Pine,Net export massevirke,254101.14901960784,2013,SSB table 08801 (net),NO,pine,pulpwood,national
+Non-coniferous,Net export massevirke,39264.373529411765,2013,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
+Spruce,Net export massevirke,1426003.0232732731,2014,SSB table 08801 (net),NO,spruce,pulpwood,national
+Pine,Net export massevirke,450929.2117117117,2014,SSB table 08801 (net),NO,pine,pulpwood,national
+Non-coniferous,Net export massevirke,60608.76501501502,2014,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
+Spruce,Net export massevirke,1696023.8009114896,2015,SSB table 08801 (net),NO,spruce,pulpwood,national
+Pine,Net export massevirke,538172.1343247781,2015,SSB table 08801 (net),NO,pine,pulpwood,national
+Non-coniferous,Net export massevirke,93231.06476373231,2015,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
+Spruce,Net export massevirke,1507257.7754491018,2016,SSB table 08801 (net),NO,spruce,pulpwood,national
+Pine,Net export massevirke,491026.1676646707,2016,SSB table 08801 (net),NO,pine,pulpwood,national
+Non-coniferous,Net export massevirke,91947.05688622755,2016,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
+Spruce,Net export massevirke,1168986.096374484,2017,SSB table 08801 (net),NO,spruce,pulpwood,national
+Pine,Net export massevirke,366799.20881138137,2017,SSB table 08801 (net),NO,pine,pulpwood,national
+Non-coniferous,Net export massevirke,88717.69481413494,2017,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
+Spruce,Net export massevirke,1176638.1838819522,2018,SSB table 08801 (net),NO,spruce,pulpwood,national
+Pine,Net export massevirke,348946.7614074915,2018,SSB table 08801 (net),NO,pine,pulpwood,national
+Non-coniferous,Net export massevirke,94131.0547105562,2018,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
+Spruce,Net export massevirke,1283324.2154754375,2019,SSB table 08801 (net),NO,spruce,pulpwood,national
+Pine,Net export massevirke,444631.57874762814,2019,SSB table 08801 (net),NO,pine,pulpwood,national
+Non-coniferous,Net export massevirke,117090.20577693442,2019,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
+Spruce,Net export massevirke,1301666.7857921117,2020,SSB table 08801 (net),NO,spruce,pulpwood,national
+Pine,Net export massevirke,466207.1213772064,2020,SSB table 08801 (net),NO,pine,pulpwood,national
+Non-coniferous,Net export massevirke,125422.09283068207,2020,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
+Spruce,Net export massevirke,1184219.7213559323,2021,SSB table 08801 (net),NO,spruce,pulpwood,national
+Pine,Net export massevirke,381088.9593220339,2021,SSB table 08801 (net),NO,pine,pulpwood,national
+Non-coniferous,Net export massevirke,112620.31932203389,2021,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
+Spruce,Net export massevirke,1256423.39057922,2022,SSB table 08801 (net),NO,spruce,pulpwood,national
+Pine,Net export massevirke,390488.90736984444,2022,SSB table 08801 (net),NO,pine,pulpwood,national
+Non-coniferous,Net export massevirke,82228.7020509353,2022,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
+Spruce,Net export massevirke,1223226.361660079,2023,SSB table 08801 (net),NO,spruce,pulpwood,national
+Pine,Net export massevirke,376088.6205533596,2023,SSB table 08801 (net),NO,pine,pulpwood,national
+Non-coniferous,Net export massevirke,109974.01778656125,2023,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
+Spruce,Net export massevirke,1336205.495914519,2024,SSB table 08801 (net),NO,spruce,pulpwood,national
+Pine,Net export massevirke,465046.0171799707,2024,SSB table 08801 (net),NO,pine,pulpwood,national
+Non-coniferous,Net export massevirke,112252.48690551016,2024,SSB table 08801 (net),NO,non-coniferous,pulpwood,national
+Net export sawn timber,Wood Product processing & Logistics,138099.0,2012,SSB table 08801 (net),NO,spruce,all,national
+Net export sawn timber,Wood Product processing & Logistics,52015.0,2013,SSB table 08801 (net),NO,spruce,all,national
+Net export sawn timber,Wood Product processing & Logistics,65618.0,2014,SSB table 08801 (net),NO,spruce,all,national
+Sawmills,Net export sawn timber,22266.18484398228,2015,SSB table 08801 (net),NO,spruce,all,national
+Sawmills,Net export sawn timber,7883.80052833406,2015,SSB table 08801 (net),NO,pine,all,national
+Sawmills,Net export sawn timber,6.014627683663312,2015,SSB table 08801 (net),NO,non-coniferous,all,national
+Sawmills,Net export sawn timber,24633.111314629077,2016,SSB table 08801 (net),NO,spruce,all,national
+Sawmills,Net export sawn timber,8611.22867073439,2016,SSB table 08801 (net),NO,pine,all,national
+Sawmills,Net export sawn timber,42.66001463652726,2016,SSB table 08801 (net),NO,non-coniferous,all,national
+Sawmills,Net export sawn timber,106845.78192707417,2017,SSB table 08801 (net),NO,spruce,all,national
+Sawmills,Net export sawn timber,38450.136339616,2017,SSB table 08801 (net),NO,pine,all,national
+Sawmills,Net export sawn timber,128.08173330984675,2017,SSB table 08801 (net),NO,non-coniferous,all,national
+Sawmills,Net export sawn timber,174159.6793091771,2018,SSB table 08801 (net),NO,spruce,all,national
+Sawmills,Net export sawn timber,59810.41330849983,2018,SSB table 08801 (net),NO,pine,all,national
+Sawmills,Net export sawn timber,118.90738232306128,2018,SSB table 08801 (net),NO,non-coniferous,all,national
+Sawmills,Net export sawn timber,202731.65893310757,2019,SSB table 08801 (net),NO,spruce,all,national
+Sawmills,Net export sawn timber,75494.21608806097,2019,SSB table 08801 (net),NO,pine,all,national
+Sawmills,Net export sawn timber,47.12497883149873,2019,SSB table 08801 (net),NO,non-coniferous,all,national
+Sawmills,Net export sawn timber,303818.5166054984,2020,SSB table 08801 (net),NO,spruce,all,national
+Sawmills,Net export sawn timber,124850.14984574635,2020,SSB table 08801 (net),NO,pine,all,national
+Sawmills,Net export sawn timber,152.33354875523474,2020,SSB table 08801 (net),NO,non-coniferous,all,national
+Sawmills,Net export sawn timber,193668.44556962026,2021,SSB table 08801 (net),NO,spruce,all,national
+Sawmills,Net export sawn timber,68236.52524199552,2021,SSB table 08801 (net),NO,pine,all,national
+Sawmills,Net export sawn timber,78.02918838421444,2021,SSB table 08801 (net),NO,non-coniferous,all,national

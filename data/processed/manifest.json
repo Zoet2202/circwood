@@ -1,27 +1,37 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-28T09:53:12+00:00",
+  "generated_at": "2026-10-04T11:00:37+00:00",
   "package_version": "0.1.0",
-  "git_sha": "96686c5ceb51d27a46d22d6c68cbdfe0cf17265c",
-  "git_branch": "phase-a-ingestion-hardening",
+  "git_sha": "0fa23013b386135ba8e80e06363ac5477d40734c",
+  "git_branch": "main",
   "git_dirty": true,
   "tables": {
     "03795": {
       "table_id": "03795",
       "query_file": "ssbapi_table_03795.json",
-      "query_sha256": "83d862f1cb5e9cc0df0e23f93c4f1d7d6d1d380b85944172ab4dc75a2f38cc6e",
+      "query_sha256": "1b1caec8f59b18bbe9a4b2cefddd93d668c67a65f032f0f3f954ea8b0f20b6c0",
       "updated": "2026-05-21T06:00:00Z",
-      "fetched_at": "2026-07-28T09:53:07+00:00",
+      "fetched_at": "2026-10-04T11:00:28+00:00",
       "rows": 120,
+      "year_min": 1996,
+      "year_max": 2025
+    },
+    "03795_fylke": {
+      "table_id": "03795_fylke",
+      "query_file": "ssbapi_table_03795_fylke.json",
+      "query_sha256": "6bea4eed3dc15f24ffbe50dccda4083bf368c2a205c135d13e872e66d70126f2",
+      "updated": "2026-05-21T06:00:00Z",
+      "fetched_at": "2026-10-04T11:00:29+00:00",
+      "rows": 2160,
       "year_min": 1996,
       "year_max": 2025
     },
     "07410": {
       "table_id": "07410",
       "query_file": "ssbapi_table_07410.json",
-      "query_sha256": "3863a3572807c2de1298ce087d3cd566ff8496791dbb33237c539c36efa95f7b",
+      "query_sha256": "75bc513fb03707b734577405c64f26f1298f30d7db4557eb9f52eaa7e47567d8",
       "updated": "2026-05-21T06:00:00Z",
-      "fetched_at": "2026-07-28T09:53:08+00:00",
+      "fetched_at": "2026-10-04T11:00:31+00:00",
       "rows": 126,
       "year_min": 2012,
       "year_max": 2025
@@ -29,9 +39,9 @@
     "08801": {
       "table_id": "08801",
       "query_file": "ssbapi_table_08801.json",
-      "query_sha256": "1382aaa38da351160fd1a1f3795e8e4f9382c6963056725b505d8b86eebc3ad8",
+      "query_sha256": "7ec156a52b730c776be10a7e2fa64a5989772c436735892939f9099c043b2865",
       "updated": "2026-05-15T06:00:00Z",
-      "fetched_at": "2026-07-28T09:53:09+00:00",
+      "fetched_at": "2026-10-04T11:00:32+00:00",
       "rows": 6992,
       "year_min": 1988,
       "year_max": 2025
@@ -39,9 +49,9 @@
     "10513": {
       "table_id": "10513",
       "query_file": "ssbapi_table_10513.json",
-      "query_sha256": "384eeb186143468b4d5caf91d11e73e8aa86c93c2fde6e8a5915152c11aaa820",
+      "query_sha256": "00039cc7359f27f52bf52f4484be860dc84d252a0f15bad303a74cac7364b14f",
       "updated": "2026-03-24T07:00:00Z",
-      "fetched_at": "2026-07-28T09:53:10+00:00",
+      "fetched_at": "2026-10-04T11:00:35+00:00",
       "rows": 13,
       "year_min": 2012,
       "year_max": 2024
@@ -49,9 +59,9 @@
     "11181": {
       "table_id": "11181",
       "query_file": "ssbapi_table_11181.json",
-      "query_sha256": "fa6b99d0892358b361d27a14d268ac48f733470cd2da9469556c137ee54e6f2c",
+      "query_sha256": "f0ef91ccb401b5f72f0de235a050826a3c54de4e7bcea53920cf232d6142e09d",
       "updated": "2026-06-29T06:00:00Z",
-      "fetched_at": "2026-07-28T09:53:11+00:00",
+      "fetched_at": "2026-10-04T11:00:36+00:00",
       "rows": 38,
       "year_min": 2007,
       "year_max": 2025
@@ -59,22 +69,22 @@
   },
   "outputs": {
     "carbon_data.csv": {
-      "path": "data\\processed\\carbon_data.csv",
-      "rows": 638,
+      "path": "data/processed/carbon_data.csv",
+      "rows": 1878,
       "year_min": 2012,
       "year_max": 2024,
       "nodes": 31,
       "total_volume": 577497196.6072714,
-      "sha256": "248591e50a15105b90d6d9d7f303b42bf94dfa3b3a5898676ab43a8a615ca665"
+      "sha256": "14e08dc18a4e2aaf29a65217beb2e7a2ebe4f85c9ab6eb1ccb31f115fd9fa3cd"
     },
     "sankey_data.csv": {
-      "path": "data\\processed\\sankey_data.csv",
-      "rows": 638,
+      "path": "data/processed/sankey_data.csv",
+      "rows": 1878,
       "year_min": 2012,
       "year_max": 2024,
       "nodes": 31,
       "total_volume": 577497196.6072714,
-      "sha256": "e9a7ce92b715a74e704a2fd0e5b5e05c3b79571433a3857cf7c2d9fdae38c406"
+      "sha256": "30a306e5a5b3cfb5a0ba1bf3b06b10c15dfb98d78a3200bf0c913905c6f82946"
     }
   }
 }
