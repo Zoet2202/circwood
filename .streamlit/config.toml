@@ -1,7 +1,9 @@
 [theme]
+# Forestry & carbon: spruce-green accent on a warm paper background, moss-tinted
+# panels, bark-charcoal ink. The custom CSS in app/streamlit_app.py builds on these.
 base = "light"
-primaryColor = "#2d6a4f"
-backgroundColor = "#ffffff"
-secondaryBackgroundColor = "#f4f1ea"
-textColor = "#222222"
+primaryColor = "#1f5c3f"
+backgroundColor = "#fbfaf6"
+secondaryBackgroundColor = "#eef1ea"
+textColor = "#1d2a22"
 font = "sans serif"

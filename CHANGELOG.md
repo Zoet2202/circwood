@@ -2,6 +2,27 @@
 
 Completed work, newest first. The live plan is [ROADMAP.md](ROADMAP.md).
 
+## 2026-11-08 — Streamlit app redesign (forestry & carbon theme)
+
+The internal app (`app/streamlit_app.py`) has a new look; it is still the
+internal tool, not the public deployment.
+
+- **Theme:** spruce-green accent on a warm paper background
+  (`.streamlit/config.toml`). Headings use Source Serif 4 and body text Inter.
+- **Page:** a hero band carries the data vintage. Four headline tiles cover
+  the selected window: roundwood harvest, carbon in harvest, carbon to
+  long-term use and empirical β. The content sits in tabs: Flow diagram,
+  Carbon fate & β, Mass balance, and Data & provenance.
+- **New Carbon fate & β tab:** stacked yearly shares of harvest carbon going
+  to long-term use, pulp & paper, energy and other, read from the committed
+  `beta_series.csv`, with β-by-species and fate tables. The fate colours pass
+  the dataviz palette validator. The tab says when the sidebar coefficients
+  differ from the defaults the β export was computed with.
+- **Sidebar:** grouped into View, Nodes and Model assumptions; the sawmill
+  coefficients now sit in a collapsed expander.
+- Replaced the deprecated `use_container_width` with `width="stretch"`.
+- Unchanged: all model logic, caching and the coefficient-rebuild path.
+
 ## 2026-11-08 — Destination dimension: where exported wood goes (SSB 08799)
 
 The flow table gains a sixth dimension column, `destination`, appended after

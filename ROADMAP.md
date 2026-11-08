@@ -85,6 +85,15 @@ commercially confidential.
   excess above `BETA_EXCESS_OUT_TOL`, 15 %, raises). 2024 fails (Sawmills has
   no outputs), so the export covers 2012–2023; `DATASET_MAX_YEAR` is
   unchanged and the question is logged under Phase J.
+- **2026-11-08 · Economic value is in scope** (owner request): add an
+  economic layer and a forward wood-stock projection (Phase L), building on
+  the owner's 2023 master's thesis, with SiTree for growth and SSB 14594 for
+  today's productive forest. The rotation and growth models stay outside this
+  repo as separate models exchanging files, per the Phase F decision, unless
+  the owner reverses it.
+- **2026-11-08 · No stop to the dataset** (owner decision): the dataset
+  window stays 2012–2024 for the current model even though Treindustrien
+  ends at 2023; β exports 2012–2023 because its closure gate refuses 2024.
 - **2026-11-08 · Shrinkage carbon documented, not fixed** (owner decision):
   `carbon_data.csv` stays unchanged; the fix is a Phase G item.
 - **2026-11-08 · `ci_low`/`ci_high` ship empty** (CEO decision in the agent
@@ -270,7 +279,10 @@ human has to remember to bump.
       threshold inside the paper window (2012–2022) than outside it, since those
       are the numbers that get published.
 
-- [ ] **2024 is not covered by every source (owner question, 2026-11-08).**
+- [x] **2024 is not covered by every source — decided 2026-11-08: no stop.**
+      The owner's decision: for the current model the dataset window is not
+      narrowed; `DATASET_MAX_YEAR` stays 2024 and β keeps refusing 2024 on its
+      own gate. Original note:
       Treindustrien's production data ends at 2023, so in 2024 `Sawmills`
       takes in 4,519,533 m³ and sends out nothing, which contradicts the
       "intersection of coverage" behind `DATASET_MAX_YEAR = 2024`. The fences
@@ -482,6 +494,72 @@ update in the same commit. None is fixed yet.
 Closes the front boundary of the Sankey: today "standing forest" is an input
 edge with no resource behind it.
 
+**Source: SSB "Landsskogtakseringen"** (NIBIO's National Forest Inventory, as
+published by SSB; last release 28 Aug 2026, reference period 2021–2025).
+- **Design:** permanent 250 m² plots on a 3 × 3 km grid, each re-measured
+  every 5 years. Every figure is a rolling five-year interval (e.g.
+  `2021-2025`), never a calendar year.
+- **Productive forest** is defined by site productivity (H40). The figures
+  exclude productive forest that is protected or set aside.
+
+Tables reviewed 2026-11-08 against PxWeb metadata and national 2021–2025
+values. Current tables use the 9-region 2024 county grouping
+(`0`, `03+31+33+32`, `34`, `39+40`, `42`, `11+46+15`, `50`, `18`, `55+56`):
+
+| Table | Content | National 2021–2025 | Use here |
+|---|---|---|---|
+| **14591** | Forest and other wooded area, km²: productive (total / forestry land / protected), unproductive | productive forestry land 82,139 km² | the area base — turns 14594 shares into km² |
+| **14594** | Share of productive forestry land by development class I–V and site class H40 | class V (mature) 44 %, IV 20 % | today's harvestable stand (Phase L start state) |
+| **14593** | Productive forestry land excluding regeneration areas, by forest type (spruce, pine, mixed, broadleaf), km² | spruce forest 20,785 km² | species split of the area; joins our spruce/pine/non-coniferous pools |
+| **14589** | Standing volume under bark, 1,000 m³, by region × species (spruce, pine, broadleaf) | 893.8 Mm³ on productive forestry land | the stock behind `Harvested wood` |
+| **14590** | Annual gross increment under bark, 1,000 m³, by region × species | 22.7 Mm³/yr | increment vs harvest: the sustainability ratio, and a SiTree calibration target |
+| **06289** | National standing volume and gross increment by species, **1933–2025** | — | long series for context and trend charts |
+
+- **Superseded, for history only:**
+  - **13327** — volume, 2016–2023, 2020–2023 county grouping.
+  - **06290 / 06291** — volume and increment, 1996–2019, old 8-region
+    grouping.
+  - **14368** — area, a single interval.
+
+  Joining them to the current tables needs a region crosswalk, which is a
+  human decision.
+- **06286 is a trap.** It reports development class in 1,000 ha back to
+  1957, but only for six south-eastern counties (Østfold, Akershus,
+  Hedmark, Oppland, Buskerud, Vestfold). Its 2021–2025 total is
+  3,422 kha (34,220 km²), against 82,139 km² nationally in 14591. Never use
+  it as a national figure.
+- **Out of scope:** 14595 / 13325 / 06984 (habitats for red-listed species).
+  They would matter only for a biodiversity constraint on harvest
+  scenarios.
+- **First check once ingested:** gross increment (14590) against the harvest
+  edges. Roundwood harvest averaged about 12.4 Mm³/yr over 2012–2022, against
+  22.7 Mm³/yr increment in 2021–2025. Different periods and bases, so this is
+  a ratio to report with its caveats, not a fence.
+
+- [ ] **SSB 14594 first — the productive forest available today · S.**
+      "Produktivt skogareal (prosent), etter region, statistikkvariabel og
+      intervall (år)". Checked against the PxWeb metadata on 2026-11-08:
+      - **Regions:** nine — the whole country (`0`) and eight county groups,
+        e.g. `34` Innlandet and `11+46+15` Rogaland/Vestland/Møre og Romsdal.
+        These are coarser than `dimensions.FYLKE_CODES`, so the region mapping
+        is a human decision, like any new region.
+      - **Contents:** development class (`HogstTot`, `HogstI`–`HogstV`) and
+        site class H40 (`BonitetTot`, `Bonitet2`–`Bonitet9`).
+      - **Time:** rolling five-year intervals, `2016-2020` to `2021-2025`.
+        These are not calendar years, so they cannot join the flow table on
+        `year`.
+      - **Unit:** per cent of the productive area — shares, not hectares or
+        m³. Turning them into area needs a total-area table alongside.
+      - **Label error:** in the Norwegian labels `HogstIV` reads "Hogstklasse
+        VI"; the English labels are right. Pin the contract on codes, not
+        labels.
+      - **Not stated:** the metadata names neither the source (presumably the
+        NFI / Landsskogtakseringen) nor the definition of productive forest.
+        Confirm both from SSB's table notes before citing them.
+
+      The share in development classes IV–V by site class is the "mature
+      stand available for harvest" starting point that Phase L projects
+      forward.
 - [ ] **Landsskogtakseringen via the existing PxWeb ingestion** — productive
       forest area, standing volume, increment, by region, site index (bonitet)
       and cutting class (hogstklasse). Same API and same query-file format as
@@ -514,6 +592,90 @@ edge with no resource behind it.
 
 ---
 
+## Phase L — Economic value: rotation, carbon and the future wood stock · **P2 · L**
+
+New 2026-11-08, owner request. The aim is to put economic value on the flows
+and connect them to the forest owner's decision, building on Magnus Olai
+Landaas's master's thesis: *En analyse av hvordan Carbon Removal Certification
+(CRC) påvirker optimal rotasjonstid i skog* (NTNU, Department of Economics,
+June 2023; PDF in `docs/`, git-ignored, never committed).
+
+**What the thesis established** (its §§ 3–6):
+
+- **Model.** A Faustmann rotation model extended after van Kooten et al.
+  (1995) with a carbon price: harvest value net of carbon released, plus
+  discounted carbon uptake during growth. The thesis adds a forest-owner
+  model under EU Carbon Removal Certification (CRC) and a social-optimum
+  model that also values energy from wood not stored as HWP.
+- **Where β enters.** The harvest term is `p_S·S_T·e^(−iT) − p_K·α·(1−β)·S_T·e^(−iT)`,
+  where β is the share stored in HWP. The thesis had to assume β. Phase F's
+  `beta_series.csv` now measures it for Norway, by year and species.
+- **Growth from SiTree.** The stand was simulated in SiTree (NIBIO): the
+  shipped `stand.west.tr` example, a 1,019 m² Norway spruce stand in
+  Hordaland, grown 250 years without harvest. Functions: `dbhi.BN2009` for
+  growth, `mort.B2007` for mortality and `recr.BBG2008` for recruitment.
+  Volume used the NFI (Landsskogtakseringen) volume functions.
+- **Assumptions.**
+  - discount rate i = 0.03 (NOU 2012:16, 40–75-year projects);
+  - carbon price €94/t CO₂ (19.05.2023);
+  - carbon = 0.5 of dry biomass;
+  - energy 753 kWh/m³ (20.08 MJ/kg dry wood, 375 kg/m³ spruce, 36 %
+    plant efficiency).
+- **Results.**
+  - Standard Faustmann optimum: 90 years.
+  - With carbon (van Kooten): 125 years.
+  - Under CRC the owner delays harvest to period 24 (120 years).
+  - The social optimum including energy falls back to roughly the
+    Faustmann rotation.
+  - Higher carbon prices lengthen the rotation; higher timber prices, energy
+    prices and interest rates shorten it.
+
+**SiTree** (CRAN `sitree`, 0.1-15, GPL-2 | GPL-3, maintained at NIBIO;
+Antón-Fernández & Astrup 2022, *SoftwareX* 18, 100925). An R single-tree
+simulator of growth, mortality, ingrowth and management (`management.prob`,
+`mng.tree.removal`), with Norwegian volume functions (Vestjordet spruce,
+Brantseg pine, Braastad birch) and NFI development classes
+(`calculate.development.class`). Entry point:
+`sitree(tree.df, stand.df, functions, n.periods, period.length, ...)`. Its
+reference manual is inconsistent about height units (dm vs cm), so check
+them before integrating.
+
+- [ ] **Value the flows · M.** Add an economic layer to the flow table:
+      roundwood and product prices (SSB price statistics per assortment), the
+      energy value of the energy edges, and a carbon value per stored tonne at
+      a configurable price. Prices and the carbon price go in an editable
+      `config/` CSV, like the carbon model, and constants in `constants.py`.
+      The output is value by node and year: what the wood is worth at each
+      stage.
+- [ ] **Today's harvestable stand · S.** Use SSB 14594 (Phase H) for the
+      development-class × site-class distribution of productive forest by
+      region. This is the starting stock for the projection.
+- [ ] **Project the future wood stock with SiTree · L.** Emulate the national
+      or regional stock forward from today's distribution, under harvest
+      scenarios (status quo, Faustmann rotation, CRC-delayed rotation).
+      SiTree is R. Per the Phase F decision ("do not implement the rotation
+      model in this repo — two models exchanging a parameter file"), keep it
+      as a separate R model that reads `beta_series.csv` and the stand
+      distribution and writes a projected-stock / harvest-potential CSV. This
+      repo ingests that CSV under the same gates as any other source, with
+      `manifest.json` provenance. A Python wrapper (rpy2) only if the owner
+      decides to reverse that decision.
+- [ ] **Rotation economics with an empirical β · M.** Re-run the thesis's
+      Faustmann / van Kooten / CRC comparison with β from `beta_series.csv`
+      instead of an assumed value. Report how the optimal rotation and the
+      net present value move, and the sensitivity to carbon, timber and energy
+      prices and the discount rate. This is the research output that joins
+      the flow analysis and the rotation economics.
+- [ ] **Show it** in the Streamlit app first (internal), then on the public
+      site once the owner has reviewed the numbers.
+
+Needs a human: price sources and their licensing, the choice of carbon price
+and discount rate, the harvest scenarios, any member-level price data
+(`docs/DATA_CONFIDENTIALITY.md`), and how far the thesis's single-stand
+results may be scaled to regions.
+
+---
+
 ## Recommended sequence
 
 1. ~~**A** — ingestion hardening.~~ Done 2026-07-28.
@@ -526,7 +688,10 @@ edge with no resource behind it.
    first).
 8. **J** — year-window and drift policy. Shelved 2026-07-28; pick it up before
    handing the refresh loop over.
-9. **G/H/I** as the work demands.
+9. **G/H/I** as the work demands. Phase H's SSB 14594 item comes before
+   Phase L.
+10. **L** — economic value and the SiTree stock projection (owner request,
+    2026-11-08).
 
 ---
 
