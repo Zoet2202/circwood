@@ -57,7 +57,10 @@ Every stage emits rows with these five columns:
 | `origin` | provenance string (which dataset/table the row came from) |
 
 Volumes are always positive in the final dataset; direction is encoded by
-`source`→`target`. The full node layout (labels, positions, colours) lives in
+`source`→`target`. The committed dataset widens these five with the filter
+dimensions `region`, `species`, `assortment`, `entity_id` (Phase C) and
+`destination` (SSB 08799, §3.2b); summing `volume` over them recovers the
+five-column national table exactly (`transform/dimensions.py`). The full node layout (labels, positions, colours) lives in
 [`config/nodes.json`](config/nodes.json).
 
 ---
@@ -220,6 +223,55 @@ transformed, and which Sankey edges it produces.
   `Export *` edges for these three products no longer appear. *(Other products —
   planed, impregnated, firewood, boards, pellets — keep their gross edges.)*
 
+### 3.2b SSB 08799 — Exports by partner country (the `destination` dimension)
+
+* **What:** the by-country sibling of 08801 — the same HS `varenummer` codes
+  and the same `Mengde 2 (M2)` m³ measure, **monthly**, with a `Land`
+  dimension whose codes are ISO 3166-1 alpha-2 (`97` = unspecified). It
+  answers the question 08801 cannot: *where does exported wood go?*
+* **Query:** three five-year chunks,
+  [`ssbapi_table_08799_2012_2016.json`](config/ssb_queries/ssbapi_table_08799_2012_2016.json),
+  `…_2017_2021.json`, `…_2022_2026.json` — exports and m³ only, all partners,
+  the 08801 commodity list verbatim (fenced by `tests/test_destinations.py`).
+  One request for the whole window would exceed SSB's 800,000-cell limit
+  (46 codes × 262 partners × 60 months ≈ 723k per chunk). Each chunk has
+  its own `tableIdForQuery`, and `ingest.ssb.contract_for` derives a
+  per-chunk `TableContract` (`period="month"`, year bounds = the chunk's,
+  clipped to the dataset window), so widening the window is a query file,
+  not code.
+* **Ingest:** as 08801, plus `IngestResult.dimension_codes` keeps each
+  json-stat2 document's `{label → code}` maps, because pyjstat yields the
+  Norwegian partner *names* and a name is not a stable key.
+* **Transform** (`transform/destinations.py`):
+  * `build_partner_exports` sums months to years and commodities to the
+    **same trade types** as 08801 (`ingest.trade.classify_varenummer` is
+    shared), maps labels to ISO codes (an unknown label raises), and writes
+    the committed [`data/raw/exports_by_partner.csv`](data/raw/exports_by_partner.csv)
+    (`year, type, destination, destination_label, volume`) — the same
+    contract as `harvest_by_fylke.csv`: a fresh run regenerates it, the
+    cached pipeline reads it, and without it every row is `domestic`.
+  * `add_destination` (called from `dimensions.add_dimensions`) splits each
+    row **into an export node** by each partner's *share* of that
+    (year, type)'s 08799 exports. Shares, not figures: the sawlog, pulpwood
+    and sawn-timber edges are *netted* against imports (§3.2) and have no
+    partner-level counterpart in any source, so the gross export mix is the
+    documented attribution. Every other row is `destination="domestic"`;
+    an export row with no partner data for its year/type stays whole as
+    `"unspecified"`; the reversed net-import edges (`Net export * → mill`)
+    are domestic.
+  * `reconcile_partner_exports` logs (never raises) where the 08799 totals
+    summed over partners differ from the 08801 totals by more than 2 % —
+    the two tables are revised on different schedules.
+* **Trade type → node** (`ingest.trade.EXPORT_NODES_BY_TYPE`): saw wood →
+  `Net export skurlast`, pulpwood → `Net export massevirke`, sawn wood →
+  `Net export sawn timber`, firewood → `Export Firewood`, planed wood →
+  `Export planed wood`, pellets → `Export pellets`, impregnated →
+  `Export Impregnation` (the last two have no rows in the current window).
+* **Site:** the bundle carries `destinations` (`domestic` first, partners by
+  exported volume, `unspecified` last; English labels from
+  [`config/destination_labels.csv`](config/destination_labels.csv), SSB's own
+  `lang=en` codelist) and a *Destination* filter; URL param `ds`.
+
 ### 3.3 SSB 10513 — Waste treatment (end-of-life)
 
 * **What:** waste wood (`AvfallsType` = 06) by treatment method
@@ -277,16 +329,25 @@ transformed, and which Sankey edges it produces.
 * **Used by:** sawing, planing, impregnation and inventory edges; also the
   reconciliation check that ties pipeline totals back to this CSV.
 
-### 3.6 FAO_Data (FAOSTAT) — board-mill trade
+### 3.6 FAO_Data (FAOSTAT) — board-mill trade (legacy, pre-2012 only)
 
-* **What:** board (panel) production trade not well covered by SSB. A **file**,
-  pre-shaped into the canonical schema:
-  [`data/raw/FAO_Data.csv`](data/raw/FAO_Data.csv) already has
-  `year, volume, source, target, origin` columns (e.g. `Boardmills → Export
-  Boards`, origin `FAOSTAT`).
-* **Ingest:** read directly with `pd.read_csv(config.FAO_CSV)`.
-* **Transform:** none — it is concatenated straight into the primary rows.
-* **Used by:** the Boardmills export side of the diagram.
+* **What:** board (panel) exports 2002–2011, a hand-pasted **file** in the
+  canonical schema: [`data/raw/FAO_Data.csv`](data/raw/FAO_Data.csv)
+  (`Boardmills → Export Boards`, origin `FAOSTAT`).
+* **Ingest:** read directly with `pd.read_csv(config.FAO_CSV)`; no transform.
+* **Status:** every row predates `DATASET_MIN_YEAR`, so none reaches the
+  dataset and the `Export Boards` node is gone (decision 2026-07-28). Kept
+  for provenance.
+* **Why FAOSTAT is not the partner-country source** (checked 2026-11-08):
+  FAOSTAT's REST API (`faostatservices.fao.org/api/v1`) now answers every
+  endpoint with `401 Missing Authorization Header` — a Cognito login is
+  required and the docs say nothing about obtaining one — and its bilateral
+  *Forestry Trade Flows* domain (`FT`) is filed under "Discontinued archives",
+  last updated 2022-05-27. The open bulk files
+  (`bulks-faostat.fao.org/production/…`) still carry `FO` (Norway's totals
+  by product, no partner), usable as a cross-check of export totals only.
+  Partner countries therefore come from SSB 08799 (§3.2b), which covers the
+  whole window on the existing pipeline.
 
 ---
 

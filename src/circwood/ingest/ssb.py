@@ -137,6 +137,10 @@ class TableContract:
     year_column: str = "år"
     min_year: int | None = C.MIN_YEAR
     max_year: int | None = C.MAX_YEAR
+    #: ``"year"`` when ``year_column`` holds plain years, ``"month"`` when it
+    #: holds SSB month labels (``2019M01``) whose first four characters are the
+    #: year — the 08799 trade-by-country table is monthly only.
+    period: str = "year"
 
 
 #: Per-table expectations, keyed by SSB table id. Column names were taken from
@@ -163,6 +167,43 @@ TABLE_CONTRACTS: dict[str, TableContract] = {
 }
 
 DEFAULT_CONTRACT = TableContract()
+
+#: Table ids of the form ``08799_<from>_<to>``: one five-year chunk of the
+#: monthly trade-by-partner-country table. 46 commodity codes x 262 partners x
+#: 60 months is ~720k cells, under SSB's 800k-cell ceiling; the whole window in
+#: one request is not. Each chunk is its own query file and table id, so the
+#: duplicate-id guard in :func:`process_query_files` still holds, and its
+#: contract is derived here rather than listed, so adding a chunk when the
+#: dataset window widens is a query file, not a code change.
+_CHUNKED_TABLE_RE = re.compile(r"^(?P<table>\d{5})_(?P<lo>\d{4})_(?P<hi>\d{4})$")
+
+#: pyjstat column names of the 08799 chunks (lowercase Norwegian labels).
+TRADE_BY_PARTNER_COLUMNS = (
+    "måned", "varenummer", "land", "import/eksport", "statistikkvariabel", "value",
+)
+
+
+def contract_for(table_id: str) -> TableContract:
+    """The :class:`TableContract` a table id must satisfy.
+
+    Listed tables come from :data:`TABLE_CONTRACTS`; a chunked monthly id
+    (``08799_2017_2021``) gets a per-chunk contract whose year bounds are the
+    chunk's own, clipped to the dataset window so the open-ended last chunk is
+    only required to reach ``DATASET_MAX_YEAR``.
+    """
+    if table_id in TABLE_CONTRACTS:
+        return TABLE_CONTRACTS[table_id]
+    match = _CHUNKED_TABLE_RE.match(table_id)
+    if match and match.group("table") == "08799":
+        lo, hi = int(match.group("lo")), int(match.group("hi"))
+        return TableContract(
+            TRADE_BY_PARTNER_COLUMNS,
+            year_column="måned",
+            min_year=max(lo, C.DATASET_MIN_YEAR),
+            max_year=min(hi, C.DATASET_MAX_YEAR),
+            period="month",
+        )
+    return DEFAULT_CONTRACT
 
 
 # ---------------------------------------------------------------------------
@@ -203,6 +244,12 @@ class IngestResult:
     datasets: dict[str, list[pd.DataFrame]] = field(default_factory=dict)
     vintages: dict[str, TableVintage] = field(default_factory=dict)
     failures: dict[str, str] = field(default_factory=dict)
+    #: ``{table_id: {dimension_id: {label: code}}}`` from each json-stat2
+    #: document. pyjstat yields *labels* (which the transforms filter on), but
+    #: a label is not a stable key for a partner country — SSB's ``Land`` codes
+    #: are ISO 3166-1 alpha-2 and the labels are Norwegian names — so the code
+    #: lists travel alongside the frames instead of being re-fetched.
+    dimension_codes: dict[str, dict[str, dict[str, str]]] = field(default_factory=dict)
 
     @property
     def complete(self) -> bool:
@@ -413,6 +460,27 @@ def table_updated(raw: str, table_id: str | None = None) -> str | None:
     return _loads(raw, table_id).get("updated")
 
 
+def dimension_codes(raw: str, table_id: str | None = None) -> dict[str, dict[str, str]]:
+    """Return ``{dimension_id: {label: code}}`` for a raw json-stat2 body. Pure.
+
+    The inverse of the ``category.label`` map json-stat2 carries per dimension.
+    Labels are unique within a dimension in every SSB table this project uses;
+    a collision would silently drop a code, so it raises instead.
+    """
+    document = _loads(raw, table_id)
+    out: dict[str, dict[str, str]] = {}
+    for dim_id, dim in (document.get("dimension") or {}).items():
+        labels = (dim.get("category") or {}).get("label") or {}
+        inverted = {str(label): str(code) for code, label in labels.items()}
+        if len(inverted) != len(labels):
+            raise SSBParseError(
+                f"table {table_id or '?'}: dimension {dim_id!r} has duplicate "
+                f"category labels; cannot map labels back to codes."
+            )
+        out[dim_id] = inverted
+    return out
+
+
 # ---------------------------------------------------------------------------
 # Validate
 # ---------------------------------------------------------------------------
@@ -427,7 +495,7 @@ def validate_table(
     caller is a loop over five tables and "missing column 'sortiment'" on its own
     does not say which one.
     """
-    contract = contract or TABLE_CONTRACTS.get(table_id, DEFAULT_CONTRACT)
+    contract = contract or contract_for(table_id)
     df = pd.concat(frames, ignore_index=True)
 
     if df.empty:
@@ -450,7 +518,10 @@ def validate_table(
     if year_col not in df.columns:
         return None, None
 
-    years = pd.to_numeric(df[year_col], errors="coerce").dropna()
+    periods = df[year_col].astype(str)
+    if contract.period == "month":
+        periods = periods.str[:4]
+    years = pd.to_numeric(periods, errors="coerce").dropna()
     if years.empty:
         raise SSBValidationError(
             f"table {table_id}: no parseable years in column {year_col!r}."
@@ -562,6 +633,7 @@ def process_query_files(
                 continue
 
             result.datasets[table_id] = frames
+            result.dimension_codes[table_id] = dimension_codes(raw, table_id)
             result.vintages[table_id] = TableVintage(
                 table_id=table_id,
                 query_file=path.name,
@@ -610,10 +682,13 @@ __all__ = [
     "SSBQueryError",
     "SSBValidationError",
     "TABLE_CONTRACTS",
+    "TRADE_BY_PARTNER_COLUMNS",
     "TableContract",
     "TableVintage",
     "USER_AGENT",
     "cache_raw",
+    "contract_for",
+    "dimension_codes",
     "fetch_table",
     "load_query_spec",
     "make_session",

@@ -460,7 +460,10 @@ def run_fresh_pipeline(
         ) from exc
 
     from circwood.ingest.ssb import process_query_files
-    from circwood.ingest.trade import assign_target_source_trade
+    from circwood.ingest.trade import assign_target_source_trade, classify_varenummer
+    from circwood.transform.destinations import (
+        build_partner_exports, reconcile_partner_exports,
+    )
     from circwood.ingest import treindustrien as tre
     from circwood.transform.sawing import create_flow_rows
     from circwood.transform.firewood import create_firewood_rows  # noqa: F401
@@ -486,6 +489,23 @@ def run_fresh_pipeline(
         )
         config.RAW_DIR.mkdir(parents=True, exist_ok=True)
         regional.to_csv(config.HARVEST_FYLKE_CSV, index=False)
+
+    # --- 08799 exports by partner country — the destination dimension's data ---
+    # Same contract as the county file above: rewritten before assembly so the
+    # dimension and the national trade rows come from the same vintage;
+    # tolerated as absent (partial IngestResult), in which case the committed
+    # partner file, or none, is used.
+    chunk_ids = sorted(tid for tid in ssb if tid.startswith("08799_"))
+    partners = None
+    if chunk_ids:
+        land_codes: dict[str, str] = {}
+        for tid in chunk_ids:
+            land_codes.update(ingested.dimension_codes.get(tid, {}).get("Land", {}))
+        partners = build_partner_exports(
+            [pd.concat(ssb[tid], ignore_index=True) for tid in chunk_ids], land_codes
+        )
+        config.RAW_DIR.mkdir(parents=True, exist_ok=True)
+        partners.to_csv(config.EXPORTS_PARTNER_CSV, index=False)
 
     # --- 11181 firewood ---
     rows_firewood = create_firewood_rows(pd.concat(ssb["11181"], ignore_index=True))
@@ -579,17 +599,19 @@ def run_fresh_pipeline(
     # --- 08801 trade ---
     tbl_08801 = pd.concat(ssb["08801"], ignore_index=True)
     tbl_08801 = tbl_08801.loc[tbl_08801["value"] != 0].copy()
-    tbl_08801["type"] = "default"
-    for kw, typ in [
-        ("Impregnert", "impregnated"), ("Massevirke", "pulpwood"),
-        ("Skurtømmer", "saw wood"), ("Trepeletter", "pellets"),
-        ("brensel", "firewood"), ("høvellast", "planed wood"),
-        ("skurlast", "sawn wood"),
-    ]:
-        tbl_08801.loc[tbl_08801["varenummer"].str.contains(kw, case=False), "type"] = typ
+    tbl_08801["type"] = classify_varenummer(tbl_08801["varenummer"])
     tbl_08801.loc[tbl_08801["statistikkvariabel"] == "Mengde 2 (M2)", "statistikkvariabel"] = "m3"
     trade = assign_target_source_trade(tbl_08801).rename(columns={"år": "year"})
     trade = trade[trade["statistikkvariabel"] == "m3"]
+    if partners is not None:
+        # Informational: the by-country and national tables are revised on
+        # different schedules; a gap is logged, never fatal (shares are used).
+        national_exports = trade[trade["import/eksport"].str.lower() == "eksport"]
+        reconcile_partner_exports(
+            partners,
+            national_exports.rename(columns={"value": "volume"})[["year", "type", "volume"]]
+            .assign(year=lambda d: pd.to_numeric(d["year"]).astype(int)),
+        )
     trade_vol = (
         trade.groupby(["year", "source", "target"], as_index=False)["value"].sum()
         .rename(columns={"value": "volume"})

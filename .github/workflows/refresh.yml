@@ -50,8 +50,9 @@ jobs:
         run: pytest -q
 
       # Ingest -> rebuild -> manifest -> mass balance -> reconcile -> vintage
-      # diff -> golden fixture. Restores the previous outputs and exits non-zero
-      # if any gate fails, so a bad SSB vintage never reaches a commit.
+      # diff -> beta_series.csv -> golden fixture. Restores the previous
+      # outputs and exits non-zero if any gate fails, so a bad SSB vintage
+      # never reaches a commit.
       - name: Refresh and gate
         id: refresh
         env:

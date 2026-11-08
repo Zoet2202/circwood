@@ -1,8 +1,8 @@
 # Circwood WP4 — public static site
 
 A host-anywhere static site rendering the national wood-flow Sankey with
-client-side filters (year window, metric, species, region, assortment, node
-focus), click-to-cross-filter companion charts, shareable URL state and
+client-side filters (year window, metric, species, region, assortment,
+destination country, node focus), click-to-cross-filter companion charts, shareable URL state and
 PNG/SVG export. Deployed to GitHub Pages by `.github/workflows/site.yml` on
 every merge to `main` that touches the data or the site.
 

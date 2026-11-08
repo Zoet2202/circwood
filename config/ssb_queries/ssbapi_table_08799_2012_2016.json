@@ -1,0 +1,103 @@
+{
+  "_comment": "SSB 08799 (trade by HS commodity AND partner country), monthly, 2012-2016. One of three five-year chunks: the full window exceeds SSB's 800,000-cell limit. Exports and m3 only; the commodity list is the 08801 list verbatim. Partner codes are ISO 3166-1 alpha-2 (97 = unspecified). Feeds the `destination` dimension.",
+  "tableIdForQuery": "08799_2012_2016",
+  "url": "https://data.ssb.no/api/pxwebapi/v2/tables/08799/data",
+  "params": {
+    "lang": "no",
+    "outputFormat": "json-stat2"
+  },
+  "payload": {
+    "selection": [
+      {
+        "variableCode": "ContentsCode",
+        "valueCodes": [
+          "Mengde2"
+        ]
+      },
+      {
+        "variableCode": "ImpEks",
+        "valueCodes": [
+          "2"
+        ]
+      },
+      {
+        "variableCode": "Land",
+        "valueCodes": [
+          "*"
+        ]
+      },
+      {
+        "variableCode": "Varekoder",
+        "valueCodes": [
+          "44032001_1988",
+          "44032002_2016",
+          "44032003_2016",
+          "44032005_1988",
+          "44032006_1988",
+          "44032111_2017",
+          "44032112_2017",
+          "44032191_2017",
+          "44032192_2017",
+          "44032211_2017",
+          "44032212_2017",
+          "44032219_2017",
+          "44032291_2017",
+          "44032292_2017",
+          "44032299_2017",
+          "44032311_2017",
+          "44032312_2017",
+          "44032391_2017",
+          "44032392_2017",
+          "44032399_2017",
+          "44032411_2017",
+          "44032419_2017",
+          "44032491_2017",
+          "44032492_2017",
+          "44032499_2017",
+          "44039902_1992",
+          "44071001_1988",
+          "44071003_1988",
+          "44071004_1988",
+          "44071111_2017",
+          "44071121_2017",
+          "44071211_2017",
+          "44071221_2017",
+          "44071222_2017",
+          "44071122_2017",
+          "44011100_2017",
+          "44011101_2024",
+          "44011109_2024",
+          "44011200_2017",
+          "44011201_2024",
+          "44011209_2024",
+          "44011000_1988",
+          "44013003_2009",
+          "44013100_2012",
+          "44013101_2017",
+          "44013108_2017"
+        ]
+      },
+      {
+        "variableCode": "Tid",
+        "valueCodes": [
+          "2012M*",
+          "2013M*",
+          "2014M*",
+          "2015M*",
+          "2016M*"
+        ]
+      }
+    ],
+    "placement": {
+      "heading": [
+        "ImpEks"
+      ],
+      "stub": [
+        "Tid",
+        "ContentsCode",
+        "Land",
+        "Varekoder"
+      ]
+    }
+  }
+}

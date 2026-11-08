@@ -125,9 +125,8 @@ def test_shipped_query_files_satisfy_the_contract():
         assert table_id not in seen, f"{path.name} duplicates {seen.get(table_id)}"
         seen[table_id] = path.name
     # Every shipped query has a validation contract behind it.
-    assert set(seen) <= set(ssb.TABLE_CONTRACTS), (
-        f"tables with no TableContract: {sorted(set(seen) - set(ssb.TABLE_CONTRACTS))}"
-    )
+    uncontracted = sorted(t for t in seen if ssb.contract_for(t) is ssb.DEFAULT_CONTRACT)
+    assert not uncontracted, f"tables with no TableContract: {uncontracted}"
 
 
 def test_load_query_spec_reports_an_unreadable_file(tmp_path):

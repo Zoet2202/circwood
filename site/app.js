@@ -36,6 +36,7 @@
     species: "all",
     region: "all",
     assortment: "all",
+    destination: "all", // 'all' | a code from B.destinations
     focus: [], // node labels; empty = all
     sel: null, // {type:'node', label} | {type:'link', s, t}
   };
@@ -133,6 +134,10 @@
         : B.regions.findIndex((r) => r.code === state.region);
     const as =
       state.assortment === "all" ? -1 : B.assortments.indexOf(state.assortment);
+    const ds =
+      state.destination === "all" || !B.destinations
+        ? -1
+        : B.destinations.findIndex((d) => d.code === state.destination);
     const focusIds = new Set(
       state.focus
         .map((lb) => B.nodes.findIndex((n) => n.label === lb))
@@ -145,6 +150,7 @@
       if (sp >= 0 && f.species[i] !== sp) continue;
       if (rg >= 0 && f.region[i] !== rg) continue;
       if (as >= 0 && f.assortment[i] !== as) continue;
+      if (ds >= 0 && f.destination[i] !== ds) continue;
       if (focusIds.size && !focusIds.has(f.source[i]) && !focusIds.has(f.target[i]))
         continue;
       keep.push(i);
@@ -563,9 +569,14 @@
       bits.push(r ? r.label : state.region);
     }
     if (state.assortment !== "all") bits.push(state.assortment);
+    if (state.destination !== "all") {
+      const d = (B.destinations || []).find((d) => d.code === state.destination);
+      bits.push("to " + (d ? d.label : state.destination));
+    }
     if (state.focus.length) bits.push(`${state.focus.length} node(s) in focus`);
     $("sankey-title").textContent = bits.join(" · ");
     $("region-note").hidden = state.region === "all";
+    $("destination-note").hidden = state.destination === "all";
   }
 
   function renderVintage() {
@@ -595,6 +606,7 @@
     if (state.species !== "all") p.set("sp", state.species);
     if (state.region !== "all") p.set("rg", state.region);
     if (state.assortment !== "all") p.set("as", state.assortment);
+    if (state.destination !== "all") p.set("ds", state.destination);
     if (state.focus.length) p.set("f", state.focus.join("~"));
     if (state.sel)
       p.set(
@@ -625,6 +637,12 @@
     if (p.get("rg"))
       state.region = known(p.get("rg"), B.regions.map((r) => r.code), "all");
     if (p.get("as")) state.assortment = known(p.get("as"), B.assortments, "all");
+    if (p.get("ds"))
+      state.destination = known(
+        p.get("ds"),
+        (B.destinations || []).map((d) => d.code),
+        "all"
+      );
     if (p.get("f"))
       state.focus = p.get("f").split("~").filter((lb) => labels.includes(lb));
     const sel = p.get("sel");
@@ -692,6 +710,15 @@
       ),
       state.assortment
     );
+    // Destination: "domestic" first, then partner countries by exported
+    // volume, then the unpublished residual — the bundle's own order.
+    fillSelect(
+      $("destination"),
+      [["all", "All destinations"]].concat(
+        (B.destinations || []).map((d) => [d.code, d.label])
+      ),
+      state.destination
+    );
 
     // Node-focus dropdown: checkboxes in nodes.json (diagram) order.
     const menu = $("focus-menu");
@@ -731,6 +758,7 @@
     $("species").value = state.species;
     $("region").value = state.region;
     $("assortment").value = state.assortment;
+    $("destination").value = state.destination;
     $("focus-summary").textContent = state.focus.length
       ? `Nodes: ${state.focus.length}`
       : "Nodes: all";
@@ -764,6 +792,9 @@
     $("region").addEventListener("change", (e) => setState({ region: e.target.value }));
     $("assortment").addEventListener("change", (e) =>
       setState({ assortment: e.target.value })
+    );
+    $("destination").addEventListener("change", (e) =>
+      setState({ destination: e.target.value })
     );
     $("reset").addEventListener("click", () => {
       $("preset").value = "overview";

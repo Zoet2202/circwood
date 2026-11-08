@@ -9,7 +9,14 @@
 5. **Reconcile** — Treindustrien throughput and the SSB 07410 control total.
 6. **Vintage diff** — the new dataset against the committed one, as a blocking
    gate.
-7. **Update the golden fixture** so the regenerated dataset and its regression
+7. **Re-export ``beta_series.csv``** (Phase F) from the new carbon dataset and
+   manifest. Its own gates (closure gap, output excess, missing year) are
+   refresh gates too: if β cannot be exported, the refresh fails and restores.
+   Without this step the committed β would go stale and the post-refresh
+   ``pytest`` (``test_committed_beta_series_matches_fresh_export``) would fail.
+   The pinned beta values in ``tests/test_hwp.py`` read a frozen input
+   (``tests/fixtures/beta_input_carbon.csv``), so a refresh does not touch them.
+8. **Update the golden fixture** so the regenerated dataset and its regression
    fence move together, per the house rule that they change in the same commit.
 
 **Nothing survives a failure.** If any check fails, the previous
@@ -45,7 +52,9 @@ log = logging.getLogger(__name__)
 GOLDEN_FIXTURE = config.ROOT_DIR / "tests" / "fixtures" / "golden_sankey_data.csv"
 
 #: Outputs the refresh regenerates, and therefore must restore on failure.
-MANAGED_OUTPUTS = ("sankey_data.csv", "carbon_data.csv", "manifest.json")
+MANAGED_OUTPUTS = (
+    "sankey_data.csv", "carbon_data.csv", "manifest.json", config.BETA_SERIES_CSV.name,
+)
 
 
 @dataclass
@@ -60,6 +69,7 @@ class RefreshResult:
     reconciliation: pd.DataFrame
     control_totals: list[dict] = field(default_factory=list)
     golden_updated: bool = False
+    beta_series: Path | None = None
 
     def report(self) -> str:
         """Markdown for the refresh PR body."""
@@ -104,6 +114,8 @@ class RefreshResult:
                 f"{ctrl['reference']:,.0f} m³ ({ctrl['rel_diff']:+.2%}) — "
                 f"{ctrl['source']}"
             )
+        if self.beta_series is not None:
+            lines.append("- **beta series:** re-exported (`data/processed/beta_series.csv`)")
         lines += [
             f"- **Golden fixture:** "
             f"{'updated to match' if self.golden_updated else 'unchanged'}",
@@ -123,6 +135,17 @@ def _restore(snapshot: dict[Path, bytes | None]) -> None:
             path.unlink(missing_ok=True)
         else:
             path.write_bytes(payload)
+
+
+def export_beta(path: Path) -> Path:
+    """Re-export the Phase F β series from the just-written carbon dataset.
+
+    A module-level seam so tests can stub it; the real call reads
+    ``config.CARBON_CSV`` and the new manifest, and raises on any β gate.
+    """
+    from circwood.analysis.hwp import export_beta_series
+
+    return export_beta_series(path)
 
 
 def _control_totals(sankey: pd.DataFrame) -> list[dict]:
@@ -247,6 +270,9 @@ def refresh(
         else:
             diffmod.assert_within_threshold(report)
 
+        log.info("Re-exporting the beta series")
+        beta_path = export_beta(config.BETA_SERIES_CSV)
+
         golden_updated = False
         if update_golden and GOLDEN_FIXTURE.exists():
             new_bytes = config.SANKEY_CSV.read_bytes()
@@ -266,6 +292,7 @@ def refresh(
             reconciliation=reconciliation,
             control_totals=controls,
             golden_updated=golden_updated,
+            beta_series=beta_path,
         )
     except Exception:
         log.error("Refresh failed — restoring the previous data/processed outputs")

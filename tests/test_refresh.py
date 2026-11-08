@@ -37,16 +37,25 @@ def isolated_outputs(tmp_path, monkeypatch):
     sankey = processed / "sankey_data.csv"
     carbon = processed / "carbon_data.csv"
     golden = tmp_path / "golden_sankey_data.csv"
+    beta = processed / "beta_series.csv"
 
     COMMITTED.to_csv(sankey, index=False)
     COMMITTED.to_csv(carbon, index=False)
     COMMITTED.to_csv(golden, index=False)
+    beta.write_text("# committed beta\nyear\n2019\n", encoding="utf-8")
 
     monkeypatch.setattr(config, "PROCESSED_DIR", processed)
     monkeypatch.setattr(config, "SANKEY_CSV", sankey)
     monkeypatch.setattr(config, "CARBON_CSV", carbon)
+    monkeypatch.setattr(config, "BETA_SERIES_CSV", beta)
     monkeypatch.setattr(refreshmod, "GOLDEN_FIXTURE", golden)
-    return {"sankey": sankey, "carbon": carbon, "golden": golden}
+    # The stub frames are not a real flow graph, so the beta export is stubbed
+    # here (it writes a marker); the failure path is pinned below.
+    monkeypatch.setattr(
+        refreshmod, "export_beta",
+        lambda path: (path.write_text("# beta\nyear\n2020\n", encoding="utf-8"), path)[1],
+    )
+    return {"sankey": sankey, "carbon": carbon, "golden": golden, "beta": beta}
 
 
 def test_the_manifest_is_written_inside_the_configured_output_dir(
@@ -146,9 +155,64 @@ def test_accept_drift_adopts_a_dataset_the_gate_would_block(
     assert "Vintage diff: FAIL" in result.report()
 
 
+def _pass_the_data_gates(monkeypatch):
+    monkeypatch.setattr(refreshmod, "_control_totals", lambda df: [])
+    monkeypatch.setattr("circwood.validate.assert_window_balanced", lambda *a, **k: None)
+    monkeypatch.setattr(
+        "circwood.reconcile.treindustrien_reconciliation",
+        lambda df, **kw: pd.DataFrame([{"metric": "m", "rel_diff": 0.0}]),
+    )
+
+
+def test_a_failed_beta_export_restores_every_output(
+    isolated_outputs, stub_ingest, monkeypatch
+):
+    """Phase F: the beta export runs after the diff gate and is a gate itself."""
+    before = {name: path.read_bytes() for name, path in isolated_outputs.items()}
+
+    def fake_rebuild(**kwargs):
+        DRIFTED.to_csv(config.SANKEY_CSV, index=False)
+        return DRIFTED
+
+    def fake_carbon(**kwargs):
+        DRIFTED.to_csv(config.CARBON_CSV, index=False)
+        return DRIFTED
+
+    def failing_beta(path):
+        path.write_text("half-written", encoding="utf-8")   # lands, then fails
+        raise ValueError("year 2023: closure gap 0.3000 exceeds BETA_CLOSURE_TOL")
+
+    monkeypatch.setattr(assemblemod, "run_fresh_pipeline", fake_rebuild)
+    monkeypatch.setattr(pipelinemod, "build_carbon", fake_carbon)
+    _pass_the_data_gates(monkeypatch)
+    monkeypatch.setattr(refreshmod, "export_beta", failing_beta)
+
+    with pytest.raises(ValueError, match="closure gap"):
+        refreshmod.refresh(accept_drift=True)    # past the diff gate, into the export
+
+    after = {name: path.read_bytes() for name, path in isolated_outputs.items()}
+    assert after == before
+    assert not (config.PROCESSED_DIR / "manifest.json").exists()
+
+
+def test_a_successful_refresh_re_exports_beta(isolated_outputs, stub_ingest, monkeypatch):
+    def fake_rebuild(**kwargs):
+        COMMITTED.to_csv(config.SANKEY_CSV, index=False)
+        return COMMITTED
+
+    monkeypatch.setattr(assemblemod, "run_fresh_pipeline", fake_rebuild)
+    monkeypatch.setattr(pipelinemod, "build_carbon", lambda **kw: COMMITTED)
+    _pass_the_data_gates(monkeypatch)
+
+    result = refreshmod.refresh()
+    assert result.beta_series == config.PROCESSED_DIR / "beta_series.csv"
+    assert isolated_outputs["beta"].read_text(encoding="utf-8") == "# beta\nyear\n2020\n"
+    assert "beta series:** re-exported" in result.report()
+
+
 def test_managed_outputs_cover_everything_the_refresh_writes():
     assert set(refreshmod.MANAGED_OUTPUTS) == {
-        "sankey_data.csv", "carbon_data.csv", "manifest.json",
+        "sankey_data.csv", "carbon_data.csv", "manifest.json", "beta_series.csv",
     }
 
 

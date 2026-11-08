@@ -60,6 +60,37 @@ commercially confidential.
 
 ## Decision log
 
+- **2026-11-08 · Partner countries come from SSB 08799, not FAOSTAT.** The
+  owner asked for FAOSTAT trade flows to see where exported wood ends up.
+  Checked live: FAOSTAT's REST API answers every endpoint with
+  `401 Missing Authorization Header` (Cognito login, no documented sign-up),
+  and its bilateral Forestry Trade Flows domain (FT) is discontinued (last
+  update 2022-05-27), so it could not cover 2021–2024. SSB 08799 is the
+  by-country sibling of the 08801 table already in the pipeline and covers
+  the whole window. Shipped as a sixth dimension, `destination`, additive.
+  The netted export edges are attributed by *gross export share* — a
+  modelling assumption, documented in `transform/destinations.py`.
+- **2026-11-08 · β is production-basis** (owner decision, Phase F): β counts
+  domestic harvest carbon reaching Long-term USE, traced by proportional
+  attribution, so imports never inflate it and exports are their own fate.
+  The roadmap's original literal ratio is kept as `beta_literal`.
+- **2026-11-08 · β denominator and carbon basis** (CEO decisions in the
+  agent run, Phase F): the denominator is roundwood removals
+  (`Harvested wood →` the three pools); Bark and Residues are excluded because
+  both are fixed 10 % coefficients, not measurements. β uses harvest-entry raw
+  density × traced fractions, not the dataset's `carbon` column, which is not
+  conserved (Phase G). A two-way inventory within one year is netted.
+- **2026-11-08 · β refuses broken years** (owner decision: a closure gap above
+  `BETA_CLOSURE_TOL`, 2 %, raises; added by the CEO after review: an output
+  excess above `BETA_EXCESS_OUT_TOL`, 15 %, raises). 2024 fails (Sawmills has
+  no outputs), so the export covers 2012–2023; `DATASET_MAX_YEAR` is
+  unchanged and the question is logged under Phase J.
+- **2026-11-08 · Shrinkage carbon documented, not fixed** (owner decision):
+  `carbon_data.csv` stays unchanged; the fix is a Phase G item.
+- **2026-11-08 · `ci_low`/`ci_high` ship empty** (CEO decision in the agent
+  run, Phase F) with `ci_method` saying why:
+  no uncertainty model exists, and definitional variants of β are not a
+  confidence interval.
 - **2026-07-28 · Phase J shelved** (user decision): the year-window/drift
   policy work is deferred until later in the project — it is not crucial for
   progress, and setting the per-table lag expectations and drift thresholds
@@ -239,6 +270,15 @@ human has to remember to bump.
       threshold inside the paper window (2012–2022) than outside it, since those
       are the numbers that get published.
 
+- [ ] **2024 is not covered by every source (owner question, 2026-11-08).**
+      Treindustrien's production data ends at 2023, so in 2024 `Sawmills`
+      takes in 4,519,533 m³ and sends out nothing, which contradicts the
+      "intersection of coverage" behind `DATASET_MAX_YEAR = 2024`. The fences
+      miss it because the balance guarantee covers 2012–2022 only. β refuses
+      2024 on its closure-gap gate and exports 2012–2023
+      (`constants.BETA_MAX_YEAR`). Whether to narrow the dataset window is the
+      owner's call.
+
 **Acceptance:** a table publishing a new year ahead of the others does not
 change the shipped dataset; widening the window is a reviewed one-line diff that
 the pipeline itself proposes; a blocked refresh has a documented, auditable
@@ -335,31 +375,38 @@ knows what to suppress.
 
 ---
 
-## Phase F — Research bridge: empirical β · **P1 · M**
+## Phase F — Research bridge: empirical β · **DONE 2026-11-08**
 
 This is the phase that makes the project a research contribution rather than a
 dashboard. Forest-rotation economics assumes a fixed harvested-wood-product
 fraction (β) because measured national values do not exist. This pipeline
-measures it.
+measures it. Details in CHANGELOG (2026-11-08).
 
-- [ ] **`src/circwood/analysis/hwp.py`** — derive
-      `β(year, species) = carbon reaching Long-term USE / carbon in harvest`,
-      straight off the mass-balanced flows.
-- [ ] **Fate of the residual**, split into pulp/paper (medium-lived), energy
-      (near-immediate oxidation), and other. The rotation literature typically
-      assumes the entire non-HWP fraction oxidises at harvest; this dataset
-      shows a large share goes to pulp. Quantifying that gap is a result, not
-      a correction.
-- [ ] **Export `data/processed/beta_series.csv`** with columns
+- [x] **`src/circwood/analysis/hwp.py`** — derives β(year, species) on a
+      **production basis** (decision 2026-11-08): the share of *domestic
+      harvest* carbon that reaches Long-term USE, traced through the
+      mass-balanced flows by proportional (absorbing-Markov) attribution.
+      The literal wording first written here — carbon reaching Long-term USE /
+      carbon in harvest — counts imported wood in the numerator and drops
+      exported harvest; it is kept as the extra column `beta_literal`.
+- [x] **Fate of the residual**, split into pulp/paper (`pulp_share`), energy
+      (`energy_share`, near-immediate oxidation) and other (exports, losses,
+      shrinkage, stock change, closure gap — each also its own column). Shares
+      sum to 1 per row.
+- [x] **Export `data/processed/beta_series.csv`** with the columns
       `year, species, beta, pulp_share, energy_share, other_share,
-      volume_basis, ci_low, ci_high` — a clean interface for an external
-      (R) rotation model. Document the units and the carbon basis in the header.
-- [ ] **Do not implement the rotation model in this repo.** It is a separate
+      volume_basis, ci_low, ci_high` first, then the extra columns; units,
+      carbon basis, denominator and method in `#` header lines. Re-exported by
+      `circwood-refresh`. `ci_low`/`ci_high` are empty until Phase G.
+- [x] **Do not implement the rotation model in this repo.** It is a separate
       single-stand optimisation with a different question type (normative,
       prospective) from this pipeline (positive, retrospective). Keep them as
       two models exchanging a parameter file.
-- [ ] **Sanity check against the literature value** (β ≈ 0.55 is the common
-      assumption) and report the divergence in the export's docstring.
+- [x] **Sanity check against the literature value** (β ≈ 0.55 is the common
+      assumption): the divergence is computed into the export header; the
+      module docstring gives the range. Which product pool the 0.55 denotes
+      has not been checked against the sources; framing β against it is for
+      the authors.
 
 ---
 
@@ -376,11 +423,57 @@ measures it.
       editable in `config/` like the densities. This is the headline climate
       result and it is also what CRCF's "carbon storage in long-lasting
       products" category concerns.
+- [ ] **Carbon conservation at process nodes · M** (found in the Phase F
+      review, 2026-11-08; documented, not fixed, by owner decision). The
+      `carbon` column switches raw/dry density at process nodes, so carbon is
+      not conserved (Sawmills, Pulpmills, Boardmills); `Timber inventory`
+      values sawn-timber deposits at raw density; and the `Shrinkage` edge —
+      water loss per `constants.SHRINKAGE` — carries about 0.556 Mt C over
+      2012–2024. β does not use the `carbon` column for this reason. Fixing it
+      changes `carbon_data.csv`, so it wants owner review. Add a
+      carbon-conservation fence on `PROCESS_NODES` with the fix.
+- [ ] **One-at-a-time sensitivity of β · S** to the fixed downstream
+      coefficients (sawing splits, `BOARDMILL_LOSS`, the pulp split,
+      `WPP_LONG_TERM`) — β is only partly empirical while these are point
+      values.
 - [ ] **Import species mix · S** — `config/carbon_nodes.csv` assumes imports
       (and the net-export nodes) are 100 % spruce. Source the real split or
       document the assumption and its sensitivity.
 - [ ] **CO₂-equivalents · M** — C → CO₂ conversion as a display option.
       Substitution effects are out of scope unless explicitly requested.
+
+---
+
+## Phase K — Dataset defects found in the Phase F review · **P1 · S–M**
+
+Found by the 2026-11-07/08 project review. Each changes the committed dataset
+or the published site, so each wants an owner decision and a golden-fixture
+update in the same commit. None is fixed yet.
+
+- [ ] **Firewood exports counted twice** (confirmed). `Firewood → Energy` is
+      set to all Firewood inflow and `Firewood → Export Firewood` (08801) is
+      emitted on top: in 2020 Firewood takes in 2,006,304 m³ and sends out
+      2,085,882 m³. Firewood is not in `validate.PROCESS_NODES`, and β's
+      output-excess gate tolerates it (largest 7.8 %, 2023, under 15 %), so
+      no gate fails on it. β is unaffected (the trace treats the excess as exogenous);
+      only the split between β's `energy_share` and `export_firewood_share`
+      would move, by at most 0.0056 in 2012–2023. A
+      human decides whether 11181 is domestic consumption (then exports come
+      out of the inflow) or production. (`transform/assemble.py`,
+      `ingest/trade.py`)
+- [ ] **End-of-Life volume may be ~1000× too small** (unconfirmed — the raw
+      10513 response is not on disk). `assemble.py` converts with
+      `value * 1000 / 483`; if the unit is 1000 t, that is 10³ short. Check
+      the SSB unit first; also move the 483 kg/m³ into `constants.py`.
+- [ ] **The site's "annual average" is not balanced.** `prepare_flows`
+      averages each edge over only the years it has data (WPP −6.7 % over
+      2012–2022). Average over the whole window instead, or label it.
+- [ ] **`manifest.json` is stale** — 638 rows recorded against 1,878 shipped,
+      an old branch, `git_dirty: true`. Regenerate it with the next dataset
+      build.
+- [ ] **Doc drift** — status and install notes in README.md, the End-of-Life
+      routing and schema sections of `SANKEY_GUIDE.md`, and a missing Phase E
+      heading in CHANGELOG.md.
 
 ---
 
@@ -428,10 +521,12 @@ edge with no resource behind it.
 3. ~~**C** — schema dimensions.~~ Done 2026-07-28.
 4. ~~**E** — confidentiality rules.~~ Done 2026-07-28.
 5. ~~**D** — static site.~~ Done 2026-07-28.
-6. **F** — β export. The research contribution. **Next.**
-7. **J** — year-window and drift policy. Shelved 2026-07-28; pick it up before
+6. ~~**F** — β export.~~ Done 2026-11-08.
+7. **K** — dataset defects from the Phase F review. **Next** (owner decisions
+   first).
+8. **J** — year-window and drift policy. Shelved 2026-07-28; pick it up before
    handing the refresh loop over.
-8. **G/H/I** as the work demands.
+9. **G/H/I** as the work demands.
 
 ---
 
@@ -443,6 +538,6 @@ edge with no resource behind it.
 - A public static site renders an interactive, cross-filterable Sankey with
   year, species, region and node filters, and states its data vintage.
 - `beta_series.csv` exports a measured HWP fraction with uncertainty bounds and
-  a documented carbon basis.
+  a documented carbon basis. (Done except the bounds, which wait on Phase G.)
 - Confidentiality rules are written down and enforced in code before any
   member-level data can enter the repository.

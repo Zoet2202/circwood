@@ -63,6 +63,9 @@
       <label class="ctl">Assortment
         <select id="assortment"></select>
       </label>
+      <label class="ctl">Destination
+        <select id="destination"></select>
+      </label>
 
       <details class="dropdown" id="focus-dd">
         <summary id="focus-summary">Nodes: all</summary>
@@ -80,6 +83,13 @@
       to the national species pools. Everything downstream is attributed
       nationally. “National (not regionally attributed)” carries the firewood
       estimate SSB never regionalises.
+    </p>
+    <p class="note" id="destination-note" hidden>
+      Destination applies to the export edges only (SSB 08799, trade by
+      partner country). A partner view shows the share of each export flow
+      that went to that country; the netted raw-wood and sawn-timber exports
+      are attributed by the gross export mix, since no partner-level net
+      figure exists. “Domestic” is every flow that stays in Norway.
     </p>
     <p class="note error" id="load-error" hidden></p>
 

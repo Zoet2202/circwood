@@ -38,6 +38,7 @@ from pathlib import Path
 import pandas as pd
 
 from circwood import config
+from circwood.transform.destinations import DOMESTIC, UNSPECIFIED
 from circwood.transform.dimensions import FYLKE_CODES, NATIONAL_ENTITY, NATIONAL_REGION
 
 #: Minimum number of distinct entities a published cell must draw on before
@@ -121,6 +122,39 @@ def _region_labels() -> dict[str, str]:
     return labels
 
 
+def _destination_labels() -> dict[str, str]:
+    """Destination code -> display label from ``config/destination_labels.csv``.
+
+    A lookup, not a closed map: SSB's partner codelist is long and changes at
+    its own pace, and a partner the file does not know is a label gap, not a
+    modelling decision — the bundle falls back to the code itself.
+    """
+    labels: dict[str, str] = {}
+    if config.DESTINATION_LABELS_FILE.exists():
+        table = pd.read_csv(config.DESTINATION_LABELS_FILE, keep_default_na=False)
+        labels = dict(zip(table["code"].astype(str), table["label"].astype(str)))
+    labels.setdefault(DOMESTIC, "Domestic (not exported)")
+    labels.setdefault(UNSPECIFIED, "Exported, partner country not published")
+    return labels
+
+
+def _destination_levels(df: pd.DataFrame) -> list[str]:
+    """Destination codes: domestic, then partners by exported volume (desc), then unspecified.
+
+    Volume order rather than alphabetical because the site renders this as a
+    dropdown and the question it answers is "where does most of it go". A
+    frame without the column (pre-destination fixtures) yields just domestic.
+    """
+    if "destination" not in df.columns:
+        return [DOMESTIC]
+    partners = df[~df["destination"].isin((DOMESTIC, UNSPECIFIED))]
+    by_volume = partners.groupby("destination")["volume"].sum().sort_values(ascending=False)
+    levels = [DOMESTIC] + list(by_volume.index)
+    if (df["destination"] == UNSPECIFIED).any():
+        levels.append(UNSPECIFIED)
+    return levels
+
+
 def _ordered_levels(values: pd.Series, canonical: tuple[str, ...]) -> list[str]:
     """The distinct values of a column, canonical order first, extras appended.
 
@@ -161,8 +195,8 @@ def build_bundle(
     is serialised — the Phase E gate is the only door out of this module.
 
     The layout is columnar with index-coded categoricals (node, region,
-    species, assortment and origin columns are integer indices into the
-    bundle's lookup arrays): the whole national dataset serialises to a few
+    species, assortment, destination and origin columns are integer indices
+    into the bundle's lookup arrays): the whole national dataset serialises to a few
     hundred kilobytes, which is why this is one JSON file and not Parquet or
     a database (roadmap, Phase D). Volumes are rounded to 0.1 m³ and carbon
     to 1 kg C — display precision; the CSVs stay the exact artifact.
@@ -206,6 +240,10 @@ def build_bundle(
     species = _ordered_levels(df["species"], _SPECIES_ORDER)
     assortments = _ordered_levels(df["assortment"], _ASSORTMENT_ORDER)
     origins = sorted(set(df["origin"]))
+    destinations = _destination_levels(df)
+    destination_labels = _destination_labels()
+    if "destination" not in df.columns:
+        df = df.assign(destination=DOMESTIC)
 
     def codes(col: str, levels: list[str]) -> list[int]:
         index = {v: i for i, v in enumerate(levels)}
@@ -235,6 +273,11 @@ def build_bundle(
         "species": species,
         "assortments": assortments,
         "origins": origins,
+        # Where exported wood goes (SSB 08799): "domestic" first, then partner
+        # countries by exported volume, then the unpublished residual.
+        "destinations": [
+            {"code": d, "label": destination_labels.get(d, d)} for d in destinations
+        ],
         "flows": {
             "source": [node_index[s] for s in df["source"]],
             "target": [node_index[t] for t in df["target"]],
@@ -242,6 +285,7 @@ def build_bundle(
             "region": codes("region", regions),
             "species": codes("species", species),
             "assortment": codes("assortment", assortments),
+            "destination": codes("destination", destinations),
             "origin": codes("origin", origins),
             "volume": [round(float(v), 1) for v in df["volume"]],
             "carbon": [round(float(c)) for c in df["carbon"]],

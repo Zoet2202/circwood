@@ -4,7 +4,8 @@ The flow table used to be implicitly national and all-species: one row per
 ``(source, target, volume, year, origin)``. This module widens it with the four
 dimensions the public site filters on, so a row is now
 
-    (source, target, volume, year, origin, region, species, assortment, entity_id)
+    (source, target, volume, year, origin, region, species, assortment, entity_id,
+     destination)
 
 and the old table is recovered exactly by summing volume over the new columns
 (see :func:`collapse_national`).
@@ -48,6 +49,14 @@ The dimensions
     schema rewrite of every transform, test and site filter. Confidentiality
     rules for any non-national entity_id are Phase E; ``export.bundle`` must
     refuse to ship such rows without a min-entities guard.
+``destination``
+    Where exported wood goes: ``"domestic"`` for every row that is not an
+    export flow, an ISO 3166-1 alpha-2 partner code on the rows into the
+    ``Export *`` / ``Net export *`` nodes, ``"unspecified"`` where SSB does not
+    publish the partner. Data: SSB 08799, the by-country sibling of the 08801
+    trade table; split by partner *share* because the netted export edges have
+    no partner-level figure to be exact against. Added after Phase E, on the
+    same additive terms; see :mod:`circwood.transform.destinations`.
 
 Splitting a flow across a dimension never changes its national total: shares
 sum to 1 by construction, and zero-share rows are dropped rather than written.
@@ -64,9 +73,11 @@ from circwood.carbon.species_model import (
     STANDING_WOOD,
     flow_species_shares,
 )
+from circwood.transform.destinations import add_destination, load_partner_exports
 
-#: The Phase C dimension columns, in schema order.
-DIMENSION_COLUMNS = ["region", "species", "assortment", "entity_id"]
+#: The dimension columns, in schema order (Phase C's four, then ``destination``
+#: — appended, never reordered, per the additive-schema house rule).
+DIMENSION_COLUMNS = ["region", "species", "assortment", "entity_id", "destination"]
 
 #: Full flow schema (national columns first — additive, never reordered).
 FLOW_COLUMNS = ["source", "target", "volume", "year", "origin"] + DIMENSION_COLUMNS
@@ -191,13 +202,19 @@ def assortment_for_edge(source: str, target: str) -> str:
 
 
 def add_dimensions(
-    df: pd.DataFrame, model=None, regional: pd.DataFrame | None = None
+    df: pd.DataFrame,
+    model=None,
+    regional: pd.DataFrame | None = None,
+    partners: pd.DataFrame | None = None,
 ) -> pd.DataFrame:
-    """Widen a national flow table with the Phase C dimension columns.
+    """Widen a national flow table with the filter dimension columns.
 
     ``regional`` is the county-harvest frame (see :func:`build_regional_harvest`);
     it defaults to the committed ``data/raw/harvest_by_fylke.csv`` and may be
-    absent, in which case every row stays ``region="NO"``.
+    absent, in which case every row stays ``region="NO"``. ``partners`` is the
+    partner-export frame (see :func:`destinations.build_partner_exports`),
+    defaulting to the committed ``data/raw/exports_by_partner.csv``; absent,
+    every row stays ``destination="domestic"``.
 
     Idempotent: a frame that already carries every dimension column is returned
     unchanged. Row order follows the input's national row order, with a split
@@ -240,6 +257,9 @@ def add_dimensions(
     if regional is None:
         regional = load_regional_harvest()
     wide = _apply_regional_harvest(wide, regional)
+    if partners is None:
+        partners = load_partner_exports()
+    wide = add_destination(wide, partners)
     return wide[FLOW_COLUMNS]
 
 

@@ -10,14 +10,14 @@ import pandas as pd
 from circwood import config
 
 # The flow schema. One row per (source, target, year, region, species,
-# assortment, entity_id); summing ``volume`` over the four dimension columns
-# recovers the pre-Phase-C national table. The columns are additive — new ones
-# append, existing ones never rename or reorder (house rule). See
+# assortment, entity_id, destination); summing ``volume`` over the dimension
+# columns recovers the pre-Phase-C national table. The columns are additive —
+# new ones append, existing ones never rename or reorder (house rule). See
 # ``circwood.transform.dimensions`` for what each dimension means, including
 # why ``entity_id`` exists while every row is still ``"national"``.
 SANKEY_COLUMNS = [
     "source", "target", "volume", "year", "origin",
-    "region", "species", "assortment", "entity_id",
+    "region", "species", "assortment", "entity_id", "destination",
 ]
 
 

@@ -104,6 +104,29 @@ def test_regions_are_labelled_and_national_first(bundle):
     assert codes <= set(FYLKE_CODES.values())
 
 
+def test_destinations_are_labelled_domestic_first(bundle, dataset):
+    codes = [d["code"] for d in bundle["destinations"]]
+    assert codes[0] == "domestic"
+    assert set(codes) == set(dataset["destination"])
+    assert all(d["label"] for d in bundle["destinations"])
+    labels = {d["code"]: d["label"] for d in bundle["destinations"]}
+    assert labels["domestic"] == "Domestic (not exported)"
+    if "SE" in labels:
+        assert labels["SE"] == "Sweden"
+    # Partners sorted by exported volume, descending; the residual last.
+    partners = [c for c in codes if c not in ("domestic", "unspecified")]
+    vols = dataset[dataset["destination"].isin(partners)].groupby("destination")["volume"].sum()
+    assert partners == list(vols.sort_values(ascending=False).index)
+    assert bundle["flows"]["destination"] and max(bundle["flows"]["destination"]) < len(codes)
+
+
+def test_pre_destination_frames_still_bundle():
+    """A frame without the destination column bundles as all-domestic."""
+    b = build_bundle(df=tiny_frame(), nodes=tiny_nodes("A", "B"), write=False)
+    assert [d["code"] for d in b["destinations"]] == ["domestic"]
+    assert b["flows"]["destination"] == [0]
+
+
 def test_vintage_carries_dates_not_hashes(bundle):
     vintage = bundle["vintage"]
     assert vintage is not None

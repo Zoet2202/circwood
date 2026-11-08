@@ -194,3 +194,7 @@ def test_carbon_shortcut_matches_mixed_density_path(shipped):
 
 def test_dimension_columns_constant_matches_schema():
     assert FLOW_COLUMNS == ["source", "target", "volume", "year", "origin", *DIMENSION_COLUMNS]
+    # Additive schema: Phase C's four dimensions keep their positions, the
+    # destination dimension appends after them.
+    assert DIMENSION_COLUMNS[:4] == ["region", "species", "assortment", "entity_id"]
+    assert DIMENSION_COLUMNS[4] == "destination"

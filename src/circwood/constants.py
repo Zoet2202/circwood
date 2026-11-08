@@ -77,4 +77,32 @@ WPP_ENERGY = 0.10
 # Firewood coniferous split between spruce and pine (percent spruce).
 FIREWOOD_PERCENT_SPRUCE = 50.0
 
+# ---------------------------------------------------------------------------
+# Empirical HWP fraction beta (Phase F, ``circwood.analysis.hwp``)
+# ---------------------------------------------------------------------------
+# The common assumed beta in the rotation literature (ROADMAP Phase F). Which
+# product pool it denotes is unverified (papers/ not checked). Only used to
+# report the divergence of the measured beta; it never enters a calculation.
+LITERATURE_BETA = 0.55
+
+# Largest closure gap (share of harvest carbon) a year may carry before
+# ``beta_series`` refuses it. A closure gap is wood that enters a process node
+# and is not routed anywhere (inflow > outflow). Over 2012-2023 the largest
+# per-species gap is ~0.014 (2020); 2024 reaches ~0.37 and is refused.
+BETA_CLOSURE_TOL = 0.02
+
+# Largest share of a pool's or process node's outflow that may exceed its
+# inflow (output with no recorded input; every real import or withdrawal is an
+# explicit edge). Largest in the data 2012-2023: 0.1141 (Impregnation 2021).
+BETA_EXCESS_OUT_TOL = 0.15
+
+# Years exported to data/processed/beta_series.csv. Narrower than the dataset
+# window on purpose: in 2024 Sawmills receives 4,519,533 m3 and emits 0, because
+# the Treindustrien production series (data/raw/treindustrien_production_data.csv)
+# ends in 2023. Long-term USE collapses to ~0.5 Mm3 and the all-species closure
+# gap reaches ~0.32, so 2024 is a coverage break, not a measurement. DATASET_MAX_YEAR is
+# deliberately left unchanged (narrowing it is a human decision).
+BETA_MIN_YEAR = DATASET_MIN_YEAR
+BETA_MAX_YEAR = 2023
+
 __all__ = [name for name in dir() if name.isupper()]
