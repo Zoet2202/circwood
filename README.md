@@ -67,9 +67,9 @@ pip install -e .[dev]     # + pytest, ruff, mypy
 pip install -e .[ssb]     # + pyjstat/requests (live SSB fetch)
 ```
 
-R (≥ 4.1) with the `sitree` package is needed only to regenerate
-`models/sitree/growth_curve_sitree.csv`; the export is committed, so neither
-CI nor the Docker image needs R.
+R (≥ 4.1) with the `sitree` package is needed only to regenerate the SiTree
+exports in `models/sitree/`; they are committed, so neither CI nor the Docker
+image needs R.
 
 Requires Python ≥ 3.10 (CI: 3.11 and 3.12). `requirements-lock.txt` pins the
 exact versions used for the published figures; the `Dockerfile` reproduces the
@@ -128,7 +128,8 @@ confidence interval, and labelled as such.
 ```bash
 py -3 -m models.rotation.rotation          # Faustmann / van Kooten / CRC / social, with the empirical β
 py -3 -m models.forest_stock.projection    # the national stock to 2100 under three harvests
-Rscript models/sitree/simulate_stand.R     # optional: regenerate the SiTree export (R >= 4.1 + sitree; committed)
+Rscript models/sitree/simulate_ssb_stand.R # optional: the SSB-anchored stand, the primary growth curve (R >= 4.1 + sitree)
+Rscript models/sitree/simulate_stand.R     # optional: the thesis's example stand, a comparison (exports are committed)
 ```
 
 **The app and the site**

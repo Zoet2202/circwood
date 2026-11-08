@@ -42,6 +42,5 @@ decision log of 2026-11-08 lists each decision it took.
 
 Review and commit the 2026-11-08 change set; choose a licence; mint the
 Zenodo DOI; replace the indicative sensitivity ranges and price assumptions
-with sourced ones; simulate a SiTree stand at a realistic density if that
-comparison is to carry weight; decide whether the model results go on the
-public site.
+with sourced ones, including the SSB-anchored stand's planting density and
+start ages; decide whether the model results go on the public site.

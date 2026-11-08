@@ -51,6 +51,7 @@ import argparse
 import sys
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Any
 
 import numpy as np
 import pandas as pd
@@ -59,7 +60,8 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 PARAMETERS_CSV = HERE / "parameters.csv"
 GROWTH_CURVE_CSV = HERE / "growth_curve.csv"                     # the primary curve, written by run()
-SITREE_CURVE_CSV = ROOT / "models" / "sitree" / "growth_curve_sitree.csv"   # written by models/sitree/simulate_stand.R
+SITREE_DIR = ROOT / "models" / "sitree"                           # every growth_curve_*.csv there is a candidate curve
+SITREE_CURVE_CSV = SITREE_DIR / "growth_curve_sitree.csv"         # the thesis's example stand (simulate_stand.R)
 BETA_SERIES_CSV = ROOT / "data" / "processed" / "beta_series.csv"
 PRICES_SSB_CSV = ROOT / "data" / "raw" / "prices_ssb.csv"
 PRICES_CONFIG_CSV = ROOT / "config" / "prices.csv"
@@ -82,9 +84,28 @@ RESULT_COLUMNS = [
 # ---------------------------------------------------------------------------
 # Parameters
 # ---------------------------------------------------------------------------
-def load_parameters(path: Path = PARAMETERS_CSV) -> dict[str, float]:
+def load_parameters(path: Path = PARAMETERS_CSV) -> dict[str, Any]:
+    """parameters.csv as a dict: numbers as floats, anything else (a curve name) as a stripped string."""
     df = pd.read_csv(path)
-    return {str(r.parameter): float(r.value) for r in df.itertuples()}
+    out: dict[str, Any] = {}
+    for r in df.itertuples():
+        try:
+            out[str(r.parameter)] = float(r.value)
+        except (TypeError, ValueError):
+            out[str(r.parameter)] = str(r.value).strip()
+    return out
+
+
+def curve_name_from_header(path: Path) -> str | None:
+    """The ``# curve_name: ...`` line a SiTree export carries, or None."""
+    with open(path, encoding="utf-8") as fh:
+        for line in fh:
+            if not line.startswith("#"):
+                break
+            body = line[1:].strip()
+            if body.lower().startswith("curve_name:"):
+                return body.split(":", 1)[1].strip()
+    return None
 
 
 def load_beta(path: Path = BETA_SERIES_CSV, min_year: int = 2012, max_year: int = 2022) -> dict[str, float]:
@@ -258,24 +279,29 @@ def optimum(curves: pd.DataFrame, model: str, min_age: int = MIN_ROTATION_AGE) -
 # ---------------------------------------------------------------------------
 # Scenarios
 # ---------------------------------------------------------------------------
-def load_curves(params: dict[str, float]) -> tuple[dict[str, GrowthCurve], str]:
+def load_curves(params: dict[str, Any]) -> tuple[dict[str, GrowthCurve], str]:
     """Every growth curve the model can run on, and the name of the primary one.
 
-    The calibrated logistic curve is always there. The SiTree export
-    (``models/sitree/growth_curve_sitree.csv``) joins when it exists, with its
-    ages shifted by the stand's age at the simulation start. The primary curve
-    carries the base and price scenarios and feeds the stock projection; the
-    other is reported under the scenario ``growth curve: <name>``.
-    ``use_sitree_curve_as_primary`` in parameters.csv switches them.
+    The calibrated logistic curve is always there. Every SiTree export in
+    ``models/sitree/growth_curve_*.csv`` joins, named by its ``curve_name``
+    header line: the thesis's example stand (its ages shifted by the stand's
+    age at the simulation start, ``sitree_stand_age_at_start_years``) and the
+    SSB-anchored stands (true stand ages, no shift). ``primary_growth_curve``
+    in parameters.csv names the curve that carries the base and price scenarios
+    and feeds the stock projection; every other curve is reported under the
+    scenario ``growth curve: <name>``. An unknown name falls back to the
+    calibrated curve, with a warning.
     """
     curves = {LOGISTIC_CURVE: GrowthCurve.logistic(params)}
-    if SITREE_CURVE_CSV.exists():
-        offset = float(params.get("sitree_stand_age_at_start_years", 0.0))
-        curves[SITREE_CURVE] = GrowthCurve.from_csv(SITREE_CURVE_CSV, age_offset=offset)
-    primary = LOGISTIC_CURVE
-    if int(params.get("use_sitree_curve_as_primary", 0)) and SITREE_CURVE in curves:
-        primary = SITREE_CURVE
-    return curves, primary
+    for path in sorted(SITREE_DIR.glob("growth_curve_*.csv")):
+        name = curve_name_from_header(path) or path.stem.replace("growth_curve_", "").replace("_", " ")
+        offset = float(params.get("sitree_stand_age_at_start_years", 0.0)) if name == SITREE_CURVE else 0.0
+        curves[name] = GrowthCurve.from_csv(path, age_offset=offset)
+    wanted = str(params.get("primary_growth_curve", LOGISTIC_CURVE)).strip()
+    if wanted not in curves:
+        print(f"warning: primary_growth_curve '{wanted}' is not available; using '{LOGISTIC_CURVE}'", file=sys.stderr)
+        wanted = LOGISTIC_CURVE
+    return curves, wanted
 
 
 def run(write: bool = True) -> pd.DataFrame:
@@ -284,13 +310,12 @@ def run(write: bool = True) -> pd.DataFrame:
     curve = curves_by_name[primary_name]
     others = {n: c for n, c in curves_by_name.items() if n != primary_name}
     offset = float(params.get("sitree_stand_age_at_start_years", 0.0))
-    sitree_note = (
-        f"{SITREE_CURVE_CSV.relative_to(ROOT).as_posix()} with its ages shifted by {offset:g} years, the example "
-        f"stand's age at the simulation start (parameters.csv)"
-        if SITREE_CURVE in curves_by_name else "no SiTree export present (run models/sitree/simulate_stand.R)"
-    )
-    curve_note = f"primary curve '{primary_name}'" + (
-        f" (the SiTree export is {sitree_note})" if primary_name == LOGISTIC_CURVE else f" = {sitree_note}"
+    curve_note = (
+        f"primary curve '{primary_name}' (parameters.csv primary_growth_curve); also run, as scenarios "
+        f"'growth curve: <name>': {', '.join(repr(n) for n in others) or 'none'}. SiTree exports are read from "
+        f"models/sitree/growth_curve_*.csv by their curve_name header"
+        + (f"; the example stand's ages are shifted by {offset:g} years, its age at the simulation start"
+           if SITREE_CURVE in curves_by_name else "")
     )
     p_s, p_e, price_note = reference_prices(params)
     p_k = carbon_price_nok(params)
@@ -383,9 +408,11 @@ def run(write: bool = True) -> pd.DataFrame:
             "curve (250 years) the NPV was still rising and the model says never harvest within the horizon - a "
             "statement about its assumptions (constant prices, carbon valued forever), not a rotation age; at the "
             "first searched age (20 years, or where the curve starts) the stand was already past its best age.",
-            "The SiTree curve's absolute volumes lie outside the calibration range of its increment and mortality "
-            "functions (basal area to ~280 m2/ha; see the export's header): it is compared for its shape, and its "
-            "NPV levels are not comparable with the calibrated curve's.",
+            "The 'sitree example stand' curve's absolute volumes lie outside the calibration range of its increment and "
+            "mortality functions (basal area to ~280 m2/ha; see the export's header): it is compared for its shape, and "
+            "its NPV levels are not comparable with the other curves'. The 'ssb-anchored spruce stand SI 11/14/17' "
+            "curves are planted stands at a realistic density validated against SSB's landscape means (models/sitree/"
+            "ssb_validation.csv).",
             f"npv_positive = 0 means the NPV at the optimum is negative: planting does not pay at these prices and the "
             f"age is the argmax of a loss. The Faustmann rows need a timber price above about {break_even:.0f} NOK/m3 "
             f"to break even on this curve (planting {base['k']:.0f} NOK/ha; {p_s:.0f} NOK/m3 used).",
@@ -412,9 +439,9 @@ def run(write: bool = True) -> pd.DataFrame:
         # The primary curve, as run, for the app and for the reader (always rewritten,
         # so the committed file cannot drift from the parameters that define it).
         curve.to_csv(GROWTH_CURVE_CSV, (
-            f"primary growth curve '{primary_name}' written by models/rotation/rotation.py from parameters.csv; "
-            "the SiTree export lives in models/sitree/growth_curve_sitree.csv and is compared in "
-            "data/processed/rotation_results.csv under the scenario 'growth curve: sitree example stand'"
+            f"primary growth curve '{primary_name}' written by models/rotation/rotation.py (parameters.csv "
+            "primary_growth_curve); the SiTree exports live in models/sitree/growth_curve_*.csv and every other "
+            "curve is compared in data/processed/rotation_results.csv under the scenario 'growth curve: <name>'"
         ))
     return results
 

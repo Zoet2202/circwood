@@ -349,15 +349,27 @@ def _stock_projection() -> pd.DataFrame | None:
 
 
 @st.cache_data(show_spinner=False)
-def _sitree_curve() -> pd.DataFrame | None:
-    """The SiTree export with its ages shifted as the rotation model shifts them, or None."""
-    path = config.ROOT_DIR / "models" / "sitree" / "growth_curve_sitree.csv"
-    curve = _read_commented(path)
-    if curve is None:
-        return None
-    params = pd.read_csv(config.ROOT_DIR / "models" / "rotation" / "parameters.csv").set_index("parameter")["value"]
+def _comparison_curves() -> list[tuple[str, pd.DataFrame, float]]:
+    """Every SiTree export except the primary curve: (name, frame on stand ages, plotting scale)."""
+    root = config.ROOT_DIR
+    params = pd.read_csv(root / "models" / "rotation" / "parameters.csv").set_index("parameter")["value"]
+    primary = str(params.get("primary_growth_curve", "calibrated logistic")).strip()
     offset = float(params.get("sitree_stand_age_at_start_years", 0.0))
-    return curve.assign(age_years=curve["age_years"] + offset)
+    out: list[tuple[str, pd.DataFrame, float]] = []
+    for path in sorted((root / "models" / "sitree").glob("growth_curve_*.csv")):
+        head = [ln for ln in path.read_text(encoding="utf-8").splitlines()[:12] if ln.lower().startswith("# curve_name:")]
+        name = head[0].split(":", 1)[1].strip() if head else path.stem
+        if name == primary:
+            continue
+        frame = pd.read_csv(path, comment="#")
+        scale = 1.0
+        if name == "sitree example stand":
+            # The thesis's example stand: ages from the simulation start, and volumes
+            # outside its growth functions' range — shifted and drawn at a fifth.
+            frame = frame.assign(age_years=frame["age_years"] + offset)
+            scale = 0.2
+        out.append((name, frame, scale))
+    return out
 
 
 @st.cache_data(show_spinner=False)
@@ -410,7 +422,7 @@ def _projection_chart(proj: pd.DataFrame, column: str, title: str) -> go.Figure:
 
 
 def _growth_chart(curve: pd.DataFrame, marks: dict[str, int],
-                  comparison: pd.DataFrame | None = None) -> go.Figure:
+                  comparisons: list[tuple[str, pd.DataFrame, float]] | None = None) -> go.Figure:
     fig = go.Figure()
     fig.add_scatter(x=curve["age_years"], y=curve["volume_m3_ha"], mode="lines", name="living volume",
                     line=dict(color=SPRUCE, width=2.4),
@@ -419,12 +431,12 @@ def _growth_chart(curve: pd.DataFrame, marks: dict[str, int],
         fig.add_scatter(x=curve["age_years"], y=curve["dead_volume_m3_ha"], mode="lines",
                         name="dead-biomass pool", line=dict(color="#9aa19c", width=1.8, dash="dot"),
                         hovertemplate="age %{x}: %{y:.0f} m³/ha<extra></extra>")
-    if comparison is not None:
-        full = (comparison["volume_m3_ha_full"] if "volume_m3_ha_full" in comparison.columns
-                else comparison["volume_m3_ha"])
-        fig.add_scatter(x=comparison["age_years"], y=comparison["volume_m3_ha"], mode="lines",
-                        name="SiTree example stand (living volume, drawn at 1/5)",
-                        line=dict(color="#b07a3b", width=1.6, dash="dash"), customdata=full,
+    palette = ["#b07a3b", "#5b7fa6", "#8a6fae", "#c45a5a"]
+    for i, (name, frame, scale) in enumerate(comparisons or []):
+        label = name + (" (drawn at 1/5)" if scale != 1.0 else "")
+        fig.add_scatter(x=frame["age_years"], y=frame["volume_m3_ha"] * scale, mode="lines", name=label,
+                        line=dict(color=palette[i % len(palette)], width=1.6, dash="dash"),
+                        customdata=frame["volume_m3_ha"],
                         hovertemplate="age %{x}: %{customdata:.0f} m³/ha simulated<extra></extra>")
     for label, age in marks.items():
         fig.add_vline(x=age, line=dict(color="#cfd6cb", width=1, dash="dash"),
@@ -1318,21 +1330,15 @@ def main() -> None:
                              "CRC": int(emp.get("crc_owner", 0)) or 0}
                     marks = {k: v for k, v in marks.items() if v}
                 st.markdown("##### The growth curve the models run on")
-                sitree = _sitree_curve()
-                comparison = None
-                if sitree is not None:
-                    # Drawn at a fifth of its value so the two shapes share one axis: the simulated
-                    # stand's absolute volumes are outside its growth functions' calibration range.
-                    comparison = pd.DataFrame({"age_years": sitree["age_years"],
-                                               "volume_m3_ha": sitree["volume_m3_ha"] / 5,
-                                               "volume_m3_ha_full": sitree["volume_m3_ha"]})
-                st.plotly_chart(_growth_chart(curve, marks, comparison), width="stretch")
-                if sitree is not None:
+                comparisons = _comparison_curves()
+                st.plotly_chart(_growth_chart(curve, marks, comparisons), width="stretch")
+                if comparisons:
                     st.caption(
-                        "Dashed: the SiTree simulation of the package's example stand (models/sitree), ages shifted "
-                        "by the stand's age at the start and drawn at a fifth of its value. Its basal area reaches "
-                        "about 280 m²/ha — outside the growth functions' calibration range — so only its shape is "
-                        "compared; the models' results on it are the 'growth curve: sitree example stand' rows."
+                        "Solid: the primary curve (models/rotation/parameters.csv, primary_growth_curve). Dashed: the "
+                        "other SiTree exports in models/sitree — the SSB-anchored stands at true scale, the thesis's "
+                        "example stand shifted by its age at the start and drawn at a fifth (its basal area reaches "
+                        "about 280 m²/ha, outside the growth functions' range). Their results are the "
+                        "'growth curve: …' rows above."
                     )
 
         st.markdown("#### The national wood stock to 2100")

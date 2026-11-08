@@ -136,6 +136,16 @@ their licensing.
   credible; the calibrated logistic stays primary and the SiTree curve is
   reported beside it (`growth curve: sitree example stand`), switchable in
   `models/rotation/parameters.csv`.
+- **2026-11-08 · The SSB-anchored spruce stand is the primary growth curve.**
+  SSB has no tree lists, so the stand is representative: a 2 000 stems/ha
+  planting on site index 14 (the class holding 16 % of productive forestry
+  land; 11 and 17 exported as neighbours), validated against SSB's spruce
+  volume and increment per hectare through the development-class area shares.
+  It passes the realism check the example stand failed (basal area peaks at
+  76 m²/ha) and is anchored where the calibrated logistic was only fitted to
+  two thesis statements, so it carries the base scenarios and the stock
+  projection; `primary_growth_curve` reverts in one line. The headline
+  rotation ages move by 30–40 years and every result row names its curve.
 - **2026-11-08 · Partner countries come from SSB 08799, not FAOSTAT.** The
   owner asked for FAOSTAT trade flows to see where exported wood ends up.
   Checked live: FAOSTAT's REST API answers every endpoint with
@@ -417,12 +427,12 @@ owns:
   with the year analysed; decide on a source for processed-product prices if
   the product stages are to be valued; check licensing before any member price
   data enters (`docs/DATA_CONFIDENTIALITY.md`).
-- **Growth:** done 2026-11-08 — `models/sitree/simulate_stand.R` ran with
-  sitree 0.1.15; the export is committed and compared in
-  `rotation_results.csv` (decision log). What would carry weight is a
-  *realistic* stand: the example stand's density is outside the growth
-  functions' range, so a stand from the NFI plots or a thinned planting is
-  the next step.
+- **Growth:** done 2026-11-08 — both SiTree scripts ran (sitree 0.1.15): the
+  thesis's example stand as a comparison and the SSB-anchored spruce stand
+  (SI 14, neighbours 11 and 17) as the primary curve, validated against SSB's
+  landscape means. Its planting density and start ages are assumptions to
+  source; a regional or site-class version needs the stands' real age
+  structure, which SSB does not publish.
 - **Scaling:** the stock projection's class residences and weights are
   indicative national averages; a regional or site-class version needs the
   NFI's joint distribution, which SSB does not publish.
@@ -439,9 +449,9 @@ owns:
    none until then).
 3. Mint the Zenodo DOI; cite it in README and CITATION.cff.
 4. Refine `config/coefficient_ranges.csv` and `config/prices.csv` with sourced
-   ranges and prices; if the SiTree comparison is to carry weight, simulate a
-   stand at a realistic density (the example stand's is outside the growth
-   functions' range).
+   ranges and prices; replace the SSB-anchored stand's two assumptions (2 000
+   stems/ha, the start ages) with sourced figures before the rotation results
+   are quoted.
 5. Decide on the public-site exposure of the model results, and whether the
    paper's authors want the corrected social-model figure (107, not 125).
 6. Pick the drift thresholds from `refresh_history.jsonl` after a few cycles.

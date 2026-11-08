@@ -119,5 +119,7 @@ coefficient behind it and the provenance tag the rows carry.
 | `data/raw/treindustrien_production_data.csv` | hand-maintained from the Treindustrien annual report | — |
 | `data/raw/harvest_by_fylke.csv`, `exports_by_partner.csv`, `prices_ssb.csv` | rewritten by a fresh run from SSB 03795 (counties), 08799, 07413 + 08360 | — |
 | `models/rotation/growth_curve.csv` | `py -3 -m models.rotation.rotation` (the primary growth curve as run) | `read_csv(path, comment="#")` |
-| `models/sitree/growth_curve_sitree.csv` | `Rscript models/sitree/simulate_stand.R` (sitree 0.1.15; committed) | `read_csv(path, comment="#")` |
+| `models/sitree/growth_curve_sitree.csv` | `Rscript models/sitree/simulate_stand.R` (sitree 0.1.15; the thesis's example stand, a comparison) | `read_csv(path, comment="#")` |
+| `models/sitree/growth_curve_ssb_si11.csv`, `growth_curve_ssb_si14.csv`, `growth_curve_ssb_si17.csv` | `Rscript models/sitree/simulate_ssb_stand.R` (SSB-anchored spruce stands; SI 14 is the primary growth curve) | `read_csv(path, comment="#")` |
+| `models/sitree/ssb_validation.csv` | the same script: the curves weighted by SSB's development-class areas against SSB's spruce volume and increment per ha | `read_csv(path, comment="#")` |
 | `config/carbon_densities.csv`, `carbon_nodes.csv`, `hwp_half_lives.csv`, `coefficient_ranges.csv`, `prices.csv`, `nodes.json`, `destination_labels.csv` | researcher-editable configuration | — |

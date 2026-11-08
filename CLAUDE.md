@@ -152,7 +152,7 @@ ruff check src tests app models && mypy
 | Forest layer | `circwood-forest` (needs `ssb` extras + network) |
 | Economic layer | `circwood-economics` (needs `ssb` extras + network) |
 | β, sensitivity, stock | `python -c "from circwood.analysis.sensitivity import export_sensitivity; export_sensitivity()"`, then `python -c "from circwood.analysis.hwp import export_beta_series; export_beta_series()"`, then `python -c "from circwood.carbon.stock import export_hwp_stock; export_hwp_stock()"` (the refresh does all three) |
-| The models | `python -m models.rotation.rotation`, `python -m models.forest_stock.projection`; `Rscript models/sitree/simulate_stand.R` regenerates the committed SiTree export (optional; R ≥ 4.1 + `sitree`) |
+| The models | `python -m models.rotation.rotation`, `python -m models.forest_stock.projection`; `Rscript models/sitree/simulate_ssb_stand.R` and `Rscript models/sitree/simulate_stand.R` regenerate the committed SiTree exports (optional; R ≥ 4.1 + `sitree`) |
 | Build the site bundle | `circwood-bundle` (then `python -m http.server -d site` to preview) |
 | Re-derive balanced | `python -c "from circwood.transform.assemble import regenerate_balanced; regenerate_balanced(write=True)"` |
 | Run the app | `streamlit run app/streamlit_app.py` |
@@ -242,8 +242,8 @@ up in `docs/REFRESH_POLICY.md`.
   one-line change after checking the Treindustrien file) and running
   `--accept-drift`: deliberate, reviewed acts.
 - Choosing price sources and their licensing (`config/prices.csv`), refining
-  `config/coefficient_ranges.csv`, simulating a SiTree stand at a realistic
-  density (the example stand's is outside the growth functions' range).
+  `config/coefficient_ranges.csv`, sourcing the SSB-anchored stand's planting
+  density and start ages (`models/sitree/simulate_ssb_stand.R`).
 
 ### Where to start
 

@@ -172,33 +172,66 @@ def test_sitree_export_is_well_formed_and_labelled():
     assert sit.age[0] == 40 and len(sit.age) == 251 and np.allclose(np.diff(sit.age), 1.0)
 
 
-def test_rotation_results_compare_the_two_growth_curves():
-    """Base and price scenarios run on the primary curve; the other curve appears once per model and beta."""
+SSB_STAND = "ssb-anchored spruce stand SI 14"
+
+
+def test_rotation_results_compare_every_growth_curve():
+    """Base and price scenarios run on the primary curve; every other curve appears once per model and beta."""
     committed = pd.read_csv(rotation.RESULTS_CSV, comment="#")
     assert "growth_curve" in committed.columns
     params = rotation.load_parameters()
     curves, primary = rotation.load_curves(params)
-    assert set(curves) == {rotation.LOGISTIC_CURVE, rotation.SITREE_CURVE}
-    assert primary == rotation.LOGISTIC_CURVE                     # parameters.csv: use_sitree_curve_as_primary = 0
+    assert {rotation.LOGISTIC_CURVE, rotation.SITREE_CURVE, SSB_STAND,
+            "ssb-anchored spruce stand SI 11", "ssb-anchored spruce stand SI 17"} <= set(curves)
+    assert primary == str(params["primary_growth_curve"]) == SSB_STAND      # decision 27
     base = committed[committed["scenario"] == "base"]
     assert (base["growth_curve"] == primary).all()
-    other = committed[committed["scenario"] == f"growth curve: {rotation.SITREE_CURVE}"]
-    assert (other["growth_curve"] == rotation.SITREE_CURVE).all()
-    assert len(other) == len(base) == len(rotation.MODELS) * base["beta_source"].nunique()
-    # On the simulated curve carbon lengthens the rotation as on the calibrated one.
-    sit = other[other["beta_source"] == "empirical spruce"].set_index("model")["t_opt_years"]
-    assert sit["faustmann"] < sit["van_kooten"] < sit["crc_owner"]
-    assert sit["faustmann"] <= sit["social"] < sit["crc_owner"]
+    for name in curves:
+        if name == primary:
+            continue
+        other = committed[committed["scenario"] == f"growth curve: {name}"]
+        assert (other["growth_curve"] == name).all(), name
+        assert len(other) == len(base) == len(rotation.MODELS) * base["beta_source"].nunique(), name
+    # On every curve carbon lengthens the rotation and the social optimum sits between Faustmann and CRC.
+    for name in curves:
+        rows = base if name == primary else committed[committed["scenario"] == f"growth curve: {name}"]
+        t = rows[rows["beta_source"] == "empirical spruce"].set_index("model")["t_opt_years"]
+        assert t["faustmann"] < t["van_kooten"] < t["crc_owner"], name
+        assert t["faustmann"] <= t["social"] < t["crc_owner"], name
 
 
 def test_committed_primary_growth_curve_equals_the_parameters(params):
     """models/rotation/growth_curve.csv is the primary curve as run, so it cannot drift from parameters.csv."""
+    curves, primary = rotation.load_curves(params)
     committed = rotation.GrowthCurve.from_csv(rotation.GROWTH_CURVE_CSV)
-    fresh = rotation.GrowthCurve.logistic(params)
+    fresh = curves[primary]
+    assert np.allclose(committed.age, fresh.age)
     assert np.allclose(committed.volume, fresh.volume, atol=1e-3)
     assert np.allclose(committed.dead, fresh.dead, atol=1e-3)
     first = rotation.GROWTH_CURVE_CSV.read_text(encoding="utf-8").splitlines()[0]
-    assert "primary growth curve 'calibrated logistic'" in first
+    assert f"primary growth curve '{primary}'" in first
+
+
+def test_ssb_anchored_stands_are_exported_and_validated():
+    """The three SSB-anchored exports: provenance, true stand ages, realism, and the validation table."""
+    for si, start in ((11, 25), (14, 20), (17, 15)):
+        path = rotation.SITREE_DIR / f"growth_curve_ssb_si{si}.csv"
+        assert path.exists(), path
+        header = [ln for ln in path.read_text(encoding="utf-8").splitlines() if ln.startswith("#")]
+        assert rotation.curve_name_from_header(path) == f"ssb-anchored spruce stand SI {si}"
+        assert any("Validation against SSB" in ln for ln in header)
+        assert any("Realism check" in ln for ln in header)
+        raw = pd.read_csv(path, comment="#")
+        assert raw["age_years"].tolist() == list(range(start, 251))
+        assert (raw["volume_m3_ha"] >= 0).all() and raw["dead_volume_m3_ha"].is_monotonic_increasing
+        assert raw["basal_area_m2_ha"].max() < 100                      # a dense unthinned stand, not the example stand's 280
+        assert 250 < raw.loc[raw["age_years"] == 100, "volume_m3_ha"].iloc[0] < 700
+    val = pd.read_csv(rotation.SITREE_DIR / "ssb_validation.csv", comment="#")
+    assert val["si"].tolist() == [11, 14, 17]
+    assert (val["implied_volume_m3_ha"] > 0).all() and (val["ssb_volume_high"] > val["ssb_volume_low"]).all()
+    # The implied gross increment lands in or near SSB's band (an unmanaged stand against a managed landscape).
+    assert ((val["implied_gross_increment_m3_ha_yr"] > 0.5 * val["ssb_increment_low"])
+            & (val["implied_gross_increment_m3_ha_yr"] < 1.5 * val["ssb_increment_high"])).all()
 
 
 def test_an_optimum_on_the_grid_edge_is_not_interior(params):
@@ -207,6 +240,7 @@ def test_an_optimum_on_the_grid_edge_is_not_interior(params):
     curves = rotation.npv_curves(sit, _prices(params))
     t_f, _ = rotation.optimum(curves, "faustmann")
     assert t_f == rotation.MIN_ROTATION_AGE                               # pinned to the edge
+    assert rotation.curve_name_from_header(rotation.SITREE_CURVE_CSV) == rotation.SITREE_CURVE
     committed = pd.read_csv(rotation.RESULTS_CSV, comment="#")
     edge = committed[(committed["t_opt_years"] <= rotation.MIN_ROTATION_AGE) |
                      (committed["t_opt_years"] >= params["max_age_years"])]

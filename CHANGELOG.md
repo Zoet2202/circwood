@@ -221,8 +221,8 @@ gives per-tree m³ under and over bark) and run: the call the package documents
 for that stand, 50 five-year periods without management, ten replicates
 averaged, written to `models/sitree/growth_curve_sitree.csv` with its
 provenance and a realism check in the header. The rotation model now runs on
-both curves: the calibrated logistic stays primary
-(`models/rotation/parameters.csv`, `use_sitree_curve_as_primary = 0`) and the
+both curves: the calibrated logistic stayed primary at this point (a switch
+since replaced by `primary_growth_curve`, next section) and the
 SiTree curve, its ages shifted by the stand's age at the start (40 years,
 `sitree_stand_age_at_start_years`), appears as the scenario `growth curve:
 sitree example stand`, with a `growth_curve` column on every row and
@@ -238,6 +238,33 @@ the primary curve (fenced); the Streamlit Models tab overlays the SiTree
 curve; `tests/test_models.py` fences the export, the comparison rows and the
 edge flags. METHODS §9 also notes where the CRC owner model stands against the
 EU certification framework for carbon removals (Regulation (EU) 2024/3012).
+
+### SSB-anchored stand — the primary growth curve
+
+Asked for a real stand from SSB data: SSB publishes no tree lists (the NFI's
+single-tree data are NIBIO's, and the hundred-plot sample that ships with
+sitree holds six spruce-dominated plots of scattered ages), so
+`models/sitree/simulate_ssb_stand.R` builds a *representative* stand anchored
+in the SSB tables the pipeline already carries: a 2 000 stems/ha spruce
+planting (regeneration norms — an assumption) on site index H40 14, the class
+holding 16 % of productive forestry land, with 11 and 17 as exported
+neighbours (SSB 14594 does not split site class by species), grown 230 years
+without management and validated by weighting the curve with SSB's
+development-class area shares into an implied landscape mean (298 m³/ha and
+6.2 m³/ha/yr gross increment for SI 14) against SSB's spruce volume and
+increment per hectare of spruce forest (126–199 m³/ha, 3.8–6.0 m³/ha/yr;
+14589, 14590, 14593): increment at the top of the band, volume above it, as an
+unmanaged stand against a managed landscape should
+(`models/sitree/ssb_validation.csv`). Realism: 425 m³/ha and 1 970 stems/ha at
+age 100, basal area peaking at 76 m²/ha. It is now the primary curve
+(`models/rotation/parameters.csv`, `primary_growth_curve`; one line reverts to
+`calibrated logistic`); the rotation model reads every
+`models/sitree/growth_curve_*.csv` by its `curve_name` header and runs the
+others as `growth curve: <name>` scenarios. The headline results move:
+Faustmann 49 years (was 91), van Kooten 104 (118; 89 with β = 0.55), CRC 131
+(124), social 89 (107), every NPV positive; the stock projection's Faustmann
+and CRC scenarios follow (2100: 1 146 and 1 345 Mm³ against 1 252 status quo).
+The shared R helpers live in `models/sitree/sitree_common.R`.
 
 ## 2026-11-08 — Streamlit app redesign (forestry & carbon theme)
 

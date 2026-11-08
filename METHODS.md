@@ -307,45 +307,71 @@ share not stored — on an annual growth curve, with β where the thesis put it,
 in `(1 − β)`. The carbon price grows at the discount rate (eq. 19) in both
 carbon-rewarding models, uptake and release alike; van Kooten keeps the
 constant price of van Kooten (1995); the `constant carbon price` scenario
-holds it fixed everywhere. The thesis's
-SiTree numbers do not survive in its text, so the primary curve is a logistic
-living-volume curve calibrated to its two stated facts (Faustmann optimum
-near 90 years at 3 %; plateau near 135 years). The thesis's SiTree set-up was
-re-run as well (`models/sitree/simulate_stand.R`; sitree 0.1.15 on R 4.6.2,
-2026-11-08): the package's example stand `stand.west` (651 Norway spruce on
-1 019 m², site index 14, Bergen), the call the package documents for it
-(`dbhi.BN2009` with Korf height increment, `mort.B2007`, `recr.BBG2008`), 50
-five-year periods without management, stem volume under bark from
-`volume.norway`, the mean of ten replicates, written to
-`models/sitree/growth_curve_sitree.csv`. Two things keep it a comparison
-rather than the primary curve. The stand is already stocked at the start
-(187 m³/ha, 6 400 stems/ha, dominant height 13–14 m: about 40 years old on a
-site index 14 height curve), so its ages are shifted by 40 years
-(`sitree_stand_age_at_start_years`; the thesis counted the start as planting).
-And the increment and mortality functions, extrapolated to that density, carry
-the basal area to 186 m²/ha at 50 simulated years and 276 at 150 (a real
-spruce stand rarely exceeds 70), so the absolute volumes — a peak of
-2 426 m³/ha at 155 simulated years — are not credible; the shape is. On that
-shape, with the empirical β: Faustmann 63 years (single rotation 68), van
-Kooten 130 (105 with β = 0.55), CRC owner 155, social 119 (141 with β = 0.55):
-the same ordering as on the calibrated curve and a larger carbon effect,
-because the simulated stand keeps adding volume to about 195 years of stand
-age. The rows are in `rotation_results.csv` under the scenario `growth curve:
-sitree example stand`; `use_sitree_curve_as_primary` swaps the roles. Prices:
+holds it fixed everywhere. Three growth curves are available, every result row
+names its curve (`growth_curve`), and `primary_growth_curve` in
+`models/rotation/parameters.csv` says which one carries the base and price
+scenarios and feeds the stock projection:
+
+* *The SSB-anchored spruce stand* (the primary curve;
+  `models/sitree/simulate_ssb_stand.R`, sitree 0.1.15 on R 4.6.2, 2026-11-08).
+  SSB publishes no tree lists, so the stand is representative rather than
+  observed: a pure Norway-spruce planting of 2 000 stems/ha (within the
+  Norwegian regeneration norms of 180–250 plants per decare — an assumption,
+  not SSB) on site index H40 14, started at total age 20 as a uniform young
+  stand (dbh 5–8 cm, 4–5.5 m), grown 230 years without management with the
+  functions the package documents (`dbhi.BN2009` with Korf height increment,
+  `mort.B2007`, `recr.BBG2008`), stem volume under bark from `volume.norway`,
+  ten replicates averaged. SSB anchors two things. The site index: H40 14
+  holds 16 % of productive forestry land and, with 11 and 17 (22 % and 11 %),
+  the band where most spruce stands (SSB 14594, which does not split site
+  class by species), so SI 14 is the representative stand and SI 11 and 17 its
+  exported neighbours. The validation: weighting each curve by SSB's
+  development-class area shares (I+II 17 %, III 19 %, IV 20 %, V 44 %) gives an
+  implied landscape mean — 298 m³/ha standing and 6.2 m³/ha/yr gross increment
+  for SI 14 — against SSB's spruce volume and increment per hectare of spruce
+  forest, 126–199 m³/ha and 3.8–6.0 m³/ha/yr (SSB 14589, 14590, 14593; the low
+  end spreads the spruce volume over conifer-dominated and mixed forest too).
+  The increment lands at the top of the band and the volume above it, as an
+  unmanaged stand against a managed landscape should
+  (`models/sitree/ssb_validation.csv`). Realism: 425 m³/ha and 1 970 stems/ha
+  at age 100, a basal-area peak of 76 m²/ha, living volume peaking at
+  572 m³/ha at 180 years — a dense unthinned stand within the growth
+  functions' range.
+* *The calibrated logistic curve* (`GrowthCurve.logistic`): a living-volume
+  curve fitted to the thesis's two stated facts (Faustmann optimum near
+  90 years at 3 %; plateau near 135 years), because the thesis's own SiTree
+  numbers do not survive in its text. It was the primary curve until the
+  SSB-anchored stand existed and remains the thesis-comparable one.
+* *The thesis's example stand* (`models/sitree/simulate_stand.R`): the
+  package's `stand.west` (651 Norway spruce on 1 019 m², site index 14,
+  Bergen), run to the thesis's horizon with the same functions. Two things keep
+  it a comparison. The stand is already stocked at the start (187 m³/ha,
+  6 400 stems/ha, dominant height 13–14 m: about 40 years old on a site index
+  14 height curve), so its ages are shifted by 40 years
+  (`sitree_stand_age_at_start_years`; the thesis counted the start as
+  planting). And at that density the increment and mortality functions are
+  extrapolated far out of range (basal area 186 m²/ha at 50 simulated years,
+  276 at 150; a real spruce stand rarely exceeds 70), so its absolute volumes
+  — a peak of 2 426 m³/ha — are not credible; only its shape is.
+
+Prices:
 SSB 07413 spruce sawlogs and 08360 Elspot for 2023 (647 NOK/m³, 0.685
-NOK/kWh), carbon 1 081 NOK/t CO₂, i = 3 %. Results: Faustmann 91 years; van
-Kooten 108 years with the thesis's β = 0.55 and **118 years with the
-empirical spruce β = 0.259** (a lower β makes harvest costlier in carbon, so
-later; 117–120 over its envelope); CRC owner 124; social 107 (106–109 over
-the β envelope; 106 with a constant carbon price, which also moves CRC to
-103). The thesis reported 90 / 125 / 120 on its simulated stand and found the
-social optimum pulled back towards Faustmann, as here. The Faustmann NPV is
-negative at the 2023 sawlog price (break-even about 663 NOK/m³ on this curve;
-`npv_positive` flags it), so its 91 years is the argmax of a loss, not a
-recommendation to plant. At 1.5× the carbon price or 0.75× the timber price
-the van Kooten NPV is still rising at 250 years (`interior_optimum = 0`): the
-model then says never harvest, a statement about constant prices valued
-forever, not a rotation age.
+NOK/kWh), carbon 1 081 NOK/t CO₂, i = 3 %. Results on the SSB-anchored stand:
+Faustmann 49 years (single rotation 54); van Kooten 89 years with the thesis's
+β = 0.55 and **104 years with the empirical spruce β = 0.259** (a lower β
+makes harvest costlier in carbon, so later; 101–115 over its envelope); CRC
+owner 131; social 89 (116 with β = 0.55; a constant carbon price gives CRC 85
+and social 90). Every NPV is positive at the 2023 prices (`npv_positive`),
+Faustmann's at 15.7 kNOK/ha. On the calibrated logistic curve the same models
+give 91 / 118 (108 with β = 0.55) / 124 / 107 and the Faustmann NPV is
+negative (break-even about 663 NOK/m³); on the thesis's example stand
+63 / 130 / 155 / 119. The thesis reported 90 / 125 / 120 and found the social
+optimum pulled back towards Faustmann, as every curve here does. The ordering
+is the same on every curve; the levels move with the growth curve by 30–40
+years, which is why every row names its curve. At 1.5× the carbon price the
+van Kooten optimum reaches 216 years and at 2× the horizon
+(`interior_optimum = 0`): the model then says never harvest, a statement about
+constant prices valued forever, not a rotation age.
 
 The CRC owner model is a stylised carbon-farming unit. Under the EU's
 certification framework for carbon removals and carbon farming (Regulation

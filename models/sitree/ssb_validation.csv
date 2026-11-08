@@ -1,0 +1,7 @@
+# SSB-anchored SiTree stands against Statistics Norway's landscape means (forest_resource.csv, interval 2021-2025); written by models/sitree/simulate_ssb_stand.R on 2026-11-08.
+# implied_*: the simulated curve weighted by SSB's development-class area shares (class windows from sitree::calculate.development.class, class V capped at MATURE_MAX_AGE); ssb_*: spruce standing volume (14589) and gross increment (14590) per ha of spruce forest (high) or of spruce plus conifer-dominated and mixed forest (14593; low).
+# The representative stand is SI 14; 11 and 17 are its neighbours. Stems per ha and start ages are assumptions, not SSB figures (see the script).
+"si","start_age_years","stems_per_ha_start","class_windows_years","implied_volume_m3_ha","ssb_volume_low","ssb_volume_high","implied_gross_increment_m3_ha_yr","ssb_increment_low","ssb_increment_high","peak_volume_m3_ha","peak_age_years","volume_at_100_m3_ha","max_basal_area_m2_ha","stems_per_ha_at_100","site_class_share"
+11,25,2000,"1-2:25-34 3:35-69 4:70-99 5:100-140",233.2,125.7,199.4,4.68,3.81,6.05,523.3,245,301.7,69.1,2122,0.22
+14,20,2000,"1-2:20-29 3:30-59 4:60-89 5:90-140",297.6,125.7,199.4,6.23,3.81,6.05,572.3,180,424.9,76.1,1966,0.16
+17,15,2000,"1-2:15-24 3:25-54 4:55-79 5:80-140",359.1,125.7,199.4,7.83,3.81,6.05,617,170,539.3,82.9,1716,0.11
