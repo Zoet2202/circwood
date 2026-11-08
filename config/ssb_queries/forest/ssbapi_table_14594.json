@@ -1,0 +1,39 @@
+{
+  "_comment": "SSB 14594 Landsskogtakseringen: share of productive forestry land by development class (HogstI-V) and site class H40, per cent, by NFI region, rolling five-year intervals. Codes, not labels: the Norwegian label of HogstIV reads 'Hogstklasse VI'.",
+  "url": "https://data.ssb.no/api/pxwebapi/v2/tables/14594/data",
+  "params": {
+    "lang": "no",
+    "outputFormat": "json-stat2"
+  },
+  "payload": {
+    "selection": [
+      {
+        "variableCode": "Region",
+        "valueCodes": [
+          "*"
+        ]
+      },
+      {
+        "variableCode": "ContentsCode",
+        "valueCodes": [
+          "*"
+        ]
+      },
+      {
+        "variableCode": "Tid",
+        "valueCodes": [
+          "*"
+        ]
+      }
+    ],
+    "placement": {
+      "heading": [
+        "ContentsCode"
+      ],
+      "stub": [
+        "Region",
+        "Tid"
+      ]
+    }
+  }
+}

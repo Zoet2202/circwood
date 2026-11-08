@@ -1,194 +1,187 @@
-# Circwood WP4 — Norwegian Wood-Flow Sankey
+# Circwood WP4 — Norwegian wood material- and carbon-flow analysis
 
-A clean, reproducible pipeline and interactive web app for the Circwood WP4
-wood-flow material-flow analysis: from Norwegian standing forest through
-sawmills, pulpmills, board mills and downstream use, visualised as a Sankey
-diagram.
+A reproducible pipeline, dataset and interactive site for the Circwood WP4
+material-flow analysis of Norwegian wood: from roundwood removals through
+sawmills, pulp mills and board mills to use, energy and export, 2012–2024, in
+cubic metres and in carbon. It is the code and data behind Modaresi & Landaas,
+*Wood extraction and utilisation in Norway 2012–2022: a national material and
+carbon flow analysis*, Wood Material Science & Engineering (2026), Norwegian
+Institute of Wood Technology (NTI).
 
-Data sources: **SSB** (Statistics Norway) tables and the **Treindustrien**
-annual report. The default build runs entirely off cached/processed data — no
-network access required. Live SSB API ingestion works and is hardened for
-unattended runs; what is still manual is *triggering* the refresh (see
-[ROADMAP.md](ROADMAP.md), Phase B).
+The dataset has been corrected since the paper's figures were prepared
+(CHANGELOG 2026-11-08, Phases K and G: the End-of-Life unit, the firewood
+residual, carbon conservation and β on the carbon basis), so this repository
+reproduces the corrected numbers; the commit before that date (`f2006a7`)
+reproduces the earlier ones. Which published figures are affected is for the
+authors to state.
+
+Data: **Statistics Norway (SSB)** tables (removals, trade, trade by partner
+country, waste, firewood, the National Forest Inventory, prices) and the
+**Treindustrien** annual report. The default build runs entirely off the
+committed data — no network access required. A gated, scheduled refresh
+regenerates everything from the SSB API and opens a pull request.
+
+## What is in the box
+
+| | File | What |
+|---|---|---|
+| The dataset | `data/processed/sankey_data.csv` | 3,723 flow rows, 31 nodes, 2012–2024, with region, species, assortment and destination dimensions |
+| Carbon | `data/processed/carbon_data.csv` | the same rows in kg C, with a low/high density envelope; carbon is conserved through every process node, exactly as volume is |
+| Provenance | `data/processed/manifest.json` | SSB revision date of every table, query hashes, input hashes, output hashes |
+| β | `data/processed/beta_series.csv` | the empirical harvested-wood-product fraction by year and species, with a sensitivity envelope |
+| Sensitivity | `data/processed/beta_sensitivity.csv` | β under each fixed coefficient at its low and high bound |
+| HWP stock | `data/processed/hwp_stock.csv` | carbon stored in products, first-order decay with IPCC half-lives |
+| Forest | `data/processed/forest_resource.csv` | SSB forest inventory: area, standing volume, increment, development classes, by region |
+| Value | `data/processed/economic_value.csv` | roundwood, energy and carbon valued at SSB prices and a labelled carbon price |
+| Models | `data/processed/rotation_results.csv`, `forest_stock_projection.csv` | rotation economics with the empirical β; the national stock to 2100 under three harvests (`models/`) |
+| The site | `site/` | the public Sankey, Plotly.js, no build step, deployed to GitHub Pages |
+
+Every number is traceable: [METHODS.md](METHODS.md) states each assumption,
+coefficient and derivation; [DATA_DICTIONARY.md](DATA_DICTIONARY.md) lists
+every node, edge, column and file; [SANKEY_GUIDE.md](SANKEY_GUIDE.md) walks
+through each source table and the edges it produces.
 
 ## Project layout
 
 ```
-config/              # ssb_queries/*.json, nodes.json (Sankey node positions)
-data/
-  raw/               # source spreadsheets + cached SSB inputs
-  processed/         # generated: sankey_data.csv, carbon_data.csv, manifest.json
-src/circwood/
-  config.py          # all filesystem paths
-  constants.py       # all model coefficients (yields, splits, year window)
-  ingest/            # ssb.py (API), treindustrien.py, trade.py
-  transform/         # sawing.py, mills.py, firewood.py, inventory.py, assemble.py
-  viz/sankey.py      # Plotly figure builder (pure, no I/O)
-  pipeline.py        # build_sankey(use_cached_ssb=...)
-  manifest.py        # dataset provenance / "data as of"
-  diff.py            # vintage diff, the refresh gate
-  refresh.py         # the refresh loop (circwood-refresh)
-app/streamlit_app.py # the web app
-tests/               # pytest: locks in the sawing fix + cached-data sanity
+config/              SSB query files (flows, forest/, economic/), nodes.json,
+                     the editable model CSVs (carbon densities and nodes,
+                     half-lives, sensitivity ranges, prices)
+data/raw/            Treindustrien CSV, county harvest, partner exports, prices
+data/processed/      the committed artifact and every derived file
+src/circwood/        config, constants, ingest/, transform/, carbon/, analysis/,
+                     viz/, export/, pipeline, manifest, validate, reconcile,
+                     coverage, diff, refresh
+models/              separate models exchanging files (rotation, forest stock, SiTree)
+app/streamlit_app.py the internal exploration app
+site/                the public static site
+tests/               the fences and unit tests
+docs/                DATA_CONFIDENTIALITY.md, REFRESH_POLICY.md
 ```
 
 ## Setup
 
 ```bash
 pip install -e .          # core (cached pipeline + app)
-pip install -e .[dev]     # + pytest
+pip install -e .[dev]     # + pytest, ruff, mypy
 pip install -e .[ssb]     # + pyjstat/requests (live SSB fetch)
 ```
 
-Requires Python ≥ 3.10.
+R (≥ 4.1) with the `sitree` package is needed only to regenerate
+`models/sitree/growth_curve_sitree.csv`; the export is committed, so neither
+CI nor the Docker image needs R.
+
+Requires Python ≥ 3.10 (CI: 3.11 and 3.12). `requirements-lock.txt` pins the
+exact versions used for the published figures; the `Dockerfile` reproduces the
+test-suite and the site bundle offline from the committed dataset.
 
 ## Usage
 
-**Load / build the dataset**
+**Load the dataset**
 
 ```python
-from circwood import build_sankey
-df = build_sankey(use_cached_ssb=True)   # loads data/processed/sankey_data.csv
+from circwood import build_sankey, build_carbon
+df = build_sankey()          # data/processed/sankey_data.csv
+cdf = build_carbon()         # + carbon, carbon_low, carbon_high (kg C)
 ```
 
-CLI: `circwood-build` (or `python -m circwood.pipeline`). `--fresh` re-fetches
-from the SSB API and rewrites `sankey_data.csv` (needs the `ssb` extras +
-network); `--verbose` logs each table's vintage and any retries. A fresh run
-either produces a complete, validated dataset or raises — it never returns
-partial data unless you ask it to.
-
-The dataset covers **2012–2024**: the years every SSB source table covers
-(`constants.DATASET_MIN_YEAR/DATASET_MAX_YEAR`). Outside that intersection the
-rows are a partial picture rather than extra data — see the ROADMAP decision log.
-
-**Refresh from SSB**
+**Refresh from SSB** (needs the `ssb` extras and network)
 
 ```bash
-circwood-refresh                 # rebuild, gate, and report
-circwood-refresh --report r.md   # also write the markdown report
+circwood-refresh --report r.md        # rebuild, gate, report
+circwood-forest                       # the forest-inventory layer only
+circwood-economics                    # the price tables and the valuation only
 ```
 
-Runs ingest → rebuild → `manifest.json` → mass balance → reconciliation →
-**vintage diff** against the committed dataset → golden-fixture update. Any
-failed gate restores the previous `data/processed` outputs and exits non-zero,
-so a bad vintage never reaches a commit. `.github/workflows/refresh.yml` runs
-this monthly and opens a PR. To adopt a change the gate blocked, review it and
-re-run with `--accept-drift`.
+The refresh ingests every table, derives the year window every table covers,
+rebuilds the flows and the carbon, writes the manifest, checks mass balance
+(volume and carbon, in aggregate and per slice), reconciles to Treindustrien
+and the SSB 07410 control total, diffs the result against the committed
+dataset and attributes every move to an SSB revision or to this repository's
+own change, re-exports β, its sensitivity, the HWP stock, the forest and
+economic layers, and updates the golden fixture. Any failed gate restores the
+previous outputs and exits non-zero. `.github/workflows/refresh.yml` runs it
+monthly and opens a PR; a blocked refresh is adopted only by a human through
+the workflow's `accept_drift` input. The policy is in
+[docs/REFRESH_POLICY.md](docs/REFRESH_POLICY.md).
 
-**Run the web app**
-
-```bash
-streamlit run app/streamlit_app.py
-```
-
-Sidebar controls: **metric** (volume Mm³ or embodied carbon Mt C),
-annual-average vs single-year, year range, and a **node selector** (choose
-exactly which nodes to display — flows touching a hidden node are removed). A CSV
-download panel exports the current window.
-
-**Carbon overlay (species-accurate)**
+**The derived analyses**
 
 ```python
-from circwood import build_carbon
-df = build_carbon(write=True)   # adds a `carbon` column (kg C); writes carbon_data.csv
+from circwood.analysis.hwp import beta_series, export_beta_series
+from circwood.analysis.sensitivity import export_sensitivity, summary_table
+from circwood.carbon.stock import hwp_stock, export_hwp_stock
+from circwood.transform.forest import load_forest_resource, increment_vs_harvest
 ```
 
-Carbon mass per flow = `volume (m³) × Σ species_share × density(species, state)`.
-The model is **species-accurate downstream**: the spruce / pine / non-coniferous
-mix is tracked as wood flows through the mixing nodes (Sawmills, Pulpmills, …) to
-a fixed point, rather than collapsing everything to spruce. So, e.g., Sawmills
-output carbon reflects the actual spruce/pine split of the logs sawn that year.
-See [carbon/species_model.py](src/circwood/carbon/species_model.py).
+β is production-basis: the share of each year's *domestic* roundwood carbon
+that reaches long-lived products, traced through the balanced flows with
+proportional mixing on conserved carbon. Over 2012–2022 it averages 0.215
+(spruce 0.259, pine 0.242), against the 0.55 the rotation literature assumes
+(whose product-pool definition is unverified, METHODS §5).
+Its `ci_low`/`ci_high` are the root-sum-square of one-at-a-time coefficient
+deviations over `config/coefficient_ranges.csv`: an assumption envelope, not a
+confidence interval, and labelled as such.
 
-### Editing the carbon model (for researchers)
-
-All carbon assumptions live in two CSVs you can open and edit in Excel — no code
-changes needed:
-
-* **[config/carbon_densities.csv](config/carbon_densities.csv)** — carbon density
-  (kg C/m³) for each `(species, state)`.
-* **[config/carbon_nodes.csv](config/carbon_nodes.csv)** — one row per node:
-  * `state` — `raw` or `dry` (moisture state of wood leaving the node),
-  * `mix_mode` — `fixed` (use the given species shares; for pools and imports) or
-    `propagate` (compute the species mix from the node's inflows; for mills, use
-    phases, inventories),
-  * `spruce_share` / `pine_share` / `nonconif_share` — species fractions, used
-    only when `mix_mode = fixed`.
-
-Edit a value, re-run the app (or `build_carbon(write=True)`), and the carbon
-figures update. The app's "Species composition" panel shows the resulting mix
-per node.
-
-**Run the tests**
+**The models** (`models/`, separate from the package; see `models/README.md`)
 
 ```bash
-pytest
+py -3 -m models.rotation.rotation          # Faustmann / van Kooten / CRC / social, with the empirical β
+py -3 -m models.forest_stock.projection    # the national stock to 2100 under three harvests
+Rscript models/sitree/simulate_stand.R     # optional: regenerate the SiTree export (R >= 4.1 + sitree; committed)
 ```
 
-The suite is run in CI ([.github/workflows/ci.yml](.github/workflows/ci.yml)) on
-every push/PR across Python 3.11–3.12. It includes reconciliation checks
-([src/circwood/reconcile.py](src/circwood/reconcile.py)) that tie pipeline totals
-to the Treindustrien source CSV and the SSB 07410 control total.
-
-## The sawing-function fix
-
-`Sawing_function_diagnosis.docx` documents three compounding bugs in the old
-sawing calculation. All three are fixed in
-[src/circwood/transform/sawing.py](src/circwood/transform/sawing.py) and guarded
-by [tests/test_sawing.py](tests/test_sawing.py):
-
-1. **Year misalignment** — every per-year series is reindexed onto a shared year
-   index before arithmetic (no positional/integer-index alignment).
-2. **Coefficient base** — `CELLULOSE`/`SAWDUST`/`SCRAPS` are applied to the raw
-   log input, not a post-shrinkage "dry" volume.
-3. **Mass balance** — the sawn-timber residual to WPP is derived from a
-   mass-balanced `SAWN_YIELD`, with explicit handling of re-exported logs,
-   imports and stock changes.
-
-Result: **Sawmills → Pulpmills ≈ 26%** of sawmill log input (the expected chip
-yield), verified for the 2012–2022 window.
-
-### Mass balance
-
-The dataset conserves volume at every process node. Raw-log re-exports bypass the
-Sawmills node (routed from the species pools straight to Export, since they are
-never sawn), the sawn-side flows are mass-derived, and imported planed wood
-reaches WPP via its own edge. Over 2012–2022, Sawmills, Pulpmills, Boardmills,
-Planingmills, Impregnation and WPP all balance within ~1 %; use-phase
-(Long-term/Short-term USE) and inventory nodes are reservoirs by design. The
-checks live in [src/circwood/validate.py](src/circwood/validate.py) and
-[tests/test_balance.py](tests/test_balance.py); the app has a "Mass balance
-check" panel. To re-derive a balanced dataset offline from primary rows:
-`python -c "from circwood.transform.assemble import regenerate_balanced; regenerate_balanced(write=True)"`.
-
-## Deployment (web hosting)
-
-The app runs off the **committed** processed data (`data/processed/*.csv`) and the
-config files, so it needs no live SSB access or local install when hosted.
-
-**Streamlit Community Cloud:** point it at this repo with
-`app/streamlit_app.py` as the entry point. It installs from
-[requirements.txt](requirements.txt) (the app adds `src/` to the path itself, so
-the package is not pip-installed there). Theme/server defaults are in
-[.streamlit/config.toml](.streamlit/config.toml).
-
-To refresh the hosted data after editing inputs or the carbon model, regenerate
-and commit the processed CSVs:
+**The app and the site**
 
 ```bash
-python -m circwood.pipeline          # sankey_data.csv (cached mode)
-python -c "from circwood import build_carbon; build_carbon(write=True)"  # carbon_data.csv
+streamlit run app/streamlit_app.py            # internal: flows, carbon fate & β, forest, HWP stock,
+                                              # sensitivity, economics, models, balance, provenance
+circwood-bundle && python -m http.server -d site 8000   # the public site, locally
 ```
 
-## Status & roadmap
+The site filters by year window or single year, metric (volume, carbon,
+CO₂e), species, region, assortment and destination country, cross-filters on
+click, states its data vintage, shows the carbon envelope and the forest
+resource, and exports PNG/SVG. It deploys to GitHub Pages on merge to `main`
+(`.github/workflows/site.yml`); the model results stay off it until the authors
+have reviewed them.
 
-Volume **and carbon** pipelines + the app work off cached data; live SSB
-ingestion is hardened for unattended runs (Phase A) and the refresh loop is
-automated behind gates (Phase B). Still to do: the year-window policy the first
-live refresh exposed (Phase J), filter dimensions in the schema, and a public
-static site. The live plan is [ROADMAP.md](ROADMAP.md); completed work is
-recorded in [CHANGELOG.md](CHANGELOG.md).
+## Editing the model (for researchers)
 
-The Streamlit app is the **internal exploration tool**; the public deployment
-will be a static site (see Phase D of the roadmap) so it is robust enough for
-Treteknisk to adopt.
+All model assumptions are CSVs you can open in Excel; re-run the relevant
+export and the figures update, no code change needed:
+
+* `config/carbon_densities.csv` — kg C/m³ per species and state, with
+  `kg_c_per_m3_low/high` for the envelope.
+* `config/carbon_nodes.csv` — each node's state, mixing rule, fixed species
+  shares, and whether it carries carbon (the water sink does not).
+* `config/hwp_half_lives.csv` — product-class half-lives for the stock.
+* `config/coefficient_ranges.csv` — the ranges the sensitivity analysis varies.
+* `config/prices.csv` — the carbon price and energy yield (assumptions, with sources).
+* `src/circwood/constants.py` — every fixed coefficient (sawing splits, mill
+  splits, bark and residue shares, the year windows, the β gates).
+
+## Tests
+
+```bash
+pytest                                    # on Windows: py -3 -m pytest
+ruff check src tests app models && mypy   # lint and types, as in CI
+```
+
+The suite holds the project's guarantees as fences: the committed dataset
+equals its golden fixture; `config/nodes.json` covers the node set exactly;
+every process node balances within 1 % over 2012–2022 in volume (in aggregate
+and per (region, species) slice) and in carbon (in aggregate; per species the
+carbon imbalance equals the volume imbalance by construction, which
+`tests/test_carbon.py` fences); domestic sawtimber ties to SSB 07410's
+61,445,000 m³; every derived file equals a fresh export; every node, edge and
+constant is documented. The sawing fix the diagnosis report asked for (year
+alignment, coefficients on raw input, mass balance) is pinned in
+`tests/test_sawing.py`, with the regression guard that `Sawmills → Pulpmills`
+equals `CELLULOSE` × raw log input (26 %, not the 24.7 % a post-shrinkage
+basis gives).
+
+## Citing
+
+See `CITATION.cff` and `.zenodo.json`. Please cite both the software release
+and the paper.

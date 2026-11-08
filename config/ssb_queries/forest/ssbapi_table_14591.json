@@ -1,0 +1,39 @@
+{
+  "_comment": "SSB 14591 Landsskogtakseringen: forest and other wooded area (km2) by NFI region, rolling five-year intervals. Phase H area base.",
+  "url": "https://data.ssb.no/api/pxwebapi/v2/tables/14591/data",
+  "params": {
+    "lang": "no",
+    "outputFormat": "json-stat2"
+  },
+  "payload": {
+    "selection": [
+      {
+        "variableCode": "Region",
+        "valueCodes": [
+          "*"
+        ]
+      },
+      {
+        "variableCode": "ContentsCode",
+        "valueCodes": [
+          "*"
+        ]
+      },
+      {
+        "variableCode": "Tid",
+        "valueCodes": [
+          "*"
+        ]
+      }
+    ],
+    "placement": {
+      "heading": [
+        "ContentsCode"
+      ],
+      "stub": [
+        "Region",
+        "Tid"
+      ]
+    }
+  }
+}

@@ -15,12 +15,22 @@ from circwood.analysis.hwp import (
     export_beta_series,
     literal_beta,
 )
+from circwood.analysis.sensitivity import (
+    beta_bounds,
+    export_sensitivity,
+    sensitivity_table,
+    summary_table,
+)
 
 __all__ = [
     "FATE_BUCKETS",
     "absorption_fractions",
+    "beta_bounds",
     "beta_series",
     "classify_sink",
     "export_beta_series",
+    "export_sensitivity",
     "literal_beta",
+    "sensitivity_table",
+    "summary_table",
 ]

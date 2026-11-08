@@ -1,0 +1,212 @@
+table,year,series,species,assortment,value,unit
+07413,2006,Furu massevirke,pine,pulpwood,188.0,NOK per m3
+07413,2006,Furu sagtømmer,pine,sawtimber,400.0,NOK per m3
+07413,2006,Furu sams sagtømmer og massevirke,pine,sams,310.0,NOK per m3
+07413,2006,Gran massevirke,spruce,pulpwood,227.0,NOK per m3
+07413,2006,Gran sagtømmer,spruce,sawtimber,416.0,NOK per m3
+07413,2006,Gran sams sagtømmer og massevirke,spruce,sams,333.0,NOK per m3
+07413,2006,I alt,all,all,318.0,NOK per m3
+07413,2006,Lauvtre massevirke,non-coniferous,pulpwood,200.0,NOK per m3
+07413,2006,Lauvtre sagtømmer,non-coniferous,sawtimber,416.0,NOK per m3
+07413,2007,Furu massevirke,pine,pulpwood,210.0,NOK per m3
+07413,2007,Furu sagtømmer,pine,sawtimber,488.0,NOK per m3
+07413,2007,Furu sams sagtømmer og massevirke,pine,sams,381.0,NOK per m3
+07413,2007,Gran massevirke,spruce,pulpwood,241.0,NOK per m3
+07413,2007,Gran sagtømmer,spruce,sawtimber,502.0,NOK per m3
+07413,2007,Gran sams sagtømmer og massevirke,spruce,sams,361.0,NOK per m3
+07413,2007,I alt,all,all,375.0,NOK per m3
+07413,2007,Lauvtre massevirke,non-coniferous,pulpwood,215.0,NOK per m3
+07413,2007,Lauvtre sagtømmer,non-coniferous,sawtimber,415.0,NOK per m3
+07413,2008,Furu massevirke,pine,pulpwood,258.0,NOK per m3
+07413,2008,Furu sagtømmer,pine,sawtimber,457.0,NOK per m3
+07413,2008,Furu sams sagtømmer og massevirke,pine,sams,378.0,NOK per m3
+07413,2008,Gran massevirke,spruce,pulpwood,275.0,NOK per m3
+07413,2008,Gran sagtømmer,spruce,sawtimber,458.0,NOK per m3
+07413,2008,Gran sams sagtømmer og massevirke,spruce,sams,354.0,NOK per m3
+07413,2008,I alt,all,all,364.0,NOK per m3
+07413,2008,Lauvtre massevirke,non-coniferous,pulpwood,231.0,NOK per m3
+07413,2008,Lauvtre sagtømmer,non-coniferous,sawtimber,397.0,NOK per m3
+07413,2009,Furu massevirke,pine,pulpwood,218.0,NOK per m3
+07413,2009,Furu sagtømmer,pine,sawtimber,398.0,NOK per m3
+07413,2009,Furu sams sagtømmer og massevirke,pine,sams,311.0,NOK per m3
+07413,2009,Gran massevirke,spruce,pulpwood,243.0,NOK per m3
+07413,2009,Gran sagtømmer,spruce,sawtimber,386.0,NOK per m3
+07413,2009,Gran sams sagtømmer og massevirke,spruce,sams,313.0,NOK per m3
+07413,2009,I alt,all,all,307.0,NOK per m3
+07413,2009,Lauvtre massevirke,non-coniferous,pulpwood,199.0,NOK per m3
+07413,2009,Lauvtre sagtømmer,non-coniferous,sawtimber,422.0,NOK per m3
+07413,2010,Furu massevirke,pine,pulpwood,233.0,NOK per m3
+07413,2010,Furu sagtømmer,pine,sawtimber,458.0,NOK per m3
+07413,2010,Furu sams sagtømmer og massevirke,pine,sams,327.0,NOK per m3
+07413,2010,Gran massevirke,spruce,pulpwood,252.0,NOK per m3
+07413,2010,Gran sagtømmer,spruce,sawtimber,449.0,NOK per m3
+07413,2010,Gran sams sagtømmer og massevirke,spruce,sams,353.0,NOK per m3
+07413,2010,I alt,all,all,355.0,NOK per m3
+07413,2010,Lauvtre massevirke,non-coniferous,pulpwood,206.0,NOK per m3
+07413,2010,Lauvtre sagtømmer,non-coniferous,sawtimber,388.0,NOK per m3
+07413,2011,Furu massevirke,pine,pulpwood,286.0,NOK per m3
+07413,2011,Furu sagtømmer,pine,sawtimber,444.0,NOK per m3
+07413,2011,Furu sams sagtømmer og massevirke,pine,sams,369.0,NOK per m3
+07413,2011,Gran massevirke,spruce,pulpwood,293.0,NOK per m3
+07413,2011,Gran sagtømmer,spruce,sawtimber,430.0,NOK per m3
+07413,2011,Gran sams sagtømmer og massevirke,spruce,sams,332.0,NOK per m3
+07413,2011,I alt,all,all,362.0,NOK per m3
+07413,2011,Lauvtre massevirke,non-coniferous,pulpwood,304.0,NOK per m3
+07413,2011,Lauvtre sagtømmer,non-coniferous,sawtimber,448.0,NOK per m3
+07413,2012,Furu massevirke,pine,pulpwood,244.0,NOK per m3
+07413,2012,Furu sagtømmer,pine,sawtimber,406.0,NOK per m3
+07413,2012,Furu sams sagtømmer og massevirke,pine,sams,327.0,NOK per m3
+07413,2012,Gran massevirke,spruce,pulpwood,256.0,NOK per m3
+07413,2012,Gran sagtømmer,spruce,sawtimber,397.0,NOK per m3
+07413,2012,Gran sams sagtømmer og massevirke,spruce,sams,309.0,NOK per m3
+07413,2012,I alt,all,all,328.0,NOK per m3
+07413,2012,Lauvtre massevirke,non-coniferous,pulpwood,227.0,NOK per m3
+07413,2012,Lauvtre sagtømmer,non-coniferous,sawtimber,398.0,NOK per m3
+07413,2013,Furu massevirke,pine,pulpwood,205.0,NOK per m3
+07413,2013,Furu sagtømmer,pine,sawtimber,400.0,NOK per m3
+07413,2013,Furu sams sagtømmer og massevirke,pine,sams,329.0,NOK per m3
+07413,2013,Gran massevirke,spruce,pulpwood,219.0,NOK per m3
+07413,2013,Gran sagtømmer,spruce,sawtimber,388.0,NOK per m3
+07413,2013,Gran sams sagtømmer og massevirke,spruce,sams,296.0,NOK per m3
+07413,2013,I alt,all,all,309.0,NOK per m3
+07413,2013,Lauvtre massevirke,non-coniferous,pulpwood,215.0,NOK per m3
+07413,2013,Lauvtre sagtømmer,non-coniferous,sawtimber,340.0,NOK per m3
+07413,2014,Furu massevirke,pine,pulpwood,198.0,NOK per m3
+07413,2014,Furu sagtømmer,pine,sawtimber,462.0,NOK per m3
+07413,2014,Furu sams sagtømmer og massevirke,pine,sams,302.0,NOK per m3
+07413,2014,Gran massevirke,spruce,pulpwood,216.0,NOK per m3
+07413,2014,Gran sagtømmer,spruce,sawtimber,452.0,NOK per m3
+07413,2014,Gran sams sagtømmer og massevirke,spruce,sams,330.0,NOK per m3
+07413,2014,I alt,all,all,349.0,NOK per m3
+07413,2014,Lauvtre massevirke,non-coniferous,pulpwood,211.0,NOK per m3
+07413,2014,Lauvtre sagtømmer,non-coniferous,sawtimber,283.0,NOK per m3
+07413,2015,Furu massevirke,pine,pulpwood,192.0,NOK per m3
+07413,2015,Furu sagtømmer,pine,sawtimber,449.0,NOK per m3
+07413,2015,Furu sams sagtømmer og massevirke,pine,sams,280.0,NOK per m3
+07413,2015,Gran massevirke,spruce,pulpwood,211.0,NOK per m3
+07413,2015,Gran sagtømmer,spruce,sawtimber,440.0,NOK per m3
+07413,2015,Gran sams sagtømmer og massevirke,spruce,sams,318.0,NOK per m3
+07413,2015,I alt,all,all,339.0,NOK per m3
+07413,2015,Lauvtre massevirke,non-coniferous,pulpwood,202.0,NOK per m3
+07413,2015,Lauvtre sagtømmer,non-coniferous,sawtimber,336.0,NOK per m3
+07413,2016,Furu massevirke,pine,pulpwood,190.0,NOK per m3
+07413,2016,Furu sagtømmer,pine,sawtimber,435.0,NOK per m3
+07413,2016,Furu sams sagtømmer og massevirke,pine,sams,242.0,NOK per m3
+07413,2016,Gran massevirke,spruce,pulpwood,206.0,NOK per m3
+07413,2016,Gran sagtømmer,spruce,sawtimber,434.0,NOK per m3
+07413,2016,Gran sams sagtømmer og massevirke,spruce,sams,288.0,NOK per m3
+07413,2016,I alt,all,all,329.0,NOK per m3
+07413,2016,Lauvtre massevirke,non-coniferous,pulpwood,200.0,NOK per m3
+07413,2016,Lauvtre sagtømmer,non-coniferous,sawtimber,284.0,NOK per m3
+07413,2017,Furu massevirke,pine,pulpwood,194.0,NOK per m3
+07413,2017,Furu sagtømmer,pine,sawtimber,446.0,NOK per m3
+07413,2017,Furu sams sagtømmer og massevirke,pine,sams,269.0,NOK per m3
+07413,2017,Gran massevirke,spruce,pulpwood,216.0,NOK per m3
+07413,2017,Gran sagtømmer,spruce,sawtimber,475.0,NOK per m3
+07413,2017,Gran sams sagtømmer og massevirke,spruce,sams,325.0,NOK per m3
+07413,2017,I alt,all,all,354.0,NOK per m3
+07413,2017,Lauvtre massevirke,non-coniferous,pulpwood,206.0,NOK per m3
+07413,2017,Lauvtre sagtømmer,non-coniferous,sawtimber,317.0,NOK per m3
+07413,2018,Furu massevirke,pine,pulpwood,266.0,NOK per m3
+07413,2018,Furu sagtømmer,pine,sawtimber,473.0,NOK per m3
+07413,2018,Furu sams sagtømmer og massevirke,pine,sams,341.0,NOK per m3
+07413,2018,Gran massevirke,spruce,pulpwood,286.0,NOK per m3
+07413,2018,Gran sagtømmer,spruce,sawtimber,517.0,NOK per m3
+07413,2018,Gran sams sagtømmer og massevirke,spruce,sams,421.0,NOK per m3
+07413,2018,I alt,all,all,410.0,NOK per m3
+07413,2018,Lauvtre massevirke,non-coniferous,pulpwood,260.0,NOK per m3
+07413,2018,Lauvtre sagtømmer,non-coniferous,sawtimber,351.0,NOK per m3
+07413,2019,Furu massevirke,pine,pulpwood,328.0,NOK per m3
+07413,2019,Furu sagtømmer,pine,sawtimber,483.0,NOK per m3
+07413,2019,Furu sams sagtømmer og massevirke,pine,sams,372.0,NOK per m3
+07413,2019,Gran massevirke,spruce,pulpwood,344.0,NOK per m3
+07413,2019,Gran sagtømmer,spruce,sawtimber,523.0,NOK per m3
+07413,2019,Gran sams sagtømmer og massevirke,spruce,sams,432.0,NOK per m3
+07413,2019,I alt,all,all,435.0,NOK per m3
+07413,2019,Lauvtre massevirke,non-coniferous,pulpwood,312.0,NOK per m3
+07413,2019,Lauvtre sagtømmer,non-coniferous,sawtimber,470.0,NOK per m3
+07413,2020,Furu massevirke,pine,pulpwood,274.0,NOK per m3
+07413,2020,Furu sagtømmer,pine,sawtimber,453.0,NOK per m3
+07413,2020,Furu sams sagtømmer og massevirke,pine,sams,328.0,NOK per m3
+07413,2020,Gran massevirke,spruce,pulpwood,286.0,NOK per m3
+07413,2020,Gran sagtømmer,spruce,sawtimber,457.0,NOK per m3
+07413,2020,Gran sams sagtømmer og massevirke,spruce,sams,382.0,NOK per m3
+07413,2020,I alt,all,all,377.0,NOK per m3
+07413,2020,Lauvtre massevirke,non-coniferous,pulpwood,269.0,NOK per m3
+07413,2020,Lauvtre sagtømmer,non-coniferous,sawtimber,605.0,NOK per m3
+07413,2021,Furu massevirke,pine,pulpwood,245.0,NOK per m3
+07413,2021,Furu sagtømmer,pine,sawtimber,546.0,NOK per m3
+07413,2021,Furu sams sagtømmer og massevirke,pine,sams,375.0,NOK per m3
+07413,2021,Gran massevirke,spruce,pulpwood,253.0,NOK per m3
+07413,2021,Gran sagtømmer,spruce,sawtimber,564.0,NOK per m3
+07413,2021,Gran sams sagtømmer og massevirke,spruce,sams,469.0,NOK per m3
+07413,2021,I alt,all,all,438.0,NOK per m3
+07413,2021,Lauvtre massevirke,non-coniferous,pulpwood,263.0,NOK per m3
+07413,2021,Lauvtre sagtømmer,non-coniferous,sawtimber,560.0,NOK per m3
+07413,2022,Furu massevirke,pine,pulpwood,279.0,NOK per m3
+07413,2022,Furu sagtømmer,pine,sawtimber,624.0,NOK per m3
+07413,2022,Furu sams sagtømmer og massevirke,pine,sams,454.0,NOK per m3
+07413,2022,Gran massevirke,spruce,pulpwood,307.0,NOK per m3
+07413,2022,Gran sagtømmer,spruce,sawtimber,654.0,NOK per m3
+07413,2022,Gran sams sagtømmer og massevirke,spruce,sams,489.0,NOK per m3
+07413,2022,I alt,all,all,507.0,NOK per m3
+07413,2022,Lauvtre massevirke,non-coniferous,pulpwood,335.0,NOK per m3
+07413,2022,Lauvtre sagtømmer,non-coniferous,sawtimber,614.0,NOK per m3
+07413,2023,Furu massevirke,pine,pulpwood,383.0,NOK per m3
+07413,2023,Furu sagtømmer,pine,sawtimber,611.0,NOK per m3
+07413,2023,Furu sams sagtømmer og massevirke,pine,sams,478.0,NOK per m3
+07413,2023,Gran massevirke,spruce,pulpwood,423.0,NOK per m3
+07413,2023,Gran sagtømmer,spruce,sawtimber,647.0,NOK per m3
+07413,2023,Gran sams sagtømmer og massevirke,spruce,sams,551.0,NOK per m3
+07413,2023,I alt,all,all,544.0,NOK per m3
+07413,2023,Lauvtre massevirke,non-coniferous,pulpwood,488.0,NOK per m3
+07413,2023,Lauvtre sagtømmer,non-coniferous,sawtimber,627.0,NOK per m3
+07413,2024,Furu massevirke,pine,pulpwood,495.0,NOK per m3
+07413,2024,Furu sagtømmer,pine,sawtimber,758.0,NOK per m3
+07413,2024,Furu sams sagtømmer og massevirke,pine,sams,604.0,NOK per m3
+07413,2024,Gran massevirke,spruce,pulpwood,525.0,NOK per m3
+07413,2024,Gran sagtømmer,spruce,sawtimber,803.0,NOK per m3
+07413,2024,Gran sams sagtømmer og massevirke,spruce,sams,681.0,NOK per m3
+07413,2024,I alt,all,all,678.0,NOK per m3
+07413,2024,Lauvtre massevirke,non-coniferous,pulpwood,569.0,NOK per m3
+07413,2024,Lauvtre sagtømmer,non-coniferous,sawtimber,723.0,NOK per m3
+07413,2025,Furu massevirke,pine,pulpwood,579.0,NOK per m3
+07413,2025,Furu sagtømmer,pine,sawtimber,952.0,NOK per m3
+07413,2025,Furu sams sagtømmer og massevirke,pine,sams,783.0,NOK per m3
+07413,2025,Gran massevirke,spruce,pulpwood,610.0,NOK per m3
+07413,2025,Gran sagtømmer,spruce,sawtimber,1037.0,NOK per m3
+07413,2025,Gran sams sagtømmer og massevirke,spruce,sams,818.0,NOK per m3
+07413,2025,I alt,all,all,847.0,NOK per m3
+07413,2025,Lauvtre massevirke,non-coniferous,pulpwood,588.0,NOK per m3
+07413,2025,Lauvtre sagtømmer,non-coniferous,sawtimber,917.0,NOK per m3
+08360,1994,B.1 Elspotmarknaden,all,all,18.2,øre per kWh
+08360,1995,B.1 Elspotmarknaden,all,all,11.3,øre per kWh
+08360,1996,B.1 Elspotmarknaden,all,all,25.4,øre per kWh
+08360,1997,B.1 Elspotmarknaden,all,all,14.3,øre per kWh
+08360,1998,B.1 Elspotmarknaden,all,all,12.1,øre per kWh
+08360,1999,B.1 Elspotmarknaden,all,all,11.7,øre per kWh
+08360,2000,B.1 Elspotmarknaden,all,all,11.0,øre per kWh
+08360,2001,B.1 Elspotmarknaden,all,all,18.8,øre per kWh
+08360,2002,B.1 Elspotmarknaden,all,all,21.6,øre per kWh
+08360,2003,B.1 Elspotmarknaden,all,all,30.8,øre per kWh
+08360,2004,B.1 Elspotmarknaden,all,all,24.9,øre per kWh
+08360,2005,B.1 Elspotmarknaden,all,all,24.7,øre per kWh
+08360,2006,B.1 Elspotmarknaden,all,all,39.6,øre per kWh
+08360,2007,B.1 Elspotmarknaden,all,all,24.3,øre per kWh
+08360,2008,B.1 Elspotmarknaden,all,all,40.1,øre per kWh
+08360,2009,B.1 Elspotmarknaden,all,all,32.5,øre per kWh
+08360,2010,B.1 Elspotmarknaden,all,all,45.9,øre per kWh
+08360,2011,B.1 Elspotmarknaden,all,all,37.4,øre per kWh
+08360,2012,B.1 Elspotmarknaden,all,all,24.3,øre per kWh
+08360,2013,B.1 Elspotmarknaden,all,all,30.5,øre per kWh
+08360,2014,B.1 Elspotmarknaden,all,all,24.6,øre per kWh
+08360,2015,B.1 Elspotmarknaden,all,all,19.4,øre per kWh
+08360,2016,B.1 Elspotmarknaden,all,all,25.2,øre per kWh
+08360,2017,B.1 Elspotmarknaden,all,all,27.6,øre per kWh
+08360,2018,B.1 Elspotmarknaden,all,all,41.6,øre per kWh
+08360,2019,B.1 Elspotmarknaden,all,all,38.7,øre per kWh
+08360,2020,B.1 Elspotmarknaden,all,all,13.0,øre per kWh
+08360,2021,B.1 Elspotmarknaden,all,all,64.5,øre per kWh
+08360,2022,B.1 Elspotmarknaden,all,all,130.3,øre per kWh
+08360,2023,B.1 Elspotmarknaden,all,all,68.5,øre per kWh
+08360,2024,B.1 Elspotmarknaden,all,all,50.8,øre per kWh

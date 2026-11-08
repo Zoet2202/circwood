@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from circwood import build_sankey, constants as C
+from circwood import build_sankey
+from circwood import constants as C
 from circwood.pipeline import SANKEY_COLUMNS
 from circwood.viz.sankey import make_sankey
 

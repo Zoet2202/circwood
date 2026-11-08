@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+message: >-
+  If you use this dataset or code, please cite both the software release and
+  the paper it accompanies.
+type: software
+title: "Circwood WP4: Norwegian wood material- and carbon-flow dataset and pipeline"
+abstract: >-
+  A reproducible material- and carbon-flow analysis of Norwegian wood,
+  2012–2024: from roundwood removals through sawmills, pulp mills and board mills
+  to use, energy and export, built from Statistics Norway (SSB) tables and the
+  Treindustrien annual report. Ships the tidy flow table, a species-accurate
+  carbon-conserving carbon overlay with an uncertainty envelope, the empirical
+  harvested-wood-product fraction β with one-at-a-time sensitivity bounds, a
+  first-order-decay HWP carbon stock, the SSB forest-inventory resource layer,
+  and a gated, self-refreshing data pipeline.
+authors:
+  - family-names: Modaresi
+    given-names: Reza
+    affiliation: Norwegian Institute of Wood Technology (NTI)
+  - family-names: Landaas
+    given-names: Magnus Olai
+    affiliation: Norwegian Institute of Wood Technology (NTI)
+repository-code: "https://github.com/Zoet2202/circwood"
+# license: add the SPDX id here once a LICENSE file exists (the licence is the
+# owners' decision; a licence claim without the licence text is all-rights-reserved).
+keywords:
+  - material flow analysis
+  - carbon flow
+  - harvested wood products
+  - forest sector
+  - Norway
+  - Sankey diagram
+  - Statistics Norway
+version: 0.2.0
+date-released: 2026-11-08
+references:
+  - type: article
+    title: "Wood extraction and utilisation in Norway 2012–2022: a national material and carbon flow analysis"
+    authors:
+      - family-names: Modaresi
+        given-names: Reza
+      - family-names: Landaas
+        given-names: Magnus Olai
+    journal: Wood Material Science & Engineering
+    year: 2026

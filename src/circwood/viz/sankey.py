@@ -7,11 +7,13 @@ import json
 import pandas as pd
 import plotly.graph_objects as go
 
-from circwood import config, constants as C
+from circwood import config
+from circwood import constants as C
+
 
 def load_node_params(nodes_to_drop=(), param_file=None):
     """Load node labels/positions/colors from the params JSON."""
-    with open(param_file or config.NODES_FILE, "r", encoding="utf-8") as fh:
+    with open(param_file or config.NODES_FILE, encoding="utf-8") as fh:
         nodes = pd.DataFrame(json.load(fh))
     nodes = nodes[~nodes["label"].isin(nodes_to_drop)]
     return (
@@ -35,22 +37,34 @@ def prepare_flows(
     The ``volume`` column is divided by ``value_scale`` (e.g. 1e6 for m3 -> Mm3,
     or 1e9 for kg C -> Mt C). ``aggregate='avg'`` produces the annual average
     over the window; any other value keeps per-year rows.
+
+    The average divides each edge's window total by the number of dataset
+    years in the window, *not* by the number of years the edge happens to
+    have data for. The latter (the behaviour until Phase K) made the averaged
+    diagram unbalanced: an edge present in three of eleven years was drawn at
+    its three-year mean, so e.g. ``Wood Product processing & Logistics``
+    emitted 6.7 % less than it received over 2012-2022 while every single year
+    balanced. An absent year is a zero flow, and the average says so.
     """
     df = df.copy()
     df = df.dropna(subset=["year", "volume"])
     if value_scale and value_scale != 1:
         df["volume"] = df["volume"].astype(float) / value_scale
 
-    df = df[~df["target"].isin(nodes_to_drop)]
-    df = df[~df["source"].isin(nodes_to_drop)]
-
     df["year"] = df["year"].astype(int)
     df = df[(df["year"] >= min_year) & (df["year"] <= max_year)]
+    n_years = int(df["year"].nunique())
+
+    keep = ~df["target"].isin(nodes_to_drop) & ~df["source"].isin(nodes_to_drop)
+    df = df.loc[keep]
 
     df = df.groupby(["source", "target", "year"], as_index=False)["volume"].sum()
     if aggregate == "avg":
-        df = df.groupby(["source", "target"], as_index=False)["volume"].mean()
-    return df
+        df = df.groupby(["source", "target"], as_index=False)["volume"].sum()
+        df["volume"] = df["volume"] / max(n_years, 1)
+    # A zero-value link (the water edge carries no carbon) makes Plotly abandon
+    # the fixed node arrangement; a flow of nothing is not drawn.
+    return df[df["volume"] != 0].reset_index(drop=True)
 
 
 def remap_ids(df: pd.DataFrame, labels) -> pd.DataFrame:

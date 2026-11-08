@@ -1,9 +1,9 @@
 {
-  "schema_version": 1,
-  "generated_at": "2026-07-28T09:53:12+00:00",
-  "package_version": "0.1.0",
-  "git_sha": "96686c5ceb51d27a46d22d6c68cbdfe0cf17265c",
-  "git_branch": "phase-a-ingestion-hardening",
+  "schema_version": 2,
+  "generated_at": "2026-11-08T15:38:12+00:00",
+  "package_version": "0.2.0",
+  "git_sha": "f2006a775b3debf83ea284a48588591a58b39cfd",
+  "git_branch": "main",
   "git_dirty": true,
   "tables": {
     "03795": {
@@ -11,8 +11,18 @@
       "query_file": "ssbapi_table_03795.json",
       "query_sha256": "83d862f1cb5e9cc0df0e23f93c4f1d7d6d1d380b85944172ab4dc75a2f38cc6e",
       "updated": "2026-05-21T06:00:00Z",
-      "fetched_at": "2026-07-28T09:53:07+00:00",
+      "fetched_at": "2026-11-08T15:37:52+00:00",
       "rows": 120,
+      "year_min": 1996,
+      "year_max": 2025
+    },
+    "03795_fylke": {
+      "table_id": "03795_fylke",
+      "query_file": "ssbapi_table_03795_fylke.json",
+      "query_sha256": "7933b904a1e10ab374b6b2c9beb004c72d3a88cb8f96df0a384f8a121bf63a4b",
+      "updated": "2026-05-21T06:00:00Z",
+      "fetched_at": "2026-11-08T15:37:52+00:00",
+      "rows": 2160,
       "year_min": 1996,
       "year_max": 2025
     },
@@ -21,17 +31,47 @@
       "query_file": "ssbapi_table_07410.json",
       "query_sha256": "3863a3572807c2de1298ce087d3cd566ff8496791dbb33237c539c36efa95f7b",
       "updated": "2026-05-21T06:00:00Z",
-      "fetched_at": "2026-07-28T09:53:08+00:00",
+      "fetched_at": "2026-11-08T15:37:52+00:00",
       "rows": 126,
       "year_min": 2012,
       "year_max": 2025
+    },
+    "08799_2012_2016": {
+      "table_id": "08799_2012_2016",
+      "query_file": "ssbapi_table_08799_2012_2016.json",
+      "query_sha256": "3d925806decd82624da340b81a1401338c798742bebd4f13ed72cbf8f18e9575",
+      "updated": "2026-10-15T06:00:00Z",
+      "fetched_at": "2026-11-08T15:37:52+00:00",
+      "rows": 723120,
+      "year_min": 2012,
+      "year_max": 2016
+    },
+    "08799_2017_2021": {
+      "table_id": "08799_2017_2021",
+      "query_file": "ssbapi_table_08799_2017_2021.json",
+      "query_sha256": "f7ebc9c3b7b3ac46a049f6406808fc26a7e3bba9b2c65d3a16e0b227fd683c34",
+      "updated": "2026-10-15T06:00:00Z",
+      "fetched_at": "2026-11-08T15:37:58+00:00",
+      "rows": 723120,
+      "year_min": 2017,
+      "year_max": 2021
+    },
+    "08799_2022_2026": {
+      "table_id": "08799_2022_2026",
+      "query_file": "ssbapi_table_08799_2022_2026.json",
+      "query_sha256": "e6d1a4f1d114efb8c38ed959067b0ab99cf3374fcdcd7f6cf8ad959780494847",
+      "updated": "2026-10-15T06:00:00Z",
+      "fetched_at": "2026-11-08T15:38:05+00:00",
+      "rows": 686964,
+      "year_min": 2022,
+      "year_max": 2026
     },
     "08801": {
       "table_id": "08801",
       "query_file": "ssbapi_table_08801.json",
       "query_sha256": "1382aaa38da351160fd1a1f3795e8e4f9382c6963056725b505d8b86eebc3ad8",
       "updated": "2026-05-15T06:00:00Z",
-      "fetched_at": "2026-07-28T09:53:09+00:00",
+      "fetched_at": "2026-11-08T15:38:11+00:00",
       "rows": 6992,
       "year_min": 1988,
       "year_max": 2025
@@ -41,7 +81,7 @@
       "query_file": "ssbapi_table_10513.json",
       "query_sha256": "384eeb186143468b4d5caf91d11e73e8aa86c93c2fde6e8a5915152c11aaa820",
       "updated": "2026-03-24T07:00:00Z",
-      "fetched_at": "2026-07-28T09:53:10+00:00",
+      "fetched_at": "2026-11-08T15:38:11+00:00",
       "rows": 13,
       "year_min": 2012,
       "year_max": 2024
@@ -51,7 +91,7 @@
       "query_file": "ssbapi_table_11181.json",
       "query_sha256": "fa6b99d0892358b361d27a14d268ac48f733470cd2da9469556c137ee54e6f2c",
       "updated": "2026-06-29T06:00:00Z",
-      "fetched_at": "2026-07-28T09:53:11+00:00",
+      "fetched_at": "2026-11-08T15:38:11+00:00",
       "rows": 38,
       "year_min": 2007,
       "year_max": 2025
@@ -60,21 +100,58 @@
   "outputs": {
     "carbon_data.csv": {
       "path": "data\\processed\\carbon_data.csv",
-      "rows": 638,
+      "rows": 3723,
       "year_min": 2012,
       "year_max": 2024,
       "nodes": 31,
-      "total_volume": 577497196.6072714,
-      "sha256": "248591e50a15105b90d6d9d7f303b42bf94dfa3b3a5898676ab43a8a615ca665"
+      "total_volume": 609232625.8495075,
+      "sha256": "2840580cee6df908ceef6ea58151895d7b43c937cafa8b84c661ec0c81e01b2d"
     },
     "sankey_data.csv": {
       "path": "data\\processed\\sankey_data.csv",
-      "rows": 638,
+      "rows": 3723,
       "year_min": 2012,
       "year_max": 2024,
       "nodes": 31,
-      "total_volume": 577497196.6072714,
-      "sha256": "e9a7ce92b715a74e704a2fd0e5b5e05c3b79571433a3857cf7c2d9fdae38c406"
+      "total_volume": 609232625.8495075,
+      "sha256": "38a5ed4166c08300b9df75bb54f206c7e266e494b254683fa6694823c72ca3b2"
+    }
+  },
+  "inputs": {
+    "treindustrien_production_data.csv": {
+      "path": "data\\raw\\treindustrien_production_data.csv",
+      "sha256": "1e3de592d592713ee3bfd8657cfaea792d2562726ce343c82f24a680ea887325",
+      "rows": 91,
+      "year_min": 2011,
+      "year_max": 2023
+    },
+    "FAO_Data.csv": {
+      "path": "data\\raw\\FAO_Data.csv",
+      "sha256": "ddb9289a1e533af912ba4ff201f2ca7fce8845bd382cc0a607879b075b37fb53",
+      "rows": 21,
+      "year_min": 2002,
+      "year_max": 2022
+    },
+    "harvest_by_fylke.csv": {
+      "path": "data\\raw\\harvest_by_fylke.csv",
+      "sha256": "0f7875d18365ae7a510da3096bb489534fb43aeb951618b5bac2aefcbc8e85cb",
+      "rows": 1274,
+      "year_min": 1996,
+      "year_max": 2025
+    },
+    "exports_by_partner.csv": {
+      "path": "data\\raw\\exports_by_partner.csv",
+      "sha256": "8c758bcb4fb80dec51bf0792ee620181f28ef65772c845d308bdb222d9ae3356",
+      "rows": 851,
+      "year_min": 2012,
+      "year_max": 2026
+    },
+    "prices_ssb.csv": {
+      "path": "data\\raw\\prices_ssb.csv",
+      "sha256": "3e8b340f15b7df0e856b621396bb71174284634c198a03a89b453cbb752b567b",
+      "rows": 211,
+      "year_min": 1994,
+      "year_max": 2025
     }
   }
 }

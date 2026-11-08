@@ -1,0 +1,18 @@
+{
+  "title": "Circwood WP4: Norwegian wood material- and carbon-flow dataset and pipeline",
+  "upload_type": "software",
+  "description": "A reproducible material- and carbon-flow analysis of Norwegian wood, 2012-2024, from roundwood removals through sawmills, pulp mills and board mills to use, energy and export, built from Statistics Norway (SSB) tables and the Treindustrien annual report. Companion to Modaresi & Landaas, 'Wood extraction and utilisation in Norway 2012-2022: a national material and carbon flow analysis', Wood Material Science & Engineering (2026). The release ships the tidy flow table (data/processed/sankey_data.csv), the carbon overlay with its uncertainty envelope (carbon_data.csv), the empirical harvested-wood-product fraction beta with sensitivity bounds (beta_series.csv, beta_sensitivity.csv), the HWP carbon stock (hwp_stock.csv), the SSB forest-inventory layer (forest_resource.csv), the provenance manifest and the gated refresh pipeline that regenerates all of them.",
+  "creators": [
+    {"name": "Modaresi, Reza", "affiliation": "Norwegian Institute of Wood Technology (NTI)"},
+    {"name": "Landaas, Magnus Olai", "affiliation": "Norwegian Institute of Wood Technology (NTI)"}
+  ],
+  "keywords": [
+    "material flow analysis", "carbon flow", "harvested wood products",
+    "forest sector", "Norway", "Sankey diagram", "Statistics Norway"
+  ],
+  "access_right": "open",
+  "related_identifiers": [
+    {"identifier": "https://github.com/Zoet2202/circwood", "relation": "isSupplementTo", "scheme": "url"}
+  ],
+  "notes": "Data: Statistics Norway (SSB) tables 03795, 07410, 08799, 08801, 10513, 11181, 14589, 14590, 14591, 14593, 14594, 06289, 07413 and 08360 (NLOD); Treindustrien annual report. The vintage of every table is recorded in data/processed/manifest.json."
+}

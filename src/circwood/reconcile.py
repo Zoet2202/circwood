@@ -11,6 +11,8 @@ Two kinds of check:
 
 from __future__ import annotations
 
+from typing import Any
+
 import pandas as pd
 
 from circwood import constants as C
@@ -19,7 +21,7 @@ from circwood.ingest.treindustrien import load_treindustrien, production_wide
 SPECIES_POOLS = ("Spruce", "Pine", "Non-coniferous")
 
 # Documented published reference totals (m3), with their window and source.
-CONTROL_TOTALS = {
+CONTROL_TOTALS: dict[str, dict[str, Any]] = {
     # Domestic sawtimber input, SSB table 07410, 2012-2022 (per
     # Sawing_function_diagnosis.docx). Equals species -> (Sawmills + raw-log
     # re-export), since the re-export bypass only moves volume between those two

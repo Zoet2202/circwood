@@ -1,7 +1,8 @@
 # CLAUDE.md
 
 Guidance for Claude Code working in this repository. Read this first; then
-[ROADMAP.md](ROADMAP.md) for what to do next and [SANKEY_GUIDE.md](SANKEY_GUIDE.md)
+[ROADMAP.md](ROADMAP.md) for the state of the plan, [METHODS.md](METHODS.md)
+for every assumption and derivation, and [SANKEY_GUIDE.md](SANKEY_GUIDE.md)
 for where each number comes from.
 
 ---
@@ -9,66 +10,80 @@ for where each number comes from.
 ## WHAT this is
 
 **Circwood WP4** is a reproducible material- and carbon-flow analysis (MFA) of
-Norwegian wood: from standing forest through sawmills, pulpmills, board mills
-and downstream use, published as a Sankey diagram. It is the code and data
-behind a peer-reviewed paper — Modaresi & Landaas, *"Wood extraction and
-utilisation in Norway 2012–2022: a national material and carbon flow analysis"*,
-Wood Material Science & Engineering (2026), Norwegian Institute of Wood
-Technology (NTI).
+Norwegian wood: from roundwood removals through sawmills, pulpmills, board
+mills and downstream use, published as a Sankey diagram. It is the code and
+data behind a peer-reviewed paper — Modaresi & Landaas, *"Wood extraction and
+utilisation in Norway 2012–2022: a national material and carbon flow
+analysis"*, Wood Material Science & Engineering (2026), Norwegian Institute of
+Wood Technology (NTI).
 
 Three concurrent goals, in the roadmap's words: **Live** (SSB data refreshes
 itself safely), **Public** (an interactive static site, not a local app), and
 **Research** (export an *empirical* HWP fraction β that feeds a forest-rotation
-model — see `papers/` for the thesis that motivates it).
+model). All three are delivered (2026-11-08); what remains is listed at the end
+of the ROADMAP and is for a human.
 
 **The artifact is a tidy flow table.** `data/processed/sankey_data.csv`:
 one row per `(source, target, volume, year, origin, region, species,
-assortment, entity_id, destination)` — currently **ROWCOUNT rows, 31 nodes,
-2012–2024**. Summing `volume` over the five dimension columns recovers the national table
-(`transform/dimensions.py` documents each dimension). `carbon_data.csv` is the
-same table plus a `carbon` column (kg C). Both are **committed** and are the
-canonical output; everything else either produces them or reads them.
+assortment, entity_id, destination)` — currently **3,723 rows, 31 nodes,
+2012–2024**. Summing `volume` over the five dimension columns recovers the
+national table (`transform/dimensions.py` documents each dimension).
+`carbon_data.csv` is the same table plus `carbon`, `carbon_low`, `carbon_high`
+(kg C). Both are **committed** and are the canonical output; everything else
+either produces them or reads them.
 
 Sources: SSB (Statistics Norway) PxWeb tables **03795, 07410, 08799 (exports
-by partner country), 08801, 10513, 11181**, the Treindustrien annual report,
-and a legacy pre-2012 FAOSTAT file. (FAOSTAT's API now needs an account and
-its bilateral trade domain is discontinued — SANKEY_GUIDE §3.6.)
+by partner country), 08801, 10513, 11181** for the flows; **14589, 14590,
+14591, 14593, 14594, 06289** for the forest inventory; **07413, 08360** for
+prices; the Treindustrien annual report; a legacy pre-2012 FAOSTAT file.
 
 ```
-config/              ssb_queries/*.json (08799 in three 5-year chunks),
-                     nodes.json (hand-placed positions), carbon_densities.csv,
-                     carbon_nodes.csv, destination_labels.csv (ISO → English)
-data/raw/            source spreadsheets incl. harvest_by_fylke.csv (county
-                     harvest) and exports_by_partner.csv (08799, destination);
-                     ssb/ is a git-ignored response cache
+config/              ssb_queries/*.json (flow tables; 08799 in three 5-year
+                     chunks), ssb_queries/forest/ (NFI), ssb_queries/economic/
+                     (prices); nodes.json (hand-placed positions);
+                     carbon_densities.csv (central + low/high), carbon_nodes.csv,
+                     hwp_half_lives.csv, coefficient_ranges.csv, prices.csv,
+                     destination_labels.csv
+data/raw/            treindustrien_production_data.csv (hand-maintained),
+                     harvest_by_fylke.csv, exports_by_partner.csv, prices_ssb.csv
+                     (rewritten by a fresh run), FAO_Data.csv; ssb/ is a
+                     git-ignored response cache
 data/processed/      sankey_data.csv, carbon_data.csv, manifest.json  ← the artifact;
-                     beta_series.csv (Phase F, derived)
+                     beta_series.csv, beta_sensitivity.csv, hwp_stock.csv,
+                     forest_resource.csv, economic_value.csv,
+                     rotation_results.csv, forest_stock_projection.csv (derived,
+                     each fenced against a fresh run); refresh_history.jsonl
 src/circwood/
   config.py          every filesystem path
-  constants.py       every model coefficient and the year window
-  ingest/            ssb.py (API), treindustrien.py, trade.py
-  transform/         sawing.py, mills.py, firewood.py, inventory.py, assemble.py,
-                     dimensions.py (region/species/assortment/entity_id),
-                     destinations.py (destination: where exports go, SSB 08799)
-  carbon/            species_model.py (species propagation), carbon.py
+  constants.py       every model coefficient and the year windows
+  coverage.py        Phase J: derived year window, publication lags
+  ingest/            ssb.py (API + raw-cache loader), treindustrien.py, trade.py
+  transform/         sawing.py, mills.py (MillCoefficients), firewood.py,
+                     inventory.py, assemble.py, dimensions.py, destinations.py,
+                     forest.py (Phase H), economics.py (Phase L)
+  carbon/            species_model.py (carbon follows the wood), stock.py (HWP stock)
+  analysis/          hwp.py (β), sensitivity.py (one-at-a-time envelope)
   viz/sankey.py      Plotly figure builder — pure, no I/O
-  analysis/hwp.py    the empirical β (Phase F) → beta_series.csv; refresh()
-                     re-exports it
-  export/bundle.py   bundle builder (Phase D) → circwood-bundle, and the
-                     confidentiality gate (Phase E) every frame routes through
+  export/bundle.py   bundle builder → circwood-bundle, and the confidentiality gate
   pipeline.py        build_sankey() / build_carbon()      → circwood-build
-  manifest.py        provenance / "data as of"
-  validate.py        mass balance (aggregate + per-slice);
-                     reconcile.py  source + control totals
-  diff.py            vintage diff — the refresh gate
+  manifest.py        provenance / "data as of" (schema 2: tables + inputs)
+  validate.py        mass balance (aggregate, per slice) and carbon conservation
+  reconcile.py       source + control totals
+  diff.py            vintage diff — the refresh gate, with attribution
   refresh.py         the whole gated chain              → circwood-refresh
+models/              separate models exchanging files (rotation economics,
+                     stock projection, the SiTree R script and its export);
+                     never imported by
+                     src/circwood; see models/README.md
 app/streamlit_app.py internal exploration tool (NOT the public deployment)
-site/                the public static site (Phase D): Plotly.js, no build
-                     step; site/data/ is generated by circwood-bundle and
-                     git-ignored; deployed by .github/workflows/site.yml
-tests/               179 tests, incl. the golden + node-coverage fences
-docs/                DATA_CONFIDENTIALITY.md — the member-data rules (Phase E)
-papers/              PDFs, git-ignored — read for context, never commit
+site/                the public static site: Plotly.js, no build step;
+                     site/data/ is generated by circwood-bundle and git-ignored;
+                     deployed by .github/workflows/site.yml
+tests/               the fences (golden, node coverage, balance, carbon
+                     conservation, β pins, docs) and the unit tests
+docs/                DATA_CONFIDENTIALITY.md, REFRESH_POLICY.md
+METHODS.md, DATA_DICTIONARY.md   assumptions and the node/edge/column lists
+papers/, docs/*.pdf  PDFs, git-ignored — read for context, never commit
 ```
 
 ---
@@ -83,32 +98,37 @@ the reasoning is preserved in the ROADMAP decision log and CHANGELOG.
   every data change arrives as a reviewable diff rather than a silent re-fetch.
 - **All coefficients live in `constants.py`; all paths in `config.py`.** The
   assumptions behind the diagram must be auditable in one place for the paper.
-- **The carbon model is two editable CSVs**, not code. Researchers change
-  densities and species mixes in Excel and re-run; that is the intended workflow.
+- **The carbon model is editable CSVs**, not code. Researchers change
+  densities, species mixes, half-lives and sensitivity ranges in Excel and
+  re-run; that is the intended workflow.
+- **Carbon follows the wood** (Phase G, 2026-11-08). Carbon enters at harvest
+  and imports and is conserved through every node at one effective density;
+  water carries none. Switching densities at nodes created and destroyed
+  carbon; conservation is now a fence (`validate.assert_carbon_balanced`).
 - **Carbon is species-accurate downstream.** The spruce/pine/non-coniferous mix
   propagates through mixing nodes to a fixed point instead of collapsing to
-  spruce, because collapsing misstates the carbon of everything after Sawmills.
+  spruce.
 - **The dataset is clipped to the intersection of every source table's
   coverage** (`DATASET_MIN_YEAR/MAX_YEAR` = 2012–2024). Rows outside it are a
-  *partial picture, not extra data*: 1988–2011 carried trade with no harvest
-  behind it, and a part-published 2025 made firewood look like it grew 808 %.
+  *partial picture, not extra data*. Since Phase J the refresh derives that
+  window from the fetched coverage and proposes a widening rather than
+  letting a human remember to.
 - **Everything is gated, and nothing survives a failure.** A fresh run either
-  produces a complete validated dataset or raises — there is no path that
-  returns silently partial data. `refresh()` restores the previous
-  `data/processed` outputs before any error propagates.
-- **Mass balance alone is not enough**, hence `diff.py`. A dataset built from a
-  reclassified SSB code is wrong *consistently*: it balances perfectly and
-  reconciles to whatever total it was built from. Only comparing against the
-  previous vintage reveals that a flow moved.
+  produces a complete validated dataset or raises; `refresh()` restores every
+  managed output before any error propagates.
+- **Mass balance alone is not enough**, hence `diff.py`: a dataset built from a
+  reclassified SSB code balances perfectly and is still wrong. Only the
+  vintage diff sees it, and since Phase J it also says whether SSB or this
+  repository moved the number.
 - **Streamlit is the internal tool and will not be deployed** (decision
-  2026-07-28). The public deployment is the Phase D static site, chosen for
-  robustness so Treteknisk can adopt it. Keep the app; don't migrate or
-  delete it.
-- **The site uses Plotly.js, not ECharts** (decision 2026-07-28, reversing the
-  roadmap's first choice on evidence): the dataset has two-way inventory
-  flows, which ECharts' sankey rejects as cycles, and only Plotly honours the
-  hand-placed `nodes.json` positions (`arrangement: "fixed"`).
-  `site/vendor/plotly.min.js` is committed so deploys need no CDN.
+  2026-07-28). The public deployment is the Phase D static site.
+- **The site uses Plotly.js, not ECharts** (decision 2026-07-28): two-way
+  inventory flows and hand-placed positions. `site/vendor/plotly.min.js` is
+  committed so deploys need no CDN.
+- **The forward models are separate models exchanging files** (decision
+  2026-11-08, after the Phase F decision): `models/` reads β, prices and the
+  inventory and writes result CSVs the pipeline fences; it is never imported
+  by the package and never run by the refresh.
 - **PDFs are never committed — the repo is public.**
 
 ---
@@ -118,8 +138,9 @@ the reasoning is preserved in the ROADMAP decision log and CHANGELOG.
 ### Setup and commands
 
 ```bash
-pip install -e .[dev]      # core + pytest;  add ,ssb for live SSB fetch
+pip install -e .[dev]      # core + pytest, ruff, mypy;  add ,ssb for live SSB fetch
 pytest                     # on Windows here: py -3 -m pytest
+ruff check src tests app models && mypy
 ```
 
 | Task | Command |
@@ -127,100 +148,106 @@ pytest                     # on Windows here: py -3 -m pytest
 | Load the dataset | `python -c "from circwood import build_sankey; build_sankey()"` |
 | Rebuild cached | `circwood-build` (`--fresh` re-fetches SSB; `--verbose` logs vintages) |
 | Rebuild carbon | `python -c "from circwood import build_carbon; build_carbon(write=True)"` |
-| Refresh from SSB | `circwood-refresh [--report r.md] [--accept-drift]` |
+| Refresh from SSB | `circwood-refresh [--report r.md] [--accept-drift] [--paper-threshold 0.02]` |
+| Forest layer | `circwood-forest` (needs `ssb` extras + network) |
+| Economic layer | `circwood-economics` (needs `ssb` extras + network) |
+| β, sensitivity, stock | `python -c "from circwood.analysis.sensitivity import export_sensitivity; export_sensitivity()"`, then `python -c "from circwood.analysis.hwp import export_beta_series; export_beta_series()"`, then `python -c "from circwood.carbon.stock import export_hwp_stock; export_hwp_stock()"` (the refresh does all three) |
+| The models | `python -m models.rotation.rotation`, `python -m models.forest_stock.projection`; `Rscript models/sitree/simulate_stand.R` regenerates the committed SiTree export (optional; R ≥ 4.1 + `sitree`) |
 | Build the site bundle | `circwood-bundle` (then `python -m http.server -d site` to preview) |
 | Re-derive balanced | `python -c "from circwood.transform.assemble import regenerate_balanced; regenerate_balanced(write=True)"` |
 | Run the app | `streamlit run app/streamlit_app.py` |
+| Reproduce offline | `docker build -t circwood . && docker run --rm circwood` |
 
 Requires Python ≥ 3.10; CI runs 3.11–3.12 with the `ssb` extras installed so
-ingestion tests actually run (they are fully mocked — CI never calls SSB).
+ingestion tests actually run (they are fully mocked — CI never calls SSB), plus
+a lint job (`ruff check`, `mypy`).
 
 ### The refresh chain (`src/circwood/refresh.py`)
 
-ingest → rebuild sankey → rebuild carbon → write `manifest.json` → mass balance
-→ reconcile → **vintage diff** → re-export `beta_series.csv` (its own gates
-apply) → update golden fixture. Any failed gate restores
-the previous outputs and exits non-zero. `.github/workflows/refresh.yml` runs it
-monthly and opens a PR; pytest runs *before* and *after* the refresh, never in
-the middle (mid-run the golden fence is red by construction).
+ingest → **year-window check** → rebuild sankey → rebuild carbon → write
+`manifest.json` → mass balance (aggregate, slices, carbon) → reconcile →
+**vintage diff with attribution** → re-export sensitivity, the HWP stock and β
+→ forest layer → economic layer (then the manifest's input hashes are
+re-recorded) → update golden fixture → history line. Any failed gate restores
+the previous outputs and exits non-zero, and its report carries the window
+table, the diff and the attribution.
+`.github/workflows/refresh.yml` runs it monthly and opens a PR; pytest runs
+*before* and *after* the refresh, never in the middle. The policy is written
+up in `docs/REFRESH_POLICY.md`.
 
 ### House rules — every phase ends green
 
-- `pytest` passes and `reconcile` still ties out.
+- `pytest` passes, `ruff check` and `mypy` are clean, and `reconcile` still
+  ties out.
 - **No change may weaken an existing guarantee.** The regression fences are: mass
   balance within ~1 % on `validate.PROCESS_NODES` over the paper window
-  (2012–2022), and the SSB 07410 control total **61,445,000 m³**.
+  (2012–2022): volume in aggregate and per (region, species) slice, carbon in
+  aggregate (per species it tracks volume by construction, fenced in
+  `tests/test_carbon.py`); the SSB 07410 control total **61,445,000 m³**.
 - **Changes to `sankey_data.csv` must be additive.** Adding columns is fine;
   renaming or reordering breaks the committed dataset.
 - **Regenerating the dataset means updating `tests/fixtures/golden_sankey_data.csv`
-  in the same commit**, so the diff is visible in review.
-- `config/nodes.json` must cover the dataset's node set *exactly* — no missing
-  labels, no ghosts (`tests/test_golden.py`). `viz.remap_ids` silently drops
-  flows whose endpoint has no entry; this once hid ~5.9 Mm³.
+  and every derived file in the same commit** (β, sensitivity, stock, economic
+  value, the models' results — each has a committed-equals-fresh test).
+- `config/nodes.json` must cover the dataset's node set *exactly*
+  (`tests/test_golden.py`); `DATA_DICTIONARY.md` must list every node and edge
+  (`tests/test_docs.py`).
 
 ### Things that look like bugs and are not
 
-- **SSB 10513 is incineration-only by design** (`AvfallsBehand=21`). Norwegian
-  waste wood is effectively all incinerated; the edge exists to quantify the
-  recoverable potential, read off the Energy edge. A guard raises if the query
-  is widened without adding explicit routing.
+- **SSB 10513 is incineration-only by design** (`AvfallsBehand=21`), and it is
+  published in **1 000 tonnes**: `End-of-Life` carries about 1.35 Mm³/yr since
+  Phase K, a thousand times the old figure. The edge quantifies the recoverable
+  potential; a guard raises if the query is widened without routing.
 - **SSB queries must request `json-stat2` and `lang=no`.** The transforms filter
-  on Norwegian labels ('Gran', 'Skurtømmer', …), so `lang=en` returns HTTP 200,
-  parses cleanly, and yields zero rows. `normalize_spec` enforces this
-  pre-network.
+  on Norwegian labels; `lang=en` returns HTTP 200 and zero matching rows.
 - **`pyjstat.from_json_stat` is deprecated upstream** and the warnings are
-  expected. Migrating could silently change parsed column names, so it is fenced
-  by `tests/test_ssb_parse_golden.py` — migrate behind that fence, regenerating
-  the snapshot in the same commit.
-- **Sawing by-product coefficients apply to the raw log input**, not a
-  post-shrinkage volume. That was one of the three bugs in
-  `Sawing_function_diagnosis.docx`; `tests/test_sawing.py` guards all three.
-  Expected result: Sawmills → Pulpmills ≈ 26 % of log input.
-- Species pools, use phases and inventory nodes are **legitimately unbalanced** —
-  reservoirs and differing table coverage. Only `PROCESS_NODES` must balance
-  (in aggregate within ~1 %, and per (region, species) slice with a 1,000 m³
-  absolute floor — `validate.assert_slices_balanced`).
-- **County harvest rows sum to less than the harvest edges on purpose.** The
-  `Harvested wood → pool` edges carry SSB 03795 commercial harvest *plus* the
-  11181 firewood estimate, which SSB never regionalises. Each edge is split
-  into exact per-county rows plus one `region="NO"` remainder row for the
-  firewood component — so `"NO"` means *not regionally attributed*, never
-  "rest of Norway", and the remainder must stay positive (a negative one means
-  the two 03795 pulls are from different vintages, and raises).
-- **Destination is a share-based split, and only on export edges.** Rows into
-  `Export *` / `Net export *` nodes are split by each partner's share of the
-  SSB 08799 exports of that year and trade type; everything else is
-  `destination="domestic"`. Shares, not figures, because the netted edges
-  (sawlogs, pulpwood, sawn timber) have no partner-level counterpart —
-  so a partner row is an attribution, not a published number. `unspecified`
-  is SSB's own residual (Land 97) or an export edge with no partner data.
-  08799 is monthly and the window needs three chunked query files
-  (`contract_for` derives their contracts); the 08799-vs-08801 total check
-  logs, it does not gate.
+  expected; fenced by `tests/test_ssb_parse_golden.py`.
+- **Sawing by-product coefficients apply to the raw log input**; Sawmills →
+  Pulpmills ≈ 26 % of log input (`tests/test_sawing.py`).
+- **The sawing step knows the netted trade spellings** (`Net export skurlast`,
+  `Net export sawn timber`) as well as the gross ones, so a rebuild from the
+  committed table reproduces it. Do not "simplify" that back.
+- **`Sawmills → Shrinkage` carries zero carbon.** It is water; the wood that
+  leaves is correspondingly denser. β's `shrinkage_share` is 0 by construction.
+- Species pools, use phases and inventory nodes are **legitimately unbalanced**;
+  only `PROCESS_NODES` (incl. Firewood since Phase K) must balance.
+- **2024 is a coverage break, not a measurement:** Treindustrien ends at 2023,
+  so Sawmills emits nothing in 2024. The owner kept the year in the dataset;
+  β and the HWP stock refuse it on their own gates (`BETA_MAX_YEAR` = 2023).
+- **County harvest rows sum to less than the harvest edges on purpose**
+  (the 11181 firewood estimate is never regionalised; `region="NO"` means
+  *not regionally attributed*).
+- **Destination is a share-based split, and only on export edges**; `unspecified`
+  is SSB's own residual (Land 97).
+- **The sensitivity scenarios run under looser gates** (`BETA_SENSITIVITY_*`)
+  than the export, because a coefficient at its bound widens the existing 2020
+  Planingmills gap; the central run keeps the export gates and equals the
+  exported β.
+- **Forest-inventory figures are rolling five-year intervals** dated by their
+  last year, and SSB's Norwegian label for development class IV reads "VI";
+  the code keys on codes.
+- **A table new to the manifest explains nothing in the drift attribution;**
+  only a changed `updated` date, query hash or input hash does.
 
 ### What needs a human — do not attempt or stub
 
 - Negotiating member-level data agreements; contacting Treindustrien /
   Treteknisk / NMBU; publication and preprint submission; deciding what is
-  commercially confidential.
-- **Placing a new node.** `config/nodes.json` holds hand-placed diagram
-  positions, so a refresh that introduces a new node fails the node-coverage
-  fence and opens an issue. A new node is a modelling change and wants a human.
-- **Adding a new region.** `dimensions.FYLKE_CODES` is a closed map; an SSB
-  county label not in it fails the run. Same reasoning as a new node.
-- **Widening `DATASET_MAX_YEAR`** or running `--accept-drift`: both are
-  deliberate, reviewed acts.
+  commercially confidential; minting the Zenodo DOI; choosing the licence
+  (none is declared until a `LICENSE` file exists).
+- **Placing a new node** (`config/nodes.json`) or **adding a new region**
+  (`dimensions.FYLKE_CODES`, `forest.NFI_REGIONS`): modelling changes.
+- **Widening `DATASET_MAX_YEAR`** (the refresh proposes it; a human makes the
+  one-line change after checking the Treindustrien file) and running
+  `--accept-drift`: deliberate, reviewed acts.
+- Choosing price sources and their licensing (`config/prices.csv`), refining
+  `config/coefficient_ranges.csv`, simulating a SiTree stand at a realistic
+  density (the example stand's is outside the growth functions' range).
 
 ### Where to start
 
-`ROADMAP.md` is the single live plan; completed work is in `CHANGELOG.md`.
-Phases A–F are done; Phase J is shelved (decision 2026-07-28 — needs a human
-analysis of per-table drift first). **Phase K is next**: the dataset defects
-the Phase F review found (firewood exports counted twice, End-of-Life units,
-the unbalanced annual average, a stale manifest). Each changes the committed
-dataset or the published site, so each starts with an owner decision. β is
-production-basis and refuses any year that fails its closure gate, which is
-why it exports 2012–2023 while the dataset runs to 2024 (see the ROADMAP
-decision log and Phase J). Note the site deploys on merge to `main` via
-`.github/workflows/site.yml`, so data changes reach the public site only
-through reviewed PRs.
+`ROADMAP.md` is the single live plan; every phase is done and its "What
+remains" section lists the human steps. Completed work is in `CHANGELOG.md`.
+The site deploys on merge to `main` via `.github/workflows/site.yml`, so data
+changes reach the public site only through reviewed PRs.

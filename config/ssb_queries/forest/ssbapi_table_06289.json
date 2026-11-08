@@ -1,0 +1,39 @@
+{
+  "_comment": "SSB 06289 Landsskogtakseringen: national standing volume and annual gross increment under bark (1 000 m3) by species, 1933-; each year stands for a multi-year inventory period.",
+  "url": "https://data.ssb.no/api/pxwebapi/v2/tables/06289/data",
+  "params": {
+    "lang": "no",
+    "outputFormat": "json-stat2"
+  },
+  "payload": {
+    "selection": [
+      {
+        "variableCode": "Tresort",
+        "valueCodes": [
+          "*"
+        ]
+      },
+      {
+        "variableCode": "ContentsCode",
+        "valueCodes": [
+          "*"
+        ]
+      },
+      {
+        "variableCode": "Tid",
+        "valueCodes": [
+          "*"
+        ]
+      }
+    ],
+    "placement": {
+      "heading": [
+        "ContentsCode"
+      ],
+      "stub": [
+        "Tresort",
+        "Tid"
+      ]
+    }
+  }
+}

@@ -11,6 +11,12 @@
  * same year), which ECharts' sankey rejects as a cycle, and the hand-placed
  * node positions in config/nodes.json can only be honoured with
  * arrangement:"fixed".
+ *
+ * Three metrics share one code path — volume, carbon and CO₂e (carbon ×
+ * units.co2_per_c, a display conversion). The carbon envelope
+ * (flows.carbon_low / carbon_high) and the forest card (bundle.forest) are
+ * optional: an older bundle without them renders without the range column,
+ * the CO₂e button and the card.
  */
 
 "use strict";
@@ -28,7 +34,7 @@
   let applyingPreset = false;
 
   const state = {
-    metric: "volume", // 'volume' | 'carbon'
+    metric: "volume", // 'volume' | 'carbon' | 'co2'
     mode: "avg", // 'avg' (year range) | 'year' (single year)
     y0: 2012,
     y1: 2022,
@@ -45,6 +51,8 @@
   const METRICS = {
     volume: { label: "Volume", unit: "Mm³", scale: 1e6 },
     carbon: { label: "Carbon", unit: "Mt C", scale: 1e9 },
+    // Display conversion only: carbon × units.co2_per_c (constants.CO2_PER_C).
+    co2: { label: "CO₂e", unit: "Mt CO₂", scale: 1e9 },
   };
 
   const PRESETS = {
@@ -118,6 +126,42 @@
       : `${state.y0}–${state.y1} average`;
   }
 
+  /** kg CO₂ per kg C, carried by the bundle (constants.CO2_PER_C); null in older bundles. */
+  function co2Factor() {
+    const k = B && B.units ? Number(B.units.co2_per_c) : NaN;
+    return k > 0 ? k : null;
+  }
+
+  /** Whether the bundle carries the ±10 % density envelope (carbon_low / carbon_high). */
+  function hasEnvelope() {
+    return !!(B && B.flows.carbon_low && B.flows.carbon_high);
+  }
+
+  /** The envelope is a property of carbon, so it shows in the carbon-based metrics only. */
+  function envelopeShown() {
+    return state.metric !== "volume" && hasEnvelope();
+  }
+
+  /**
+   * The per-row value column for the current metric, its low/high envelope
+   * columns (null without one) and the display factor k applied after
+   * aggregation: 1, or co2_per_c for CO₂e.
+   */
+  function metricColumns() {
+    const f = B.flows;
+    if (state.metric === "volume") return { val: f.volume, lo: null, hi: null, k: 1 };
+    const env = hasEnvelope();
+    return {
+      val: f.carbon,
+      lo: env ? f.carbon_low : null,
+      hi: env ? f.carbon_high : null,
+      k: state.metric === "co2" ? co2Factor() : 1,
+    };
+  }
+
+  const sumBy = (edges, key) => edges.reduce((a, e) => a + e[key], 0);
+  const rangeText = (edges) => `${fmt(sumBy(edges, "lo"))}–${fmt(sumBy(edges, "hi"))}`;
+
   // ---------------------------------------------------------------------
   // Data: filtering and aggregation
   // ---------------------------------------------------------------------
@@ -158,30 +202,52 @@
     return keep;
   }
 
+  /** Number of dataset years inside the current window (1 in single-year mode). */
+  function windowYearCount() {
+    if (state.mode === "year") return 1;
+    return years.filter((y) => y >= state.y0 && y <= state.y1).length || 1;
+  }
+
   /**
    * Aggregate rows to one value per (source, target) in display units.
-   * Mirrors viz.prepare_flows: sum per (s, t, year), then — in average mode —
-   * the mean over the years the flow actually has data for.
+   * Mirrors viz.prepare_flows: sum per (s, t) over the window, then — in
+   * average mode — divide by the number of dataset years in the window. Not
+   * by the number of years the flow has data for: that rule (until Phase K)
+   * drew an edge present in three of eleven years at its three-year mean, so
+   * the averaged diagram did not balance even though every single year does.
+   * An absent year is a zero flow.
    */
   function aggregate(rows) {
     const f = B.flows;
     const metric = METRICS[state.metric];
-    const val = state.metric === "volume" ? f.volume : f.carbon;
-    const perYear = new Map(); // "s,t" -> Map(year -> sum)
+    const { val, lo, hi, k } = metricColumns();
+    const totals = new Map(); // "s,t" -> [sum, low, high] over the window
     for (const i of rows) {
       const key = f.source[i] + "," + f.target[i];
-      let ym = perYear.get(key);
-      if (!ym) perYear.set(key, (ym = new Map()));
-      ym.set(f.year[i], (ym.get(f.year[i]) || 0) + val[i]);
+      let t = totals.get(key);
+      if (!t) totals.set(key, (t = [0, 0, 0]));
+      t[0] += val[i];
+      if (lo) {
+        t[1] += lo[i];
+        t[2] += hi[i];
+      }
     }
+    const n = state.mode === "avg" ? windowYearCount() : 1;
+    const display = (v) => (Math.abs(v) * k) / n / metric.scale;
     const out = [];
-    for (const [key, ym] of perYear) {
-      let total = 0;
-      for (const v of ym.values()) total += v;
-      const value =
-        state.mode === "avg" ? total / ym.size : total;
+    for (const [key, [total, low, high]] of totals) {
+      // A zero-value link (the water edge carries no carbon) must not reach
+      // Plotly: a node with no value makes it abandon the fixed layout.
+      if (total === 0) continue;
       const [s, t] = key.split(",").map(Number);
-      out.push({ s, t, value: Math.abs(value) / metric.scale });
+      const e = { s, t, value: display(total) };
+      if (lo) {
+        // The envelope follows the same rule as the central value; abs() may
+        // swap the bounds of a negative (netted) flow, so order them.
+        e.lo = Math.min(display(low), display(high));
+        e.hi = Math.max(display(low), display(high));
+      }
+      out.push(e);
     }
     return out;
   }
@@ -192,13 +258,13 @@
     const sId = B.nodes.findIndex((n) => n.label === sLabel);
     const tId = B.nodes.findIndex((n) => n.label === tLabel);
     const metric = METRICS[state.metric];
-    const val = state.metric === "volume" ? f.volume : f.carbon;
+    const { val, k } = metricColumns();
     const byYear = new Map(years.map((y) => [y, 0]));
     for (const i of filteredRows(true)) {
       if (f.source[i] === sId && f.target[i] === tId)
         byYear.set(f.year[i], byYear.get(f.year[i]) + val[i]);
     }
-    return years.map((y) => Math.abs(byYear.get(y)) / metric.scale);
+    return years.map((y) => (Math.abs(byYear.get(y)) * k) / metric.scale);
   }
 
   /** Per-year inflow/outflow series for one node. */
@@ -206,7 +272,7 @@
     const f = B.flows;
     const id = B.nodes.findIndex((n) => n.label === label);
     const metric = METRICS[state.metric];
-    const val = state.metric === "volume" ? f.volume : f.carbon;
+    const { val, k } = metricColumns();
     const inflow = new Map(years.map((y) => [y, 0]));
     const outflow = new Map(years.map((y) => [y, 0]));
     for (const i of filteredRows(true)) {
@@ -214,8 +280,8 @@
       if (f.source[i] === id) outflow.set(f.year[i], outflow.get(f.year[i]) + val[i]);
     }
     return {
-      inflow: years.map((y) => inflow.get(y) / metric.scale),
-      outflow: years.map((y) => outflow.get(y) / metric.scale),
+      inflow: years.map((y) => (inflow.get(y) * k) / metric.scale),
+      outflow: years.map((y) => (outflow.get(y) * k) / metric.scale),
     };
   }
 
@@ -269,6 +335,22 @@
       hexToRgba(B.nodes[e.s].color, linkAlpha(B.nodes[e.s].label, B.nodes[e.t].label))
     );
 
+    // In the carbon metrics the node hover carries the envelope of the side
+    // Plotly sizes the node by (the larger of inflow and outflow).
+    const showEnv = envelopeShown();
+    const nodeRange = showEnv
+      ? order.map((g) => {
+          const inn = agg.filter((e) => e.t === g);
+          const out = agg.filter((e) => e.s === g);
+          return rangeText(sumBy(inn, "value") >= sumBy(out, "value") ? inn : out);
+        })
+      : undefined;
+    const nodeHover =
+      "%{label}<br>Total: %{value:.2f} " +
+      metric.unit +
+      (showEnv ? "<br>Envelope: %{customdata} " + metric.unit : "") +
+      "<extra></extra>";
+
     const trace = {
       type: "sankey",
       arrangement: "fixed",
@@ -280,11 +362,11 @@
         x: nodes.map((n) => n.x),
         y: nodes.map((n) => n.y),
         color: nodeColors,
+        customdata: nodeRange,
         pad: 22,
         thickness: 18,
         line: { color: "rgba(0,0,0,0.25)", width: 0.5 },
-        hovertemplate:
-          "%{label}<br>Total: %{value:.2f} " + metric.unit + "<extra></extra>",
+        hovertemplate: nodeHover,
       },
       link: {
         source: agg.map((e) => local.get(e.s)),
@@ -478,53 +560,221 @@
     const agg = aggregate(filteredRows(false));
     const inflows = agg.filter((e) => e.t === id);
     const outflows = agg.filter((e) => e.s === id);
-    const totalIn = inflows.reduce((a, e) => a + e.value, 0);
-    const totalOut = outflows.reduce((a, e) => a + e.value, 0);
+    const totalIn = sumBy(inflows, "value");
+    const totalOut = sumBy(outflows, "value");
+    // The carbon metrics add a low–high column from the ±10 % density
+    // envelope, aggregated by the same rule as the value, on the total rows.
+    const showEnv = envelopeShown();
+    const row = (cells, range, cls) => {
+      if (showEnv) {
+        const c = textCell("td", range, "num range");
+        if (range) c.title = "Low–high of the ±10 % density envelope (config/carbon_densities.csv)";
+        cells.push(c);
+      }
+      return el("tr", cls ? { className: cls } : {}, cells);
+    };
 
     const rows = [];
     inflows
       .sort((a, b) => b.value - a.value)
       .forEach((e) =>
-        rows.push(el("tr", {}, [
+        rows.push(row([
           textCell("td", "In"),
           textCell("td", B.nodes[e.s].label),
           textCell("td", fmt(e.value), "num"),
-        ]))
+        ], ""))
       );
     outflows
       .sort((a, b) => b.value - a.value)
       .forEach((e) =>
-        rows.push(el("tr", {}, [
+        rows.push(row([
           textCell("td", "Out"),
           textCell("td", B.nodes[e.t].label),
           textCell("td", fmt(e.value), "num"),
-        ]))
+        ], ""))
       );
     [
-      ["Total in", totalIn],
-      ["Total out", totalOut],
-      ["Balance (in − out)", totalIn - totalOut],
-    ].forEach(([name, v]) => {
-      const tr = el("tr", { className: "total" }, [
+      ["Total in", totalIn, showEnv ? rangeText(inflows) : ""],
+      ["Total out", totalOut, showEnv ? rangeText(outflows) : ""],
+      ["Balance (in − out)", totalIn - totalOut, ""],
+    ].forEach(([name, v, range]) => {
+      rows.push(row([
         textCell("td", ""),
         textCell("td", name),
         textCell("td", fmt(v), "num"),
-      ]);
-      rows.push(tr);
+      ], range, "total"));
     });
 
+    const head = [
+      textCell("th", ""),
+      textCell("th", "Counterpart"),
+      textCell("th", metric.unit, "num"),
+    ];
+    if (showEnv) head.push(textCell("th", "Low–high", "num"));
+    holder.appendChild(
+      el("table", {}, [el("thead", {}, [el("tr", {}, head)]), el("tbody", {}, rows)])
+    );
+  }
+
+  // ---------------------------------------------------------------------
+  // Rendering — the forest-resource card (Phase H)
+  //
+  // National figures at the latest NFI interval, independent of the filters:
+  // the inventory has no calendar year, county or assortment to filter on.
+  // Absent from older bundles, in which case the card stays hidden.
+  // ---------------------------------------------------------------------
+
+  const M3_PER_MM3 = 1e6;
+  const SPECIES_NAMES = {
+    all: "All species",
+    spruce: "Spruce",
+    pine: "Pine",
+    "non-coniferous": "Non-coniferous",
+  };
+  const enDash = (s) => String(s).replace("-", "–");
+  const fmtPct = (p) => (Number.isInteger(p) ? String(p) : p.toFixed(1)) + " %";
+
+  function tile(label, value, sub) {
+    return el("div", { className: "tile" }, [
+      textCell("div", label, "label"),
+      textCell("div", value, "value"),
+      textCell("div", sub, "sub"),
+    ]);
+  }
+
+  function renderForest() {
+    const card = $("forest-card");
+    const F = B.forest;
+    if (!F || !F.standing_volume_m3 || !F.increment_m3_per_year) {
+      card.hidden = true;
+      return;
+    }
+    card.hidden = false;
+    const interval = enDash(F.interval);
+    const byRow = new Map((F.harvest_vs_increment || []).map((r) => [r.species, r]));
+    const all = byRow.get("all") || {};
+    const hwin = all.harvest_window ? enDash(all.harvest_window) : "the paper window";
+    const mm3 = (v) => fmt(v / M3_PER_MM3);
+
+    $("forest-title").textContent =
+      `Forest resource — National Forest Inventory, ${interval} interval`;
+
+    const tiles = $("forest-tiles");
+    tiles.textContent = "";
+    tiles.append(
+      tile("Standing volume", `${mm3(F.standing_volume_m3.all)} Mm³`,
+        "under bark, productive forestry land"),
+      tile("Annual gross increment", `${mm3(F.increment_m3_per_year.all)} Mm³/yr`,
+        "under bark, productive forestry land"),
+      tile("Productive forestry land", `${fmt(F.productive_forestry_land_km2)} km²`,
+        `excludes ${fmt(F.protected_productive_km2)} km² protected productive forest`),
+      tile("Roundwood harvest",
+        all.harvest_mean_m3 == null ? "–" : `${mm3(all.harvest_mean_m3)} Mm³/yr`,
+        `Harvested wood edges, calendar-year mean ${hwin}`)
+    );
+
+    // Per-species table, "All species" last as the total row. The ratio is
+    // the harvest over the increment shown beside it (productive forestry
+    // land), so a reader can reproduce it from the row.
+    const species = ["spruce", "pine", "non-coniferous", "all"].filter(
+      (sp) => sp in F.standing_volume_m3 && sp in F.increment_m3_per_year
+    );
+    const body = species.map((sp) => {
+      const r = byRow.get(sp) || {};
+      const inc = F.increment_m3_per_year[sp];
+      const harvest = r.harvest_mean_m3;
+      const ratio = harvest != null && inc > 0 ? harvest / inc : null;
+      return el("tr", sp === "all" ? { className: "total" } : {}, [
+        textCell("td", SPECIES_NAMES[sp] || sp),
+        textCell("td", mm3(F.standing_volume_m3[sp]), "num"),
+        textCell("td", mm3(inc), "num"),
+        textCell("td", harvest == null ? "–" : mm3(harvest), "num"),
+        textCell("td", ratio == null ? "–" : ratio.toFixed(2), "num"),
+      ]);
+    });
+    const holder = $("forest-table");
+    holder.textContent = "";
     holder.appendChild(
       el("table", {}, [
         el("thead", {}, [
           el("tr", {}, [
-            textCell("th", ""),
-            textCell("th", "Counterpart"),
-            textCell("th", metric.unit, "num"),
+            textCell("th", "Species"),
+            textCell("th", "Standing volume (Mm³)", "num"),
+            textCell("th", "Increment (Mm³/yr)", "num"),
+            textCell("th", `Harvest ${hwin} (Mm³/yr)`, "num"),
+            textCell("th", "Harvest ÷ increment", "num"),
           ]),
         ]),
-        el("tbody", {}, rows),
+        el("tbody", {}, body),
       ])
     );
+
+    renderDevelopmentClasses(F, interval);
+
+    const totalInc = all.increment_total_m3;
+    const totalRatio = all.harvest_to_increment;
+    $("forest-caption").textContent =
+      `The National Forest Inventory (Landsskogtakseringen) is a rolling five-year ` +
+      `inventory — these figures are its ${interval} interval, not a calendar year — ` +
+      `measured under bark on productive forestry land, which excludes protected forest. ` +
+      `The harvest is the calendar-year mean of the Harvested wood edges over ${hwin}, ` +
+      `and its firewood component is measured by SSB with bark. The ratio is therefore ` +
+      `for orientation, not a fence.` +
+      (totalInc && totalRatio != null
+        ? ` Against the gross increment on all forest land (${mm3(totalInc)} Mm³/yr, ` +
+          `incl. other land) the national ratio is ${totalRatio.toFixed(2)}.`
+        : "");
+  }
+
+  function renderDevelopmentClasses(F, interval) {
+    const dc = (F.development_classes || []).filter((d) => d.percent != null);
+    const box = $("devclass");
+    const title = $("devclass-title");
+    box.hidden = title.hidden = !dc.length;
+    if (!dc.length) return;
+    title.textContent =
+      `Development classes — share of productive forestry land, ${interval} (%)`;
+    // One series, one colour (slot 1). The tick labels keep the class numeral
+    // and SSB's short name; the hover carries the full label.
+    const short = dc.map((d) => String(d.label).replace(/^Development class\s+/, ""));
+    box.setAttribute(
+      "aria-label",
+      "Share of productive forestry land by development class: " +
+        dc.map((d, i) => `${short[i]} ${fmtPct(d.percent)}`).join(", ")
+    );
+    const trace = {
+      type: "bar",
+      orientation: "h",
+      x: dc.map((d) => d.percent),
+      y: short,
+      customdata: dc.map((d) => d.label),
+      text: dc.map((d) => fmtPct(d.percent)),
+      textposition: "outside",
+      cliponaxis: false,
+      textfont: { color: cssVar("--ink-2"), size: 12 },
+      marker: { color: cssVar("--series-1"), cornerradius: 4 },
+      width: 0.6,
+      hovertemplate: "%{customdata}<br>%{x} % of productive forestry land<extra></extra>",
+    };
+    const layout = Object.assign(chartLayoutBase(), {
+      height: 230,
+      margin: { l: 10, r: 48, t: 4, b: 8 },
+      showlegend: false,
+      xaxis: {
+        range: [0, Math.max(...trace.x) * 1.25],
+        showgrid: false,
+        zeroline: false,
+        showticklabels: false,
+        fixedrange: true,
+      },
+      yaxis: {
+        autorange: "reversed",
+        automargin: true,
+        tickfont: { color: cssVar("--ink-2"), size: 12 },
+        fixedrange: true,
+      },
+    });
+    Plotly.react(box, [trace], layout, { responsive: true, displayModeBar: false });
   }
 
   // ---------------------------------------------------------------------
@@ -577,6 +827,7 @@
     $("sankey-title").textContent = bits.join(" · ");
     $("region-note").hidden = state.region === "all";
     $("destination-note").hidden = state.destination === "all";
+    $("envelope-note").hidden = !envelopeShown();
   }
 
   function renderVintage() {
@@ -626,7 +877,8 @@
       return years.includes(n) ? n : dflt;
     };
     const known = (v, list, dflt) => (list.includes(v) ? v : dflt);
-    if (p.get("m")) state.metric = known(p.get("m"), ["volume", "carbon"], "volume");
+    if (p.get("m")) state.metric = known(p.get("m"), Object.keys(METRICS), "volume");
+    if (state.metric === "co2" && !co2Factor()) state.metric = "carbon"; // older bundle
     if (p.get("a")) state.mode = known(p.get("a"), ["avg", "year"], "avg");
     state.y0 = year(p.get("y0"), state.y0);
     state.y1 = year(p.get("y1"), state.y1);
@@ -682,6 +934,8 @@
   }
 
   function buildControls() {
+    // CO₂e needs the bundle's conversion factor; an older bundle hides the button.
+    $("metric-co2").hidden = !co2Factor();
     fillSelect(
       $("preset"),
       Object.entries(PRESETS)
@@ -748,6 +1002,7 @@
   function syncControls() {
     $("metric-volume").setAttribute("aria-pressed", state.metric === "volume");
     $("metric-carbon").setAttribute("aria-pressed", state.metric === "carbon");
+    $("metric-co2").setAttribute("aria-pressed", state.metric === "co2");
     $("mode-avg").setAttribute("aria-pressed", state.mode === "avg");
     $("mode-year").setAttribute("aria-pressed", state.mode === "year");
     $("range-ctl").hidden = state.mode === "year";
@@ -773,6 +1028,7 @@
     });
     $("metric-volume").addEventListener("click", () => setState({ metric: "volume" }));
     $("metric-carbon").addEventListener("click", () => setState({ metric: "carbon" }));
+    $("metric-co2").addEventListener("click", () => setState({ metric: "co2" }));
     $("mode-avg").addEventListener("click", () => setState({ mode: "avg" }));
     $("mode-year").addEventListener("click", () =>
       setState({ mode: "year", ysel: state.y1 })
@@ -878,6 +1134,7 @@
     renderCaptions();
     renderSankey();
     renderCompanion();
+    renderForest();
     renderFlowsTable();
     stateToURL();
   }

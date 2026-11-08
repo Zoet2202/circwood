@@ -22,7 +22,8 @@ import json
 import pandas as pd
 import pytest
 
-from circwood import build_sankey, config, constants as C
+from circwood import build_sankey, config
+from circwood import constants as C
 from circwood.ingest import ssb
 from circwood.ingest.trade import EXPORT_NODES_BY_TYPE, TRADE_MAPPING, classify_varenummer
 from circwood.transform.destinations import (

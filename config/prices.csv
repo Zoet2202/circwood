@@ -1,0 +1,5 @@
+parameter,value,unit,kind,source
+carbon_price_eur_per_tco2,94,EUR per t CO2,assumption,"EU ETS allowance price on 19 May 2023, as used in Landaas (2023), master's thesis, NTNU; replace with the price of the year analysed"
+nok_per_eur,11.5,NOK per EUR,assumption,"indicative 2023-2024 exchange rate; replace with Norges Bank's annual average for the year analysed"
+energy_kwh_per_m3,753,kWh per m3,derived,"20.08 MJ/kg dry wood (Aniszewska 2018) x 375 kg/m3 spruce (EPD NEPD-2546-1284-NO) x 36 % plant efficiency / 3.6 MJ per kWh, as derived in Landaas (2023)"
+carbon_fraction_of_dry_biomass,0.5,t C per t dry biomass,literature,"IPCC default used in Landaas (2023); the flow table's own carbon uses config/carbon_densities.csv"

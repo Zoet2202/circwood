@@ -33,7 +33,6 @@ DATASET_MAX_YEAR = 2024
 # ---------------------------------------------------------------------------
 BARK_PERCENTAGE = 0.10        # share of roundwood that is bark
 HARVEST_RESIDUE_PERCENTAGE = 0.10  # residues left at harvest, share of removals
-ROT_FACTOR = 1 / 15           # annual decay rate of dead-biomass stock
 
 # ---------------------------------------------------------------------------
 # Sawing (Sawmills node) — by-product yields as shares of sawtimber LOG INPUT.
@@ -78,6 +77,26 @@ WPP_ENERGY = 0.10
 FIREWOOD_PERCENT_SPRUCE = 50.0
 
 # ---------------------------------------------------------------------------
+# End-of-Life (SSB 10513, waste wood delivered to incineration)
+# ---------------------------------------------------------------------------
+# SSB 10513 publishes waste in *1 000 tonnes* (json-stat2 unit "1 000 tonn",
+# confirmed live 2026-11-08). Multiply by this to get kilograms. The shipped
+# dataset carried this edge 1 000x too small until Phase K because the old
+# conversion treated the unit as tonnes.
+EOL_UNIT_KG = 1_000_000.0
+# Basic density used to turn waste-wood mass into roundwood-equivalent m3.
+# Mixed waste wood (sawn products, panels, pallets) at roughly 480 kg dry
+# matter per m3; the value the paper's reference spreadsheet used.
+WASTE_WOOD_DENSITY_KG_M3 = 483.0
+
+# ---------------------------------------------------------------------------
+# Carbon display conversions (Phase G)
+# ---------------------------------------------------------------------------
+# kg CO2 per kg C: molar masses 44.0095 / 12.0107. A display option only; the
+# dataset stays in kg C.
+CO2_PER_C = 44.0095 / 12.0107
+
+# ---------------------------------------------------------------------------
 # Empirical HWP fraction beta (Phase F, ``circwood.analysis.hwp``)
 # ---------------------------------------------------------------------------
 # The common assumed beta in the rotation literature (ROADMAP Phase F). Which
@@ -104,5 +123,14 @@ BETA_EXCESS_OUT_TOL = 0.15
 # deliberately left unchanged (narrowing it is a human decision).
 BETA_MIN_YEAR = DATASET_MIN_YEAR
 BETA_MAX_YEAR = 2023
+
+# Gates for the one-at-a-time sensitivity scenarios (Phase G,
+# ``circwood.analysis.sensitivity``). A coefficient pushed to its bound widens
+# an existing data imbalance (Planingmills 2020 sits at a 9 % volume gap), so
+# a scenario may cross the export gates while the central run passes them;
+# the scenarios therefore run under these looser gates. The central run keeps
+# the export gates, so it equals the exported beta.
+BETA_SENSITIVITY_CLOSURE_TOL = 0.05
+BETA_SENSITIVITY_EXCESS_OUT_TOL = 0.25
 
 __all__ = [name for name in dir() if name.isupper()]

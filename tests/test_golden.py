@@ -20,7 +20,8 @@ from pathlib import Path
 import pandas as pd
 import pandas.testing as pdt
 
-from circwood import build_sankey, config, constants as C
+from circwood import build_sankey, config
+from circwood import constants as C
 
 GOLDEN_CSV = Path(__file__).parent / "fixtures" / "golden_sankey_data.csv"
 

@@ -38,6 +38,8 @@
       <div class="seg" role="group" aria-label="Metric">
         <button id="metric-volume" type="button" aria-pressed="true">Volume (Mm³)</button>
         <button id="metric-carbon" type="button" aria-pressed="false">Carbon (Mt C)</button>
+        <button id="metric-co2" type="button" aria-pressed="false"
+                title="Carbon × 44.0095/12.0107 — a display conversion; the dataset stays in kg C">CO₂e (Mt CO₂)</button>
       </div>
 
       <div class="seg" role="group" aria-label="Aggregation">
@@ -105,6 +107,7 @@
         <div id="sankey" role="img"
              aria-label="Sankey diagram of Norwegian wood flows. The same figures are available in the data table below."></div>
         <p class="hint">Click a node or a flow to see its history and balance; click it again (or press Clear) to deselect.</p>
+        <p class="hint" id="envelope-note" hidden>Carbon carries a ±10 % density envelope (config/carbon_densities.csv); hover a node's balance for the range.</p>
       </section>
 
       <section class="companion" id="companion" hidden>
@@ -121,6 +124,22 @@
         </div>
       </section>
 
+      <section class="card" id="forest-card" hidden>
+        <div class="card-head">
+          <h2 id="forest-title">Forest resource</h2>
+        </div>
+        <div class="tiles" id="forest-tiles"></div>
+        <div class="forest-grid">
+          <div id="forest-table" class="table-scroll"></div>
+          <div>
+            <h3 id="devclass-title">Development classes</h3>
+            <div id="devclass" role="img"
+                 aria-label="Share of productive forestry land by development class."></div>
+          </div>
+        </div>
+        <p class="hint" id="forest-caption"></p>
+      </section>
+
       <details class="card data-table">
         <summary>Data table — current view</summary>
         <div id="flows-table" class="table-scroll"></div>
@@ -130,8 +149,10 @@
     <footer>
       <p id="vintage-line">Loading data…</p>
       <p>
-        Sources: Statistics Norway (SSB) tables 03795, 07410, 08801, 10513 and
-        11181; Treindustrien annual report; FAOSTAT. Companion site to
+        Sources: Statistics Norway (SSB) tables 03795, 07410, 08799, 08801, 10513
+        and 11181 (wood flows) and the National Forest Inventory tables 14589,
+        14590, 14591, 14593, 14594 and 06289 (forest resource); Treindustrien
+        annual report; FAOSTAT. Companion site to
         Modaresi &amp; Landaas, <em>“Wood extraction and utilisation in Norway
         2012–2022: a national material and carbon flow analysis”</em>, Wood
         Material Science &amp; Engineering (2026).

@@ -2,6 +2,243 @@
 
 Completed work, newest first. The live plan is [ROADMAP.md](ROADMAP.md).
 
+## 2026-11-08 — Phases K, J, G, H, I and L: the remaining roadmap
+
+One session, under a whole-job handover from the owner ("implement the
+remaining items in ROADMAP.md; I trust your decision in this session"). Every
+decision the session took is numbered in the ROADMAP decision log of this
+date. The dataset was regenerated from live SSB data (vintage 2026-10-15) and
+every committed output, fixture and pin moved with it in this change.
+
+### Phase K — the dataset defects from the Phase F review (all fixed)
+
+- **End-of-Life was 1 000× too small.** SSB 10513 publishes *1 000 tonnes*
+  (confirmed from the table's json-stat2 metadata, `unit: "1 000 tonn"`); the
+  conversion divided by 1 000 too few. Now `value × EOL_UNIT_KG /
+  WASTE_WOOD_DENSITY_KG_M3` with both in `constants.py`. `Long-term USE →
+  End-of-Life → Energy` is about 1.35 Mm³/yr over 2012–2022 (it read about 1 350 m³ a year, a
+  thousandth of that).
+  `End-of-Life` and `Energy` were repositioned in `config/nodes.json` (both sat
+  at x = 0.8) so the now-visible band renders.
+- **Firewood exports were counted twice.** SSB 11181 is *removals* of
+  firewood ("Avvirkning av vedvirke", with bark, from consumption surveys,
+  sold and own use), so the pool → Firewood edges are production and
+  `Firewood → Energy` is now the residual after `Firewood → Export Firewood`.
+  The node balances by construction and joined `validate.PROCESS_NODES`
+  (it used to emit up to 8.5 % more than it received). Between the committed
+  β files `export_firewood_share` rose from 0.0068 to 0.0071 and `energy_share`
+  from 0.2465 to 0.2484 (2012–2022 means, all species): the two Phase K fixes
+  and the carbon basis of Phase G all move these fates, so the firewood fix
+  cannot be read off the file alone.
+- **The annual average now balances.** `viz.prepare_flows` and `site/app.js`
+  divide each edge's window total by the number of dataset years in the
+  window, not by the years the edge has data for (WPP read −6.7 % out of
+  balance in average mode while every single year balanced).
+- **`manifest.json` regenerated** by the fresh run: schema 2, nine SSB
+  tables including the three 08799 chunks, output hashes, and the hashes of
+  the committed raw inputs.
+- **Doc drift** in README, SANKEY_GUIDE, CLAUDE.md and the missing Phase E
+  heading above, fixed; `DATA_DICTIONARY.md` and `tests/test_docs.py` now fence
+  the node and edge lists and the constants against drifting again.
+- Found on the way: `regenerate_balanced` double-counted sawn exports on the
+  committed (netted) table because the sawing step only knew the gross trade
+  spellings (`Export sawn wood`, `Import saw wood`) — the "+2.8 % Sawmills
+  imbalance on rebuilt datasets" the app warned about. It recognises the net
+  nodes now, and a test pins that a rebuild reproduces the committed flows.
+- The committed `destination` column carried no partner data (every export
+  row `unspecified`; `exports_by_partner.csv` had never been committed). The
+  fresh run fetched the three 08799 chunks: 60 partner countries plus
+  `domestic`, 3,723 rows.
+
+### Phase J — year-window and drift policy (unshelved and delivered)
+
+- `circwood.coverage`: the window is *derived* from every fetched table's
+  coverage (chunks pooled per base table, side layers excluded) and compared
+  with `DATASET_MIN/MAX_YEAR`. Lost coverage blocks the refresh
+  (`WindowError`); new coverage is *proposed* in the PR body as the one-line
+  diff to make; a table behind its usual publication lag plus six months'
+  grace is reported as overdue (`TableContract.publication_lag_months`:
+  03795/07410 6, 11181 7, 08801 3, 10513 16, NFI 8; Treindustrien's file 9).
+- Revision drift is told apart from our own changes: every breaching flow is
+  attributed by its `origin` to an SSB revision (the table's `updated` moved),
+  a query change (its hash moved), an input-file change (manifest `inputs`),
+  a derived edge downstream of one of those, or **unexplained** — nothing
+  upstream moved, so this repository did. The last raises
+  `UnexplainedDriftError`, a named class the failure issue carries. A table new
+  to the manifest explains nothing, and a derived edge (`WPP → …`,
+  `Firewood → Energy`) is explained only by a change in its *own* upstream
+  tables or input (`diff._DERIVED_UPSTREAM`), never by a revision anywhere in
+  the manifest: the partner table 08799 is revised monthly and moves no volume,
+  so "anything upstream" would have excused every derived move on every run.
+- A tighter threshold inside the paper window (`DEFAULT_PAPER_THRESHOLD`
+  2 %, 5 % outside), `--paper-threshold`, and `data/processed/refresh_history.jsonl`
+  (one line per refresh that moved a flow) so the thresholds can be set from
+  observed revisions once there are some.
+- `refresh.yml` gained `accept_drift` and `paper_threshold` inputs; a run
+  that actually accepted drift (the gate would have blocked and the box was
+  ticked) names the actor and run id in the PR body and the commit message. A
+  ticked box on a clean run accepts nothing and says nothing.
+- A blocked run's report carries the year-window table, the diff summary and
+  the attribution of every breaching flow, unexplained rows first: the
+  acceptance route starts from that report.
+- The first run of all this was the regeneration itself: the gate blocked on
+  36 flows, all of them the two Phase K fixes (no SSB table revised since the
+  committed vintage), and the diff was reviewed offline from the raw cache
+  (`ingest.ssb.load_cached_result`, new) before being adopted with
+  `--accept-drift`. The run-time attribution had classed 10 `Firewood → Energy`
+  years as derived-from-revised under an input rule fixed the same day; the
+  history line was re-derived with the shipped classifier (36 unexplained) and
+  carries a `rederived` note saying so.
+
+### Phase G — carbon depth
+
+- **Carbon follows the wood.** Carbon enters at harvest (raw density by
+  species) and at imports (configured density) and every propagate node emits
+  at one effective density, carbon in over wood volume out, so carbon is
+  conserved wherever volume is and the water edge `Sawmills → Shrinkage`
+  carries none (`carries_carbon` column in `carbon_nodes.csv`). Before: +6.6 %
+  carbon created at Sawmills, −2 % at Pulpmills, 0.5 Mt C on water. New fence
+  `validate.assert_carbon_balanced`, in the refresh and the tests.
+- **β traces conserved carbon** (`basis="carbon"`; the volume trace is kept as
+  the cross-check against the W2 reference tracer). `shrinkage_share` is 0 by
+  construction. β(all) 2012–2022 mean 0.215 (was 0.206), spruce 0.259.
+- **Uncertainty.** `carbon_densities.csv` carries `kg_c_per_m3_low/high`
+  (±10 %), `carbon_data.csv` gains `carbon_low`/`carbon_high`, the bundle
+  carries them. `circwood.analysis.sensitivity` varies the eleven fixed
+  coefficients one at a time over `config/coefficient_ranges.csv` (the uniform
+  ±10 % density envelope is run too, and shown to cancel in β); `ci_low`/
+  `ci_high` in `beta_series.csv` are the root-sum-square envelope (0.186–0.235
+  for β(all) 2012–2022; the fully correlated linear sum, 0.156–0.254, is
+  reported by `sensitivity.beta_bounds` since the sawing by-products move
+  together), labelled an assumption envelope. `WPP_LONG_TERM` dominates.
+- **HWP pool as a stock** (`circwood.carbon.stock`, `hwp_stock.csv`):
+  first-order decay with IPCC half-lives (`config/hwp_half_lives.csv`), cohort
+  and steady-state initialisations, the observed 10513 outflow alongside.
+  Cohort stock at end of 2023: 8.6 Mt C from 15.5 Mt C of 2012–2023 inflow.
+- CO₂e as a display option (`CO2_PER_C`) in the app and the site; the import
+  species mix documented and its sensitivity stated (it cannot move the
+  production-basis β; it moves the literal ratio and the carbon totals).
+- `transform.mills.MillCoefficients` makes the downstream splits overridable;
+  `assemble_sankey(widen=False)` returns the national table for fast rebuilds.
+
+### Phase H — the forest resource layer
+
+- `transform/forest.py` + `config/ssb_queries/forest/`: SSB 14589, 14590,
+  14591, 14593, 14594 and 06289 ingested with the existing PxWeb machinery
+  (contracts with `period="interval"`, not window-gated), keyed on codes
+  (SSB's label for development class IV reads "VI"), nine NFI regions
+  crosswalked to the county codes, committed as `forest_resource.csv`
+  (2,456 rows) and rebuilt by the refresh. `increment_vs_harvest` reports the
+  2012–2022 harvest at 0.55 of the 2021–2025 gross increment on productive
+  forestry land (spruce 0.63; 0.49 and 0.60 against the increment on all
+  land), with its caveats. CLI `circwood-forest`.
+
+### Phase I — reproducibility and publication support
+
+- `METHODS.md` (every assumption, coefficient, source and derivation),
+  `DATA_DICTIONARY.md` with a drift fence, `docs/REFRESH_POLICY.md`.
+- `requirements-lock.txt` from a clean Python 3.12 environment, a
+  `Dockerfile` that reproduces the test-suite and the bundle offline,
+  `CITATION.cff` and `.zenodo.json` (minting the DOI is a human step).
+- `ruff` (clean) and `mypy` (clean, pandas-heavy modules scoped out by a
+  documented override) in `pyproject.toml`, a `lint` job in CI,
+  `.pre-commit-config.yaml` (ruff format applies to touched files only; the
+  repo-wide format pass is deliberately left for its own commit).
+- Broader tests: trade mapping, inventory routing, the firewood split, the
+  mill coefficients, the viz averaging, rebuild fidelity, carbon conservation,
+  the manifest against the shipped outputs, the cache loader, coverage, drift
+  attribution, sensitivity, the stock model, the forest layer, the economic
+  layer, the models and the docs.
+
+### Phase L — economic value and the forward models
+
+- `transform/economics.py` + `config/ssb_queries/economic/`: SSB 07413
+  roundwood prices and 08360 wholesale electricity prices tidied into
+  `data/raw/prices_ssb.csv`; `config/prices.csv` for the carbon price and
+  energy yield (labelled assumptions); `economic_value.csv` values roundwood
+  at the pool gate, energy and carbon stored/released. 2012–2022 means:
+  roundwood 4.7 bn NOK/yr, energy 1.3, carbon stored 2.5, released −3.8.
+  Processed products are deliberately not priced (no published price per m³).
+  CLI `circwood-economics`; the refresh re-values after every rebuild.
+- `models/` (separate models exchanging files, per the Phase F decision):
+  `rotation/` re-runs the thesis's Faustmann / van Kooten / CRC / social
+  comparison with the empirical β on a growth curve calibrated to the thesis's
+  stated facts (the SiTree set-up was run later the same day and is compared
+  beside it; see *SiTree run* below) — Faustmann 91 years, van Kooten 108 with β = 0.55
+  and 118 with the empirical spruce β, CRC 124, social 107 (106 with a
+  constant carbon price; the thesis found it pulled back towards Faustmann);
+  `forest_stock/`
+  projects the national stock to 2100 under status-quo, Faustmann and
+  CRC-rotation harvests from today's development-class inventory. Results
+  committed with provenance headers and fenced by `tests/test_models.py`.
+- The Streamlit app shows the new layers; the public site shows the forest
+  resource (published statistics) and the carbon envelope, not the model
+  results, pending the owner's review.
+
+### Review council — applied the same day
+
+Three independent read-only reviews (correctness, contrarian, documentation)
+ran on the finished tree; every finding was recomputed before it was applied.
+
+- **The social model mixed two carbon-price paths** (uptake on the growing
+  price, harvest release on the constant one), which put the social optimum at
+  125 years. On one path it is 107 (106 at a constant price), where the
+  thesis's own finding puts it. `rotation_results.csv` gains `npv_positive`
+  (the Faustmann NPV is negative at the 2023 sawlog price: 91 years is the
+  argmax of a loss) and flags a CRC row whose reward window is empty.
+- **A derived edge was explained by any upstream revision** — with the monthly
+  08799 partner table in the manifest, `UnexplainedDriftError` was unreachable
+  for the β-defining edges. Now only the edge's own upstream tables or input
+  count (`diff._DERIVED_UPSTREAM`).
+- The manifest records `prices_ssb.csv` in the vintage that wrote it (it was
+  hashed before the economic layer ran); the failure report carries the
+  window, diff and attribution; `_vintages.json` merges across the flow, forest
+  and price ingests so the offline reproduction works after a full run; a
+  partial (`--allow-partial`) run's window is reported as unverified; the
+  history statistics ignore re-serialisation noise and the first line was
+  re-derived; the attribution table lists unexplained rows first.
+- The sensitivity method now states that the uniform density envelope cancels
+  and reports the correlated linear bound; `economic_value.csv` keeps four
+  decimals on the price so quantity × price reproduces `value_nok`.
+- Documentation: the harvest-carbon figure split into roundwood (β's
+  denominator) and bark plus residues; the paper-versus-repository note in the
+  README; the per-slice claim narrowed to what is fenced (and the per-species
+  carbon identity fenced); the all-land ratio labelled; the FAO export years,
+  the dimension count and the runnable commands corrected; `ROT_FACTOR`
+  removed from the constants index with a reverse fence.
+- Release metadata: version 0.2.0 in `pyproject.toml`, the package and
+  `CITATION.cff`; the `license: MIT` claim removed from `CITATION.cff` and
+  `.zenodo.json` (there is no LICENSE file; the licence is the owners'
+  decision); SSB 08360 added to the Zenodo notes.
+
+### SiTree run — the thesis's growth simulation, executed
+
+R 4.6.2 and `sitree` 0.1.15 were installed the same day;
+`models/sitree/simulate_stand.R` was rewritten against the package's real API
+(the example stand is two data frames, `stand.west.tr` and `stand.west.st`;
+trees not alive carry zero, not missing, sizes after the run; `volume.norway`
+gives per-tree m³ under and over bark) and run: the call the package documents
+for that stand, 50 five-year periods without management, ten replicates
+averaged, written to `models/sitree/growth_curve_sitree.csv` with its
+provenance and a realism check in the header. The rotation model now runs on
+both curves: the calibrated logistic stays primary
+(`models/rotation/parameters.csv`, `use_sitree_curve_as_primary = 0`) and the
+SiTree curve, its ages shifted by the stand's age at the start (40 years,
+`sitree_stand_age_at_start_years`), appears as the scenario `growth curve:
+sitree example stand`, with a `growth_curve` column on every row and
+`interior_optimum = 0` for an optimum on either edge of the searched ages.
+Why not primary: the example stand's 6 400 stems/ha drive the increment and
+mortality functions far outside their calibration range (basal area
+186 m²/ha at 50 simulated years, 276 at 150; a real stand rarely exceeds 70),
+so its volumes (peak 2 426 m³/ha) are not credible, only its shape. On that
+shape: Faustmann 63, van Kooten 130 (105 with β = 0.55), CRC 155, social 119 —
+the ordering of the calibrated curve's 91 / 118 / 124 / 107 and a larger
+carbon effect. `models/rotation/growth_curve.csv` is rewritten on every run as
+the primary curve (fenced); the Streamlit Models tab overlays the SiTree
+curve; `tests/test_models.py` fences the export, the comparison rows and the
+edge flags. METHODS §9 also notes where the CRC owner model stands against the
+EU certification framework for carbon removals (Regulation (EU) 2024/3012).
+
 ## 2026-11-08 — Streamlit app redesign (forestry & carbon theme)
 
 The internal app (`app/streamlit_app.py`) has a new look; it is still the
@@ -25,7 +262,7 @@ internal tool, not the public deployment.
 
 ## 2026-11-08 — Destination dimension: where exported wood goes (SSB 08799)
 
-The flow table gains a sixth dimension column, `destination`, appended after
+The flow table gains a fifth dimension column, `destination`, appended after
 `entity_id` (additive schema): `domestic` on every row that is not an export
 flow, an ISO 3166-1 alpha-2 partner code on the rows into the `Export *` /
 `Net export *` nodes, `unspecified` where SSB does not publish the partner.
@@ -201,6 +438,8 @@ fidelity, the gate, node coverage and byte-determinism); the site
 smoke-tested in headless Edge — light, dark, node selection, link selection,
 carbon metric, single-year mode — rendering from a local bundle build. No
 data or schema change; no fixture regeneration.
+
+## 2026-07-28 — Phase E: confidentiality guardrails
 
 The rules for member-level data, written and enforced **before any such data
 exists** — cheap insurance against an unrecoverable failure mode (a member's

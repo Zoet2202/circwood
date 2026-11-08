@@ -1,0 +1,18 @@
+{
+  "_comment": "SSB 08360: wholesale electricity prices (ore per kWh), annual 1994-. Series B.1 Elspotmarknaden is the day-ahead market price used to value the energy edges (Phase L); the other series ride along for reference.",
+  "url": "https://data.ssb.no/api/pxwebapi/v2/tables/08360/data",
+  "params": {
+    "lang": "no",
+    "outputFormat": "json-stat2"
+  },
+  "payload": {
+    "selection": [
+      { "variableCode": "ContentsCode", "valueCodes": ["*"] },
+      { "variableCode": "Tid", "valueCodes": ["*"] }
+    ],
+    "placement": {
+      "heading": ["ContentsCode"],
+      "stub": ["Tid"]
+    }
+  }
+}

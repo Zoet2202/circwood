@@ -1,0 +1,46 @@
+{
+  "_comment": "SSB 14590 Landsskogtakseringen: annual gross increment under bark (1 000 m3) by land class, species and NFI region, rolling five-year intervals.",
+  "url": "https://data.ssb.no/api/pxwebapi/v2/tables/14590/data",
+  "params": {
+    "lang": "no",
+    "outputFormat": "json-stat2"
+  },
+  "payload": {
+    "selection": [
+      {
+        "variableCode": "Region",
+        "valueCodes": [
+          "*"
+        ]
+      },
+      {
+        "variableCode": "Tresort",
+        "valueCodes": [
+          "*"
+        ]
+      },
+      {
+        "variableCode": "ContentsCode",
+        "valueCodes": [
+          "*"
+        ]
+      },
+      {
+        "variableCode": "Tid",
+        "valueCodes": [
+          "*"
+        ]
+      }
+    ],
+    "placement": {
+      "heading": [
+        "ContentsCode"
+      ],
+      "stub": [
+        "Region",
+        "Tresort",
+        "Tid"
+      ]
+    }
+  }
+}

@@ -1,24 +1,25 @@
-node,state,mix_mode,spruce_share,pine_share,nonconif_share
-Spruce,raw,fixed,1,0,0
-Pine,raw,fixed,0,1,0
-Non-coniferous,raw,fixed,0,0,1
-Import planed wood,dry,fixed,1,0,0
-Import Boards,dry,fixed,1,0,0
-Import Firewood,dry,fixed,0,0,1
-Net export skurlast,raw,fixed,1,0,0
-Net export massevirke,raw,fixed,1,0,0
-Net export sawn timber,dry,fixed,1,0,0
-Sawmills,dry,propagate,,,
-Planingmills,dry,propagate,,,
-Boardmills,dry,propagate,,,
-Impregnation,dry,propagate,,,
-Pulpmills,raw,propagate,,,
-Wood Product processing & Logistics,dry,propagate,,,
-Long-term USE,dry,propagate,,,
-End-of-Life,dry,propagate,,,
-Firewood,raw,propagate,,,
-Timber inventory,raw,propagate,,,
-Planed timber inventory,dry,propagate,,,
-Impregnated inventory,dry,propagate,,,
-Bark,raw,propagate,,,
-Residues from harvest,raw,propagate,,,
+node,state,mix_mode,spruce_share,pine_share,nonconif_share,carries_carbon
+Spruce,raw,fixed,1,0,0,1
+Pine,raw,fixed,0,1,0,1
+Non-coniferous,raw,fixed,0,0,1,1
+Import planed wood,dry,fixed,1,0,0,1
+Import Boards,dry,fixed,1,0,0,1
+Import Firewood,dry,fixed,0,0,1,1
+Net export skurlast,raw,fixed,1,0,0,1
+Net export massevirke,raw,fixed,1,0,0,1
+Net export sawn timber,dry,fixed,1,0,0,1
+Sawmills,dry,propagate,,,,1
+Planingmills,dry,propagate,,,,1
+Boardmills,dry,propagate,,,,1
+Impregnation,dry,propagate,,,,1
+Pulpmills,raw,propagate,,,,1
+Wood Product processing & Logistics,dry,propagate,,,,1
+Long-term USE,dry,propagate,,,,1
+End-of-Life,dry,propagate,,,,1
+Firewood,raw,propagate,,,,1
+Timber inventory,raw,propagate,,,,1
+Planed timber inventory,dry,propagate,,,,1
+Impregnated inventory,dry,propagate,,,,1
+Bark,raw,propagate,,,,1
+Residues from harvest,raw,propagate,,,,1
+Shrinkage,dry,propagate,,,,0

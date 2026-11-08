@@ -1,0 +1,852 @@
+year,type,destination,destination_label,volume
+2012,firewood,DE,Tyskland,15750
+2012,firewood,DK,Danmark,116
+2012,firewood,FI,Finland,14
+2012,firewood,IS,Island,9
+2012,firewood,NL,Nederland,140
+2012,firewood,SE,Sverige,65684
+2012,pulpwood,DE,Tyskland,244024
+2012,pulpwood,IS,Island,8
+2012,pulpwood,LT,Litauen,98
+2012,pulpwood,LV,Latvia,166
+2012,pulpwood,PL,Polen,34
+2012,pulpwood,SE,Sverige,956912
+2012,saw wood,DE,Tyskland,95385
+2012,saw wood,SE,Sverige,318905
+2012,sawn wood,AT,Østerrike,2201
+2012,sawn wood,BE,Belgia,73349
+2012,sawn wood,CH,Sveits,3946
+2012,sawn wood,DE,Tyskland,83455
+2012,sawn wood,DK,Danmark,58072
+2012,sawn wood,ES,Spania,3606
+2012,sawn wood,FI,Finland,76
+2012,sawn wood,FR,Frankrike,17693
+2012,sawn wood,GB,Storbritannia,46694
+2012,sawn wood,HU,Ungarn,3801
+2012,sawn wood,IS,Island,118
+2012,sawn wood,IT,Italia,2114
+2012,sawn wood,JP,Japan,15934
+2012,sawn wood,KR,Sør-Korea,1
+2012,sawn wood,LT,Litauen,756
+2012,sawn wood,LV,Latvia,48
+2012,sawn wood,MA,Marokko,5995
+2012,sawn wood,NL,Nederland,60077
+2012,sawn wood,PL,Polen,2117
+2012,sawn wood,SE,Sverige,47648
+2013,firewood,CA,Canada,2262
+2013,firewood,DK,Danmark,366
+2013,firewood,FI,Finland,12000
+2013,firewood,GB,Storbritannia,238
+2013,firewood,IE,Irland,6715
+2013,firewood,JP,Japan,25
+2013,firewood,SE,Sverige,20398
+2013,firewood,US,USA,29
+2013,pulpwood,DE,Tyskland,279550
+2013,pulpwood,DK,Danmark,550
+2013,pulpwood,EE,Estland,98
+2013,pulpwood,IS,Island,10
+2013,pulpwood,LT,Litauen,1367
+2013,pulpwood,LV,Latvia,235
+2013,pulpwood,SE,Sverige,1524624
+2013,pulpwood,SK,Slovakia,80
+2013,saw wood,CN,Kina,1498
+2013,saw wood,DE,Tyskland,152237
+2013,saw wood,LT,Litauen,40
+2013,saw wood,SE,Sverige,541945
+2013,sawn wood,AT,Østerrike,2701
+2013,sawn wood,BE,Belgia,67793
+2013,sawn wood,CH,Sveits,3838
+2013,sawn wood,CN,Kina,684
+2013,sawn wood,CZ,Tsjekkia,1
+2013,sawn wood,DE,Tyskland,89480
+2013,sawn wood,DK,Danmark,63223
+2013,sawn wood,EE,Estland,241
+2013,sawn wood,ES,Spania,1958
+2013,sawn wood,FR,Frankrike,23366
+2013,sawn wood,GB,Storbritannia,47877
+2013,sawn wood,HK,Hong Kong,18
+2013,sawn wood,HU,Ungarn,3428
+2013,sawn wood,IL,Israel,702
+2013,sawn wood,IS,Island,1183
+2013,sawn wood,IT,Italia,1344
+2013,sawn wood,JP,Japan,14851
+2013,sawn wood,KR,Sør-Korea,246
+2013,sawn wood,LT,Litauen,387
+2013,sawn wood,LU,Luxembourg,68
+2013,sawn wood,LV,Latvia,54
+2013,sawn wood,MA,Marokko,4846
+2013,sawn wood,NL,Nederland,53209
+2013,sawn wood,PL,Polen,1664
+2013,sawn wood,PT,Portugal,15
+2013,sawn wood,RU,Russland,2
+2013,sawn wood,SE,Sverige,55980
+2013,sawn wood,TR,Tyrkia,3
+2014,firewood,CA,Canada,7585
+2014,firewood,DK,Danmark,103
+2014,firewood,GB,Storbritannia,40
+2014,firewood,SE,Sverige,26576
+2014,pulpwood,BE,Belgia,4250
+2014,pulpwood,CN,Kina,9839
+2014,pulpwood,DE,Tyskland,220816
+2014,pulpwood,IS,Island,149
+2014,pulpwood,LT,Litauen,92
+2014,pulpwood,LV,Latvia,63470
+2014,pulpwood,SE,Sverige,1950693
+2014,saw wood,AT,Østerrike,3500
+2014,saw wood,CN,Kina,777
+2014,saw wood,DE,Tyskland,407979
+2014,saw wood,LV,Latvia,23336
+2014,saw wood,SE,Sverige,589290
+2014,sawn wood,AT,Østerrike,2641
+2014,sawn wood,BE,Belgia,72940
+2014,sawn wood,CH,Sveits,2982
+2014,sawn wood,CN,Kina,165
+2014,sawn wood,CZ,Tsjekkia,680
+2014,sawn wood,DE,Tyskland,80698
+2014,sawn wood,DK,Danmark,68514
+2014,sawn wood,EE,Estland,169
+2014,sawn wood,ES,Spania,3065
+2014,sawn wood,FR,Frankrike,22949
+2014,sawn wood,GB,Storbritannia,33658
+2014,sawn wood,HU,Ungarn,1593
+2014,sawn wood,IE,Irland,61
+2014,sawn wood,IL,Israel,1268
+2014,sawn wood,IN,India,1
+2014,sawn wood,IS,Island,6747
+2014,sawn wood,IT,Italia,1174
+2014,sawn wood,JP,Japan,4621
+2014,sawn wood,KR,Sør-Korea,412
+2014,sawn wood,LT,Litauen,457
+2014,sawn wood,LU,Luxembourg,41
+2014,sawn wood,LV,Latvia,13
+2014,sawn wood,MA,Marokko,4518
+2014,sawn wood,ML,Mali,3
+2014,sawn wood,NL,Nederland,47686
+2014,sawn wood,PL,Polen,2153
+2014,sawn wood,RU,Russland,1
+2014,sawn wood,SE,Sverige,72850
+2014,sawn wood,SG,Singapore,71
+2014,sawn wood,US,USA,24
+2014,sawn wood,VN,Vietnam,76
+2014,sawn wood,ZA,Sør-Afrika,1950
+2015,firewood,CA,Canada,16163
+2015,firewood,DE,Tyskland,2902
+2015,firewood,DK,Danmark,17303
+2015,firewood,EE,Estland,84
+2015,firewood,GB,Storbritannia,65
+2015,firewood,IS,Island,17
+2015,firewood,SE,Sverige,15952
+2015,firewood,US,USA,8316
+2015,pulpwood,BE,Belgia,6500
+2015,pulpwood,DE,Tyskland,474334
+2015,pulpwood,DK,Danmark,23608
+2015,pulpwood,EE,Estland,3673
+2015,pulpwood,GB,Storbritannia,3383
+2015,pulpwood,IE,Irland,135
+2015,pulpwood,IS,Island,58
+2015,pulpwood,LV,Latvia,58289
+2015,pulpwood,SE,Sverige,2046939
+2015,pulpwood,SK,Slovakia,149
+2015,saw wood,BE,Belgia,29552
+2015,saw wood,CN,Kina,26484
+2015,saw wood,DE,Tyskland,554320
+2015,saw wood,DK,Danmark,2600
+2015,saw wood,LT,Litauen,134
+2015,saw wood,LV,Latvia,12642
+2015,saw wood,SE,Sverige,738021
+2015,saw wood,SK,Slovakia,284
+2015,sawn wood,AT,Østerrike,2438
+2015,sawn wood,BE,Belgia,68644
+2015,sawn wood,BG,Bulgaria,306
+2015,sawn wood,CH,Sveits,1706
+2015,sawn wood,CN,Kina,215
+2015,sawn wood,CZ,Tsjekkia,18
+2015,sawn wood,DE,Tyskland,108848
+2015,sawn wood,DK,Danmark,73680
+2015,sawn wood,EE,Estland,189
+2015,sawn wood,EG,Egypt,12079
+2015,sawn wood,ES,Spania,2937
+2015,sawn wood,FR,Frankrike,19868
+2015,sawn wood,GB,Storbritannia,36432
+2015,sawn wood,HU,Ungarn,504
+2015,sawn wood,IL,Israel,1780
+2015,sawn wood,IS,Island,2157
+2015,sawn wood,IT,Italia,2991
+2015,sawn wood,JP,Japan,4168
+2015,sawn wood,KR,Sør-Korea,155
+2015,sawn wood,LI,Liechtenstein,9
+2015,sawn wood,LT,Litauen,35
+2015,sawn wood,LU,Luxembourg,103
+2015,sawn wood,LV,Latvia,46
+2015,sawn wood,MA,Marokko,1178
+2015,sawn wood,NL,Nederland,57500
+2015,sawn wood,PL,Polen,1833
+2015,sawn wood,RU,Russland,2
+2015,sawn wood,SE,Sverige,82915
+2015,sawn wood,US,USA,702
+2015,sawn wood,VN,Vietnam,5895
+2016,firewood,CA,Canada,11789
+2016,firewood,DE,Tyskland,26
+2016,firewood,DK,Danmark,71522
+2016,firewood,FI,Finland,1400
+2016,firewood,FO,Færøyene,4000
+2016,firewood,FR,Frankrike,709
+2016,firewood,IL,Israel,3
+2016,firewood,IS,Island,23
+2016,firewood,JP,Japan,72
+2016,firewood,NL,Nederland,12
+2016,firewood,PL,Polen,204
+2016,firewood,SE,Sverige,12800
+2016,pulpwood,BE,Belgia,42250
+2016,pulpwood,DE,Tyskland,394226
+2016,pulpwood,DK,Danmark,19568
+2016,pulpwood,FO,Færøyene,561
+2016,pulpwood,GB,Storbritannia,5221
+2016,pulpwood,LT,Litauen,80
+2016,pulpwood,LV,Latvia,20233
+2016,pulpwood,NL,Nederland,2600
+2016,pulpwood,PL,Polen,26
+2016,pulpwood,SE,Sverige,1933868
+2016,pulpwood,SK,Slovakia,45
+2016,saw wood,BE,Belgia,46487
+2016,saw wood,CN,Kina,6541
+2016,saw wood,DE,Tyskland,444472
+2016,saw wood,LV,Latvia,10000
+2016,saw wood,RO,Romania,455
+2016,saw wood,SE,Sverige,587170
+2016,sawn wood,AE,De forente arabiske emirater,11
+2016,sawn wood,AT,Østerrike,2650
+2016,sawn wood,BE,Belgia,88147
+2016,sawn wood,CH,Sveits,3613
+2016,sawn wood,CN,Kina,316
+2016,sawn wood,DE,Tyskland,120084
+2016,sawn wood,DK,Danmark,75365
+2016,sawn wood,EE,Estland,2
+2016,sawn wood,EG,Egypt,6459
+2016,sawn wood,ES,Spania,1310
+2016,sawn wood,FI,Finland,16
+2016,sawn wood,FO,Færøyene,6
+2016,sawn wood,FR,Frankrike,15305
+2016,sawn wood,GB,Storbritannia,51111
+2016,sawn wood,GH,Ghana,1
+2016,sawn wood,HU,Ungarn,883
+2016,sawn wood,IL,Israel,1606
+2016,sawn wood,IS,Island,1844
+2016,sawn wood,IT,Italia,2526
+2016,sawn wood,JP,Japan,2053
+2016,sawn wood,LI,Liechtenstein,31
+2016,sawn wood,LV,Latvia,4
+2016,sawn wood,MA,Marokko,242
+2016,sawn wood,MV,Maldivene,38
+2016,sawn wood,NG,Nigeria,20
+2016,sawn wood,NL,Nederland,57272
+2016,sawn wood,PL,Polen,691
+2016,sawn wood,PT,Portugal,76
+2016,sawn wood,SE,Sverige,103810
+2016,sawn wood,SK,Slovakia,48
+2016,sawn wood,US,USA,160
+2016,sawn wood,VN,Vietnam,90
+2016,sawn wood,ZA,Sør-Afrika,4
+2017,firewood,CA,Canada,2950
+2017,firewood,DE,Tyskland,3
+2017,firewood,DK,Danmark,36410
+2017,firewood,FR,Frankrike,5832
+2017,firewood,GB,Storbritannia,1600
+2017,firewood,IS,Island,2
+2017,firewood,JP,Japan,552
+2017,firewood,SE,Sverige,42161
+2017,planed wood,AT,Østerrike,284
+2017,planed wood,BE,Belgia,4087
+2017,planed wood,CH,Sveits,63
+2017,planed wood,DE,Tyskland,7163
+2017,planed wood,DK,Danmark,25011
+2017,planed wood,EE,Estland,64
+2017,planed wood,ES,Spania,84
+2017,planed wood,FO,Færøyene,114
+2017,planed wood,FR,Frankrike,1679
+2017,planed wood,GB,Storbritannia,4919
+2017,planed wood,HU,Ungarn,40
+2017,planed wood,IQ,Irak,3
+2017,planed wood,IS,Island,11
+2017,planed wood,IT,Italia,199
+2017,planed wood,JP,Japan,125
+2017,planed wood,LT,Litauen,57
+2017,planed wood,LV,Latvia,1
+2017,planed wood,NL,Nederland,4051
+2017,planed wood,PL,Polen,269
+2017,planed wood,PT,Portugal,88
+2017,planed wood,RO,Romania,2
+2017,planed wood,SE,Sverige,14183
+2017,pulpwood,BD,Bangladesh,11780
+2017,pulpwood,BE,Belgia,4350
+2017,pulpwood,DE,Tyskland,142094
+2017,pulpwood,DK,Danmark,2600
+2017,pulpwood,SE,Sverige,1727357
+2017,saw wood,BE,Belgia,113975
+2017,saw wood,CN,Kina,3569
+2017,saw wood,DE,Tyskland,541587
+2017,saw wood,DK,Danmark,23062
+2017,saw wood,FI,Finland,25
+2017,saw wood,HK,Hong Kong,2209
+2017,saw wood,LT,Litauen,6800
+2017,saw wood,LV,Latvia,43944
+2017,saw wood,NZ,New Zealand,8
+2017,saw wood,PL,Polen,49
+2017,saw wood,SE,Sverige,637358
+2017,sawn wood,AT,Østerrike,2009
+2017,sawn wood,BE,Belgia,103552
+2017,sawn wood,CA,Canada,24
+2017,sawn wood,CH,Sveits,1718
+2017,sawn wood,CN,Kina,2808
+2017,sawn wood,CZ,Tsjekkia,25
+2017,sawn wood,DE,Tyskland,110615
+2017,sawn wood,DK,Danmark,78049
+2017,sawn wood,EE,Estland,165
+2017,sawn wood,EG,Egypt,7976
+2017,sawn wood,ES,Spania,1699
+2017,sawn wood,FI,Finland,95
+2017,sawn wood,FR,Frankrike,9852
+2017,sawn wood,GA,Gabon,51
+2017,sawn wood,GB,Storbritannia,49983
+2017,sawn wood,GR,Hellas,44
+2017,sawn wood,HU,Ungarn,1560
+2017,sawn wood,IL,Israel,4090
+2017,sawn wood,IN,India,60
+2017,sawn wood,IS,Island,544
+2017,sawn wood,IT,Italia,2460
+2017,sawn wood,JP,Japan,5353
+2017,sawn wood,LI,Liechtenstein,6
+2017,sawn wood,LT,Litauen,159
+2017,sawn wood,LU,Luxembourg,60
+2017,sawn wood,MA,Marokko,6
+2017,sawn wood,NL,Nederland,66900
+2017,sawn wood,PH,Filippinene,15
+2017,sawn wood,PL,Polen,3265
+2017,sawn wood,PT,Portugal,1817
+2017,sawn wood,SE,Sverige,99686
+2018,firewood,CA,Canada,2003
+2018,firewood,DE,Tyskland,1500
+2018,firewood,DK,Danmark,8562
+2018,firewood,EE,Estland,30
+2018,firewood,FR,Frankrike,4972
+2018,firewood,GB,Storbritannia,70
+2018,firewood,IS,Island,30003
+2018,firewood,JP,Japan,4
+2018,firewood,NL,Nederland,1100
+2018,firewood,SE,Sverige,27876
+2018,planed wood,AT,Østerrike,280
+2018,planed wood,AU,Australia,152
+2018,planed wood,BE,Belgia,3213
+2018,planed wood,CH,Sveits,83
+2018,planed wood,DE,Tyskland,6932
+2018,planed wood,DK,Danmark,31889
+2018,planed wood,EE,Estland,15
+2018,planed wood,ES,Spania,144
+2018,planed wood,FI,Finland,1
+2018,planed wood,FR,Frankrike,1374
+2018,planed wood,GB,Storbritannia,2500
+2018,planed wood,HU,Ungarn,171
+2018,planed wood,IS,Island,52
+2018,planed wood,IT,Italia,319
+2018,planed wood,JO,Jordan,1
+2018,planed wood,LT,Litauen,41
+2018,planed wood,NL,Nederland,2899
+2018,planed wood,PL,Polen,1538
+2018,planed wood,SE,Sverige,10094
+2018,planed wood,US,USA,3
+2018,pulpwood,BE,Belgia,4154
+2018,pulpwood,DE,Tyskland,71010
+2018,pulpwood,DK,Danmark,56
+2018,pulpwood,ES,Spania,1184
+2018,pulpwood,SE,Sverige,1778889
+2018,saw wood,BD,Bangladesh,2173
+2018,saw wood,BE,Belgia,59913
+2018,saw wood,CN,Kina,13984
+2018,saw wood,DE,Tyskland,399331
+2018,saw wood,DK,Danmark,55024
+2018,saw wood,EE,Estland,3500
+2018,saw wood,FI,Finland,8
+2018,saw wood,LT,Litauen,39335
+2018,saw wood,LV,Latvia,52329
+2018,saw wood,NL,Nederland,48
+2018,saw wood,SE,Sverige,892698
+2018,saw wood,SG,Singapore,1503
+2018,sawn wood,AT,Østerrike,1936
+2018,sawn wood,AU,Australia,11
+2018,sawn wood,BE,Belgia,102654
+2018,sawn wood,CH,Sveits,2347
+2018,sawn wood,CN,Kina,2005
+2018,sawn wood,DE,Tyskland,99637
+2018,sawn wood,DK,Danmark,79943
+2018,sawn wood,EE,Estland,566
+2018,sawn wood,ES,Spania,1972
+2018,sawn wood,FI,Finland,50
+2018,sawn wood,FR,Frankrike,11445
+2018,sawn wood,GB,Storbritannia,71203
+2018,sawn wood,HU,Ungarn,1979
+2018,sawn wood,IE,Irland,48
+2018,sawn wood,IL,Israel,1578
+2018,sawn wood,IN,India,40
+2018,sawn wood,IS,Island,2484
+2018,sawn wood,IT,Italia,2297
+2018,sawn wood,JP,Japan,7105
+2018,sawn wood,LT,Litauen,239
+2018,sawn wood,LU,Luxembourg,696
+2018,sawn wood,LV,Latvia,14
+2018,sawn wood,MA,Marokko,244
+2018,sawn wood,NL,Nederland,57804
+2018,sawn wood,PH,Filippinene,15
+2018,sawn wood,PL,Polen,4446
+2018,sawn wood,PT,Portugal,836
+2018,sawn wood,SE,Sverige,117526
+2018,sawn wood,SG,Singapore,29
+2018,sawn wood,US,USA,189
+2019,firewood,DK,Danmark,5243
+2019,firewood,EE,Estland,35
+2019,firewood,NL,Nederland,10769
+2019,firewood,PT,Portugal,4
+2019,firewood,SE,Sverige,17899
+2019,planed wood,AE,De forente arabiske emirater,24
+2019,planed wood,AT,Østerrike,280
+2019,planed wood,BE,Belgia,4671
+2019,planed wood,CO,Colombia,60
+2019,planed wood,DE,Tyskland,7209
+2019,planed wood,DK,Danmark,27903
+2019,planed wood,EE,Estland,145
+2019,planed wood,ES,Spania,186
+2019,planed wood,FI,Finland,376
+2019,planed wood,FR,Frankrike,2354
+2019,planed wood,GB,Storbritannia,1653
+2019,planed wood,GH,Ghana,2
+2019,planed wood,HU,Ungarn,133
+2019,planed wood,IL,Israel,58
+2019,planed wood,IS,Island,909
+2019,planed wood,JP,Japan,242
+2019,planed wood,LT,Litauen,31
+2019,planed wood,LU,Luxembourg,263
+2019,planed wood,NL,Nederland,3646
+2019,planed wood,PL,Polen,1191
+2019,planed wood,SE,Sverige,18072
+2019,planed wood,US,USA,80
+2019,pulpwood,DE,Tyskland,69033
+2019,pulpwood,GB,Storbritannia,3456
+2019,pulpwood,SE,Sverige,1961237
+2019,saw wood,BD,Bangladesh,3686
+2019,saw wood,CN,Kina,10747
+2019,saw wood,DE,Tyskland,425685
+2019,saw wood,DK,Danmark,47525
+2019,saw wood,EE,Estland,6186
+2019,saw wood,LT,Litauen,31800
+2019,saw wood,LV,Latvia,108702
+2019,saw wood,SE,Sverige,814276
+2019,sawn wood,AT,Østerrike,1807
+2019,sawn wood,BE,Belgia,90027
+2019,sawn wood,CH,Sveits,1869
+2019,sawn wood,CN,Kina,6136
+2019,sawn wood,CZ,Tsjekkia,31
+2019,sawn wood,DE,Tyskland,82814
+2019,sawn wood,DK,Danmark,73219
+2019,sawn wood,EE,Estland,935
+2019,sawn wood,ES,Spania,2058
+2019,sawn wood,FI,Finland,39
+2019,sawn wood,FR,Frankrike,17907
+2019,sawn wood,GB,Storbritannia,66368
+2019,sawn wood,HU,Ungarn,1238
+2019,sawn wood,IL,Israel,916
+2019,sawn wood,IS,Island,2324
+2019,sawn wood,IT,Italia,976
+2019,sawn wood,JP,Japan,8802
+2019,sawn wood,KR,Sør-Korea,547
+2019,sawn wood,LT,Litauen,155
+2019,sawn wood,LU,Luxembourg,598
+2019,sawn wood,LV,Latvia,388
+2019,sawn wood,NL,Nederland,64621
+2019,sawn wood,PL,Polen,6219
+2019,sawn wood,PT,Portugal,547
+2019,sawn wood,SA,Saudi-Arabia,282
+2019,sawn wood,SE,Sverige,160155
+2019,sawn wood,TW,Taiwan,256
+2019,sawn wood,US,USA,72
+2019,sawn wood,VN,Vietnam,33
+2020,firewood,BE,Belgia,49
+2020,firewood,DE,Tyskland,4856
+2020,firewood,DK,Danmark,56792
+2020,firewood,EE,Estland,105
+2020,firewood,LV,Latvia,5701
+2020,firewood,SE,Sverige,12075
+2020,planed wood,AT,Østerrike,165
+2020,planed wood,AU,Australia,1
+2020,planed wood,BE,Belgia,3660
+2020,planed wood,CN,Kina,46
+2020,planed wood,DE,Tyskland,6367
+2020,planed wood,DK,Danmark,30635
+2020,planed wood,EE,Estland,396
+2020,planed wood,ES,Spania,26
+2020,planed wood,FI,Finland,173
+2020,planed wood,FO,Færøyene,29
+2020,planed wood,FR,Frankrike,1624
+2020,planed wood,GB,Storbritannia,2540
+2020,planed wood,HU,Ungarn,42
+2020,planed wood,IS,Island,1895
+2020,planed wood,LT,Litauen,40
+2020,planed wood,LV,Latvia,2
+2020,planed wood,NL,Nederland,4845
+2020,planed wood,PL,Polen,632
+2020,planed wood,RO,Romania,5
+2020,planed wood,SE,Sverige,14180
+2020,pulpwood,DE,Tyskland,37699
+2020,pulpwood,DK,Danmark,14685
+2020,pulpwood,GB,Storbritannia,1088
+2020,pulpwood,PL,Polen,3
+2020,pulpwood,SE,Sverige,2009559
+2020,saw wood,BD,Bangladesh,30
+2020,saw wood,CN,Kina,1196
+2020,saw wood,DE,Tyskland,326346
+2020,saw wood,DK,Danmark,58795
+2020,saw wood,EE,Estland,11050
+2020,saw wood,LT,Litauen,11200
+2020,saw wood,LV,Latvia,156813
+2020,saw wood,NL,Nederland,46
+2020,saw wood,PL,Polen,6494
+2020,saw wood,SE,Sverige,698565
+2020,sawn wood,AT,Østerrike,5090
+2020,sawn wood,BE,Belgia,105937
+2020,sawn wood,CH,Sveits,1396
+2020,sawn wood,CN,Kina,14315
+2020,sawn wood,DE,Tyskland,129783
+2020,sawn wood,DK,Danmark,81485
+2020,sawn wood,EE,Estland,972
+2020,sawn wood,EG,Egypt,35
+2020,sawn wood,ES,Spania,765
+2020,sawn wood,FI,Finland,464
+2020,sawn wood,FO,Færøyene,84
+2020,sawn wood,FR,Frankrike,25766
+2020,sawn wood,GB,Storbritannia,84927
+2020,sawn wood,HU,Ungarn,1922
+2020,sawn wood,IL,Israel,50
+2020,sawn wood,IS,Island,1592
+2020,sawn wood,IT,Italia,928
+2020,sawn wood,JP,Japan,9542
+2020,sawn wood,KR,Sør-Korea,283
+2020,sawn wood,LT,Litauen,122
+2020,sawn wood,LU,Luxembourg,618
+2020,sawn wood,LV,Latvia,366
+2020,sawn wood,NL,Nederland,62188
+2020,sawn wood,PL,Polen,6713
+2020,sawn wood,PT,Portugal,44
+2020,sawn wood,RU,Russland,1
+2020,sawn wood,SE,Sverige,195703
+2020,sawn wood,SG,Singapore,4390
+2020,sawn wood,TR,Tyrkia,38
+2020,sawn wood,TW,Taiwan,972
+2020,sawn wood,UA,Ukraina,120
+2020,sawn wood,US,USA,386
+2020,sawn wood,VN,Vietnam,28
+2021,firewood,DK,Danmark,116100
+2021,firewood,LV,Latvia,28919
+2021,firewood,NL,Nederland,7795
+2021,firewood,SE,Sverige,8666
+2021,planed wood,AT,Østerrike,48
+2021,planed wood,AU,Australia,75
+2021,planed wood,BE,Belgia,3068
+2021,planed wood,DE,Tyskland,5616
+2021,planed wood,DK,Danmark,20004
+2021,planed wood,EE,Estland,826
+2021,planed wood,ES,Spania,21
+2021,planed wood,FI,Finland,656
+2021,planed wood,FR,Frankrike,1704
+2021,planed wood,GB,Storbritannia,3975
+2021,planed wood,HU,Ungarn,44
+2021,planed wood,IE,Irland,232
+2021,planed wood,IS,Island,2697
+2021,planed wood,LT,Litauen,42
+2021,planed wood,LV,Latvia,5
+2021,planed wood,NL,Nederland,2183
+2021,planed wood,PL,Polen,1261
+2021,planed wood,SE,Sverige,10113
+2021,planed wood,VN,Vietnam,37
+2021,pulpwood,DE,Tyskland,38776
+2021,pulpwood,DK,Danmark,47
+2021,pulpwood,FO,Færøyene,42
+2021,pulpwood,GB,Storbritannia,1497
+2021,pulpwood,SE,Sverige,1804769
+2021,saw wood,BE,Belgia,4085
+2021,saw wood,CN,Kina,666
+2021,saw wood,DE,Tyskland,540270
+2021,saw wood,DK,Danmark,67725
+2021,saw wood,EE,Estland,25115
+2021,saw wood,FI,Finland,143
+2021,saw wood,GB,Storbritannia,17
+2021,saw wood,LV,Latvia,394799
+2021,saw wood,NL,Nederland,3500
+2021,saw wood,PL,Polen,17160
+2021,saw wood,SE,Sverige,775832
+2021,sawn wood,AT,Østerrike,2905
+2021,sawn wood,BE,Belgia,90850
+2021,sawn wood,CH,Sveits,1345
+2021,sawn wood,CN,Kina,4936
+2021,sawn wood,CZ,Tsjekkia,121
+2021,sawn wood,DE,Tyskland,93164
+2021,sawn wood,DK,Danmark,66627
+2021,sawn wood,EE,Estland,5126
+2021,sawn wood,ES,Spania,163
+2021,sawn wood,FI,Finland,1002
+2021,sawn wood,FR,Frankrike,33044
+2021,sawn wood,GB,Storbritannia,102362
+2021,sawn wood,HK,Hong Kong,341
+2021,sawn wood,HR,Kroatia,1
+2021,sawn wood,HU,Ungarn,4575
+2021,sawn wood,IS,Island,3179
+2021,sawn wood,IT,Italia,809
+2021,sawn wood,JP,Japan,6609
+2021,sawn wood,LT,Litauen,6
+2021,sawn wood,LU,Luxembourg,677
+2021,sawn wood,LV,Latvia,115
+2021,sawn wood,NL,Nederland,44609
+2021,sawn wood,PL,Polen,8949
+2021,sawn wood,SE,Sverige,145601
+2021,sawn wood,US,USA,165
+2021,sawn wood,VN,Vietnam,83
+2022,firewood,BE,Belgia,5782
+2022,firewood,DE,Tyskland,85
+2022,firewood,DK,Danmark,160304
+2022,firewood,FR,Frankrike,3290
+2022,firewood,IN,India,1
+2022,firewood,LV,Latvia,13347
+2022,firewood,NL,Nederland,2931
+2022,firewood,PL,Polen,19
+2022,firewood,SE,Sverige,31856
+2022,firewood,US,USA,60
+2022,planed wood,BE,Belgia,3048
+2022,planed wood,CH,Sveits,10
+2022,planed wood,DE,Tyskland,3260
+2022,planed wood,DK,Danmark,17154
+2022,planed wood,EE,Estland,757
+2022,planed wood,ES,Spania,4
+2022,planed wood,FI,Finland,529
+2022,planed wood,FR,Frankrike,1550
+2022,planed wood,GB,Storbritannia,5632
+2022,planed wood,IS,Island,508
+2022,planed wood,LT,Litauen,44
+2022,planed wood,LV,Latvia,142
+2022,planed wood,NL,Nederland,3020
+2022,planed wood,PL,Polen,371
+2022,planed wood,RO,Romania,42
+2022,planed wood,SE,Sverige,11190
+2022,planed wood,US,USA,146
+2022,planed wood,VN,Vietnam,1893
+2022,pulpwood,DE,Tyskland,80969
+2022,pulpwood,DK,Danmark,2700
+2022,pulpwood,FI,Finland,28091
+2022,pulpwood,GB,Storbritannia,542
+2022,pulpwood,LV,Latvia,1900
+2022,pulpwood,PL,Polen,2000
+2022,pulpwood,SE,Sverige,1840113
+2022,saw wood,DE,Tyskland,616504
+2022,saw wood,DK,Danmark,60300
+2022,saw wood,EE,Estland,32842
+2022,saw wood,FI,Finland,4500
+2022,saw wood,GB,Storbritannia,38
+2022,saw wood,LT,Litauen,4826
+2022,saw wood,LV,Latvia,464598
+2022,saw wood,NL,Nederland,15200
+2022,saw wood,PL,Polen,61100
+2022,saw wood,SE,Sverige,908874
+2023,firewood,BE,Belgia,11869
+2023,firewood,CA,Canada,2481
+2023,firewood,DE,Tyskland,284
+2023,firewood,DK,Danmark,99728
+2023,firewood,FI,Finland,16315
+2023,firewood,FR,Frankrike,5884
+2023,firewood,IT,Italia,1
+2023,firewood,LV,Latvia,14059
+2023,firewood,NL,Nederland,1
+2023,firewood,NZ,New Zealand,250
+2023,firewood,SE,Sverige,65923
+2023,firewood,US,USA,356
+2023,planed wood,AT,Østerrike,47
+2023,planed wood,BE,Belgia,1983
+2023,planed wood,DE,Tyskland,1478
+2023,planed wood,DK,Danmark,22280
+2023,planed wood,EE,Estland,218
+2023,planed wood,FI,Finland,137
+2023,planed wood,FO,Færøyene,45
+2023,planed wood,FR,Frankrike,2087
+2023,planed wood,GB,Storbritannia,10206
+2023,planed wood,HU,Ungarn,5
+2023,planed wood,IE,Irland,51
+2023,planed wood,IL,Israel,86
+2023,planed wood,IS,Island,250
+2023,planed wood,LV,Latvia,1
+2023,planed wood,NL,Nederland,2173
+2023,planed wood,PL,Polen,985
+2023,planed wood,RU,Russland,2
+2023,planed wood,SE,Sverige,22982
+2023,planed wood,VN,Vietnam,564
+2023,pulpwood,DE,Tyskland,53300
+2023,pulpwood,DK,Danmark,2630
+2023,pulpwood,GB,Storbritannia,2145
+2023,pulpwood,LV,Latvia,4730
+2023,pulpwood,SE,Sverige,1755303
+2023,saw wood,BE,Belgia,27800
+2023,saw wood,CN,Kina,3000
+2023,saw wood,DE,Tyskland,549276
+2023,saw wood,DK,Danmark,73507
+2023,saw wood,EE,Estland,39130
+2023,saw wood,FI,Finland,4229
+2023,saw wood,GB,Storbritannia,66
+2023,saw wood,GI,Gibraltar,60
+2023,saw wood,LT,Litauen,685
+2023,saw wood,LV,Latvia,214617
+2023,saw wood,NL,Nederland,1188
+2023,saw wood,PL,Polen,39077
+2023,saw wood,SE,Sverige,1034626
+2024,firewood,AU,Australia,333
+2024,firewood,DE,Tyskland,4
+2024,firewood,DK,Danmark,78213
+2024,firewood,FI,Finland,4066
+2024,firewood,FR,Frankrike,8082
+2024,firewood,IS,Island,40
+2024,firewood,LV,Latvia,7205
+2024,firewood,NL,Nederland,7621
+2024,firewood,SE,Sverige,13932
+2024,planed wood,AT,Østerrike,47
+2024,planed wood,BE,Belgia,1632
+2024,planed wood,CA,Canada,474
+2024,planed wood,DE,Tyskland,506
+2024,planed wood,DK,Danmark,29720
+2024,planed wood,EE,Estland,169
+2024,planed wood,FI,Finland,398
+2024,planed wood,FR,Frankrike,805
+2024,planed wood,GB,Storbritannia,18140
+2024,planed wood,HU,Ungarn,175
+2024,planed wood,IE,Irland,96
+2024,planed wood,IS,Island,138
+2024,planed wood,IT,Italia,48
+2024,planed wood,JP,Japan,56
+2024,planed wood,KR,Sør-Korea,1639
+2024,planed wood,LT,Litauen,127
+2024,planed wood,LV,Latvia,92
+2024,planed wood,NL,Nederland,1711
+2024,planed wood,PL,Polen,691
+2024,planed wood,SE,Sverige,11978
+2024,pulpwood,DE,Tyskland,37968
+2024,pulpwood,DK,Danmark,28520
+2024,pulpwood,EE,Estland,2
+2024,pulpwood,FI,Finland,58020
+2024,pulpwood,GB,Storbritannia,2459
+2024,pulpwood,LV,Latvia,4200
+2024,pulpwood,SE,Sverige,1996465
+2024,saw wood,BE,Belgia,23700
+2024,saw wood,DE,Tyskland,522339
+2024,saw wood,DK,Danmark,59268
+2024,saw wood,FI,Finland,6000
+2024,saw wood,GB,Storbritannia,364
+2024,saw wood,IE,Irland,161
+2024,saw wood,IS,Island,1500
+2024,saw wood,LT,Litauen,661
+2024,saw wood,LV,Latvia,179289
+2024,saw wood,PL,Polen,3800
+2024,saw wood,SE,Sverige,1440253
+2025,firewood,BE,Belgia,3600
+2025,firewood,DE,Tyskland,14
+2025,firewood,DK,Danmark,118642
+2025,firewood,FI,Finland,630
+2025,firewood,FR,Frankrike,1879
+2025,firewood,GB,Storbritannia,2
+2025,firewood,LV,Latvia,16052
+2025,firewood,NL,Nederland,16786
+2025,firewood,PL,Polen,2
+2025,firewood,SE,Sverige,1107
+2025,planed wood,AT,Østerrike,279
+2025,planed wood,BE,Belgia,2589
+2025,planed wood,DE,Tyskland,816
+2025,planed wood,DK,Danmark,32411
+2025,planed wood,EE,Estland,201
+2025,planed wood,FI,Finland,7
+2025,planed wood,FO,Færøyene,29
+2025,planed wood,FR,Frankrike,90
+2025,planed wood,GB,Storbritannia,18376
+2025,planed wood,GR,Hellas,1
+2025,planed wood,IS,Island,847
+2025,planed wood,IT,Italia,40
+2025,planed wood,LT,Litauen,248
+2025,planed wood,LV,Latvia,244
+2025,planed wood,NL,Nederland,1068
+2025,planed wood,PL,Polen,451
+2025,planed wood,QA,Qatar,10389
+2025,planed wood,SE,Sverige,14373
+2025,planed wood,US,USA,6
+2025,pulpwood,CN,Kina,20
+2025,pulpwood,DE,Tyskland,34169
+2025,pulpwood,DK,Danmark,15426
+2025,pulpwood,FI,Finland,35000
+2025,pulpwood,GB,Storbritannia,4396
+2025,pulpwood,IE,Irland,68
+2025,pulpwood,NL,Nederland,96
+2025,pulpwood,PL,Polen,2800
+2025,pulpwood,SA,Saudi-Arabia,480
+2025,pulpwood,SE,Sverige,2257184
+2025,saw wood,DE,Tyskland,520664
+2025,saw wood,DK,Danmark,63548
+2025,saw wood,EE,Estland,9000
+2025,saw wood,FI,Finland,28500
+2025,saw wood,GB,Storbritannia,806
+2025,saw wood,GL,Grønland,1
+2025,saw wood,IE,Irland,351
+2025,saw wood,IS,Island,1302
+2025,saw wood,LV,Latvia,165977
+2025,saw wood,PT,Portugal,3
+2025,saw wood,RO,Romania,33
+2025,saw wood,SE,Sverige,1994430
+2025,saw wood,US,USA,1
+2026,firewood,AT,Østerrike,1
+2026,firewood,CN,Kina,82
+2026,firewood,DE,Tyskland,2612
+2026,firewood,DK,Danmark,59889
+2026,firewood,EE,Estland,485
+2026,firewood,FI,Finland,1878
+2026,firewood,HR,Kroatia,33
+2026,firewood,LT,Litauen,228
+2026,firewood,LV,Latvia,23030
+2026,firewood,NL,Nederland,1
+2026,firewood,PL,Polen,17699
+2026,firewood,SE,Sverige,19772
+2026,planed wood,AT,Østerrike,60
+2026,planed wood,BE,Belgia,1513
+2026,planed wood,DE,Tyskland,610
+2026,planed wood,DK,Danmark,26222
+2026,planed wood,EE,Estland,12
+2026,planed wood,FI,Finland,4
+2026,planed wood,FO,Færøyene,65
+2026,planed wood,FR,Frankrike,83
+2026,planed wood,GB,Storbritannia,15088
+2026,planed wood,IE,Irland,52
+2026,planed wood,IN,India,168
+2026,planed wood,IS,Island,1492
+2026,planed wood,LT,Litauen,52
+2026,planed wood,LV,Latvia,153
+2026,planed wood,NL,Nederland,1079
+2026,planed wood,PL,Polen,472
+2026,planed wood,RO,Romania,17
+2026,planed wood,SE,Sverige,14156
+2026,planed wood,SK,Slovakia,50
+2026,pulpwood,BE,Belgia,10260
+2026,pulpwood,DE,Tyskland,126471
+2026,pulpwood,DK,Danmark,2885
+2026,pulpwood,FI,Finland,29967
+2026,pulpwood,GB,Storbritannia,3930
+2026,pulpwood,NL,Nederland,3700
+2026,pulpwood,PL,Polen,3500
+2026,pulpwood,SE,Sverige,1700937
+2026,saw wood,BE,Belgia,6740
+2026,saw wood,DE,Tyskland,610772
+2026,saw wood,DK,Danmark,53995
+2026,saw wood,EE,Estland,25
+2026,saw wood,FI,Finland,4970
+2026,saw wood,GB,Storbritannia,281
+2026,saw wood,IE,Irland,183
+2026,saw wood,LV,Latvia,101600
+2026,saw wood,NL,Nederland,31470
+2026,saw wood,PL,Polen,28400
+2026,saw wood,SE,Sverige,1551352

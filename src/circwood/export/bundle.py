@@ -25,6 +25,37 @@ prose:
 Today every row in the dataset is ``entity_id == "national"`` (see
 ``transform/dimensions.py``), so the gate passes everything — inert by
 construction, not by being switched off.
+
+The ``forest`` block (Phase H)
+------------------------------
+When ``data/processed/forest_resource.csv`` exists the bundle also carries a
+``forest`` key — omitted, never an error, when it does not: the forest layer
+is a side layer and a bundle must build without it. It is the national
+(``region == "NO"``) summary the site's "Forest resource" card renders, at the
+latest inventory interval, built by :func:`_forest_block`:
+
+* ``interval`` / ``year_end`` — the rolling five-year NFI interval of the
+  increment table (``"2021-2025"``, 2025); standing volume is taken at the
+  same interval, as :func:`~circwood.transform.forest.increment_vs_harvest`
+  does. ``intervals`` records the interval used per source table, since the
+  area and development-class tables are published on their own schedule.
+* ``standing_volume_m3`` and ``increment_m3_per_year`` — dicts by species
+  (``all``, ``spruce``, ``pine``, ``non-coniferous``) from SSB 14589 / 14590,
+  measure ``Skogsareal4`` (productive forestry land), converted from SSB's
+  1 000 m³ to m³ like the flow table. ``increment_total_m3_per_year`` adds the
+  ``AndreMark`` (other land) increment, i.e. both land classes.
+* ``productive_forestry_land_km2`` / ``protected_productive_km2`` — SSB 14591
+  ``ProdSkogBrukM`` / ``VernProdSkogAr``, km² to 0.1.
+* ``development_classes`` — the SSB 14594 national shares of productive
+  forestry land for ``HogstI`` … ``HogstV``, each ``{code, label, percent}``.
+* ``harvest_vs_increment`` — the rows of
+  :func:`~circwood.transform.forest.increment_vs_harvest` over the paper
+  window (``constants.MIN_YEAR``–``MAX_YEAR``) against the frame being
+  bundled, one dict per species: m³ to 1, the ratio to four decimals, and a
+  non-finite ratio as ``null``.
+
+Keys are sorted at every level and values rounded, so an unchanged input
+rebuilds byte-identically — the same property the ``.json.gz`` has.
 """
 
 from __future__ import annotations
@@ -32,8 +63,10 @@ from __future__ import annotations
 import argparse
 import gzip
 import json
+import math
 from datetime import datetime, timezone
 from pathlib import Path
+from typing import Any
 
 import pandas as pd
 
@@ -201,6 +234,9 @@ def build_bundle(
     a database (roadmap, Phase D). Volumes are rounded to 0.1 m³ and carbon
     to 1 kg C — display precision; the CSVs stay the exact artifact.
 
+    When ``data/processed/forest_resource.csv`` exists the bundle also carries
+    the Phase H ``forest`` block (module docstring); otherwise the key is absent.
+
     Parameters exist for the tests: ``df`` injects a flow table, ``nodes`` a
     node list, ``write=False`` skips touching the filesystem.
     """
@@ -209,7 +245,7 @@ def build_bundle(
     df = assert_publishable(df)
 
     if nodes is None:
-        with open(config.NODES_FILE, "r", encoding="utf-8") as fh:
+        with open(config.NODES_FILE, encoding="utf-8") as fh:
             nodes = json.load(fh)
 
     labels = [n["label"] for n in nodes]
@@ -228,6 +264,9 @@ def build_bundle(
 
     if df[["volume", "carbon"]].isna().any().any():
         raise ValueError("Flow table has NaN volume or carbon — refusing to bundle.")
+    envelope = all(c in df.columns for c in ("carbon_low", "carbon_high"))
+    if envelope and df[["carbon_low", "carbon_high"]].isna().any().any():
+        raise ValueError("Flow table has NaN carbon_low/carbon_high — refusing to bundle.")
 
     region_labels = _region_labels()
     regions = [NATIONAL_REGION] + sorted(set(df["region"]) - {NATIONAL_REGION})
@@ -251,10 +290,10 @@ def build_bundle(
 
     manifest = _read_vintage()
 
-    bundle = {
+    bundle: dict[str, Any] = {
         "schema_version": BUNDLE_SCHEMA_VERSION,
         "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
-        "units": {"volume": "m3", "carbon": "kg C"},
+        "units": {"volume": "m3", "carbon": "kg C", "co2_per_c": _co2_per_c()},
         "year_min": int(df["year"].min()),
         "year_max": int(df["year"].max()),
         # The paper's default analysis window (constants.MIN_YEAR/MAX_YEAR).
@@ -292,6 +331,15 @@ def build_bundle(
         },
         "row_count": int(len(df)),
     }
+    if envelope:
+        # Phase G: the density low/high envelope, same rounding as carbon.
+        bundle["flows"]["carbon_low"] = [round(float(c)) for c in df["carbon_low"]]
+        bundle["flows"]["carbon_high"] = [round(float(c)) for c in df["carbon_high"]]
+
+    forest = _forest_block(df)
+    if forest is not None:
+        # Phase H: the national forest-resource summary (module docstring).
+        bundle["forest"] = forest
 
     if write:
         write_bundle(bundle, out_path or config.BUNDLE_JSON)
@@ -302,6 +350,12 @@ def _paper_window() -> list[int]:
     from circwood import constants
 
     return [constants.MIN_YEAR, constants.MAX_YEAR]
+
+
+def _co2_per_c() -> float:
+    from circwood import constants
+
+    return round(constants.CO2_PER_C, 6)
 
 
 def _read_vintage() -> dict | None:
@@ -320,6 +374,115 @@ def _read_vintage() -> dict | None:
             for table_id, entry in manifest.tables.items()
         },
     }
+
+
+# ---------------------------------------------------------------------------
+# Phase H — the forest-resource block
+# ---------------------------------------------------------------------------
+
+#: Species keys the forest block reports: the flow table's three plus ``all``.
+_FOREST_SPECIES = ("all", "spruce", "pine", "non-coniferous")
+
+#: SSB 14594 development classes, regeneration area (I) to mature forest (V).
+_DEVELOPMENT_CLASSES = ("HogstI", "HogstII", "HogstIII", "HogstIV", "HogstV")
+
+#: The NFI tables the block reads (volume, increment, area, development classes).
+_FOREST_BLOCK_TABLES = ("14589", "14590", "14591", "14594")
+
+
+def _json_number(value, ndigits: int = 0):
+    """Round for the bundle (``ndigits=0`` gives an int); non-finite becomes ``None``.
+
+    JSON has no NaN: ``json.dumps`` would emit the token ``NaN`` and the
+    browser's ``response.json()`` would then reject the whole bundle.
+    """
+    if value is None or not math.isfinite(float(value)):
+        return None
+    return round(float(value)) if ndigits == 0 else round(float(value), ndigits)
+
+
+def _forest_block(flows: pd.DataFrame) -> dict | None:
+    """The national forest-resource summary the site's card renders, or ``None``.
+
+    ``None`` — the key is simply omitted — when ``config.FOREST_RESOURCE_CSV``
+    does not exist. A file that *is* there but lacks a table, a measure or a
+    species raises like every other malformed input here: a partial card would
+    misstate the resource. ``flows`` is the frame being bundled, so the harvest
+    in ``harvest_vs_increment`` is the one the site draws.
+    """
+    from circwood.transform import forest as F
+
+    table = F.load_forest_resource()
+    if table is None:
+        return None
+    table = assert_publishable(table)
+    national = table[table["region"] == F.NATIONAL]
+
+    def latest(table_id: str, year_end: int | None = None) -> pd.DataFrame:
+        rows = national[national["table"] == table_id]
+        if not rows.empty:
+            rows = rows[rows["year_end"] == (rows["year_end"].max() if year_end is None else year_end)]
+        if rows.empty:
+            raise ValueError(
+                f"{config.FOREST_RESOURCE_CSV} has no national rows for SSB {table_id}"
+                + (f" at year_end {year_end}" if year_end is not None else "")
+                + f"; the forest block needs {_FOREST_BLOCK_TABLES}."
+            )
+        return rows
+
+    def one(rows: pd.DataFrame, measure: str, species: str = "all") -> float:
+        hit = rows[(rows["measure"] == measure) & (rows["species"] == species)]
+        if len(hit) != 1:
+            raise ValueError(
+                f"forest block: expected one national row for measure {measure!r}, species "
+                f"{species!r} in SSB {rows['table'].iloc[0]} ({rows['interval'].iloc[0]}), found {len(hit)}."
+            )
+        return float(hit["value"].iloc[0])
+
+    def by_species(rows: pd.DataFrame, measures: tuple[str, ...]) -> dict:
+        # SSB publishes 1 000 m³; the bundle is in m³ like the flow table.
+        return {
+            sp: _json_number(sum(one(rows, m, sp) for m in measures) * 1000)
+            for sp in sorted(_FOREST_SPECIES)
+        }
+
+    # Anchor on the increment table's latest interval and take the standing
+    # volume at the same one, exactly as forest.increment_vs_harvest does.
+    increment = latest("14590")
+    year_end = int(increment["year_end"].iloc[0])
+    volume = latest("14589", year_end)
+    area = latest("14591")
+    classes = latest("14594")
+
+    comparison = [
+        {
+            key: value if isinstance(value, str) else _json_number(value, 4 if key == "harvest_to_increment" else 0)
+            for key, value in sorted(record.items())
+        }
+        for record in F.increment_vs_harvest(table, flows).to_dict("records")
+    ]
+
+    block = {
+        "development_classes": [
+            {"code": code, "label": F.MEASURE_LABELS[code], "percent": _json_number(one(classes, code), 1)}
+            for code in _DEVELOPMENT_CLASSES
+        ],
+        "harvest_vs_increment": comparison,
+        "increment_m3_per_year": by_species(increment, ("Skogsareal4",)),
+        "increment_total_m3_per_year": by_species(increment, ("Skogsareal4", "AndreMark")),
+        "interval": str(increment["interval"].iloc[0]),
+        "intervals": {
+            table_id: str(frame["interval"].iloc[0])
+            for table_id, frame in sorted(
+                {"14589": volume, "14590": increment, "14591": area, "14594": classes}.items()
+            )
+        },
+        "productive_forestry_land_km2": _json_number(one(area, "ProdSkogBrukM"), 1),
+        "protected_productive_km2": _json_number(one(area, "VernProdSkogAr"), 1),
+        "standing_volume_m3": by_species(volume, ("Skogsareal4",)),
+        "year_end": year_end,
+    }
+    return dict(sorted(block.items()))
 
 
 def write_bundle(bundle: dict, out_path: Path) -> list[Path]:

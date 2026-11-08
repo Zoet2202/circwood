@@ -12,11 +12,11 @@ every process node over the paper window — the closure of Issue 3.
 from __future__ import annotations
 
 import pandas as pd
-import pytest
 
-from circwood import build_sankey, constants as C
-from circwood.transform.sawing import create_flow_rows
+from circwood import build_sankey
+from circwood import constants as C
 from circwood.transform.mills import boardmill_process, pulpmills_process
+from circwood.transform.sawing import create_flow_rows
 from circwood.validate import PROCESS_NODES, assert_balanced, assert_window_balanced
 
 

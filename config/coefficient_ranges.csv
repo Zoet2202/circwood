@@ -1,0 +1,12 @@
+parameter,central,low,high,unit,note
+shrinkage,0.05,0.03,0.08,share of log input,"water loss at the saw; the raw/dry density ratios in carbon_densities.csv imply 6-10 %"
+sawdust,0.14,0.10,0.18,share of log input,"sawdust to board mills; indicative range for sensitivity, to be refined by the authors"
+cellulose,0.26,0.22,0.30,share of log input,"chip yield to pulp mills; the headline 26 % (Sawing_function_diagnosis.docx)"
+scraps,0.05,0.03,0.08,share of log input,"offcuts to energy; indicative range"
+planed_input_factor,1.05,1.02,1.10,m3 sawn per m3 planed,"planing conversion; indicative range"
+byproduct_planing,0.05,0.03,0.10,share of planing input,"planing shavings to board mills; indicative range"
+boardmill_loss,0.05,0.02,0.10,share of inflow,"board-mill process loss; indicative range"
+pulp_short_term,86,80,92,percent of inflow,"pulp and paper products; energy and loss rescaled to keep 100 %"
+pulp_energy,8,4,12,percent of inflow,"energy from pulp mills; short-term and loss rescaled to keep 100 %"
+wpp_long_term,0.90,0.80,0.95,share of inflow,"share of processed products reaching long-term use; indicative range"
+firewood_percent_spruce,50,30,70,percent spruce,"spruce share of coniferous firewood (SSB 11181 publishes conifers as one figure)"

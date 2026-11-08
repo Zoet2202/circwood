@@ -23,13 +23,22 @@ evidence of anything. So:
 
 from __future__ import annotations
 
+from collections.abc import Iterable, Mapping
 from dataclasses import dataclass, field
 from pathlib import Path
 
 import pandas as pd
 
+from circwood import constants as C
+
 #: Relative move that trips the gate.
 DEFAULT_THRESHOLD = 0.05
+
+#: Tighter move that trips the gate *inside the paper window* (Phase J). The
+#: 2012–2022 figures are published; SSB rarely revises final years, so a move
+#: there is more suspicious than one in the still-provisional recent years.
+#: ``None`` disables the distinction.
+DEFAULT_PAPER_THRESHOLD = 0.02
 
 #: Flows smaller than this (m³, on both sides) are too small for a relative
 #: change to be meaningful. ~0.01 % of a typical annual harvest.
@@ -40,6 +49,16 @@ KEY = ["source", "target", "year"]
 
 class VintageDiffError(AssertionError):
     """A regenerated dataset differs from the committed one beyond tolerance."""
+
+
+class UnexplainedDriftError(VintageDiffError):
+    """Flows moved although no source table was revised, no query and no input file changed.
+
+    The more serious class (Phase J): the change came from *this repository's*
+    code or configuration, not from Statistics Norway, and a dataset built
+    from a changed transform balances and reconciles just as well as the old
+    one — only the vintage diff sees it.
+    """
 
 
 @dataclass(frozen=True)
@@ -80,6 +99,8 @@ class DiffReport:
 
     threshold: float = DEFAULT_THRESHOLD
     min_volume: float = DEFAULT_MIN_VOLUME
+    paper_threshold: float | None = DEFAULT_PAPER_THRESHOLD
+    paper_window: tuple[int, int] = (C.MIN_YEAR, C.MAX_YEAR)
     baseline: bool = False  # no previous dataset to compare against
     common_years: tuple[int, ...] = ()
     added_years: tuple[int, ...] = ()
@@ -91,14 +112,21 @@ class DiffReport:
     changes: list[FlowChange] = field(default_factory=list)
 
     # -- verdict ------------------------------------------------------------
+    def threshold_for(self, year: int) -> float:
+        """The relative threshold that applies to ``year`` (tighter inside the paper window)."""
+        lo, hi = self.paper_window
+        if self.paper_threshold is not None and lo <= int(year) <= hi:
+            return min(self.paper_threshold, self.threshold)
+        return self.threshold
+
     @property
     def breaching_flows(self) -> list[FlowChange]:
-        """Flow moves past the threshold that are big enough to matter."""
+        """Flow moves past the (year-dependent) threshold that are big enough to matter."""
         out = [
             c
             for c in self.changes
             if c.magnitude >= self.min_volume
-            and (c.rel is None or abs(c.rel) > self.threshold)
+            and (c.rel is None or abs(c.rel) > self.threshold_for(c.year))
         ]
         return sorted(out, key=lambda c: abs(c.delta), reverse=True)
 
@@ -157,9 +185,14 @@ class DiffReport:
             f"{min(self.common_years)}–{max(self.common_years)}"
             if self.common_years else "none"
         )
+        paper = (
+            f", {min(self.paper_threshold, self.threshold):.0%} inside the paper window "
+            f"{self.paper_window[0]}–{self.paper_window[1]}"
+            if self.paper_threshold is not None else ""
+        )
         lines.append(
             f"- Compared years: {span} "
-            f"(threshold {self.threshold:.0%}, floor {self.min_volume:,.0f} m³)"
+            f"(threshold {self.threshold:.0%}{paper}, floor {self.min_volume:,.0f} m³)"
         )
         if self.added_years:
             lines.append(
@@ -205,15 +238,18 @@ def diff_datasets(
     *,
     threshold: float = DEFAULT_THRESHOLD,
     min_volume: float = DEFAULT_MIN_VOLUME,
+    paper_threshold: float | None = DEFAULT_PAPER_THRESHOLD,
 ) -> DiffReport:
     """Compare two vintages of the flow dataset.
 
     ``old`` may be ``None`` (or empty) — the first build has nothing to compare
     against, which is reported as a baseline rather than treated as a pass or a
-    failure.
+    failure. ``paper_threshold`` is the tighter threshold applied to years
+    inside the paper window (``None`` to use ``threshold`` everywhere).
     """
     if old is None or old.empty:
-        return DiffReport(threshold=threshold, min_volume=min_volume, baseline=True)
+        return DiffReport(threshold=threshold, min_volume=min_volume,
+                          paper_threshold=paper_threshold, baseline=True)
 
     old_years = set(old["year"].astype(int))
     new_years = set(new["year"].astype(int))
@@ -222,6 +258,7 @@ def diff_datasets(
     report = DiffReport(
         threshold=threshold,
         min_volume=min_volume,
+        paper_threshold=paper_threshold,
         common_years=tuple(common),
         added_years=tuple(sorted(new_years - old_years)),
         removed_years=tuple(sorted(old_years - new_years)),
@@ -290,6 +327,7 @@ def diff_committed(
     *,
     threshold: float = DEFAULT_THRESHOLD,
     min_volume: float = DEFAULT_MIN_VOLUME,
+    paper_threshold: float | None = DEFAULT_PAPER_THRESHOLD,
 ) -> DiffReport:
     """Diff ``new`` against the dataset committed at ``committed_path``.
 
@@ -300,16 +338,163 @@ def diff_committed(
 
     path = Path(committed_path) if committed_path is not None else config.SANKEY_CSV
     old = pd.read_csv(path) if path.exists() else None
-    return diff_datasets(old, new, threshold=threshold, min_volume=min_volume)
+    return diff_datasets(old, new, threshold=threshold, min_volume=min_volume,
+                         paper_threshold=paper_threshold)
+
+
+# ---------------------------------------------------------------------------
+# Phase J — revision drift vs. reclassification
+# ---------------------------------------------------------------------------
+#: Classes a breaching flow is attributed to, most to least reassuring.
+SSB_REVISION = "ssb-revision"         # a source table's SSB `updated` date moved
+QUERY_CHANGE = "query-change"         # our query file for a source table changed
+INPUT_CHANGE = "input-change"         # a committed raw input file changed
+DERIVED = "derived-from-revised"      # a derived edge whose own upstream table or input changed
+UNEXPLAINED = "unexplained"           # nothing upstream changed: our code or config did
+
+#: Origin tokens that do not name a single table (derived edges), mapped to
+#: the upstream sources whose change can legitimately move them: the base
+#: tables and the committed input files the edge is computed from. A derived
+#: edge is ``derived-from-revised`` only when one of *its own* upstreams moved,
+#: not when any table in the manifest did — the partner table 08799 is
+#: revised monthly and moves no volume, so "anything upstream" would excuse
+#: every derived move on every scheduled run and leave ``UnexplainedDriftError``
+#: unreachable for the β-defining edges.
+_DERIVED_UPSTREAM: dict[str, tuple[frozenset[str], frozenset[str]]] = {
+    # Firewood -> Energy: the residual of the 11181 removals after the 08801 exports.
+    "SSB various tables": (frozenset({"11181", "08801"}), frozenset()),
+    # WPP -> Long-term USE / Energy: the sawn chain — removals (03795, 07410),
+    # trade (08801) and the Treindustrien production file.
+    "SSB and Treindustrien": (frozenset({"03795", "07410", "08801"}),
+                              frozenset({"treindustrien_production_data.csv"})),
+}
+_GENERIC_ORIGINS = frozenset(_DERIVED_UPSTREAM)
+
+#: Origin token -> committed input file name (``manifest.inputs`` key).
+_INPUT_TOKENS = {
+    "Treindustrien årsrapport": "treindustrien_production_data.csv",
+    "FAOSTAT": "FAO_Data.csv",
+}
+
+
+def origin_tables(origin: str) -> set[str]:
+    """SSB table ids named in an origin string (``'SSB table 08801 (net)'`` -> ``{'08801'}``)."""
+    tables: set[str] = set()
+    for token in str(origin).split("|"):
+        token = token.strip()
+        if token.startswith("SSB table "):
+            tables.add(token[len("SSB table "):].split()[0])
+    return tables
+
+
+def origin_inputs(origin: str) -> set[str]:
+    """Committed raw input files named in an origin string."""
+    return {
+        _INPUT_TOKENS[t.strip()]
+        for t in str(origin).split("|") if t.strip() in _INPUT_TOKENS
+    }
+
+
+def classify_change(
+    origin: str,
+    *,
+    revised_tables: Iterable[str],
+    changed_queries: Iterable[str],
+    changed_inputs: Iterable[str],
+) -> str:
+    """Attribute one moved flow to what changed upstream of it (see the class constants)."""
+    revised, queries, inputs = set(revised_tables), set(changed_queries), set(changed_inputs)
+    tables = origin_tables(origin)
+    files = origin_inputs(origin)
+    if tables & revised:
+        return SSB_REVISION
+    if tables & queries:
+        return QUERY_CHANGE
+    if files & inputs:
+        return INPUT_CHANGE
+    tokens = {t.strip() for t in str(origin).split("|")}
+    for token in tokens & _GENERIC_ORIGINS:
+        up_tables, up_inputs = _DERIVED_UPSTREAM[token]
+        if (up_tables & (revised | queries)) or (up_inputs & inputs):
+            return DERIVED
+    return UNEXPLAINED
+
+
+def attribute_changes(
+    report: DiffReport,
+    origins: Mapping[tuple[str, str, int], str],
+    *,
+    revised_tables: Iterable[str] = (),
+    changed_queries: Iterable[str] = (),
+    changed_inputs: Iterable[str] = (),
+) -> pd.DataFrame:
+    """Classify every breaching flow of ``report``.
+
+    ``origins`` maps ``(source, target, year)`` to the new dataset's origin
+    string. Returns a frame with the flow, its move and a ``class`` column.
+    Mass balance cannot tell an SSB revision from a changed transform; this
+    can, because the manifest records each table's SSB revision date, the
+    query file hash and the committed input hashes.
+    """
+    rows = []
+    for c in report.breaching_flows:
+        origin = origins.get((c.source, c.target, int(c.year)), "")
+        rows.append({
+            "source": c.source, "target": c.target, "year": int(c.year),
+            "old": c.old, "new": c.new, "rel": c.rel, "kind": c.kind, "origin": origin,
+            "class": classify_change(
+                origin, revised_tables=revised_tables,
+                changed_queries=changed_queries, changed_inputs=changed_inputs,
+            ),
+        })
+    return pd.DataFrame(rows, columns=["source", "target", "year", "old", "new", "rel",
+                                       "kind", "origin", "class"])
+
+
+def assert_explained(attribution: pd.DataFrame, report: DiffReport) -> None:
+    """Raise :class:`UnexplainedDriftError` if any breaching flow has no upstream cause.
+
+    Called after :func:`assert_within_threshold` would already have raised; it
+    exists so the *kind* of failure is named — an unexplained move is a repo
+    defect, not an SSB event, and the issue the workflow opens should say so.
+    """
+    if attribution.empty:
+        return
+    bad = attribution[attribution["class"] == UNEXPLAINED]
+    if bad.empty:
+        return
+    lines = "\n".join(
+        f"  - {r.source} -> {r.target} ({r.year}): {r.old:,.0f} -> {r.new:,.0f} m3 "
+        f"[{r.origin or 'no origin'}]"
+        for r in bad.head(20).itertuples()
+    )
+    raise UnexplainedDriftError(
+        f"{len(bad)} flow(s) moved past the threshold although no SSB source table was "
+        f"revised, no query file changed and no committed input changed:\n{lines}\n"
+        f"The change came from this repository's code or configuration. Review the "
+        f"transform or constants change and adopt it deliberately with accept_drift."
+    )
 
 
 __all__ = [
     "DEFAULT_MIN_VOLUME",
+    "DEFAULT_PAPER_THRESHOLD",
     "DEFAULT_THRESHOLD",
+    "DERIVED",
+    "INPUT_CHANGE",
+    "QUERY_CHANGE",
+    "SSB_REVISION",
+    "UNEXPLAINED",
     "DiffReport",
     "FlowChange",
+    "UnexplainedDriftError",
     "VintageDiffError",
+    "assert_explained",
     "assert_within_threshold",
+    "attribute_changes",
+    "classify_change",
     "diff_committed",
     "diff_datasets",
+    "origin_inputs",
+    "origin_tables",
 ]

@@ -91,8 +91,11 @@ def test_pool_outflows_are_pure_species(shipped):
     for pool, sp in POOLS.items():
         rows = shipped[shipped["source"] == pool]
         assert (rows["species"] == sp).all(), f"{pool} emitted a foreign species"
-        # Pure rows are never split: one row per (year, target).
-        assert not rows.duplicated(["year", "target"]).any()
+        # Pure rows are never split by species: one row per (year, target,
+        # destination) — the export edges are split by partner country only.
+        assert not rows.duplicated(["year", "target", "destination"]).any()
+        domestic = rows[rows["destination"] == "domestic"]
+        assert not domestic.duplicated(["year", "target"]).any()
 
 
 def test_mixed_flows_are_split_per_species(shipped):

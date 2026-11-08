@@ -10,7 +10,8 @@ from __future__ import annotations
 
 import pandas as pd
 
-from circwood import config, constants as C
+from circwood import config
+from circwood import constants as C
 from circwood.ingest import treindustrien as tre
 from circwood.transform.dimensions import (
     add_dimensions,
@@ -18,13 +19,17 @@ from circwood.transform.dimensions import (
     collapse_national,
     merge_origins,
 )
+from circwood.transform.inventory import create_inventory_rows
+from circwood.transform.mills import (
+    MillCoefficients,
+    boardmill_process,
+    pulpmills_process,
+)
 from circwood.transform.sawing import (
     SawmillCoefficients,
     create_flow_rows,
     resolve_coefficients,
 )
-from circwood.transform.inventory import create_inventory_rows
-from circwood.transform.mills import boardmill_process, pulpmills_process
 
 SPECIES_POOLS = ("Spruce", "Pine", "Non-coniferous")
 
@@ -175,20 +180,20 @@ def _apply_net_exports(sankey_df: pd.DataFrame) -> pd.DataFrame:
         for y in years:
             xs = {(s, t): vol.get((y, s, t), 0.0) for s, t in cfg["exports"]}
             X = sum(xs.values())
-            I = vol.get((y, imp_s, imp_t), 0.0)
-            if X == 0 and I == 0:
+            imports = vol.get((y, imp_s, imp_t), 0.0)
+            if X == 0 and imports == 0:
                 continue
             for s, t in cfg["exports"]:
                 vol.pop((y, s, t), None)
             vol.pop((y, imp_s, imp_t), None)
 
-            if X - I >= 0 and X > 0:                  # net export
+            if X - imports >= 0 and X > 0:            # net export
                 for (s, _t), x in xs.items():
                     dk = (y, s, dom)
-                    vol[dk] = vol.get(dk, 0.0) + x / X * I
+                    vol[dk] = vol.get(dk, 0.0) + x / X * imports
                     orig.setdefault(dk, NET_ORIGIN)
                     nk = (y, s, net_node)
-                    vol[nk] = vol.get(nk, 0.0) + x * (X - I) / X
+                    vol[nk] = vol.get(nk, 0.0) + x * (X - imports) / X
                     orig[nk] = NET_ORIGIN
             else:                                     # net import (or X == 0)
                 for (s, _t), x in xs.items():
@@ -196,7 +201,7 @@ def _apply_net_exports(sankey_df: pd.DataFrame) -> pd.DataFrame:
                     vol[dk] = vol.get(dk, 0.0) + x
                     orig.setdefault(dk, NET_ORIGIN)
                 mk = (y, net_node, dom)
-                vol[mk] = vol.get(mk, 0.0) + (I - X)
+                vol[mk] = vol.get(mk, 0.0) + (imports - X)
                 orig[mk] = NET_ORIGIN
 
     recs = [
@@ -295,6 +300,8 @@ def assemble_sankey(
     treindustrien_df: pd.DataFrame,
     coefficient_source: str = "manual",
     coefficients: SawmillCoefficients | None = None,
+    mill_coefficients: MillCoefficients | None = None,
+    widen: bool = True,
 ) -> pd.DataFrame:
     """Build the full, mass-balanced Sankey from primary rows + Treindustrien.
 
@@ -309,8 +316,14 @@ def assemble_sankey(
     ``"treindustrien"`` derives the sawn yield from the Treindustrien
     produced-volume data (with ``coefficients`` supplying the base by-product
     ratios and planing factors). See
-    :class:`~circwood.transform.sawing.SawmillCoefficients`.
+    :class:`~circwood.transform.sawing.SawmillCoefficients`. ``mill_coefficients``
+    overrides the downstream splits (board-mill loss, pulp split, WPP split;
+    :class:`~circwood.transform.mills.MillCoefficients`), for the Phase G
+    sensitivity analysis. ``widen=False`` returns the national five-column
+    table without the dimension expansion — the sensitivity loop rebuilds the
+    flows many times and never needs the dimensions.
     """
+    mills = mill_coefficients or MillCoefficients()
     primary_df, harvest_to_sawmills, production = _prepare_sawing_inputs(
         primary_df, treindustrien_df)
 
@@ -326,16 +339,18 @@ def assemble_sankey(
     inventory_rows = create_inventory_rows(tre.signed_inventory(treindustrien_df))
 
     sankey_df = pd.concat([primary_df, flows, inventory_rows], ignore_index=True)
-    sankey_df = boardmill_process(sankey_df)
-    sankey_df = pulpmills_process(sankey_df)
-
-    # Firewood -> Energy aggregate
-    df_firewood = (
-        sankey_df[sankey_df["target"] == "Firewood"]
-        .groupby("year", as_index=False)["volume"].sum()
+    sankey_df = boardmill_process(sankey_df, loss=mills.boardmill_loss)
+    sankey_df = pulpmills_process(
+        sankey_df, mills.pulp_short_term, mills.pulp_energy, mills.pulp_loss
     )
-    df_firewood["source"], df_firewood["target"] = "Firewood", "Energy"
-    df_firewood["origin"] = "SSB various tables"
+
+    # Firewood -> Energy: the residual of the node's inflow (domestic firewood
+    # removals, SSB 11181, plus imports) after the primary outflows already in
+    # the frame (Firewood -> Export Firewood from SSB 08801). Until Phase K the
+    # whole inflow went to Energy *and* the export edge sat on top, so the
+    # Firewood node emitted up to 8.5 % more than it received. It now balances
+    # by construction and is one of validate.PROCESS_NODES.
+    df_firewood = _firewood_energy_rows(sankey_df)
 
     # Wood Product processing & Logistics split
     df_wpp = (
@@ -344,14 +359,50 @@ def assemble_sankey(
     )
     df_wpp["source"] = "Wood Product processing & Logistics"
     df_wpp["origin"] = "SSB and Treindustrien"
-    wpp_ltu = df_wpp.assign(volume=df_wpp["volume"] * C.WPP_LONG_TERM, target="Long-term USE")
-    wpp_energy = df_wpp.assign(volume=df_wpp["volume"] * C.WPP_ENERGY, target="Energy")
+    wpp_ltu = df_wpp.assign(volume=df_wpp["volume"] * mills.wpp_long_term, target="Long-term USE")
+    wpp_energy = df_wpp.assign(volume=df_wpp["volume"] * mills.wpp_energy, target="Energy")
 
     sankey_df = pd.concat([sankey_df, df_firewood, wpp_ltu, wpp_energy], ignore_index=True)
+    national = _apply_net_exports(_finalize(sankey_df))
+    if not widen:
+        return national
     # Phase C: widen the national table with the filter dimensions (region /
     # species / assortment / entity_id). Summing volume over them recovers the
     # national table exactly, so nothing downstream loses its guarantees.
-    return add_dimensions(_apply_net_exports(_finalize(sankey_df)))
+    return add_dimensions(national)
+
+
+def _firewood_energy_rows(sankey_df: pd.DataFrame) -> pd.DataFrame:
+    """``Firewood -> Energy`` per year = inflow to Firewood minus its other outflows.
+
+    SSB 11181 is *removals* of firewood (label "Avvirkning av vedvirke": with
+    bark, estimated from household and cabin consumption surveys, covering
+    firewood sold and cut for own use), so the species -> Firewood edges are
+    production and the exported share (08801) must come out of them rather
+    than be added on top. Raises if exports exceed the inflow in any year:
+    that would be a source inconsistency to look at, not something to clip.
+    """
+    inflow = sankey_df[sankey_df["target"] == "Firewood"].groupby("year")["volume"].sum()
+    other_out = sankey_df[sankey_df["source"] == "Firewood"].groupby("year")["volume"].sum()
+    energy = inflow.sub(other_out.reindex(inflow.index, fill_value=0.0))
+    # Judge only the years the dataset keeps: a part-published year outside the
+    # window (trade for 2025 against no firewood estimate yet) is clipped by
+    # _finalize and must not fail the build.
+    in_window = (energy.index >= C.DATASET_MIN_YEAR) & (energy.index <= C.DATASET_MAX_YEAR)
+    negative = energy[in_window & (energy < 0)]
+    energy = energy.clip(lower=0.0).where(in_window | (energy >= 0), 0.0)
+    if not negative.empty:
+        worst = negative.idxmin()
+        raise ValueError(
+            f"Firewood outflows exceed inflow in {len(negative)} year(s), e.g. "
+            f"{worst}: exports {other_out.get(worst, 0.0):,.0f} m3 against inflow "
+            f"{inflow.get(worst, 0.0):,.0f} m3. SSB 11181 (removals) and 08801 "
+            f"(exports) disagree; refusing to emit a negative Energy edge."
+        )
+    out = energy.reset_index()
+    out["source"], out["target"] = "Firewood", "Energy"
+    out["origin"] = "SSB various tables"
+    return out[["year", "volume", "source", "target", "origin"]]
 
 
 def _strip_derived(df: pd.DataFrame) -> pd.DataFrame:
@@ -367,11 +418,24 @@ def _strip_derived(df: pd.DataFrame) -> pd.DataFrame:
     return df[~pd.Series(is_derived, index=df.index)].copy()
 
 
+def primary_rows(df: pd.DataFrame | None = None) -> pd.DataFrame:
+    """The national primary (non-derived) rows of a dataset (default: the committed one).
+
+    What :func:`regenerate_balanced` re-assembles from; exposed so the Phase G
+    sensitivity analysis can rebuild the flows many times from one extraction.
+    """
+    from circwood.pipeline import load_cached_sankey
+
+    return _strip_derived(df if df is not None else load_cached_sankey())
+
+
 def regenerate_balanced(
     df: pd.DataFrame | None = None,
     write: bool = False,
     coefficient_source: str = "manual",
     coefficients: SawmillCoefficients | None = None,
+    mill_coefficients: MillCoefficients | None = None,
+    widen: bool = True,
 ) -> pd.DataFrame:
     """Re-derive a mass-balanced dataset from an existing dataset's primary rows.
 
@@ -385,8 +449,11 @@ def regenerate_balanced(
     cached dataset under researcher-chosen (manual or Treindustrien-derived)
     sawmill/planing percentages.
 
-    Note: this changes the sawn-side numbers (the Sawmills -> WPP band shrinks
-    to its mass-balanced value, cascading to Boardmills/Pulpmills throughput).
+    With the default coefficients this reproduces the committed dataset's
+    national flows (floating point aside): the sawing step recognises the
+    netted trade spellings the committed table carries
+    (:data:`circwood.transform.sawing.SAWN_EXPORT_TARGETS`), so a rebuild is
+    a faithful re-derivation, not an approximation.
     """
     from circwood.pipeline import load_cached_sankey
 
@@ -396,6 +463,7 @@ def regenerate_balanced(
     rebuilt = assemble_sankey(
         primary, tre.load_treindustrien(),
         coefficient_source=coefficient_source, coefficients=coefficients,
+        mill_coefficients=mill_coefficients, widen=widen,
     )
 
     if write:
@@ -459,16 +527,14 @@ def run_fresh_pipeline(
             "Or use the cached pipeline (use_cached_ssb=True)."
         ) from exc
 
+    from circwood.ingest import treindustrien as tre
     from circwood.ingest.ssb import process_query_files
     from circwood.ingest.trade import assign_target_source_trade, classify_varenummer
     from circwood.transform.destinations import (
-        build_partner_exports, reconcile_partner_exports,
+        build_partner_exports,
+        reconcile_partner_exports,
     )
-    from circwood.ingest import treindustrien as tre
-    from circwood.transform.sawing import create_flow_rows
     from circwood.transform.firewood import create_firewood_rows  # noqa: F401
-    from circwood.transform.inventory import create_inventory_rows
-    from circwood.transform.mills import boardmill_process, pulpmills_process
 
     treindustrien_df = tre.load_treindustrien()
     fao_boardmills_df = pd.read_csv(config.FAO_CSV)
@@ -542,7 +608,12 @@ def run_fresh_pipeline(
     # recoverable potential is read off the Energy edge, not split out of it.
     tbl_10513 = pd.concat(ssb["10513"], ignore_index=True)
     tbl_10513 = tbl_10513[tbl_10513["value"] != 0].copy()
-    tbl_10513["volume"] = tbl_10513["value"] * 1000 / 483
+    # 1 000 tonnes -> kg -> m3 at the waste-wood basic density (constants.py).
+    # The unit is SSB's own ("1 000 tonn"); until Phase K this line divided by
+    # 1 000 too few and the End-of-Life stream read ~1 350 m3/yr instead of ~1.35 Mm3/yr.
+    tbl_10513["volume"] = (
+        tbl_10513["value"] * C.EOL_UNIT_KG / C.WASTE_WOOD_DENSITY_KG_M3
+    )
     unexpected = set(tbl_10513["behandlingsmåte"]) - {EOL_INCINERATION}
     if unexpected:
         # Widening the query without revisiting this would silently label

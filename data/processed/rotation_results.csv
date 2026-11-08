@@ -1,0 +1,105 @@
+# Circwood WP4 - rotation economics with the empirical beta (models/rotation/rotation.py, ROADMAP Phase L). Do not edit by hand; read with pandas.read_csv(path, comment='#').
+# Models follow Landaas (2023), NTNU: faustmann_single (eq. 5), faustmann (eq. 13, infinite rotations), van_kooten (eq. 17), crc_owner (eq. 19, reward only beyond the Faustmann age, dead-biomass decay charged), social (eq. 21, with the energy from the share not stored). NPV in NOK per hectare; T on an annual grid.
+# Growth: primary curve 'calibrated logistic' (the SiTree export is models/sitree/growth_curve_sitree.csv with its ages shifted by 40 years, the example stand's age at the simulation start (parameters.csv)); max living volume 449 m3/ha on the primary curve. Rows with scenario 'growth curve: ...' run the same models on the other curve; the growth_curve column names the curve of every row. Prices: SSB 07413 Gran sagtømmer and SSB 08360 Elspot, 2023; carbon 1081 NOK/t CO2 (config/prices.csv); alpha 0.6870 t CO2/m3; sigma 0.008/yr; planting 12000 NOK/ha; i 0.03.
+# beta: 'thesis 0.55' is the share Landaas (2023) assumed; 'empirical spruce' is the mean spruce beta of data/processed/beta_series.csv over 2012-2022, with its ci_low/ci_high envelope (an assumption envelope, see that file's header).
+# Carbon price path: carbon_price_grows_with_i = 1 values carbon at p_K e^(it) (thesis eq. 19) in the crc_owner and social models - uptake and release alike; the 'constant carbon price' scenario holds p_K fixed. van_kooten always uses the constant price of van Kooten (1995).
+# interior_optimum = 0 means the optimum sits on an edge of the searched ages: at the end of the growth curve (250 years) the NPV was still rising and the model says never harvest within the horizon - a statement about its assumptions (constant prices, carbon valued forever), not a rotation age; at the first searched age (20 years, or where the curve starts) the stand was already past its best age.
+# The SiTree curve's absolute volumes lie outside the calibration range of its increment and mortality functions (basal area to ~280 m2/ha; see the export's header): it is compared for its shape, and its NPV levels are not comparable with the calibrated curve's.
+# npv_positive = 0 means the NPV at the optimum is negative: planting does not pay at these prices and the age is the argmax of a loss. The Faustmann rows need a timber price above about 663 NOK/m3 to break even on this curve (planting 12000 NOK/ha; 647 NOK/m3 used).
+# Not a forecast: a single-stand optimisation on a calibrated curve. Replace growth_curve.csv with a SiTree export (models/sitree) to use simulated growth.
+scenario,model,beta_source,beta,discount_rate,timber_price_nok_m3,carbon_price_nok_tco2,electricity_price_nok_kwh,carbon_price_grows_with_i,t_opt_years,npv_nok_ha,delta_t_vs_faustmann_years,interior_optimum,npv_positive,growth_curve
+base,faustmann_single,thesis 0.55,0.55,0.03,647,1081,0.685,1,91,-291.0,0,1,0,calibrated logistic
+base,faustmann,thesis 0.55,0.55,0.03,647,1081,0.685,1,91,-311.3,0,1,0,calibrated logistic
+base,van_kooten,thesis 0.55,0.55,0.03,647,1081,0.685,1,108,25146.1,17,1,1,calibrated logistic
+base,crc_owner,thesis 0.55,0.55,0.03,647,1081,0.685,1,124,85671.2,33,1,1,calibrated logistic
+base,social,thesis 0.55,0.55,0.03,647,1081,0.685,1,117,152222.2,26,1,1,calibrated logistic
+base,faustmann_single,empirical spruce,0.258734,0.03,647,1081,0.685,1,91,-291.0,0,1,0,calibrated logistic
+base,faustmann,empirical spruce,0.258734,0.03,647,1081,0.685,1,91,-311.3,0,1,0,calibrated logistic
+base,van_kooten,empirical spruce,0.258734,0.03,647,1081,0.685,1,118,22034.0,27,1,1,calibrated logistic
+base,crc_owner,empirical spruce,0.258734,0.03,647,1081,0.685,1,124,85671.2,33,1,1,calibrated logistic
+base,social,empirical spruce,0.258734,0.03,647,1081,0.685,1,107,66787.7,16,1,1,calibrated logistic
+base,faustmann_single,"empirical spruce, low",0.222936,0.03,647,1081,0.685,1,91,-291.0,0,1,0,calibrated logistic
+base,faustmann,"empirical spruce, low",0.222936,0.03,647,1081,0.685,1,91,-311.3,0,1,0,calibrated logistic
+base,van_kooten,"empirical spruce, low",0.222936,0.03,647,1081,0.685,1,120,21710.4,29,1,1,calibrated logistic
+base,crc_owner,"empirical spruce, low",0.222936,0.03,647,1081,0.685,1,124,85671.2,33,1,1,calibrated logistic
+base,social,"empirical spruce, low",0.222936,0.03,647,1081,0.685,1,106,56934.7,15,1,1,calibrated logistic
+base,faustmann_single,"empirical spruce, high",0.282145,0.03,647,1081,0.685,1,91,-291.0,0,1,0,calibrated logistic
+base,faustmann,"empirical spruce, high",0.282145,0.03,647,1081,0.685,1,91,-311.3,0,1,0,calibrated logistic
+base,van_kooten,"empirical spruce, high",0.282145,0.03,647,1081,0.685,1,117,22255.3,26,1,1,calibrated logistic
+base,crc_owner,"empirical spruce, high",0.282145,0.03,647,1081,0.685,1,124,85671.2,33,1,1,calibrated logistic
+base,social,"empirical spruce, high",0.282145,0.03,647,1081,0.685,1,109,73346.7,18,1,1,calibrated logistic
+carbon price x0,faustmann_single,empirical spruce,0.258734,0.03,647,0,0.685,1,91,-291.0,0,1,0,calibrated logistic
+carbon price x0,faustmann,empirical spruce,0.258734,0.03,647,0,0.685,1,91,-311.3,0,1,0,calibrated logistic
+carbon price x0,van_kooten,empirical spruce,0.258734,0.03,647,0,0.685,1,91,-311.3,0,1,0,calibrated logistic
+carbon price x0,crc_owner,empirical spruce,0.258734,0.03,647,0,0.685,1,91,-291.0,0,1,0,calibrated logistic
+carbon price x0,social,empirical spruce,0.258734,0.03,647,0,0.685,1,91,6628.6,0,1,1,calibrated logistic
+carbon price x0.5,faustmann_single,empirical spruce,0.258734,0.03,647,540.5,0.685,1,91,-291.0,0,1,0,calibrated logistic
+carbon price x0.5,faustmann,empirical spruce,0.258734,0.03,647,540.5,0.685,1,91,-311.3,0,1,0,calibrated logistic
+carbon price x0.5,van_kooten,empirical spruce,0.258734,0.03,647,540.5,0.685,1,102,9918.6,11,1,1,calibrated logistic
+carbon price x0.5,crc_owner,empirical spruce,0.258734,0.03,647,540.5,0.685,1,123,40255.5,32,1,1,calibrated logistic
+carbon price x0.5,social,empirical spruce,0.258734,0.03,647,540.5,0.685,1,104,35548.3,13,1,1,calibrated logistic
+carbon price x1.5,faustmann_single,empirical spruce,0.258734,0.03,647,1621.5,0.685,1,91,-291.0,0,1,0,calibrated logistic
+carbon price x1.5,faustmann,empirical spruce,0.258734,0.03,647,1621.5,0.685,1,91,-311.3,0,1,0,calibrated logistic
+carbon price x1.5,van_kooten,empirical spruce,0.258734,0.03,647,1621.5,0.685,1,250,37004.8,159,0,1,calibrated logistic
+carbon price x1.5,crc_owner,empirical spruce,0.258734,0.03,647,1621.5,0.685,1,125,131214.8,34,1,1,calibrated logistic
+carbon price x1.5,social,empirical spruce,0.258734,0.03,647,1621.5,0.685,1,109,98400.1,18,1,1,calibrated logistic
+carbon price x2,faustmann_single,empirical spruce,0.258734,0.03,647,2162,0.685,1,91,-291.0,0,1,0,calibrated logistic
+carbon price x2,faustmann,empirical spruce,0.258734,0.03,647,2162,0.685,1,91,-311.3,0,1,0,calibrated logistic
+carbon price x2,van_kooten,empirical spruce,0.258734,0.03,647,2162,0.685,1,250,53288.3,159,0,1,calibrated logistic
+carbon price x2,crc_owner,empirical spruce,0.258734,0.03,647,2162,0.685,1,125,176762.7,34,1,1,calibrated logistic
+carbon price x2,social,empirical spruce,0.258734,0.03,647,2162,0.685,1,110,130106.9,19,1,1,calibrated logistic
+timber price x0.75,faustmann_single,empirical spruce,0.258734,0.03,485.25,1081,0.685,1,91,-3218.2,-1,1,0,calibrated logistic
+timber price x0.75,faustmann,empirical spruce,0.258734,0.03,485.25,1081,0.685,1,92,-3436.8,0,1,0,calibrated logistic
+timber price x0.75,van_kooten,empirical spruce,0.258734,0.03,485.25,1081,0.685,1,250,20681.1,158,0,1,calibrated logistic
+timber price x0.75,crc_owner,empirical spruce,0.258734,0.03,485.25,1081,0.685,1,125,77777.0,33,1,1,calibrated logistic
+timber price x0.75,social,empirical spruce,0.258734,0.03,485.25,1081,0.685,1,108,64328.8,16,1,1,calibrated logistic
+timber price x1.25,faustmann_single,empirical spruce,0.258734,0.03,808.75,1081,0.685,1,91,2636.3,0,1,1,calibrated logistic
+timber price x1.25,faustmann,empirical spruce,0.258734,0.03,808.75,1081,0.685,1,91,2820.2,0,1,1,calibrated logistic
+timber price x1.25,van_kooten,empirical spruce,0.258734,0.03,808.75,1081,0.685,1,110,24304.0,19,1,1,calibrated logistic
+timber price x1.25,crc_owner,empirical spruce,0.258734,0.03,808.75,1081,0.685,1,124,87358.6,33,1,1,calibrated logistic
+timber price x1.25,social,empirical spruce,0.258734,0.03,808.75,1081,0.685,1,107,69290.7,16,1,1,calibrated logistic
+electricity price x0.5,faustmann_single,empirical spruce,0.258734,0.03,647,1081,0.3425,1,91,-291.0,0,1,0,calibrated logistic
+electricity price x0.5,faustmann,empirical spruce,0.258734,0.03,647,1081,0.3425,1,91,-311.3,0,1,0,calibrated logistic
+electricity price x0.5,van_kooten,empirical spruce,0.258734,0.03,647,1081,0.3425,1,118,22034.0,27,1,1,calibrated logistic
+electricity price x0.5,crc_owner,empirical spruce,0.258734,0.03,647,1081,0.3425,1,124,85671.2,33,1,1,calibrated logistic
+electricity price x0.5,social,empirical spruce,0.258734,0.03,647,1081,0.3425,1,108,63881.9,17,1,1,calibrated logistic
+electricity price x2,faustmann_single,empirical spruce,0.258734,0.03,647,1081,1.37,1,91,-291.0,0,1,0,calibrated logistic
+electricity price x2,faustmann,empirical spruce,0.258734,0.03,647,1081,1.37,1,91,-311.3,0,1,0,calibrated logistic
+electricity price x2,van_kooten,empirical spruce,0.258734,0.03,647,1081,1.37,1,118,22034.0,27,1,1,calibrated logistic
+electricity price x2,crc_owner,empirical spruce,0.258734,0.03,647,1081,1.37,1,124,85671.2,33,1,1,calibrated logistic
+electricity price x2,social,empirical spruce,0.258734,0.03,647,1081,1.37,1,106,72738.2,15,1,1,calibrated logistic
+discount rate 0.02,faustmann_single,empirical spruce,0.258734,0.02,647,1081,0.685,1,99,18264.8,2,1,1,calibrated logistic
+discount rate 0.02,faustmann,empirical spruce,0.258734,0.02,647,1081,0.685,1,97,21264.2,0,1,1,calibrated logistic
+discount rate 0.02,van_kooten,empirical spruce,0.258734,0.02,647,1081,0.685,1,117,63479.5,20,1,1,calibrated logistic
+discount rate 0.02,crc_owner,empirical spruce,0.258734,0.02,647,1081,0.685,1,122,67173.8,25,1,1,calibrated logistic
+discount rate 0.02,social,empirical spruce,0.258734,0.02,647,1081,0.685,1,106,97303.1,9,1,1,calibrated logistic
+discount rate 0.04,faustmann_single,empirical spruce,0.258734,0.04,647,1081,0.685,1,85,-7152.5,-1,1,0,calibrated logistic
+discount rate 0.04,faustmann,empirical spruce,0.258734,0.04,647,1081,0.685,1,86,-7393.0,0,1,0,calibrated logistic
+discount rate 0.04,van_kooten,empirical spruce,0.258734,0.04,647,1081,0.685,1,118,5055.7,32,1,1,calibrated logistic
+discount rate 0.04,crc_owner,empirical spruce,0.258734,0.04,647,1081,0.685,1,126,113638.4,40,1,1,calibrated logistic
+discount rate 0.04,social,empirical spruce,0.258734,0.04,647,1081,0.685,1,110,56541.6,24,1,1,calibrated logistic
+constant carbon price,faustmann_single,empirical spruce,0.258734,0.03,647,1081,0.685,0,91,-291.0,0,1,0,calibrated logistic
+constant carbon price,faustmann,empirical spruce,0.258734,0.03,647,1081,0.685,0,91,-311.3,0,1,0,calibrated logistic
+constant carbon price,van_kooten,empirical spruce,0.258734,0.03,647,1081,0.685,0,118,22034.0,27,1,1,calibrated logistic
+constant carbon price,crc_owner,empirical spruce,0.258734,0.03,647,1081,0.685,0,103,1531.7,12,1,1,calibrated logistic
+constant carbon price,social,empirical spruce,0.258734,0.03,647,1081,0.685,0,106,25919.8,15,1,1,calibrated logistic
+growth curve: sitree example stand,faustmann_single,thesis 0.55,0.55,0.03,647,1081,0.685,1,68,59611.9,5,1,1,sitree example stand
+growth curve: sitree example stand,faustmann,thesis 0.55,0.55,0.03,647,1081,0.685,1,63,69442.6,0,1,1,sitree example stand
+growth curve: sitree example stand,van_kooten,thesis 0.55,0.55,0.03,647,1081,0.685,1,105,167414.3,42,1,1,sitree example stand
+growth curve: sitree example stand,crc_owner,thesis 0.55,0.55,0.03,647,1081,0.685,1,155,1042910.4,92,1,1,sitree example stand
+growth curve: sitree example stand,social,thesis 0.55,0.55,0.03,647,1081,0.685,1,141,680391.2,78,1,1,sitree example stand
+growth curve: sitree example stand,faustmann_single,empirical spruce,0.258734,0.03,647,1081,0.685,1,68,59611.9,5,1,1,sitree example stand
+growth curve: sitree example stand,faustmann,empirical spruce,0.258734,0.03,647,1081,0.685,1,63,69442.6,0,1,1,sitree example stand
+growth curve: sitree example stand,van_kooten,empirical spruce,0.258734,0.03,647,1081,0.685,1,130,153904.7,67,1,1,sitree example stand
+growth curve: sitree example stand,crc_owner,empirical spruce,0.258734,0.03,647,1081,0.685,1,155,1042910.4,92,1,1,sitree example stand
+growth curve: sitree example stand,social,empirical spruce,0.258734,0.03,647,1081,0.685,1,119,223689.0,56,1,1,sitree example stand
+growth curve: sitree example stand,faustmann_single,"empirical spruce, low",0.222936,0.03,647,1081,0.685,1,68,59611.9,5,1,1,sitree example stand
+growth curve: sitree example stand,faustmann,"empirical spruce, low",0.222936,0.03,647,1081,0.685,1,63,69442.6,0,1,1,sitree example stand
+growth curve: sitree example stand,van_kooten,"empirical spruce, low",0.222936,0.03,647,1081,0.685,1,140,152986.6,77,1,1,sitree example stand
+growth curve: sitree example stand,crc_owner,"empirical spruce, low",0.222936,0.03,647,1081,0.685,1,155,1042910.4,92,1,1,sitree example stand
+growth curve: sitree example stand,social,"empirical spruce, low",0.222936,0.03,647,1081,0.685,1,109,176548.5,46,1,1,sitree example stand
+growth curve: sitree example stand,faustmann_single,"empirical spruce, high",0.282145,0.03,647,1081,0.685,1,68,59611.9,5,1,1,sitree example stand
+growth curve: sitree example stand,faustmann,"empirical spruce, high",0.282145,0.03,647,1081,0.685,1,63,69442.6,0,1,1,sitree example stand
+growth curve: sitree example stand,van_kooten,"empirical spruce, high",0.282145,0.03,647,1081,0.685,1,130,154659.6,67,1,1,sitree example stand
+growth curve: sitree example stand,crc_owner,"empirical spruce, high",0.282145,0.03,647,1081,0.685,1,155,1042910.4,92,1,1,sitree example stand
+growth curve: sitree example stand,social,"empirical spruce, high",0.282145,0.03,647,1081,0.685,1,121,256895.8,58,1,1,sitree example stand

@@ -35,6 +35,11 @@ from circwood import constants as C
 PROCESS_NODES = [
     "Sawmills", "Pulpmills", "Boardmills", "Planingmills", "Impregnation",
     "Wood Product processing & Logistics",
+    # Since Phase K: Firewood -> Energy is the residual after exports, so the
+    # node balances by construction and belongs under the guarantee (it used
+    # to emit up to 8.5 % more than it received, unnoticed because it was
+    # not listed here).
+    "Firewood",
 ]
 
 
@@ -153,6 +158,32 @@ def assert_window_balanced(
     assert_balanced(
         window(df, min_year, max_year),
         rel_tol=rel_tol,
+        nodes=list(PROCESS_NODES) if nodes is None else nodes,
+    )
+
+
+def assert_carbon_balanced(
+    df: pd.DataFrame,
+    rel_tol: float = 0.01,
+    min_year: int = C.MIN_YEAR,
+    max_year: int = C.MAX_YEAR,
+    nodes: list | None = None,
+) -> None:
+    """Carbon conservation at the process nodes over the paper window (Phase G).
+
+    The carbon model conserves carbon by construction at every balanced node —
+    wood leaves a node at the density it arrived with, uplifted only where
+    volume left as water — so a node's carbon imbalance can only be its
+    wood-volume imbalance. This asserts exactly that, on the ``carbon`` column
+    of a carbon frame: every :data:`PROCESS_NODES` node within ``rel_tol`` over
+    the window. Before Phase G the model switched densities at process nodes
+    and this check would have failed at Sawmills by +6.6 %.
+    """
+    if "carbon" not in df.columns:
+        raise KeyError("assert_carbon_balanced needs a 'carbon' column (a carbon frame).")
+    frame = window(df, min_year, max_year).drop(columns=["volume"]).rename(columns={"carbon": "volume"})
+    assert_balanced(
+        frame, rel_tol=rel_tol, abs_tol=1.0,
         nodes=list(PROCESS_NODES) if nodes is None else nodes,
     )
 

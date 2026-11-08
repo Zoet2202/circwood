@@ -1,15 +1,49 @@
-"""Boardmills and Pulpmills output-splitting transforms."""
+"""Boardmills, Pulpmills and WPP output-splitting transforms and their coefficients."""
 
 from __future__ import annotations
+
+from dataclasses import dataclass
 
 import pandas as pd
 
 from circwood import constants as C
 
 
-def boardmill_process(dataframe: pd.DataFrame) -> pd.DataFrame:
+@dataclass(frozen=True)
+class MillCoefficients:
+    """The fixed downstream splits, overridable for a rebuild or a sensitivity run.
+
+    Defaults are the package constants. The pulp shares are percentages that
+    must sum to 100 (as in ``constants.py``); the WPP energy share is derived
+    so the WPP split always partitions its inflow. Validated on construction so
+    a sensitivity scenario cannot silently create or destroy volume.
+    """
+
+    boardmill_loss: float = C.BOARDMILL_LOSS
+    pulp_short_term: float = C.PULP_SHORT_TERM
+    pulp_energy: float = C.PULP_ENERGY
+    pulp_loss: float = C.PULP_LOSS
+    wpp_long_term: float = C.WPP_LONG_TERM
+
+    def __post_init__(self) -> None:
+        if not 0 <= self.boardmill_loss < 1:
+            raise ValueError(f"boardmill_loss must be in [0, 1), got {self.boardmill_loss}.")
+        if not 0 < self.wpp_long_term <= 1:
+            raise ValueError(f"wpp_long_term must be in (0, 1], got {self.wpp_long_term}.")
+        total = self.pulp_short_term + self.pulp_energy + self.pulp_loss
+        if abs(total - 100.0) > 1e-9 or min(self.pulp_short_term, self.pulp_energy, self.pulp_loss) < 0:
+            raise ValueError(f"pulp shares must be non-negative percentages summing to 100, got {total}.")
+
+    @property
+    def wpp_energy(self) -> float:
+        return 1.0 - self.wpp_long_term
+
+
+def boardmill_process(
+    dataframe: pd.DataFrame, loss: float = C.BOARDMILL_LOSS
+) -> pd.DataFrame:
     """Split Boardmills inflows into a loss share and a panels share (to WPP)."""
-    loss_factor = C.BOARDMILL_LOSS
+    loss_factor = loss
     panels_factor = 1 - loss_factor
 
     filtered = dataframe.loc[dataframe["target"] == "Boardmills"].copy()

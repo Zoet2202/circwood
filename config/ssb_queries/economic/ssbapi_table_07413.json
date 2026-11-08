@@ -1,0 +1,39 @@
+{
+  "_comment": "SSB 07413 Skogavvirkning for salg: average price by assortment (kr per m3), annual 2006-. Phase L roundwood prices; the same Treslag codes as 07410.",
+  "url": "https://data.ssb.no/api/pxwebapi/v2/tables/07413/data",
+  "params": {
+    "lang": "no",
+    "outputFormat": "json-stat2"
+  },
+  "payload": {
+    "selection": [
+      {
+        "variableCode": "Treslag",
+        "valueCodes": [
+          "*"
+        ]
+      },
+      {
+        "variableCode": "ContentsCode",
+        "valueCodes": [
+          "*"
+        ]
+      },
+      {
+        "variableCode": "Tid",
+        "valueCodes": [
+          "*"
+        ]
+      }
+    ],
+    "placement": {
+      "heading": [
+        "ContentsCode"
+      ],
+      "stub": [
+        "Treslag",
+        "Tid"
+      ]
+    }
+  }
+}

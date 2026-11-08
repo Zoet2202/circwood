@@ -46,17 +46,21 @@ removals of species *k* that is absorbed at ``Long-term USE`` in year *y*.
   receives it is a sink (``stock_change_share`` / an export share); where it
   only emits it is an exogenous source; where it does both it is treated as a
   transient pass-through whose net deposit goes to its own bucket.
-* **Carbon basis**: every species enters at one raw density
-  (``config/carbon_densities.csv``), so the carbon fraction of species *k*
-  equals its traced volume fraction. The fates are therefore fractions of
-  *harvest-entry carbon* and sum to exactly 1 per (year, species).
-  ``species = "all"`` is the harvest-carbon-weighted mean of the three.
-  The dataset's ``carbon`` column is **not** used for β: it switches between
-  raw and dry density at process nodes (e.g. Pulpmills: dry chips in, raw out)
-  and so is not conserved across a node. ``beta_literal`` does use it, because
-  that is its definition (``Σ carbon(* → Long-term USE, species=k) /
-  Σ carbon(Harvested wood → pool k)``); it counts imported wood in the
-  numerator, mixes dry-density numerator with raw-density denominator, and
+* **Carbon basis** (Phase G): the chain is solved on *carbon* edge weights,
+  recomputed from the frame's volumes with the conserving carbon model
+  (:func:`circwood.carbon.species_model.add_carbon`): every species enters at
+  its raw density, wood keeps its carbon through every node, and the water
+  edge (``Sawmills → Shrinkage``) carries none. The fates are therefore
+  fractions of *harvest-entry carbon* and sum to exactly 1 per (year,
+  species); ``shrinkage_share`` is 0 by construction and is kept only for
+  schema stability. ``species = "all"`` is the harvest-carbon-weighted mean of
+  the three. Any ``carbon`` column on the input is ignored and recomputed, so
+  β never depends on the vintage of someone else's carbon model.
+  ``basis="volume"`` reproduces the pre-Phase-G trace (volume weights, water
+  as a fate) and is kept as the independent cross-check against the W2
+  reference tracer. ``beta_literal`` is the consumption ratio
+  ``Σ carbon(* → Long-term USE, species=k) / Σ carbon(Harvested wood → pool k)``
+  on the same conserved carbon; it counts imported wood in the numerator and
   labels imports by the fixed shares in ``config/carbon_nodes.csv``.
 
 Fate buckets (:data:`FATE_BUCKETS`) partition the harvest: ``beta`` (Long-term
@@ -75,13 +79,14 @@ Assumptions and limits
 * **β is only partly empirical.** Pool routing comes from SSB 07410 / 03795 /
   11181 / 08801 and sawn production from Treindustrien, but every downstream
   split is a fixed coefficient in ``constants.py`` (SAWDUST, CELLULOSE,
-  SCRAPS, SHRINKAGE, BOARDMILL_LOSS, PULP_*, WPP_LONG_TERM). A sensitivity
-  analysis over those belongs in Phase G; until then ``ci_low``/``ci_high``
-  are empty and ``ci_method`` says so.
-* **Shrinkage** (``SHRINKAGE``, documented as water loss) is its own bucket.
-  Water carries no carbon, so this is a moisture/volume artefact; the
-  carbon-model fix is logged for Phase G and the rotation model should
-  redistribute or ignore it.
+  SCRAPS, SHRINKAGE, BOARDMILL_LOSS, PULP_*, WPP_LONG_TERM).
+  :mod:`circwood.analysis.sensitivity` varies each of them one at a time over
+  the ranges in ``config/coefficient_ranges.csv``; ``ci_low``/``ci_high`` are
+  the root-sum-square envelope of those deviations (``ci_method`` says so),
+  read from the committed ``beta_sensitivity.csv`` at export time.
+* **Shrinkage** (``SHRINKAGE``, water loss at the saw) carries no carbon
+  since Phase G, so on the carbon basis its bucket is exactly 0; on the
+  volume basis it is a volume fate of about 2 %.
 * ``hwp_ipcc_share = beta + pulp_share + export_sawn_share`` is a **proxy**
   for the IPCC production-approach HWP inflow (sawnwood, panels, paper), not
   an IPCC-compliant estimate; whether exported roundwood should count is left
@@ -206,7 +211,8 @@ EXTRA_COLUMNS = (
 )
 EXPORT_COLUMNS = ROADMAP_COLUMNS + EXTRA_COLUMNS
 
-CI_METHOD = "none (Phase G pending)"
+#: ``ci_method`` when no sensitivity results are available to the export.
+CI_METHOD = "none (beta_sensitivity.csv not available)"
 
 #: ``I − Q`` with a condition number above this is treated as singular.
 _SINGULAR_COND = 1e12
@@ -233,22 +239,30 @@ def classify_sink(node: str) -> str:
 # ---------------------------------------------------------------------------
 # Tracing
 # ---------------------------------------------------------------------------
-def _check_volumes(df: pd.DataFrame) -> None:
+def _check_volumes(df: pd.DataFrame, column: str = "volume") -> None:
     """Refuse rows the trace would otherwise drop or misread silently."""
     for col in ("source", "target", "year"):
         if col in df.columns and df[col].isna().any():
             raise ValueError(f"{int(df[col].isna().sum())} flow row(s) with no {col}.")
-    vol = pd.to_numeric(df["volume"], errors="raise")
+    if column not in df.columns:
+        raise ValueError(f"Flow table has no {column!r} column to trace.")
+    vol = pd.to_numeric(df[column], errors="raise")
     if not np.isfinite(vol.to_numpy(dtype=float)).all():
-        raise ValueError("Non-finite volume in flow table.")
+        raise ValueError(f"Non-finite {column} in flow table.")
     neg = df[vol < 0]
     if not neg.empty:
         r = neg.iloc[0]
         raise ValueError(
-            f"{len(neg)} negative volume(s) in flow table, e.g. "
-            f"{r['source']} -> {r['target']} = {r['volume']}"
+            f"{len(neg)} negative {column}(s) in flow table, e.g. "
+            f"{r['source']} -> {r['target']} = {r[column]}"
             + (f" ({r['year']})" if "year" in neg.columns else "")
         )
+
+
+#: Edge weight the chain is solved on: conserved carbon (the export) or volume
+#: (the pre-Phase-G method, kept as the independent cross-check).
+BASES = ("carbon", "volume")
+_UNIT = {"carbon": "kg C", "volume": "m3"}
 
 
 def _year_label(edges: pd.DataFrame) -> str:
@@ -262,11 +276,13 @@ def absorption_fractions(
     *,
     closure_tol: float | None = None,
     excess_out_tol: float | None = None,
+    weights: str = "volume",
 ) -> pd.DataFrame:
     """Trace one year's species pools to their sinks.
 
-    ``edges`` has columns ``source``, ``target``, ``volume`` (any further
-    columns are summed over). Returns a long frame with columns
+    ``edges`` has columns ``source``, ``target`` and the ``weights`` column —
+    ``"volume"`` (m³) or ``"carbon"`` (kg C, the Phase G export basis); any
+    further columns are summed over. Returns a long frame with columns
     ``pool, sink, bucket, fraction`` — for each pool present, the fraction of
     its harvest absorbed at each sink. Closure-gap sinks are labelled
     ``"closure gap at <node>"``; a two-way inventory's net deposit is labelled
@@ -280,9 +296,12 @@ def absorption_fractions(
     pool or process node whose outflow exceeds its inflow by more than that
     share of its outflow.
     """
-    _check_volumes(edges)
+    if weights not in BASES:
+        raise ValueError(f"weights must be one of {BASES}, got {weights!r}.")
+    _check_volumes(edges, weights)
+    unit = _UNIT[weights]
     label = _year_label(edges)
-    E = edges.groupby(["source", "target"])["volume"].sum()
+    E = edges.groupby(["source", "target"])[weights].sum()
     E = E[E > 0]
 
     nodes = set(E.index.get_level_values(0)) | set(E.index.get_level_values(1))
@@ -388,7 +407,7 @@ def absorption_fractions(
                 raise ValueError(
                     f"{label}closure gap {g['fraction'].sum():.4f} of {p} harvest exceeds "
                     f"BETA_CLOSURE_TOL {closure_tol}; largest unrouted inflow at node "
-                    f"{node!r} (in {_in(node):,.0f} m3, out {_out(node):,.0f} m3). "
+                    f"{node!r} (in {_in(node):,.0f} {unit}, out {_out(node):,.0f} {unit}). "
                     "Refusing to return partial beta."
                 )
 
@@ -400,7 +419,7 @@ def absorption_fractions(
             if excess > excess_out_tol:
                 raise ValueError(
                     f"{label}node {n!r} emits {excess:.1%} more than it receives "
-                    f"(in {_in(n):,.0f} m3, out {_out(n):,.0f} m3), above "
+                    f"(in {_in(n):,.0f} {unit}, out {_out(n):,.0f} {unit}), above "
                     f"BETA_EXCESS_OUT_TOL {excess_out_tol}: output with no recorded "
                     "input. Refusing to return partial beta."
                 )
@@ -411,7 +430,13 @@ def absorption_fractions(
 # Literal (roadmap-wording) ratio
 # ---------------------------------------------------------------------------
 def _with_species_and_carbon(df: pd.DataFrame, model: CarbonModel) -> pd.DataFrame:
-    """Give every row one concrete species and a carbon value (kg C)."""
+    """Give every row one concrete species and a carbon value (kg C).
+
+    Carbon is always recomputed from the volumes with ``model`` — the input's
+    own ``carbon`` column, if any, is dropped — so β depends on the volumes
+    and the current carbon model only, never on the vintage of a carbon file.
+    """
+    df = df.drop(columns="carbon", errors="ignore")
     if "species" in df.columns and df["species"].isin(SPECIES).all():
         base = df
     else:
@@ -421,12 +446,9 @@ def _with_species_and_carbon(df: pd.DataFrame, model: CarbonModel) -> pd.DataFra
             part = df.copy()
             part["species"] = sp
             part["volume"] = df["volume"] * shares[sp]
-            part = part.drop(columns="carbon", errors="ignore")
             parts.append(part[part["volume"] > 0])
         base = pd.concat(parts, ignore_index=True)
-    if "carbon" not in base.columns:
-        base = add_carbon(base, model)
-    return base
+    return add_carbon(base, model)
 
 
 def literal_beta(df: pd.DataFrame, *, model: CarbonModel | None = None) -> pd.DataFrame:
@@ -442,7 +464,7 @@ def literal_beta(df: pd.DataFrame, *, model: CarbonModel | None = None) -> pd.Da
     """
     model = model or load_model()
     _check_volumes(df)
-    base = _with_species_and_carbon(df, model)
+    base = _with_species_and_carbon(df.drop(columns="carbon", errors="ignore"), model)
     rows = []
     for year, g in base.groupby("year"):
         lt = g[g["target"] == LTUSE]
@@ -463,12 +485,6 @@ def literal_beta(df: pd.DataFrame, *, model: CarbonModel | None = None) -> pd.Da
 # ---------------------------------------------------------------------------
 # The series
 # ---------------------------------------------------------------------------
-def _pool_density(model: CarbonModel, pool: str) -> float:
-    rule = model.nodes.get(pool)
-    state = rule.state if rule is not None else "raw"
-    return model.density(POOL_SPECIES[pool], state)
-
-
 def beta_series(
     df: pd.DataFrame | None = None,
     *,
@@ -477,17 +493,22 @@ def beta_series(
     closure_tol: float = C.BETA_CLOSURE_TOL,
     excess_out_tol: float = C.BETA_EXCESS_OUT_TOL,
     model: CarbonModel | None = None,
+    basis: str = "carbon",
 ) -> pd.DataFrame:
     """Production-basis β and the full fate split per (year, species).
 
-    ``df`` defaults to the committed ``data/processed/carbon_data.csv``. Rows
-    are ordered by year, then ``spruce, pine, non-coniferous, all``; columns
-    are :data:`EXPORT_COLUMNS`. Raises ``ValueError`` — never returns a partial
-    frame — if a year in the window is missing, a pool has zero harvest, a
-    year has no Long-term USE inflow, or any :func:`absorption_fractions`
-    check fails (closure gap > ``closure_tol`` or output excess >
-    ``excess_out_tol`` names the year and node). Neither gate can be switched
-    off here: both tolerances must be numbers in [0, 1).
+    ``df`` defaults to the committed ``data/processed/carbon_data.csv``; only
+    its volumes are used — carbon is recomputed with ``model`` (see the
+    module docstring). ``basis="carbon"`` (default, the export) traces
+    conserved carbon; ``basis="volume"`` traces m³ with water as a fate, the
+    pre-Phase-G method kept as the cross-check. Rows are ordered by year, then
+    ``spruce, pine, non-coniferous, all``; columns are :data:`EXPORT_COLUMNS`.
+    Raises ``ValueError`` — never returns a partial frame — if a year in the
+    window is missing, a pool has zero harvest, a year has no Long-term USE
+    inflow, or any :func:`absorption_fractions` check fails (closure gap >
+    ``closure_tol`` or output excess > ``excess_out_tol`` names the year and
+    node). Neither gate can be switched off here: both tolerances must be
+    numbers in [0, 1).
     """
     for name, tol in (("closure_tol", closure_tol), ("excess_out_tol", excess_out_tol)):
         if isinstance(tol, bool) or not isinstance(tol, (int, float)) or not 0 <= tol < 1:
@@ -495,6 +516,8 @@ def beta_series(
                 f"{name} must be a number in [0, 1), got {tol!r}; the beta gates "
                 "cannot be disabled."
             )
+    if basis not in BASES:
+        raise ValueError(f"basis must be one of {BASES}, got {basis!r}.")
     model = model or load_model()
     if df is None:
         df = pd.read_csv(config.CARBON_CSV)
@@ -506,13 +529,23 @@ def beta_series(
     if missing:
         raise ValueError(f"No flows for year(s) {missing} in the requested beta window.")
 
-    lit = literal_beta(window, model=model).set_index(["year", "species"])["beta_literal"]
+    # One species per row and conserved carbon, from the volumes and the model.
+    # Propagated over *every* year of the input before windowing: the species
+    # mix and density of an inventory that only withdraws in a year are
+    # carried from the years before, so a sub-window run must see them to
+    # match the dataset build (which always runs over all years).
+    traced_all = _with_species_and_carbon(df, model)
+    traced = traced_all[(traced_all["year"] >= min_year) & (traced_all["year"] <= max_year)]
+    lit = (literal_beta(traced_all, model=model).set_index(["year", "species"])["beta_literal"])
 
     rows = []
     for year in range(min_year, max_year + 1):
-        g = window[window["year"] == year]
-        fr = absorption_fractions(g, closure_tol=closure_tol, excess_out_tol=excess_out_tol)
+        g = traced[traced["year"] == year]
+        fr = absorption_fractions(
+            g, closure_tol=closure_tol, excess_out_tol=excess_out_tol, weights=basis
+        )
         hw = g[g["source"] == STANDING_WOOD].groupby("target")["volume"].sum()
+        hw_carbon = g[g["source"] == STANDING_WOOD].groupby("target")["carbon"].sum()
         harvest_total = float(sum(hw.get(p, 0.0) for p in POOL_SPECIES))
         ratios = {col: float(hw.get(node, 0.0)) / harvest_total if harvest_total > 0 else np.nan
                   for node, col in HARVEST_BYPRODUCTS.items()}
@@ -538,7 +571,7 @@ def beta_series(
                 "year": year, "species": sp,
                 **{b: float(shares[b]) for b in FATE_BUCKETS},
                 "volume_basis": hv,
-                "harvest_carbon_kgc": hv * _pool_density(model, pool),
+                "harvest_carbon_kgc": float(hw_carbon.get(pool, 0.0)),
                 "domestic_share_of_ltuse": np.nan,
             })
         hc = sum(r["harvest_carbon_kgc"] for r in year_rows)
@@ -565,6 +598,7 @@ def beta_series(
     return out[list(EXPORT_COLUMNS)].reset_index(drop=True)
 
 
+
 # ---------------------------------------------------------------------------
 # Export
 # ---------------------------------------------------------------------------
@@ -575,6 +609,13 @@ _FORMATS = {
 _SHARE_FORMAT = "{:.8f}"
 
 
+def _csv_cell(text: str) -> str:
+    """Quote a text cell the way csv.QUOTE_MINIMAL would (commas, quotes, newlines)."""
+    if any(ch in text for ch in ',"\n\r'):
+        return '"' + text.replace('"', '""') + '"'
+    return text
+
+
 def _format_frame(frame: pd.DataFrame) -> str:
     lines = [",".join(EXPORT_COLUMNS)]
     for r in frame.itertuples(index=False):
@@ -583,7 +624,7 @@ def _format_frame(frame: pd.DataFrame) -> str:
             if col in ("year",):
                 cells.append(str(int(val)))
             elif col in ("species", "ci_method"):
-                cells.append(str(val))
+                cells.append(_csv_cell(str(val)))
             elif pd.isna(val):
                 cells.append("")
             else:
@@ -599,7 +640,8 @@ def _header(
     *,
     closure_tol: float,
     excess_out_tol: float,
-    firewood_shift: tuple[float, float],
+    basis: str,
+    ci_note: str,
 ) -> list[str]:
     allr = frame[frame["species"] == "all"].set_index("year")
     y0, y1 = int(allr.index.min()), int(allr.index.max())
@@ -632,10 +674,11 @@ def _header(
         "as bark_ratio/residue_ratio on the same denominator. The 10% applies to commercial "
         "harvest only (SSB 03795 for Bark, SSB 07410 for Residues), not to the firewood "
         "estimate, so both ratios are below 0.10 here; every species row shows the national ratio.",
-        "Carbon basis: harvest-entry raw density per species (config/carbon_densities.csv) "
-        "x traced volume fractions; conserving, so beta + pulp_share + energy_share + "
-        "other_share = 1 per row. The dataset carbon column is not used for beta (it switches "
-        "raw/dry density at process nodes and is not conserved); beta_literal uses it by definition.",
+        f"Carbon basis: edge weights are {'conserved carbon (kg C)' if basis == 'carbon' else 'volume (m3)'} "
+        "recomputed from the flow volumes with the Phase G carbon model (config/carbon_densities.csv, "
+        "config/carbon_nodes.csv): every species enters at its raw density, wood keeps its carbon "
+        "through every node and the water edge Sawmills -> Shrinkage carries none. beta + pulp_share "
+        "+ energy_share + other_share = 1 per row. beta_literal uses the same conserved carbon.",
         "Method: production basis. Per year, an absorbing Markov chain over the aggregated "
         "flows traces each species pool's harvest to its sinks with proportional mixing; "
         "T_i = max(inflow, outflow); unrouted inflow -> closure_gap; imports, net imports and "
@@ -649,24 +692,16 @@ def _header(
         f"{closure_tol}, or if a pool or process node emits more than it receives by over "
         f"{excess_out_tol} of its outflow.",
         "Only partly empirical: pool routing is SSB/Treindustrien data, but every downstream "
-        "split is a fixed coefficient in constants.py (sensitivity: Phase G).",
-        "shrinkage_share is a moisture/volume artefact (SHRINKAGE = water loss carries carbon "
-        "in the carbon model); the fix is logged for Phase G. Redistribute or ignore it.",
+        "split is a fixed coefficient in constants.py; data/processed/beta_sensitivity.csv "
+        "varies each one over config/coefficient_ranges.csv.",
+        "shrinkage_share: water leaving the saw carries no carbon, so on the carbon basis this "
+        "column is 0 by construction; it is kept for schema stability.",
         "beta_literal = carbon(* -> Long-term USE) / carbon(harvest) from the dataset columns: "
         "a consumption ratio including imported wood; for comparison only.",
         "hwp_ipcc_share = beta + pulp_share + export_sawn_share is a PROXY for the IPCC "
         "production-approach HWP share, not an IPCC estimate. domestic_share_of_ltuse "
         "(species=all only) = traced domestic volume / total Long-term USE inflow.",
-        "ci_low/ci_high are empty: no uncertainty model exists yet (ci_method).",
-        "Known dataset issues (ROADMAP Phase K, not fixed): (1) firewood exports are counted "
-        "twice (Firewood -> Energy carries all Firewood inflow and Export Firewood is emitted on "
-        "top). The trace attributes the excess output to an exogenous source, so beta, every "
-        "non-firewood share and energy_share + export_firewood_share are unaffected; the split "
-        "between the two is: if exports came out of the inflow, energy_share would be lower and "
-        f"export_firewood_share higher by up to {firewood_shift[0]:.4f} (any species; "
-        f"{firewood_shift[1]:.4f} for all) in {y0}-{y1}. (2) End-of-Life volume may be ~1000x "
-        "too small (SSB 10513 unit, unconfirmed); beta does not use End-of-Life (stock "
-        "outflow of Long-term USE), so it is unaffected either way.",
+        f"ci_low/ci_high: {ci_note}",
         f"Literature: LITERATURE_BETA = {lit:.2f}, the common assumed beta in the rotation "
         "literature (ROADMAP Phase F); which product pool it denotes is unverified (papers/ "
         f"not checked). Mean beta(all) {y0}-{y1} = {mean_b:.4f} "
@@ -684,41 +719,41 @@ def _header(
     return ["# " + line for line in h]
 
 
-def _firewood_double_count_shift(
-    df: pd.DataFrame, frame: pd.DataFrame, closure_tol: float, excess_out_tol: float,
-) -> tuple[float, float]:
-    """Largest energy_share shift if Export Firewood came out of Firewood's inflow.
+def apply_bounds(frame: pd.DataFrame, bounds: pd.DataFrame | None) -> tuple[pd.DataFrame, str]:
+    """Fill ``ci_low`` / ``ci_high`` / ``ci_method`` from a bounds frame.
 
-    Re-traces each exported year with ``Firewood -> Energy`` reduced by the
-    year's ``Export Firewood`` (ROADMAP Phase K defect, one reading of it).
-    Returns (max over species rows, max over species=all rows); the same amount
-    moves into export_firewood_share. Only reported in the header.
+    ``bounds`` has columns ``year, species, ci_low, ci_high, ci_method`` (as
+    :func:`circwood.analysis.sensitivity.beta_bounds` produces). Rows of
+    ``frame`` with no matching bound keep empty CIs and :data:`CI_METHOD`.
+    Returns the filled frame and a one-line note for the header.
     """
-    agg = df.groupby(["source", "target", "year"], as_index=False)["volume"].sum()
-    by_species = 0.0
-    by_all = 0.0
-    for year, g in frame.groupby("year"):
-        e = agg[agg["year"] == year].copy()
-        exp = e.loc[(e["source"] == "Firewood") & (e["target"] == "Export Firewood"), "volume"].sum()
-        energy = (e["source"] == "Firewood") & (e["target"] == "Energy")
-        e.loc[energy, "volume"] = (e.loc[energy, "volume"] - exp).clip(lower=0.0)
-        fr = absorption_fractions(e, closure_tol=closure_tol, excess_out_tol=excess_out_tol)
-        rows = g.set_index("species")
-        weighted = 0.0
-        for pool, sp in POOL_SPECIES.items():
-            corrected = fr.loc[(fr["pool"] == pool) & (fr["bucket"] == "energy_share"),
-                               "fraction"].sum()
-            shift = float(rows.loc[sp, "energy_share"]) - float(corrected)
-            by_species = max(by_species, abs(shift))
-            weighted += shift * float(rows.loc[sp, "harvest_carbon_kgc"])
-        by_all = max(by_all, abs(weighted / float(rows.loc["all", "harvest_carbon_kgc"])))
-    return by_species, by_all
+    out = frame.copy()
+    if bounds is None or bounds.empty:
+        return out, (
+            "empty; no sensitivity results were available to this export (run "
+            "circwood.analysis.sensitivity.export_sensitivity first)."
+        )
+    b = bounds.set_index(["year", "species"])
+    idx = pd.MultiIndex.from_frame(out[["year", "species"]])
+    matched = idx.isin(b.index)
+    out.loc[matched, "ci_low"] = b["ci_low"].reindex(idx[matched]).to_numpy()
+    out.loc[matched, "ci_high"] = b["ci_high"].reindex(idx[matched]).to_numpy()
+    out.loc[matched, "ci_method"] = b["ci_method"].reindex(idx[matched]).to_numpy()
+    methods = sorted(set(out.loc[matched, "ci_method"]))
+    note = (
+        f"{int(matched.sum())} of {len(out)} rows carry bounds; ci_method per row. "
+        + " ".join(methods)
+    )
+    if (~matched).any():
+        note += f" {int((~matched).sum())} row(s) have no bounds ({CI_METHOD})."
+    return out, note
 
 
 def export_beta_series(
     path: Path | str | None = None,
     *,
     manifest_file: Path | str | None = None,
+    bounds: pd.DataFrame | None | str = "auto",
     **kw,
 ) -> Path:
     """Write :func:`beta_series` to ``path`` (default ``config.BETA_SERIES_CSV``).
@@ -730,6 +765,11 @@ def export_beta_series(
     Keyword arguments go to :func:`beta_series`; the gates cannot be disabled
     (``closure_tol=None`` or ``excess_out_tol=None`` raises) and the header
     prints the tolerances actually used.
+
+    ``bounds`` fills ``ci_low``/``ci_high``: ``"auto"`` reads the committed
+    ``data/processed/beta_sensitivity.csv`` if it exists (the Phase G
+    one-at-a-time sensitivity, see :mod:`circwood.analysis.sensitivity`), a
+    frame is used as given, ``None`` leaves the bounds empty.
     """
     path = Path(path) if path is not None else config.BETA_SERIES_CSV
     closure_tol = kw.setdefault("closure_tol", C.BETA_CLOSURE_TOL)
@@ -739,15 +779,22 @@ def export_beta_series(
             "export_beta_series cannot disable the closure or excess-output gate "
             "(closure_tol / excess_out_tol is None)."
         )
+    basis = kw.setdefault("basis", "carbon")
     source = "caller-supplied flow table" if kw.get("df") is not None else (
-        "data/processed/carbon_data.csv")
+        "data/processed/carbon_data.csv (volumes; carbon recomputed)")
     if kw.get("df") is None:
         kw["df"] = pd.read_csv(config.CARBON_CSV)
     frame = beta_series(**kw)
-    shift = _firewood_double_count_shift(kw["df"], frame, closure_tol, excess_out_tol)
+    if isinstance(bounds, str):
+        if bounds != "auto":
+            raise ValueError("bounds must be a DataFrame, None or 'auto'.")
+        from circwood.analysis.sensitivity import load_bounds
+
+        bounds = load_bounds()
+    frame, ci_note = apply_bounds(frame, bounds)
     header = _header(frame, Path(manifest_file) if manifest_file else None, source,
                      closure_tol=closure_tol, excess_out_tol=excess_out_tol,
-                     firewood_shift=shift)
+                     basis=basis, ci_note=ci_note)
     text = "\n".join(header) + "\n" + _format_frame(frame)
     path.parent.mkdir(parents=True, exist_ok=True)
     with open(path, "w", encoding="utf-8", newline="\n") as fh:
@@ -756,10 +803,12 @@ def export_beta_series(
 
 
 __all__ = [
+    "BASES",
     "FATE_BUCKETS",
     "OTHER_BUCKETS",
     "EXPORT_COLUMNS",
     "ROADMAP_COLUMNS",
+    "apply_bounds",
     "classify_sink",
     "absorption_fractions",
     "literal_beta",

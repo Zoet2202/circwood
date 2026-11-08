@@ -16,10 +16,22 @@ on:
         description: "Relative flow move that fails the run (0.05 = 5%)"
         required: false
         default: "0.05"
+      paper_threshold:
+        description: "Tighter move that fails the run inside the paper window 2012-2022 (0.02 = 2%)"
+        required: false
+        default: "0.02"
       min_volume:
         description: "Ignore relative moves on flows below this volume (m3)"
         required: false
         default: "1000"
+      accept_drift:
+        description: >-
+          Adopt a vintage diff the gate blocked. Only after reviewing the blocked
+          run's report: the actor and this input are recorded in the run log and
+          the PR body, which is the audit trail (Phase J). Never on a schedule.
+        type: boolean
+        required: false
+        default: false
 
 permissions:
   contents: write
@@ -49,19 +61,36 @@ jobs:
       - name: Test against the committed dataset
         run: pytest -q
 
-      # Ingest -> rebuild -> manifest -> mass balance -> reconcile -> vintage
-      # diff -> beta_series.csv -> golden fixture. Restores the previous
-      # outputs and exits non-zero if any gate fails, so a bad SSB vintage
-      # never reaches a commit.
+      # Ingest -> year window -> rebuild -> manifest -> mass balance (aggregate,
+      # slices, carbon) -> reconcile -> vintage diff with attribution ->
+      # sensitivity, HWP stock, beta -> forest layer -> economic layer ->
+      # golden fixture -> history line. Restores the previous outputs and exits
+      # non-zero if any gate fails, so a bad SSB vintage never reaches a commit.
       - name: Refresh and gate
         id: refresh
         env:
           CIRCWOOD_CONTACT: ${{ github.server_url }}/${{ github.repository }}
         run: |
+          ACCEPT=""
+          if [ "${{ github.event.inputs.accept_drift }}" = "true" ]; then
+            # A reviewed button press: the actor is in the run log and the PR body.
+            ACCEPT="--accept-drift"
+            echo "accept_drift requested by ${{ github.actor }} (run ${{ github.run_id }})"
+          fi
           circwood-refresh \
             --threshold "${{ github.event.inputs.threshold || '0.05' }}" \
+            --paper-threshold "${{ github.event.inputs.paper_threshold || '0.02' }}" \
             --min-volume "${{ github.event.inputs.min_volume || '1000' }}" \
-            --report "$RUNNER_TEMP/refresh_report.md"
+            --report "$RUNNER_TEMP/refresh_report.md" $ACCEPT
+          # The CLI writes this line only when the gate would have blocked and
+          # accept_drift adopted the result; a ticked box on a clean run accepts nothing.
+          if grep -q '^- \*\*accept_drift:\*\*' "$RUNNER_TEMP/refresh_report.md"; then
+            echo "accepted=true" >> "$GITHUB_OUTPUT"
+            printf '\n---\n_Vintage drift accepted by @%s via workflow_dispatch (run %s)._\n' \
+              "${{ github.actor }}" "${{ github.run_id }}" >> "$RUNNER_TEMP/refresh_report.md"
+          else
+            echo "accepted=false" >> "$GITHUB_OUTPUT"
+          fi
 
       # Now that the dataset and its golden fixture have moved together, the
       # suite must be green again. This is what proves the refreshed state is
@@ -72,7 +101,7 @@ jobs:
       - name: Check for changes
         id: changed
         run: |
-          if [ -n "$(git status --porcelain data/processed tests/fixtures)" ]; then
+          if [ -n "$(git status --porcelain data/processed data/raw tests/fixtures)" ]; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
           else
             echo "changed=false" >> "$GITHUB_OUTPUT"
@@ -89,8 +118,12 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git checkout -b "$BRANCH"
-          git add data/processed tests/fixtures
-          git commit -m "Refresh SSB data ($(date -u +%Y-%m-%d))"
+          git add data/processed data/raw tests/fixtures
+          SUFFIX=""
+          if [ "${{ steps.refresh.outputs.accepted }}" = "true" ]; then
+            SUFFIX=" — drift accepted by ${{ github.actor }} (run ${{ github.run_id }})"
+          fi
+          git commit -m "Refresh SSB data ($(date -u +%Y-%m-%d))${SUFFIX}"
           git push --force-with-lease origin "$BRANCH"
           if ! gh pr create \
               --title "Refresh SSB data ($(date -u +%Y-%m-%d))" \

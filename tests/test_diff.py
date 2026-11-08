@@ -1,8 +1,11 @@
-"""Tests for the vintage-diff gate (Phase B).
+"""Tests for the vintage-diff gate (Phase B) and its Phase J refinements.
 
 The gate exists to catch what mass balance cannot: a dataset built from a
 reclassified SSB code is wrong *consistently*, so it balances and reconciles.
-Only comparing against the previous vintage reveals it.
+Only comparing against the previous vintage reveals it. Phase J added a
+tighter threshold inside the paper window and the attribution of every move
+to what changed upstream — an SSB revision, a query, an input file, or
+nothing, which means our own code moved a published number.
 """
 
 from __future__ import annotations
@@ -10,12 +13,24 @@ from __future__ import annotations
 import pandas as pd
 import pytest
 
+from circwood import constants as C
 from circwood import diff as diffmod
 from circwood.diff import (
+    DERIVED,
+    INPUT_CHANGE,
+    QUERY_CHANGE,
+    SSB_REVISION,
+    UNEXPLAINED,
+    UnexplainedDriftError,
     VintageDiffError,
+    assert_explained,
     assert_within_threshold,
+    attribute_changes,
+    classify_change,
     diff_committed,
     diff_datasets,
+    origin_inputs,
+    origin_tables,
 )
 
 
@@ -114,9 +129,32 @@ def test_a_disappearing_year_blocks():
 
 def test_the_threshold_is_configurable():
     revised = BASE.copy()
-    revised.loc[0, "volume"] = 1_030_000.0  # +3%
-    assert diff_datasets(BASE, revised, threshold=0.05).ok
-    assert not diff_datasets(BASE, revised, threshold=0.01).ok
+    revised.loc[0, "volume"] = 1_030_000.0  # +3%, in the paper window
+    assert diff_datasets(BASE, revised, threshold=0.05, paper_threshold=None).ok
+    assert not diff_datasets(BASE, revised, threshold=0.01, paper_threshold=None).ok
+
+
+# ---------------------------------------------------------------------------
+# Phase J — tighter inside the paper window
+# ---------------------------------------------------------------------------
+def test_paper_window_uses_the_tighter_threshold():
+    """A +3 % move passes the 5 % gate outside the paper window and fails the 2 % one inside."""
+    inside = BASE.copy()
+    inside.loc[0, "volume"] = 1_030_000.0            # 2020: inside 2012–2022
+    report = diff_datasets(BASE, inside)
+    assert report.paper_threshold == diffmod.DEFAULT_PAPER_THRESHOLD == 0.02
+    assert report.threshold_for(2020) == 0.02 and report.threshold_for(2024) == 0.05
+    assert not report.ok
+    assert "inside the paper window" in report.summary()
+
+    base_late = frame([("Spruce", "Sawmills", 2024, 1_000_000.0)])
+    late = frame([("Spruce", "Sawmills", 2024, 1_030_000.0)])  # outside the window
+    assert diff_datasets(base_late, late).ok
+
+
+def test_paper_threshold_never_loosens_the_main_one():
+    report = diff_datasets(BASE, BASE, threshold=0.01, paper_threshold=0.05)
+    assert report.threshold_for(C.MIN_YEAR) == 0.01
 
 
 # ---------------------------------------------------------------------------
@@ -194,4 +232,75 @@ def test_to_frame_is_sorted_by_absolute_move():
 
 def test_defaults_match_the_documented_gate():
     assert diffmod.DEFAULT_THRESHOLD == 0.05
+    assert diffmod.DEFAULT_PAPER_THRESHOLD == 0.02
     assert diffmod.DEFAULT_MIN_VOLUME == 1_000.0
+
+
+# ---------------------------------------------------------------------------
+# Phase J — attribution: revision drift vs. our own change
+# ---------------------------------------------------------------------------
+def test_origin_parsing():
+    assert origin_tables("SSB table 07410 | Treindustrien årsrapport") == {"07410"}
+    assert origin_tables("SSB table 08801 (net)") == {"08801"}
+    assert origin_tables("SSB various tables") == set()
+    assert origin_inputs("FAOSTAT | SSB table 07410 | Treindustrien årsrapport") == {
+        "FAO_Data.csv", "treindustrien_production_data.csv"}
+
+
+def test_classify_change_prefers_the_most_reassuring_explanation():
+    kw = dict(revised_tables=set(), changed_queries=set(), changed_inputs=set())
+    assert classify_change("SSB table 10513", **kw) == UNEXPLAINED
+    assert classify_change("SSB table 10513", **{**kw, "revised_tables": {"10513"}}) == SSB_REVISION
+    assert classify_change("SSB table 10513", **{**kw, "changed_queries": {"10513"}}) == QUERY_CHANGE
+    assert classify_change("Treindustrien årsrapport",
+                           **{**kw, "changed_inputs": {"treindustrien_production_data.csv"}}) == INPUT_CHANGE
+    # A derived edge is explained only when one of *its own* upstreams moved:
+    # Firewood -> Energy is the 11181 residual after the 08801 exports...
+    assert classify_change("SSB various tables", **{**kw, "revised_tables": {"11181"}}) == DERIVED
+    assert classify_change("SSB various tables", **{**kw, "changed_queries": {"08801"}}) == DERIVED
+    # ...so a revision of the monthly partner table (moves no volume), of the
+    # waste table or of an unrelated input excuses nothing there.
+    assert classify_change("SSB various tables", **{**kw, "revised_tables": {"08799"}}) == UNEXPLAINED
+    assert classify_change("SSB various tables", **{**kw, "revised_tables": {"10513"}}) == UNEXPLAINED
+    assert classify_change("SSB various tables",
+                           **{**kw, "changed_inputs": {"treindustrien_production_data.csv"}}) == UNEXPLAINED
+    # The WPP edges depend on the sawn chain: removals, trade and the Treindustrien file.
+    assert classify_change("SSB and Treindustrien", **{**kw, "revised_tables": {"07410"}}) == DERIVED
+    assert classify_change("SSB and Treindustrien",
+                           **{**kw, "changed_inputs": {"treindustrien_production_data.csv"}}) == DERIVED
+    assert classify_change("SSB and Treindustrien", **{**kw, "revised_tables": {"08799"}}) == UNEXPLAINED
+    assert classify_change("SSB various tables", **kw) == UNEXPLAINED
+
+
+def test_every_generic_origin_in_the_dataset_has_an_upstream_map():
+    """A derived edge the map does not know would be unexplainable for ever; keep the map complete."""
+    from circwood import build_sankey
+    from circwood.diff import _DERIVED_UPSTREAM, _INPUT_TOKENS
+
+    tokens = {t.strip() for o in build_sankey()["origin"].dropna().unique() for t in str(o).split("|")}
+    generic = {t for t in tokens if not t.startswith("SSB table ") and t not in _INPUT_TOKENS}
+    assert generic and generic <= set(_DERIVED_UPSTREAM), generic - set(_DERIVED_UPSTREAM)
+
+
+def test_attribution_names_unexplained_moves_and_raises_the_serious_class():
+    changed = BASE.copy()
+    changed.loc[2, "volume"] = 400_000.0
+    report = diff_datasets(BASE, changed)
+    origins = {("Sawmills", "Pulpmills", 2020): "SSB table 07410 | Treindustrien årsrapport"}
+
+    explained = attribute_changes(report, origins, revised_tables={"07410"})
+    assert explained["class"].tolist() == [SSB_REVISION]
+    assert_explained(explained, report)        # a revision is not our fault
+
+    ours = attribute_changes(report, origins)
+    assert ours["class"].tolist() == [UNEXPLAINED]
+    with pytest.raises(UnexplainedDriftError, match="no SSB source table was revised"):
+        assert_explained(ours, report)
+    assert issubclass(UnexplainedDriftError, VintageDiffError)
+
+
+def test_attribution_of_a_clean_diff_is_empty():
+    report = diff_datasets(BASE, BASE)
+    att = attribute_changes(report, {})
+    assert att.empty
+    assert_explained(att, report)

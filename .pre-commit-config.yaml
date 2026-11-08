@@ -1,0 +1,31 @@
+# Lint and format on commit (ROADMAP Phase I). Install once with
+#   pip install pre-commit && pre-commit install
+# The same checks run in CI (.github/workflows/ci.yml, job "lint").
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.8.4
+    hooks:
+      - id: ruff
+        args: [--fix]
+        files: ^(src|tests|app|models)/
+      - id: ruff-format
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-yaml
+      - id: check-json
+      - id: end-of-file-fixer
+        exclude: ^(data/|tests/fixtures/|site/vendor/)
+      - id: trailing-whitespace
+        exclude: ^(data/|tests/fixtures/|site/vendor/)
+      - id: check-added-large-files
+        args: [--maxkb=4000]
+      # The repo is public: PDFs never enter it (CLAUDE.md house rule).
+      - id: forbid-new-submodules
+  - repo: local
+    hooks:
+      - id: no-pdfs
+        name: no PDFs in the repository
+        entry: 'PDFs are never committed (the repo is public)'
+        language: fail
+        files: '\.pdf$'

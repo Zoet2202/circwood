@@ -1,0 +1,39 @@
+{
+  "_comment": "SSB 14593 Landsskogtakseringen: productive forestry land excl. regeneration areas by forest type (km2), by NFI region, rolling five-year intervals.",
+  "url": "https://data.ssb.no/api/pxwebapi/v2/tables/14593/data",
+  "params": {
+    "lang": "no",
+    "outputFormat": "json-stat2"
+  },
+  "payload": {
+    "selection": [
+      {
+        "variableCode": "Region",
+        "valueCodes": [
+          "*"
+        ]
+      },
+      {
+        "variableCode": "ContentsCode",
+        "valueCodes": [
+          "*"
+        ]
+      },
+      {
+        "variableCode": "Tid",
+        "valueCodes": [
+          "*"
+        ]
+      }
+    ],
+    "placement": {
+      "heading": [
+        "ContentsCode"
+      ],
+      "stub": [
+        "Region",
+        "Tid"
+      ]
+    }
+  }
+}

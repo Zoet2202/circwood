@@ -4,18 +4,20 @@ This guide explains **how the project works end-to-end** and, for each input
 dataset, **how it is ingested and what flows it produces** in the Norwegian
 wood-flow Sankey diagram.
 
-It complements the [README](README.md): the README is task-oriented (install,
-run, deploy), this document is data-oriented (where every number comes from and
-how it becomes an edge in the diagram).
+It complements the [README](README.md) (task-oriented: install, run, deploy),
+[METHODS.md](METHODS.md) (every assumption and derivation, written for the
+paper) and [DATA_DICTIONARY.md](DATA_DICTIONARY.md) (every node, edge, column
+and file). This document is data-oriented: where every number comes from and
+how it becomes an edge in the diagram.
 
 ---
 
 ## 1. The big picture
 
-The project turns several public/industry datasets into a single tidy table of
-**flows** — one row per `(source, target, volume, year, origin)` — that is then
-rendered as a Plotly Sankey diagram and, optionally, re-expressed in embodied
-carbon (kg C).
+The project turns public and industry datasets into a single tidy table of
+**flows** — one row per `(source, target, volume, year, origin, region,
+species, assortment, entity_id, destination)` — that is rendered as a Plotly
+Sankey diagram and re-expressed in embodied carbon (kg C).
 
 ```
                  ┌──────────────────────────────────────────────┐
@@ -23,14 +25,14 @@ carbon (kg C).
                  │  (raw → tidy rows)     (derive process edges)  │
 ┌─────────────┐  │  ┌───────────────┐    ┌────────────────────┐  │  ┌──────────────┐
 │ SSB tables  │──┼─▶│ ingest/ssb.py │──▶ │ transform/sawing   │  │  │ sankey_data  │
-│ 07410 08801 │  │  │ ingest/trade  │    │ transform/mills    │──┼─▶│   .csv       │
-│ 10513 11181 │  │  │ ingest/tre... │    │ transform/firewood │  │  │              │
-│             │  │  └───────────────┘    │ transform/inventory│  │  │ carbon_data  │
+│ 03795 07410 │  │  │ ingest/trade  │    │ transform/mills    │──┼─▶│   .csv       │
+│ 08801 08799 │  │  │ ingest/tre... │    │ transform/firewood │  │  │              │
+│ 10513 11181 │  │  └───────────────┘    │ transform/inventory│  │  │ carbon_data  │
 ├─────────────┤  │                       │ transform/assemble │  │  │   .csv       │
 │ Treindustri.│──┼──────────────────────▶│  (mass balance)    │  │  └──────┬───────┘
-│ FAO_Data    │──┼──────────────────────▶└────────────────────┘  │         │
+│ FAO_Data    │──┼──────────────────────▶│ transform/dimensions│ │         │
 └─────────────┘  └──────────────────────────────────────────────┘         ▼
-                                                            viz/sankey.py + app
+                                                   viz/sankey.py · app · site bundle
 ```
 
 Two operating modes share the same transform/assembly code:
@@ -38,29 +40,31 @@ Two operating modes share the same transform/assembly code:
 | Mode | Entry point | What it does | Needs |
 |------|-------------|--------------|-------|
 | **Cached** (default) | `build_sankey(use_cached_ssb=True)` | Reads the committed `data/processed/sankey_data.csv` | nothing — no network |
-| **Fresh** | `build_sankey(use_cached_ssb=False)` / `circwood-build --fresh` | Re-fetches every SSB table over the API and rebuilds the dataset | `pip install -e .[ssb]` + network |
+| **Fresh** | `circwood-refresh`, or `build_sankey(use_cached_ssb=False)` / `circwood-build --fresh` | Re-fetches every SSB table over the API and rebuilds the dataset (the refresh also gates it) | `pip install -e .[ssb]` + network |
 
-The hosted app and the test suite run in **cached** mode. The fresh pipeline
-(`transform/assemble.py::run_fresh_pipeline`) is the canonical description of how
-each raw dataset becomes flows, and is the code referenced throughout Section 3.
+The app, the site and the test suite run in **cached** mode. The fresh pipeline
+(`transform/assemble.py::run_fresh_pipeline`) is the canonical description of
+how each raw dataset becomes flows, and is the code referenced throughout
+Section 3. `ingest.ssb.load_cached_result()` rebuilds a fresh run's inputs
+offline from the raw-response cache (`data/raw/ssb/`, git-ignored).
 
 ### Canonical flow schema
 
-Every stage emits rows with these five columns:
-
 | column | meaning |
 |--------|---------|
-| `source` | upstream node label |
-| `target` | downstream node label |
-| `volume` | flow magnitude in **m³** (becomes **kg C** in `carbon_data.csv`) |
-| `year` | calendar year |
-| `origin` | provenance string (which dataset/table the row came from) |
+| `source`, `target` | node labels, exactly as in `config/nodes.json` |
+| `volume` | m³ solid wood (`carbon`, `carbon_low`, `carbon_high` in kg C in `carbon_data.csv`) |
+| `year` | calendar year, 2012–2024 |
+| `origin` | provenance string (which table or coefficient the row came from) |
+| `region` | ISO county code on the harvest edges (2024 boundaries), `NO` = not regionally attributed |
+| `species` | `spruce` / `pine` / `non-coniferous`; mixed flows split by the propagated mix |
+| `assortment` | `sawtimber` / `pulpwood` / `sams` / `fuelwood` where the source distinguishes it, else `all` |
+| `entity_id` | always `national` (the column exists for member-level data under `docs/DATA_CONFIDENTIALITY.md`) |
+| `destination` | `domestic`, an ISO alpha-2 partner code on export rows (SSB 08799 shares), or `unspecified` |
 
-Volumes are always positive in the final dataset; direction is encoded by
-`source`→`target`. The committed dataset widens these five with the filter
-dimensions `region`, `species`, `assortment`, `entity_id` (Phase C) and
-`destination` (SSB 08799, §3.2b); summing `volume` over them recovers the
-five-column national table exactly (`transform/dimensions.py`). The full node layout (labels, positions, colours) lives in
+Volumes are positive; direction is `source → target`. Summing `volume` over the
+five dimension columns recovers the five-column national table exactly
+(`transform/dimensions.py`). The node layout (labels, positions, colours) is
 [`config/nodes.json`](config/nodes.json).
 
 ---
@@ -69,388 +73,306 @@ five-column national table exactly (`transform/dimensions.py`). The full node la
 
 ```
 config/
-  ssb_queries/*.json      # one JSON-stat query per SSB table (the "API request")
+  ssb_queries/*.json      # one query per flow table (08799 in three chunks)
+  ssb_queries/forest/     # the six forest-inventory tables (§3.7)
+  ssb_queries/economic/   # prices: 07413, 08360 (§3.8)
   nodes.json              # Sankey node labels, x/y positions, colours
-  carbon_densities.csv    # kg C/m³ per (species, state)        — editable
-  carbon_nodes.csv        # per-node moisture state + species mix — editable
+  carbon_densities.csv    # kg C/m³ per (species, state) + low/high   — editable
+  carbon_nodes.csv        # per-node state, mix rule, carries_carbon   — editable
+  hwp_half_lives.csv      # product-class half-lives for the stock      — editable
+  coefficient_ranges.csv  # ranges for the β sensitivity                — editable
+  prices.csv              # carbon price, energy yield (assumptions)     — editable
 data/
-  raw/                    # source inputs for the FRESH pipeline
-    treindustrien_production_data.csv
-    FAO_Data.csv
-    varekoder.csv / .json # SSB commodity-code → trade-type lookups (reference)
-    *.xlsx, input_data_curated.csv  # reference/source spreadsheets
-  processed/              # GENERATED outputs (committed, used by the app)
-    sankey_data.csv       # the volume Sankey
-    carbon_data.csv       # same flows, carbon column
-src/circwood/
-  config.py               # all filesystem paths
-  constants.py            # every coefficient (yields, splits, year window)
-  ingest/                 # ssb.py, trade.py, treindustrien.py
-  transform/              # sawing.py, mills.py, firewood.py, inventory.py, assemble.py
-  carbon/                 # species_model.py, carbon.py
-  viz/sankey.py           # Plotly figure builder (pure)
-  pipeline.py             # build_sankey / build_carbon / CLI
-app/streamlit_app.py      # web app
+  raw/                    # inputs of the FRESH pipeline: Treindustrien CSV,
+                          # FAO_Data.csv, harvest_by_fylke.csv, exports_by_partner.csv,
+                          # prices_ssb.csv (the last three rewritten by a fresh run)
+  processed/              # the committed artifact and every derived file
+src/circwood/             # the package (see CLAUDE.md for the module map)
+models/                   # separate models exchanging files (rotation, stock)
+app/streamlit_app.py      # the internal app
+site/                     # the public static site
 ```
 
 ---
 
 ## 3. Each dataset: ingestion and use
 
-There are **seven** input datasets. Five are SSB API tables, two are files
-(Treindustrien, FAO). For each: what it is, how it's fetched/loaded, how it's
-transformed, and which Sankey edges it produces.
-
 > **Year alignment.** SSB rows arrive with *string* years (json-stat category
 > labels); `assemble_sankey` coerces `year` to int up front, because the sawing
-> math reindexes against integer Treindustrien years (a string/int mismatch
-> silently zeroes the harvest inflow). Keep the query `Tid` windows consistent
-> across tables — the model window is 2012–2022 (`constants.MIN_YEAR/MAX_YEAR`),
-> so every table must cover at least those years or node balances and control
-> totals break.
+> math reindexes against integer Treindustrien years. Keep the query `Tid`
+> windows consistent across tables.
 >
 > **Two windows, not one.** `MIN_YEAR`/`MAX_YEAR` (2012–2022) is the *analysis*
 > window the paper and the balance guarantee are stated over.
 > `DATASET_MIN_YEAR`/`DATASET_MAX_YEAR` (2012–2024) is what the generated
-> dataset *contains*: the years every source table covers. `assemble._finalize`
-> clips to the latter. Rows outside it are not extra data — a year that only
-> some tables have published reads as a collapse or a spike (firewood appeared
-> to grow 808 % in 2025 for exactly this reason), and pre-2012 years carried
-> trade with no harvest behind them.
+> dataset *contains*: the years every flow table covers. `assemble._finalize`
+> clips to the latter; since Phase J the refresh derives that window from the
+> fetched coverage and proposes a widening rather than relying on memory
+> (`docs/REFRESH_POLICY.md`).
+>
+> **SSB query format.** Each query file is PxWebApi v2 (`url`, `params`,
+> `payload`); the legacy v0 shape is still accepted. The table id is taken from
+> `tableIdForQuery`, else the `url`, else the filename; two files resolving to
+> the same id is an error. All queries must request `json-stat2` and `lang=no`
+> — the transforms filter on Norwegian category labels — and `ingest/ssb.py`
+> enforces that before any network call. Every table has a `TableContract`
+> (required columns, year coverage, period type, publication lag, whether it
+> takes part in the year window).
 
-> **SSB query format.** Each `config/ssb_queries/*.json` describes one request.
-> The current files use the **PxWebApi v2** shape — `url`, `params` (query
-> string: `lang`, `outputFormat`) and `payload` (the `selection` + `placement`
-> body). `ingest/ssb.py` also still accepts the legacy v0 shape (`postUrl` +
-> `queryObj` + `tableIdForQuery`), so a directory may mix the two during
-> migration. The table id (the key the pipeline looks flows up by, e.g.
-> `ingested.datasets["07410"]`) is taken from `tableIdForQuery`, or parsed from
-> the v2 `url`/filename; two files resolving to the same id is an error, not a
-> silent overwrite. All queries must request `json-stat2` and `lang=no` — the
-> transforms below filter on Norwegian category labels — and `ingest/ssb.py` now
-> *enforces* that rather than trusting it: missing settings are injected,
-> conflicting ones raise `SSBQueryError` before any network call.
+### 3.1 SSB 07410 — Roundwood removals by assortment (the backbone)
 
-### 3.1 SSB 07410 — Roundwood removals (the backbone)
+* **What:** commercial roundwood removals by assortment and species, in
+  1 000 m³ — the wood cut and sold, split into the mill-feeding assortments.
+* **Query:** nine explicit `Treslag` codes (species × assortment), no `I alt`.
+* **Transform:** `value × 1000`; each assortment maps to a **species pool → mill**
+  edge: sagtømmer → `Sawmills`, massevirke → `Pulpmills`, sams sagtømmer og
+  massevirke → `Boardmills`. `Harvested wood → Residues from harvest` is added
+  at `HARVEST_RESIDUE_PERCENTAGE` (10 %) of total removals.
+* **Used by:** the sawing transform and the reconciliation control total
+  (domestic sawtimber 2012–2022 = 61 445 000 m³).
 
-* **What:** commercial roundwood harvest by assortment (`sortiment`) and species,
-  in 1000 m³. This is the trunk of the diagram — the wood actually cut and sold.
-* **What:** commercial roundwood harvest by assortment (`sortiment`), in 1000 m³
-  — the wood cut and sold, split into the mill-feeding assortments.
-* **Query:** [`config/ssb_queries/ssbapi_table_07410.json`](config/ssb_queries/ssbapi_table_07410.json)
-  (v2) selects nine `Treslag` (species × assortment) codes — **explicit codes, no
-  `I alt`**, since the total would double-count. `Tid` covers 2012 onward to match
-  the model window.
-* **Ingest:** `ingest/ssb.py::process_query_files` POSTs the query (retrying
-  429/5xx), caches the raw reply to `data/raw/ssb/07410.json`, parses it via
-  `pyjstat`, and validates the columns and year coverage before the pipeline sees
-  it. A failure raises rather than dropping the table.
-* **Transform** (`assemble.run_fresh_pipeline`):
-  * `value` is multiplied by 1000 (1000 m³ → m³).
-  * Each `(sortiment)` is mapped to a **species pool → mill** edge:
+### 3.1b SSB 03795 — Roundwood removals by species (feeds the pools)
 
-    | SSB assortment | source | target |
-    |----------------|--------|--------|
-    | Gran/Furu/Lauvtre **sagtømmer** | Spruce/Pine/Non-coniferous | **Sawmills** |
-    | … **massevirke** | Spruce/Pine/Non-coniferous | **Pulpmills** |
-    | … **sams sagtømmer og massevirke** | Spruce/Pine/Non-coniferous | **Boardmills** |
-  * A `Harvested wood → Residues from harvest` edge is added at
-    `HARVEST_RESIDUE_PERCENTAGE` (10%) of total removals.
-* **Used by:** the sawing transform (the `* → Sawmills` rows are its log input)
-  and the reconciliation control total (pipeline sawtimber must tie to 07410).
-
-### 3.1b SSB 03795 — Roundwood harvest by species (feeds the pools)
-
-* **What:** total roundwood harvested (`Kvantum avvirket`) by species
-  (`sortiment`: Gran/Furu/Lauv/Ved til brensel), whole country, **already in m³**
-  (no ×1000).
-* **Query:** [`ssbapi_table_03795.json`](config/ssb_queries/ssbapi_table_03795.json)
-  (v2, `lang=no`). `ContentsCode`/`Region` resolve to a single measure and the
-  national total.
-* **Transform:** Gran/Furu/Lauv → **`Harvested wood → Spruce/Pine/Non-coniferous`**
-  (the species-pool inflow that balances the pools against 07410's pool→mill
-  outflows). The harvest total also drives **`Harvested wood → Bark`** at
-  `BARK_PERCENTAGE` (10%).
-* **Used by:** species-pool mass balance and the carbon harvest mix.
-
-> **Removed: SSB 06289 and the Mortality node.** The model no longer tracks
-> mortality: table 06289, the `Harvested wood → Mortality` edge, the `Mortality`
-> node (`nodes.json` / `carbon_nodes.csv`) and `MORTALITY_FACTOR` have all been
-> removed from the pipeline, config and diagram.
+* **What:** removals for sale by species (Gran, Furu, Lauv), national and by
+  county (`agg_KommFylker`, the 2024 county boundaries backcast), in m³.
+  Firewood is not in this table from 2006 on (SSB's own note).
+* **Transform:** `Harvested wood → Spruce/Pine/Non-coniferous`; the county
+  pull becomes `data/raw/harvest_by_fylke.csv` and the exact per-county rows of
+  those edges; the harvest total drives `Harvested wood → Bark` at
+  `BARK_PERCENTAGE` (10 %).
 
 ### 3.2 SSB 08801 — Foreign trade (imports & exports)
 
-* **What:** external trade in wood commodities by `varenummer` (commodity code),
-  in two quantity measures; `Mengde 2 (M2)` is the m³ measure used here.
-* **Query:** [`ssbapi_table_08801.json`](config/ssb_queries/ssbapi_table_08801.json)
-  — a large `Varekoder` selection over European trading partners.
-* **Ingest:** JSON-stat POST → DataFrame.
-* **Transform:**
-  * Each commodity string is classified into a **trade type** by keyword
-    (`Impregnert`→impregnated, `Massevirke`→pulpwood, `Skurtømmer`→saw wood,
-    `Trepeletter`→pellets, `brensel`→firewood, `høvellast`→planed wood,
-    `skurlast`→sawn wood). The human-readable code↔type lookups are mirrored in
-    [`data/raw/varekoder.csv`](data/raw/varekoder.csv)/`.json` for reference.
-  * `ingest/trade.py::assign_target_source_trade` maps each `(type, direction)`
-    to a `(source, target)` via `TRADE_MAPPING`. **Convention:** import labels
-    sit in the **source** column, export labels in the **target** column — the
-    sawing transform relies on this.
-  * Volumes are summed per `(year, source, target)`.
-* **Edges produced** (examples): `Import saw wood → Sawmills`,
-  `Sawmills → Export sawn wood`, `Import pulpwood → Pulpmills`,
-  `Import planed wood → WPP`, `Firewood → Export Firewood`, etc.
-* **Special handling — raw-log re-exports:** 08801 routes re-exported sawlogs
-  (`Skurtømmer` eksport) as `Sawmills → Export Sawmills`, i.e. *through* the saw
-  even though they're never sawn. `assemble._bypass_raw_reexport` re-routes that
-  volume straight from the species pools (allocated by each species' share of
-  sawlog inflow), so the Sawmills node balances and the ~26% chip yield is
-  measured against logs actually sawn. The same bypass handles raw pulpwood
-  re-exports around Pulpmills.
-* **Net-export collapse:** for three products the gross import/export pair is
-  collapsed into a single **net-export node** (`assemble._apply_net_exports`,
-  the last assembly step):
-
-  | product | net node | source |
-  |---------|----------|--------|
-  | sawlogs (skurlast) | `Net export skurlast` | species pools |
-  | pulpwood (massevirke) | `Net export massevirke` | species pools |
-  | sawn timber | `Net export sawn timber` | Sawmills |
-
-  `net = gross export − gross import`; the import volume is folded into the
-  domestic `source → mill` edge so every node stays mass-balanced (mill
-  throughput is unchanged). Years where imports exceed exports are drawn as
-  `Net export … → mill` so direction stays physical. The gross `Import *`/
-  `Export *` edges for these three products no longer appear. *(Other products —
-  planed, impregnated, firewood, boards, pellets — keep their gross edges.)*
+* **What:** external trade in wood commodities by `varenummer`; `Mengde 2 (M2)`
+  is the m³ measure used.
+* **Transform:** commodity labels are classified by keyword into seven trade
+  types (`ingest/trade.py`); imports sit in the `source` column, exports in
+  `target`; volumes summed per `(year, source, target)`.
+* **Raw-log re-exports** are routed from the pools straight to export so the
+  mills only see wood they process (`assemble._bypass_raw_reexport`).
+* **Net-export collapse** for sawlogs, pulpwood and sawn timber: the gross
+  import/export pair becomes one `Net export …` node per year; the import is
+  folded into the domestic `pool → mill` edge; a net-import year is drawn in
+  reverse. Firewood, planed wood, boards and pellets keep gross edges.
 
 ### 3.2b SSB 08799 — Exports by partner country (the `destination` dimension)
 
-* **What:** the by-country sibling of 08801 — the same HS `varenummer` codes
-  and the same `Mengde 2 (M2)` m³ measure, **monthly**, with a `Land`
-  dimension whose codes are ISO 3166-1 alpha-2 (`97` = unspecified). It
-  answers the question 08801 cannot: *where does exported wood go?*
-* **Query:** three five-year chunks,
-  [`ssbapi_table_08799_2012_2016.json`](config/ssb_queries/ssbapi_table_08799_2012_2016.json),
-  `…_2017_2021.json`, `…_2022_2026.json` — exports and m³ only, all partners,
-  the 08801 commodity list verbatim (fenced by `tests/test_destinations.py`).
-  One request for the whole window would exceed SSB's 800,000-cell limit
-  (46 codes × 262 partners × 60 months ≈ 723k per chunk). Each chunk has
-  its own `tableIdForQuery`, and `ingest.ssb.contract_for` derives a
-  per-chunk `TableContract` (`period="month"`, year bounds = the chunk's,
-  clipped to the dataset window), so widening the window is a query file,
-  not code.
-* **Ingest:** as 08801, plus `IngestResult.dimension_codes` keeps each
-  json-stat2 document's `{label → code}` maps, because pyjstat yields the
-  Norwegian partner *names* and a name is not a stable key.
-* **Transform** (`transform/destinations.py`):
-  * `build_partner_exports` sums months to years and commodities to the
-    **same trade types** as 08801 (`ingest.trade.classify_varenummer` is
-    shared), maps labels to ISO codes (an unknown label raises), and writes
-    the committed [`data/raw/exports_by_partner.csv`](data/raw/exports_by_partner.csv)
-    (`year, type, destination, destination_label, volume`) — the same
-    contract as `harvest_by_fylke.csv`: a fresh run regenerates it, the
-    cached pipeline reads it, and without it every row is `domestic`.
-  * `add_destination` (called from `dimensions.add_dimensions`) splits each
-    row **into an export node** by each partner's *share* of that
-    (year, type)'s 08799 exports. Shares, not figures: the sawlog, pulpwood
-    and sawn-timber edges are *netted* against imports (§3.2) and have no
-    partner-level counterpart in any source, so the gross export mix is the
-    documented attribution. Every other row is `destination="domestic"`;
-    an export row with no partner data for its year/type stays whole as
-    `"unspecified"`; the reversed net-import edges (`Net export * → mill`)
-    are domestic.
-  * `reconcile_partner_exports` logs (never raises) where the 08799 totals
-    summed over partners differ from the 08801 totals by more than 2 % —
-    the two tables are revised on different schedules.
-* **Trade type → node** (`ingest.trade.EXPORT_NODES_BY_TYPE`): saw wood →
-  `Net export skurlast`, pulpwood → `Net export massevirke`, sawn wood →
-  `Net export sawn timber`, firewood → `Export Firewood`, planed wood →
-  `Export planed wood`, pellets → `Export pellets`, impregnated →
-  `Export Impregnation` (the last two have no rows in the current window).
-* **Site:** the bundle carries `destinations` (`domestic` first, partners by
-  exported volume, `unspecified` last; English labels from
-  [`config/destination_labels.csv`](config/destination_labels.csv), SSB's own
-  `lang=en` codelist) and a *Destination* filter; URL param `ds`.
+* **What:** the by-country sibling of 08801 — same codes, same m³ measure,
+  monthly, `Land` codes = ISO alpha-2 (`97` = unspecified). Three five-year
+  query chunks (SSB's 800 000-cell limit); `contract_for` derives a per-chunk
+  monthly contract bounded by the chunk's own selection.
+* **Transform** (`transform/destinations.py`): months to years, commodities to
+  the same trade types as 08801, labels to codes; committed as
+  `data/raw/exports_by_partner.csv`; every row into an export node is split by
+  each partner's *share* of that (year, type) — shares, because the netted edges
+  have no partner-level figure. 61 destinations in the current dataset.
 
-### 3.3 SSB 10513 — Waste treatment (end-of-life)
+### 3.3 SSB 10513 — Waste treatment (end of life)
 
-* **What:** waste wood (`AvfallsType` = 06) by treatment method
-  (`behandlingsmåte`), 1000 tonnes.
-* **Query:** [`ssbapi_table_10513.json`](config/ssb_queries/ssbapi_table_10513.json).
-* **Ingest:** JSON-stat POST → DataFrame; zero rows dropped.
-* **Transform:** tonnes → m³ via `value × 1000 / 483` (483 kg/m³ basic density).
-  Treatment method is mapped to a target: `Levert til materialgjenvinning` →
-  **Material recovery**, everything else → **Energy**. Two edge sets are emitted:
-  * **`Long-term USE → End-of-Life`** (total EOL per year), and
-  * **`End-of-Life → Energy`** / **`End-of-Life → Material recovery`** (the split).
-* **Used by:** the downstream/disposal end of the diagram.
+* **What:** wood waste (`AvfallsType` 06) delivered to incineration
+  (`AvfallsBehand` 21), in **1 000 tonnes** (SSB's unit, confirmed from the
+  table's metadata).
+* **Transform:** `value × EOL_UNIT_KG / WASTE_WOOD_DENSITY_KG_M3`
+  (1 000 t → kg → m³ at 483 kg/m³), about 1.35 Mm³/yr over 2012–2022. Two
+  edges: `Long-term USE → End-of-Life` and `End-of-Life → Energy`.
+* **By design incineration only:** Norwegian waste wood is effectively all
+  incinerated; the edge quantifies the recoverable potential. There is no
+  `Material recovery` node, and a guard raises if the query is widened without
+  explicit routing. Until Phase K (2026-11-08) the conversion divided by 1 000
+  too few and the edge was invisible.
 
-### 3.4 SSB 11181 — Firewood consumption
+### 3.4 SSB 11181 — Firewood removals
 
-* **What:** firewood (`virkesgruppe`: coniferous vs `Ved til brensel lauv`),
-  1000 m³.
-* **Query:** [`ssbapi_table_11181.json`](config/ssb_queries/ssbapi_table_11181.json).
-* **Ingest:** JSON-stat POST → DataFrame.
-* **Transform** (`transform/firewood.py::create_firewood_rows`):
-  * Coniferous firewood is split spruce/pine by `FIREWOOD_PERCENT_SPRUCE` (50%);
-    the `lauv` group is non-coniferous.
-  * For each species it emits a **`Harvested wood → species`** edge and a
-    **`species → Firewood`** edge.
-* **Downstream:** in assembly, all `* → Firewood` inflow is aggregated into a
-  single **`Firewood → Energy`** edge.
+* **What:** `Avvirkning av vedvirke` — firewood removals, coniferous and
+  broadleaf, in 1 000 m³, **with bark**, estimated from household and cabin
+  consumption surveys and covering firewood sold and cut for own use.
+* **Transform** (`transform/firewood.py`): coniferous split spruce/pine by
+  `FIREWOOD_PERCENT_SPRUCE` (50 %); each species gets `Harvested wood → species`
+  and `species → Firewood`. The firewood component of the harvest edges is the
+  national remainder row (`region = "NO"`) because SSB never regionalises it.
+* **Downstream:** `Firewood → Energy` is the residual of the node's inflow
+  (removals plus `Import Firewood`) after `Firewood → Export Firewood`, so the
+  node balances and is one of `validate.PROCESS_NODES` (since Phase K; before
+  that the export was added on top of an Energy edge that already carried the
+  whole inflow).
 
 ### 3.5 Treindustrien annual report — production & mill inventories
 
-* **What:** sawmill-industry production (sawn/planed/impregnated timber) and
-  mill stock levels, from the Treindustrien *årsrapport*. A **file**, not an API:
-  [`data/raw/treindustrien_production_data.csv`](data/raw/treindustrien_production_data.csv)
-  with columns `[year, Category, Volume]`.
-* **Ingest** (`ingest/treindustrien.py`):
-  * `load_treindustrien` reads the CSV.
-  * `production_wide` pivots the three "produced …" categories into
-    `[year, Volume_sawn, Volume_planed, Volume_imp]`.
-  * `signed_inventory` / `sawmills_inventory_changes` compute the **signed**
-    year-over-year `VolumeChange` per inventory category (sign preserved so the
-    flow direction is known).
-* **Transform — this is where most process edges are derived:**
-  * **Sawing** (`transform/sawing.py::create_flow_rows`): given the
-    `* → Sawmills` log inflow (07410), saw-wood imports/exports (08801) and the
-    Treindustrien production + inventory frames, it derives every sawmill output
-    by mass balance. By-product shares apply to the **raw log input**:
-    `SAWDUST 0.14 → Boardmills`, `CELLULOSE 0.26 → Pulpmills`, `SCRAPS 0.05 →
-    Energy`, `SHRINKAGE 0.05 → Shrinkage`; the residual `SAWN_YIELD 0.50` →
-    Planingmills / WPP. Planing and impregnation edges follow.
-    *(See [`Sawing_function_diagnosis.docx`](Sawing_function_diagnosis.docx) and
-    the README "sawing-function fix" for the three bugs this code fixes.)*
-  * **Inventory** (`transform/inventory.py::create_inventory_rows`): each signed
-    `VolumeChange` becomes a stock edge whose **direction** depends on the sign
-    (build-up = `mill → inventory`, draw-down = `inventory → mill`) and whose
-    **width** is the absolute magnitude.
-* **Used by:** sawing, planing, impregnation and inventory edges; also the
-  reconciliation check that ties pipeline totals back to this CSV.
+* **What:** sawn, planed and impregnated production and the mill stock levels,
+  2011–2023, as a hand-maintained file,
+  [`data/raw/treindustrien_production_data.csv`](data/raw/treindustrien_production_data.csv).
+* **Sawing** (`transform/sawing.py`): by-products as shares of the **raw log
+  input** (`SHRINKAGE` 0.05 → water, `SAWDUST` 0.14 → Boardmills, `CELLULOSE`
+  0.26 → Pulpmills, `SCRAPS` 0.05 → Energy), the residual `SAWN_YIELD` 0.50 to
+  planing (`PLANED_INPUT_FACTOR` 1.05 × planed production), export, stock
+  change and WPP. Planing: `BYPRODUCT_PLANING` 0.05 to Boardmills, impregnated
+  production to Impregnation, the rest to WPP. The step recognises both the
+  gross trade spellings (fresh run) and the netted ones (a rebuild), so
+  `regenerate_balanced` reproduces the committed flows exactly.
+* **Inventory** (`transform/inventory.py`): each signed stock change becomes an
+  edge whose direction follows the sign (build-up `mill → inventory`,
+  draw-down `inventory → mill`); the timber and sawn-timber categories share
+  the `Timber inventory` node.
+* **Used by:** the sawing, planing, impregnation and inventory edges, and the
+  reconciliation that ties planed and impregnated throughput back to the file.
+  The series ends at 2023, so 2024 `Sawmills` emits nothing; the owner kept
+  2024 in the dataset and every derived analysis refuses it on its own gate.
 
-### 3.6 FAO_Data (FAOSTAT) — board-mill trade (legacy, pre-2012 only)
+### 3.6 FAO_Data (FAOSTAT) — board trade (legacy)
 
-* **What:** board (panel) exports 2002–2011, a hand-pasted **file** in the
-  canonical schema: [`data/raw/FAO_Data.csv`](data/raw/FAO_Data.csv)
-  (`Boardmills → Export Boards`, origin `FAOSTAT`).
-* **Ingest:** read directly with `pd.read_csv(config.FAO_CSV)`; no transform.
-* **Status:** every row predates `DATASET_MIN_YEAR`, so none reaches the
-  dataset and the `Export Boards` node is gone (decision 2026-07-28). Kept
-  for provenance.
-* **Why FAOSTAT is not the partner-country source** (checked 2026-11-08):
-  FAOSTAT's REST API (`faostatservices.fao.org/api/v1`) now answers every
-  endpoint with `401 Missing Authorization Header` — a Cognito login is
-  required and the docs say nothing about obtaining one — and its bilateral
-  *Forestry Trade Flows* domain (`FT`) is filed under "Discontinued archives",
-  last updated 2022-05-27. The open bulk files
-  (`bulks-faostat.fao.org/production/…`) still carry `FO` (Norway's totals
-  by product, no partner), usable as a cross-check of export totals only.
-  Partner countries therefore come from SSB 08799 (§3.2b), which covers the
-  whole window on the existing pipeline.
+* **What:** board imports 2005–2022 (`Import Boards → Boardmills`) and board
+  exports 2002–2004, a hand-pasted file in the canonical schema.
+* **Status:** the import rows are the only ones inside the dataset window; the
+  `Export Boards` node predates `DATASET_MIN_YEAR` and is gone (decision
+  2026-07-28). FAOSTAT is *not* the partner-country source: its REST API now
+  needs an account and its bilateral trade domain is discontinued (checked
+  2026-11-08); partners come from SSB 08799 (§3.2b).
+
+### 3.7 SSB 14589 / 14590 / 14591 / 14593 / 14594 / 06289 — the forest resource (Phase H)
+
+* **What:** the National Forest Inventory (Landsskogtakseringen, NIBIO) as SSB
+  publishes it: standing volume and gross increment under bark (1 000 m³, by
+  region × species), forest area (km²), forest types, development-class and
+  site-class shares (per cent), and the national series from 1933. Rolling
+  five-year intervals (`2021-2025`), nine *takserte regioner*.
+* **Query:** `config/ssb_queries/forest/`, processed by `circwood-forest` and
+  by the refresh; contracts with `period="interval"`, not window-gated.
+* **Transform** (`transform/forest.py`): one tidy table,
+  `data/processed/forest_resource.csv`, keyed on codes (SSB's Norwegian label
+  for development class IV reads "VI"), regions crosswalked to the county
+  codes (`NFI_REGIONS`). Not a flow: it sits beside the Sankey as the resource
+  behind `Harvested wood`. `increment_vs_harvest` reports the 2012–2022 harvest
+  at 0.55 of the 2021–2025 increment on productive forestry land (0.49 of all
+  land), with its caveats (interval vs calendar year; under bark vs a firewood
+  component with bark; productive forestry land excludes protected forest).
+
+### 3.8 SSB 07413 / 08360 — prices (Phase L)
+
+* **What:** average roundwood prices by assortment (NOK/m³, annual) and
+  wholesale electricity prices (øre/kWh, series *Elspotmarknaden*).
+* **Query:** `config/ssb_queries/economic/`, processed by `circwood-economics`
+  and by the refresh into `data/raw/prices_ssb.csv`.
+* **Used by:** `transform/economics.py` → `economic_value.csv` (§5.3) and the
+  rotation model's reference prices.
 
 ---
 
 ## 4. Assembly: from primary rows to a balanced dataset
 
-All the dataset rows above are concatenated into a **primary** frame, then
-`transform/assemble.py::assemble_sankey` derives every *process* edge so the
-result is mass-consistent regardless of source:
+All primary rows are concatenated, then `transform/assemble.py::assemble_sankey`
+derives every *process* edge so the result is mass-consistent regardless of
+source:
 
-0. Coerce `year` to int (SSB rows carry string years; see the year-alignment note in §3).
-1. `_bypass_raw_reexport` — reroute re-exported raw roundwood around the mills:
-   sawlogs around Sawmills (→ `Export Sawmills`) and pulpwood around Pulpmills
-   (→ `Export pulpwood`), allocated by species share so the pools stay balanced.
+0. Coerce `year` to int.
+1. `_bypass_raw_reexport` — route re-exported sawlogs and pulpwood around the
+   mills, allocated by species share.
 2. `create_flow_rows` — sawing/planing/impregnation edges (§3.5).
-3. `create_inventory_rows` — mill stock-change edges (§3.5).
-4. `boardmill_process` — split Boardmills inflow into `Loss Boardmills`
-   (`BOARDMILL_LOSS` 5%) and `WPP` (95%).
-5. `pulpmills_process` — split Pulpmills inflow into `Short-term USE` (86%),
-   `Energy` (8%), `Loss` (6%).
-6. Aggregates: `Firewood → Energy`, and the `WPP →` split into `Long-term USE`
-   (`WPP_LONG_TERM` 90%) and `Energy` (`WPP_ENERGY` 10%).
-7. `_finalize` — coerce types, take absolute volumes, and **dedupe** to one row
-   per `(year, source, target)` (summing volumes, joining `origin` strings).
-8. `_apply_net_exports` — collapse the gross import/export pairs for sawlogs,
-   pulpwood and sawn timber into single net-export nodes (§3.2), preserving every
-   node's mass balance.
+3. `create_inventory_rows` — mill stock-change edges.
+4. `boardmill_process` — `Loss Boardmills` (`BOARDMILL_LOSS` 5 %) and WPP.
+5. `pulpmills_process` — `Short-term USE` 86 %, `Energy` 8 %, `Loss Pulpmills` 6 %.
+6. Aggregates: `Firewood → Energy` (inflow less exports) and the WPP split into
+   `Long-term USE` (`WPP_LONG_TERM` 90 %) and `Energy` (10 %). The mill splits
+   are overridable through `transform.mills.MillCoefficients`.
+7. `_finalize` — types, absolute volumes, clip to the dataset window, dedupe per
+   `(year, source, target)`.
+8. `_apply_net_exports` — the net-export nodes (§3.2).
+9. `add_dimensions` — region, species, assortment, entity_id, destination.
 
-Every coefficient used here lives in [`constants.py`](src/circwood/constants.py).
-The default analysis window is `MIN_YEAR=2012` … `MAX_YEAR=2022`.
+Every coefficient lives in [`constants.py`](src/circwood/constants.py).
 
-### Mass balance & reconciliation
+### Mass balance, carbon balance, reconciliation
 
-* `assemble.node_balance(df, node)` returns per-year inflow/outflow/imbalance for
-  any node; the app exposes this as the "Mass balance check" panel.
-* `validate.py` + `tests/test_balance.py` assert the process nodes balance within
-  ~1%; use-phase and inventory nodes are reservoirs by design.
-* `reconcile.py` + `tests/test_reconcile.py` tie pipeline totals to the
-  Treindustrien CSV and the SSB 07410 control total.
-* To re-derive a balanced dataset from cached primary rows (no network):
-  `regenerate_balanced(write=True)` strips the `DERIVED_EDGES` and re-runs
-  assembly using the local Treindustrien CSV.
+* `validate.assert_window_balanced` / `assert_slices_balanced`: every node in
+  `PROCESS_NODES` (Sawmills, Pulpmills, Boardmills, Planingmills, Impregnation,
+  WPP, Firewood) balances within 1 % over 2012–2022, in aggregate and per
+  (region, species) slice. Species pools, use phases and inventories are
+  reservoirs by design.
+* `validate.assert_carbon_balanced`: the same nodes conserve carbon (Phase G).
+* `reconcile.py`: planed and impregnated throughput tie to the Treindustrien
+  file; domestic sawtimber ties to the SSB 07410 control total.
+* `regenerate_balanced(write=True)` re-derives a balanced dataset from the
+  committed table's primary rows without network, and reproduces it exactly.
 
 ---
 
-## 5. Carbon overlay
+## 5. Carbon and the derived analyses
 
-`carbon_data.csv` is the same flow table with `volume` (m³) converted to embodied
-carbon (kg C). The model is **species-accurate**:
+### 5.1 Carbon (`carbon_data.csv`)
 
-```
-carbon(flow) = volume × Σ_species  share_species × density(species, state)
-```
+`carbon = volume × ρ(year, source node, species)`. Densities and node rules
+are the two editable CSVs; since Phase G **carbon follows the wood**: it enters
+at harvest (raw density by species) and at imports (configured density), every
+propagate node emits at one effective density (carbon in over wood volume out,
+so a node that loses water emits denser wood), and the water sink carries none
+(`carries_carbon = 0`). Carbon is therefore conserved wherever volume is.
+`carbon_low`/`carbon_high` repeat the model at the file's low/high densities.
+`carbon/species_model.py` holds the propagation; `carbon/carbon.py` the
+overlay. CO₂e is a display conversion (`CO2_PER_C`).
 
-* **Densities** — [`config/carbon_densities.csv`](config/carbon_densities.csv):
-  `kg_c_per_m3` per `(species, state)`, where state ∈ {`raw`, `dry`} (moisture).
-* **Per-node rules** — [`config/carbon_nodes.csv`](config/carbon_nodes.csv): each
-  node's leaving-`state` and `mix_mode`:
-  * `fixed` — use the given `spruce/pine/nonconif_share` (species pools, imports).
-  * `propagate` — compute the species mix from the node's **inflows**, solved to
-    a fixed point so inventory cycles converge (mills, use phases, inventories).
-* **Code** — `carbon/species_model.py`: `species_mix(df)` returns the mix per
-  `(year, node)`; `add_carbon(df)` adds the `carbon` column. Edges leaving
-  `Harvested wood` carry the target pool's species (by-products carry the year's
-  harvest mix).
+### 5.2 β, its sensitivity, the HWP stock
 
-Both CSVs are designed to be edited in Excel — change a value, re-run
-`build_carbon(write=True)` (or the app), and the carbon figures update. No code
-change needed.
+* `analysis/hwp.py` → `beta_series.csv`: the production-basis HWP fraction,
+  traced on conserved carbon with proportional mixing; gated; 2012–2023.
+* `analysis/sensitivity.py` → `beta_sensitivity.csv`: β with each fixed
+  coefficient at the bounds of `config/coefficient_ranges.csv` plus the density
+  envelope; the source of `ci_low`/`ci_high` (an assumption envelope).
+* `carbon/stock.py` → `hwp_stock.csv`: carbon stored in products, first-order
+  decay, `config/hwp_half_lives.csv`, cohort and steady-state initialisations,
+  the observed 10513 outflow alongside.
+
+### 5.3 Economic value and the models
+
+* `transform/economics.py` → `economic_value.csv`: roundwood at the pool gate at
+  07413 prices, energy at 753 kWh/m³ × the 08360 day-ahead price, carbon
+  stored and released at the carbon price of `config/prices.csv`. Processed
+  products are not priced (no published price per m³).
+* `models/rotation` → `rotation_results.csv` and `models/forest_stock` →
+  `forest_stock_projection.csv`: separate models that read β, the prices and
+  the inventory; see `models/README.md` and METHODS §9.
 
 ---
 
-## 6. Visualisation & app
+## 6. Visualisation, app and site
 
-`viz/sankey.py` is pure (no I/O, no `fig.show()`):
+`viz/sankey.py` is pure (no I/O): `load_node_params` reads `nodes.json`;
+`prepare_flows` filters to the window, scales (÷1e6 for Mm³, ÷1e9 for Mt C),
+drops hidden nodes and, in average mode, divides each edge's window total by
+the number of dataset years in the window (so the averaged diagram balances —
+Phase K); `remap_ids` maps labels to ids (a label missing from `nodes.json`
+would drop its flows silently, which is why the node-coverage fence exists);
+`build_figure` honours the fixed positions.
 
-* `load_node_params` reads labels/positions/colours from `nodes.json`.
-* `prepare_flows` filters to the year window, applies `NODE_RENAME_MAP` (data-side
-  names → diagram labels), scales `volume` (÷1e6 for Mm³, ÷1e9 for Mt C),
-  optionally averages over the window, and drops flows touching hidden nodes.
-* `remap_ids` maps node names to integer ids (flows with unknown nodes are
-  dropped). `build_figure` / `make_sankey` produce the Plotly figure.
-
-`app/streamlit_app.py` calls `build_sankey(use_cached_ssb=True)` once (cached),
-then `make_sankey` for the figure and `species_mix` for the composition panel.
-Sidebar controls: metric (Mm³ vs Mt C), annual-average vs single year, year
-range, and a node selector. A CSV download exports the current window.
+`app/streamlit_app.py` (internal) shows the flows in volume, carbon or CO₂e,
+the carbon fate and β, the sensitivity, the HWP stock, the forest resource,
+the economics and the models, mass balance and provenance, off the committed
+files. `export/bundle.py` serialises the committed carbon table, the node
+positions, the manifest vintage and the forest summary into
+`site/data/circwood.json` through the confidentiality gate; `site/` renders it
+with Plotly.js and deploys to GitHub Pages on merge to `main`.
 
 ---
 
 ## 7. How to regenerate everything
 
 ```bash
-# Volume dataset, from cached primary rows (no network):
+# Everything, from live SSB, behind the gates (needs .[ssb] + network):
+circwood-refresh --report r.md
+
+# Pieces, offline from the committed data:
 python -c "from circwood.transform.assemble import regenerate_balanced; regenerate_balanced(write=True)"
-
-# Volume dataset, fresh from the SSB API (needs .[ssb] extras + network):
-circwood-build --fresh        # == build_sankey(use_cached_ssb=False)
-
-# Carbon dataset (re-reads the carbon CSVs):
 python -c "from circwood import build_carbon; build_carbon(write=True)"
+python -c "from circwood.analysis.sensitivity import export_sensitivity; export_sensitivity()"
+python -c "from circwood.analysis.hwp import export_beta_series; export_beta_series()"
+python -c "from circwood.carbon.stock import export_hwp_stock; export_hwp_stock()"
+python -c "from circwood.transform.economics import export_economic_value; export_economic_value()"
+python -m models.rotation.rotation && python -m models.forest_stock.projection
 
-# Verify balance & reconciliation:
+# Side layers from live SSB:
+circwood-forest && circwood-economics
+
+# Verify:
 pytest
 ```
 
-Commit the regenerated `data/processed/*.csv` to refresh the hosted app.
+A regenerated dataset changes `tests/fixtures/golden_sankey_data.csv` and every
+derived file in the same commit; the tests say so when one is left behind.

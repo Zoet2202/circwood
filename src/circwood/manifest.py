@@ -21,10 +21,11 @@ from __future__ import annotations
 import hashlib
 import json
 import subprocess
+from collections.abc import Mapping
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Mapping
+from typing import Any
 
 import pandas as pd
 
@@ -32,7 +33,10 @@ from circwood import config
 
 MANIFEST_NAME = "manifest.json"
 
-SCHEMA_VERSION = 1
+#: 2 (2026-11-08): added ``inputs`` — the committed raw files (Treindustrien,
+#: county harvest, partner exports) with their hashes, so a vintage diff can
+#: tell an input-file change from an SSB revision (Phase J).
+SCHEMA_VERSION = 2
 
 
 def manifest_path() -> Path:
@@ -94,6 +98,7 @@ class Manifest:
     git_dirty: bool
     tables: dict[str, dict[str, Any]] = field(default_factory=dict)
     outputs: dict[str, dict[str, Any]] = field(default_factory=dict)
+    inputs: dict[str, dict[str, Any]] = field(default_factory=dict)
 
     # -- reading ------------------------------------------------------------
     @property
@@ -104,13 +109,13 @@ class Manifest:
         as its most recently revised input, and quoting our own pull timestamp
         instead would overstate how fresh the statistics are.
         """
-        dates = [t.get("updated") for t in self.tables.values() if t.get("updated")]
+        dates = [str(t["updated"]) for t in self.tables.values() if t.get("updated")]
         return max(dates)[:10] if dates else None
 
     @property
     def oldest_table_as_of(self) -> str | None:
         """The *oldest* SSB revision date — the real limit on the dataset."""
-        dates = [t.get("updated") for t in self.tables.values() if t.get("updated")]
+        dates = [str(t["updated"]) for t in self.tables.values() if t.get("updated")]
         return min(dates)[:10] if dates else None
 
     @property
@@ -129,7 +134,7 @@ class Manifest:
         return asdict(self)
 
     @classmethod
-    def from_dict(cls, payload: Mapping[str, Any]) -> "Manifest":
+    def from_dict(cls, payload: Mapping[str, Any]) -> Manifest:
         known = {f for f in cls.__dataclass_fields__}
         return cls(**{k: v for k, v in payload.items() if k in known})
 
@@ -147,9 +152,30 @@ def describe_dataset(df: pd.DataFrame, path: Path) -> dict[str, Any]:
     }
 
 
+def describe_input(path: Path) -> dict[str, Any]:
+    """Summarise one committed raw input CSV (hash and year span) for the manifest."""
+    out: dict[str, Any] = {
+        "path": str(path.relative_to(config.ROOT_DIR)) if path.is_relative_to(config.ROOT_DIR) else str(path),
+        "sha256": _sha256_file(path),
+        "rows": None, "year_min": None, "year_max": None,
+    }
+    if path.exists():
+        try:
+            df = pd.read_csv(path)
+            out["rows"] = int(len(df))
+            if "year" in df.columns and len(df):
+                years = pd.to_numeric(df["year"], errors="coerce").dropna()
+                if len(years):
+                    out["year_min"], out["year_max"] = int(years.min()), int(years.max())
+        except (OSError, ValueError, pd.errors.ParserError):  # pragma: no cover - unreadable input
+            pass
+    return out
+
+
 def build_manifest(
     vintages: Mapping[str, Any],
     outputs: Mapping[str, dict[str, Any]] | None = None,
+    inputs: Mapping[str, dict[str, Any]] | None = None,
 ) -> Manifest:
     """Assemble a :class:`Manifest` from ingestion vintages and output summaries.
 
@@ -171,6 +197,7 @@ def build_manifest(
         git_dirty=bool(dirty),
         tables=dict(sorted(tables.items())),
         outputs=dict(sorted((outputs or {}).items())),
+        inputs=dict(sorted((inputs or {}).items())),
     )
 
 
@@ -206,6 +233,7 @@ __all__ = [
     "Manifest",
     "build_manifest",
     "describe_dataset",
+    "describe_input",
     "manifest_path",
     "read_manifest",
     "write_manifest",

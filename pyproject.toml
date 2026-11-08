@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "circwood"
-version = "0.1.0"
+version = "0.2.0"
 description = "Circwood WP4 — Norwegian wood-flow Sankey dataset pipeline and Streamlit app"
 readme = "README.md"
 requires-python = ">=3.10"
@@ -23,12 +23,18 @@ ssb = [
 ]
 dev = [
     "pytest>=7.4",
+    "ruff>=0.8",
+    "mypy>=1.13",
+    "pandas-stubs>=2.2",
+    "types-requests>=2.31",
 ]
 
 [project.scripts]
 circwood-build = "circwood.pipeline:main"
 circwood-refresh = "circwood.refresh:main"
 circwood-bundle = "circwood.export.bundle:main"
+circwood-forest = "circwood.transform.forest:main"
+circwood-economics = "circwood.transform.economics:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
@@ -36,3 +42,56 @@ where = ["src"]
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 pythonpath = ["src"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py310"
+src = ["src", "tests", "models"]
+extend-exclude = ["notebooks", "site/vendor", ".claude"]
+
+[tool.ruff.lint]
+# E/F: pyflakes + pycodestyle; I: import order; UP: modern syntax; B: bugbear
+# (mutable defaults, unused loop vars); the long-line rule is kept because
+# the docstrings here are prose and read as such.
+select = ["E", "F", "I", "UP", "B"]
+ignore = [
+    "E501",   # long lines: docstrings and messages are prose, wrapped by hand
+    "B008",   # function calls in defaults are deliberate (config paths)
+    "B905",   # zip(strict=) is 3.10+ only and the pairs here are equal-length by construction
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E731"]
+"app/streamlit_app.py" = ["E402"]   # sys.path shim before the package imports
+
+[tool.ruff.format]
+quote-style = "preserve"
+
+[tool.mypy]
+python_version = "3.10"
+files = ["src/circwood"]
+ignore_missing_imports = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+no_implicit_optional = true
+# A pragmatic baseline: the package is typed where types carry meaning
+# (dataclasses, contracts, gates); pandas-heavy transforms stay dynamically
+# typed and are fenced by tests instead.
+check_untyped_defs = false
+
+# The modules below are row-by-row pandas arithmetic (itertuples, Series
+# algebra) that pandas-stubs types as wide scalar unions; every one of them is
+# fenced by numerical tests, so type errors there are noise, not signal.
+[[tool.mypy.overrides]]
+module = [
+    "circwood.analysis.hwp",
+    "circwood.analysis.sensitivity",
+    "circwood.carbon.species_model",
+    "circwood.carbon.stock",
+    "circwood.transform.assemble",
+    "circwood.transform.destinations",
+    "circwood.transform.economics",
+    "circwood.transform.forest",
+    "circwood.viz.sankey",
+]
+ignore_errors = true

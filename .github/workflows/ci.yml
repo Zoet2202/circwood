@@ -29,3 +29,21 @@ jobs:
 
       - name: Run tests
         run: pytest -q
+
+  # Lint and types (ROADMAP Phase I). ruff format is enforced by pre-commit on
+  # touched files only, so an adopted formatter never produces a repo-wide diff
+  # in the same change as a data regeneration.
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install package (dev extras)
+        run: pip install -e .[dev,ssb]
+      - name: ruff
+        run: ruff check src tests app models
+      - name: mypy
+        run: mypy

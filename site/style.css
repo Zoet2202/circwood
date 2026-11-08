@@ -266,7 +266,63 @@ tr.total td {
   font-weight: 600;
   border-top: 1px solid var(--baseline);
 }
+/* The low–high envelope column of the balance table (carbon metrics). */
+td.range {
+  color: var(--ink-2);
+  font-weight: 400;
+  white-space: nowrap;
+}
 .table-scroll { overflow-x: auto; }
+
+/* Forest-resource card (Phase H) --------------------------------------- */
+
+/* Stat tiles: label / value / sub-line. The value keeps proportional
+   figures — tabular-nums is for columns, not a standalone number. */
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin: 10px 0 14px;
+}
+.tile {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  background: var(--page);
+}
+.tile .label {
+  color: var(--ink-2);
+  font-size: 13px;
+}
+.tile .value {
+  margin-top: 2px;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.tile .sub {
+  margin-top: 2px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.forest-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 16px;
+  align-items: start;
+}
+.card h3 {
+  margin: 0 0 4px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+#devclass { width: 100%; min-height: 230px; }
+@media (max-width: 900px) {
+  .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .forest-grid { grid-template-columns: 1fr; }
+}
 
 details.data-table > summary {
   cursor: pointer;

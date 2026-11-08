@@ -169,8 +169,8 @@
   },
   {
     "label": "End-of-Life",
-    "x_position": 0.8,
-    "y_position": 0.5,
+    "x_position": 0.88,
+    "y_position": 0.45,
     "node_color": "#f4a261"
   },
   {
@@ -181,7 +181,7 @@
   },
   {
     "label": "Energy",
-    "x_position": 0.8,
+    "x_position": 0.96,
     "y_position": 0.72,
     "node_color": "#ee9b00"
   }

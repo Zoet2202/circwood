@@ -69,8 +69,8 @@ class SawmillCoefficients:
         produced_sawn: pd.Series,
         initial_timber_vol: pd.Series,
         *,
-        base: "SawmillCoefficients | None" = None,
-    ) -> "SawmillCoefficients":
+        base: SawmillCoefficients | None = None,
+    ) -> SawmillCoefficients:
         """Derive coefficients from the Treindustrien produced-sawn series.
 
         The sawn yield is a single window-averaged ratio,
@@ -153,7 +153,7 @@ def _initial_timber_vol(
         "VolumeChange", all_years,
     )
     import_saw_wood = _yearly_series(
-        trade_df, trade_df["source"] == "Import saw wood", "volume", all_years)
+        trade_df, _is_saw_log_import(trade_df), "volume", all_years)
     sankey_inflow = _yearly_series(
         sankey_df, sankey_df["target"] == "Sawmills", "volume", all_years)
     return pd.Series(
@@ -162,6 +162,28 @@ def _initial_timber_vol(
         + import_saw_wood.to_numpy(),
         index=all_years,
     )
+
+
+# The trade frame reaches this module in two shapes. The fresh pipeline passes
+# the *gross* 08801 edges (``Import saw wood -> Sawmills``, ``Sawmills ->
+# Export sawn wood``); a rebuild from the committed dataset
+# (``assemble.regenerate_balanced``) passes the *netted* ones, where the same
+# volumes live on ``Net export skurlast -> Sawmills`` (a net-import year) and
+# ``Sawmills -> Net export sawn timber``. Both spellings must be recognised, or
+# a rebuild double-counts the sawn exports (the +2.8 % Sawmills imbalance the
+# app used to warn about on rebuilt datasets) and drops net log imports.
+SAWN_EXPORT_TARGETS = ("Export sawn wood", "Net export sawn timber")
+SAW_LOG_IMPORT_SOURCES = ("Import saw wood", "Net export skurlast")
+
+
+def _is_saw_log_import(trade_df: pd.DataFrame) -> pd.Series:
+    """Rows carrying imported sawlogs into Sawmills, gross or netted spelling."""
+    return trade_df["source"].isin(SAW_LOG_IMPORT_SOURCES) & (trade_df["target"] == "Sawmills")
+
+
+def _is_sawn_export(trade_df: pd.DataFrame) -> pd.Series:
+    """Rows carrying sawn timber out of Sawmills to export, gross or netted spelling."""
+    return (trade_df["source"] == "Sawmills") & trade_df["target"].isin(SAWN_EXPORT_TARGETS)
 
 
 def resolve_coefficients(
@@ -224,7 +246,6 @@ def create_flow_rows(
     all_years = sorted(treindustrien_production["year"].unique())
 
     prod = treindustrien_production.set_index("year").reindex(all_years).reset_index()
-    year = prod["year"]
     planed_vol = prod["Volume_planed"]
     imp_vol = prod["Volume_imp"]
 
@@ -246,7 +267,7 @@ def create_flow_rows(
     # sawn. This keeps the by-product yields (e.g. 26% cellulose) as shares of
     # sawn-log input and lets the Sawmills node balance.
     export_sawn_wood = _yearly_series(
-        trade_df, trade_df["target"] == "Export sawn wood", "volume", all_years)
+        trade_df, _is_sawn_export(trade_df), "volume", all_years)
     export_planed_wood = _yearly_series(
         trade_df, trade_df["target"] == "Export planed wood", "volume", all_years)
 

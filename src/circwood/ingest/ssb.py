@@ -42,14 +42,16 @@ import json
 import logging
 import os
 import re
+from collections.abc import Iterable, Mapping
 from dataclasses import asdict, dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import TYPE_CHECKING, Any, Mapping
+from typing import TYPE_CHECKING, Any
 
 import pandas as pd
 
-from circwood import config, constants as C
+from circwood import config
+from circwood import constants as C
 
 if TYPE_CHECKING:  # pragma: no cover - import only for type checkers
     import requests
@@ -139,31 +141,94 @@ class TableContract:
     max_year: int | None = C.MAX_YEAR
     #: ``"year"`` when ``year_column`` holds plain years, ``"month"`` when it
     #: holds SSB month labels (``2019M01``) whose first four characters are the
-    #: year — the 08799 trade-by-country table is monthly only.
+    #: year — the 08799 trade-by-country table is monthly only — and
+    #: ``"interval"`` for the forest-inventory tables, whose periods are rolling
+    #: five-year labels (``2021-2025``) read as their last year.
     period: str = "year"
+    #: Typical months after a calendar year ends until SSB publishes that year
+    #: (Phase J). ``coverage.expected_year_max`` adds a grace period; a table
+    #: behind that is reported as *overdue*, never silently waited for.
+    publication_lag_months: int | None = None
+    #: Whether the table's year coverage takes part in the dataset's year
+    #: window (``DATASET_MIN_YEAR``/``DATASET_MAX_YEAR``). The flow sources do;
+    #: the forest-resource and price tables are side layers and do not.
+    window_gated: bool = True
+    #: The last year the query *selects* (a chunked 08799 file asks for
+    #: 2012–2016 only). Such a table can never publish beyond it, so the
+    #: publication-lag check judges it against this bound, not the calendar.
+    #: ``None`` means the query is open-ended.
+    selection_max_year: int | None = None
 
 
 #: Per-table expectations, keyed by SSB table id. Column names were taken from
 #: live responses; they are the labels ``pyjstat`` derives, which is why they are
 #: lowercase Norwegian ('sortiment', not the 'Treslag' variable code).
 TABLE_CONTRACTS: dict[str, TableContract] = {
-    # Avvirkning for salg — roundwood harvest by species.
-    "03795": TableContract(("år", "sortiment", "value")),
+    # Avvirkning for salg — roundwood harvest by species. Year t is final in
+    # May/June t+1 (observed: 2025 published 2026-05-21).
+    "03795": TableContract(("år", "sortiment", "value"), publication_lag_months=6),
     # The same table selected by county (agg_KommFylker, the 2024-boundary
     # backcast series) — the data behind the `region` dimension. A separate
     # query file with an explicit tableIdForQuery, because process_query_files
     # correctly refuses two files with the same table id.
-    "03795_fylke": TableContract(("år", "sortiment", "region", "value")),
-    # Industrivirke avvirket for salg — removals by assortment.
-    "07410": TableContract(("år", "sortiment", "value")),
-    # Utenrikshandel — imports/exports by commodity code.
+    "03795_fylke": TableContract(("år", "sortiment", "region", "value"), publication_lag_months=6),
+    # Industrivirke avvirket for salg — removals by assortment (same release).
+    "07410": TableContract(("år", "sortiment", "value"), publication_lag_months=6),
+    # Utenrikshandel — imports/exports by commodity code; monthly, the year is
+    # complete by February/March.
     "08801": TableContract(
-        ("år", "varenummer", "import/eksport", "statistikkvariabel", "value")
+        ("år", "varenummer", "import/eksport", "statistikkvariabel", "value"),
+        publication_lag_months=3,
     ),
-    # Avfall — wood waste by treatment.
-    "10513": TableContract(("år", "behandlingsmåte", "value")),
-    # Ved til brensel — firewood by wood group.
-    "11181": TableContract(("år", "virkesgruppe", "value")),
+    # Avfall — wood waste by treatment. Trails roundwood by over a year
+    # (observed: 2024 published 2026-03-24, about 15 months after year end).
+    "10513": TableContract(("år", "behandlingsmåte", "value"), publication_lag_months=16),
+    # Avvirkning av vedvirke — firewood removals by wood group (June t+1).
+    "11181": TableContract(("år", "virkesgruppe", "value"), publication_lag_months=7),
+    # --- Phase H: Landsskogtakseringen (NFI) via SSB, rolling five-year
+    # intervals published each August for the interval ending the year before.
+    # Side layer: not part of the flow dataset's year window.
+    "14589": TableContract(
+        ("region", "treslag", "statistikkvariabel", "intervall (år)", "value"),
+        year_column="intervall (år)", min_year=None, max_year=None, period="interval",
+        publication_lag_months=8, window_gated=False,
+    ),
+    "14590": TableContract(
+        ("region", "treslag", "statistikkvariabel", "intervall (år)", "value"),
+        year_column="intervall (år)", min_year=None, max_year=None, period="interval",
+        publication_lag_months=8, window_gated=False,
+    ),
+    "14591": TableContract(
+        ("region", "statistikkvariabel", "intervall (år)", "value"),
+        year_column="intervall (år)", min_year=None, max_year=None, period="interval",
+        publication_lag_months=8, window_gated=False,
+    ),
+    "14593": TableContract(
+        ("region", "statistikkvariabel", "intervall (år)", "value"),
+        year_column="intervall (år)", min_year=None, max_year=None, period="interval",
+        publication_lag_months=8, window_gated=False,
+    ),
+    "14594": TableContract(
+        ("region", "statistikkvariabel", "intervall (år)", "value"),
+        year_column="intervall (år)", min_year=None, max_year=None, period="interval",
+        publication_lag_months=8, window_gated=False,
+    ),
+    # Long national series 1933-: each year stands for a multi-year inventory period.
+    "06289": TableContract(
+        ("treslag", "statistikkvariabel", "år", "value"),
+        min_year=None, max_year=None, publication_lag_months=8, window_gated=False,
+    ),
+    # --- Phase L: average roundwood prices by assortment (kr per m3), annual.
+    "07413": TableContract(
+        ("sortiment", "statistikkvariabel", "år", "value"),
+        min_year=C.MIN_YEAR, max_year=C.MAX_YEAR, publication_lag_months=6, window_gated=False,
+    ),
+    # Wholesale electricity prices (øre per kWh), annual; published late the
+    # following year (observed: 2024 on 2025-11-28).
+    "08360": TableContract(
+        ("statistikkvariabel", "år", "value"),
+        min_year=C.MIN_YEAR, max_year=C.MAX_YEAR, publication_lag_months=12, window_gated=False,
+    ),
 }
 
 DEFAULT_CONTRACT = TableContract()
@@ -202,8 +267,15 @@ def contract_for(table_id: str) -> TableContract:
             min_year=max(lo, C.DATASET_MIN_YEAR),
             max_year=min(hi, C.DATASET_MAX_YEAR),
             period="month",
+            publication_lag_months=3,
+            selection_max_year=hi,
         )
     return DEFAULT_CONTRACT
+
+
+def base_table(table_id: str) -> str:
+    """The SSB table behind a query id: ``03795_fylke`` and ``08799_2017_2021`` -> ``03795`` / ``08799``."""
+    return table_id.split("_", 1)[0]
 
 
 # ---------------------------------------------------------------------------
@@ -361,7 +433,7 @@ def make_session(
     retries: int = DEFAULT_RETRIES,
     backoff_factor: float = DEFAULT_BACKOFF,
     user_agent: str = USER_AGENT,
-) -> "requests.Session":
+) -> requests.Session:
     """Return a ``requests.Session`` that retries SSB's transient failures.
 
     ``allowed_methods`` has to include POST: every SSB query in this project is
@@ -393,7 +465,7 @@ def make_session(
 def fetch_table(
     spec: Mapping[str, Any],
     *,
-    session: "requests.Session | None" = None,
+    session: requests.Session | None = None,
     timeout: int = DEFAULT_TIMEOUT,
 ) -> str:
     """POST one query spec to SSB and return the raw response body.
@@ -521,6 +593,9 @@ def validate_table(
     periods = df[year_col].astype(str)
     if contract.period == "month":
         periods = periods.str[:4]
+    elif contract.period == "interval":
+        # '2021-2025' -> 2025: an interval is dated by the year it ends.
+        periods = periods.str[-4:]
     years = pd.to_numeric(periods, errors="coerce").dropna()
     if years.empty:
         raise SSBValidationError(
@@ -559,17 +634,63 @@ def cache_raw(raw: str, table_id: str, cache_dir: str | Path) -> Path:
 
 
 def write_vintages(vintages: Mapping[str, TableVintage], cache_dir: str | Path) -> Path:
-    """Write the per-table vintages next to the raw cache they describe."""
+    """Write the per-table vintages next to the raw cache they describe.
+
+    Merged into the file already there: the flow, forest and economic ingests
+    share one cache directory, and :func:`load_cached_result` needs every
+    table's vintage, not only the last layer's. A table fetched again replaces
+    its own entry.
+    """
     cache_dir = Path(cache_dir)
     cache_dir.mkdir(parents=True, exist_ok=True)
     path = cache_dir / "_vintages.json"
-    payload = {table_id: v.to_dict() for table_id, v in sorted(vintages.items())}
+    payload: dict[str, Any] = {}
+    if path.exists():
+        try:
+            existing = json.loads(path.read_text(encoding="utf-8"))
+            if isinstance(existing, dict):
+                payload.update(existing)
+        except (OSError, ValueError):
+            pass  # an unreadable file is rewritten, not propagated
+    payload.update({table_id: v.to_dict() for table_id, v in vintages.items()})
+    payload = dict(sorted(payload.items()))
     path.write_text(json.dumps(payload, indent=2, ensure_ascii=False), encoding="utf-8")
     return path
 
 
 def _utcnow() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+
+def load_cached_result(cache_dir: str | Path | None = None, tables: Iterable[str] | None = None) -> IngestResult:
+    """Rebuild an :class:`IngestResult` from the raw-response cache, offline.
+
+    Reads ``_vintages.json`` and the ``{table_id}.json`` bodies a previous run
+    wrote (``cache_raw`` / ``write_vintages``), parses and validates them
+    exactly as the live path does. For reproducing a fresh build without the
+    network and for inspecting a blocked refresh; the cache is git-ignored, so
+    this never replaces a live fetch in the scheduled loop.
+    """
+    cache_dir = Path(cache_dir) if cache_dir is not None else config.RAW_SSB_DIR
+    vintage_file = cache_dir / "_vintages.json"
+    if not vintage_file.exists():
+        raise SSBQueryError(f"No raw cache at {cache_dir} (missing _vintages.json); run a fresh fetch first.")
+    vintages = json.loads(vintage_file.read_text(encoding="utf-8"))
+    wanted = set(tables) if tables is not None else set(vintages)
+    result = IngestResult()
+    for table_id in sorted(wanted):
+        if table_id not in vintages:
+            raise SSBQueryError(f"table {table_id} is not in the raw cache's _vintages.json.")
+        raw_path = cache_dir / f"{table_id}.json"
+        if not raw_path.exists():
+            raise SSBQueryError(f"table {table_id}: cached body {raw_path} is missing.")
+        raw = raw_path.read_text(encoding="utf-8")
+        frames = parse_table(raw, table_id)
+        validate_table(table_id, frames)
+        result.datasets[table_id] = frames
+        result.dimension_codes[table_id] = dimension_codes(raw, table_id)
+        result.vintages[table_id] = TableVintage(**vintages[table_id])
+    return result
 
 
 # ---------------------------------------------------------------------------
@@ -579,7 +700,7 @@ def process_query_files(
     directory_query_path: str | Path,
     *,
     allow_partial: bool = False,
-    session: "requests.Session | None" = None,
+    session: requests.Session | None = None,
     cache_dir: str | Path | None = None,
     timeout: int = DEFAULT_TIMEOUT,
 ) -> IngestResult:
@@ -674,6 +795,7 @@ def process_query_files(
 __all__ = [
     "CONTACT",
     "DEFAULT_CONTRACT",
+    "base_table",
     "IngestResult",
     "REQUIRED_PARAMS",
     "SSBError",
@@ -690,6 +812,7 @@ __all__ = [
     "contract_for",
     "dimension_codes",
     "fetch_table",
+    "load_cached_result",
     "load_query_spec",
     "make_session",
     "normalize_spec",

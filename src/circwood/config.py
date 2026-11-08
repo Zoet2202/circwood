@@ -14,6 +14,10 @@ ROOT_DIR = Path(__file__).resolve().parents[2]
 
 CONFIG_DIR = ROOT_DIR / "config"
 SSB_QUERY_DIR = CONFIG_DIR / "ssb_queries"
+# Side layers with their own query directories (process_query_files is not
+# recursive, so these never enter the flow dataset's ingest or its year window).
+FOREST_QUERY_DIR = SSB_QUERY_DIR / "forest"        # Phase H: Landsskogtakseringen
+ECONOMIC_QUERY_DIR = SSB_QUERY_DIR / "economic"    # Phase L: prices
 NODES_FILE = CONFIG_DIR / "nodes.json"
 
 # Researcher-editable carbon model (open in Excel as CSV).
@@ -35,6 +39,26 @@ CARBON_CSV = PROCESSED_DIR / "carbon_data.csv"
 # Empirical HWP fraction beta(year, species) for the external rotation model
 # (Phase F, written by ``circwood.analysis.hwp.export_beta_series``).
 BETA_SERIES_CSV = PROCESSED_DIR / "beta_series.csv"
+# One-at-a-time sensitivity of beta to the fixed coefficients (Phase G,
+# ``circwood.analysis.sensitivity``); the source of beta_series' ci columns.
+BETA_SENSITIVITY_CSV = PROCESSED_DIR / "beta_sensitivity.csv"
+# Carbon stored in harvested-wood products, first-order decay (Phase G,
+# ``circwood.carbon.stock``).
+HWP_STOCK_CSV = PROCESSED_DIR / "hwp_stock.csv"
+# The forest resource layer (Phase H, ``circwood.transform.forest``): the six
+# SSB Landsskogtakseringen tables, tidy and committed.
+FOREST_RESOURCE_CSV = PROCESSED_DIR / "forest_resource.csv"
+# One JSON line per refresh that moved a flow (Phase J): the observed
+# distribution of SSB revisions the diff threshold should eventually be set from.
+REFRESH_HISTORY = PROCESSED_DIR / "refresh_history.jsonl"
+# The economic value layer (Phase L, ``circwood.transform.economics``): the
+# flows valued at SSB roundwood and electricity prices and a carbon price.
+ECONOMIC_VALUE_CSV = PROCESSED_DIR / "economic_value.csv"
+
+# Researcher-editable ranges for the sensitivity analysis and the half-lives
+# of the HWP stock model (both Phase G; open in Excel as CSV).
+COEFFICIENT_RANGES_FILE = CONFIG_DIR / "coefficient_ranges.csv"
+HWP_HALF_LIVES_FILE = CONFIG_DIR / "hwp_half_lives.csv"
 
 # The public static site (Phase D). ``site/`` is committed source; ``site/data``
 # is generated output (git-ignored) — the bundle is derived from the committed
@@ -59,6 +83,14 @@ HARVEST_FYLKE_CSV = RAW_DIR / "harvest_by_fylke.csv"
 # the 08799_* chunk queries. If absent, every row stays destination="domestic".
 EXPORTS_PARTNER_CSV = RAW_DIR / "exports_by_partner.csv"
 
+# SSB price tables tidied (07413 roundwood prices, 08360 wholesale power) —
+# committed like the county file: read by the cached economic layer, rewritten
+# by circwood-economics from config/ssb_queries/economic.
+PRICES_SSB_CSV = RAW_DIR / "prices_ssb.csv"
+# Price assumptions SSB does not publish (carbon price, energy yield), with
+# their sources; researcher-editable like the carbon CSVs.
+PRICES_FILE = CONFIG_DIR / "prices.csv"
+
 # ISO 3166-1 alpha-2 partner code -> English display label for the site, taken
 # from SSB's own `Land` codelist (lang=en). A lookup, not a closed map: a code
 # without a label is shown as the code, never refused.
@@ -68,6 +100,8 @@ __all__ = [
     "ROOT_DIR",
     "CONFIG_DIR",
     "SSB_QUERY_DIR",
+    "FOREST_QUERY_DIR",
+    "ECONOMIC_QUERY_DIR",
     "NODES_FILE",
     "CARBON_DENSITIES_FILE",
     "CARBON_NODES_FILE",
@@ -78,6 +112,15 @@ __all__ = [
     "SANKEY_CSV",
     "CARBON_CSV",
     "BETA_SERIES_CSV",
+    "BETA_SENSITIVITY_CSV",
+    "HWP_STOCK_CSV",
+    "FOREST_RESOURCE_CSV",
+    "REFRESH_HISTORY",
+    "ECONOMIC_VALUE_CSV",
+    "PRICES_SSB_CSV",
+    "PRICES_FILE",
+    "COEFFICIENT_RANGES_FILE",
+    "HWP_HALF_LIVES_FILE",
     "SITE_DIR",
     "SITE_DATA_DIR",
     "BUNDLE_JSON",

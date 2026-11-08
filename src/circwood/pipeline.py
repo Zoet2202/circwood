@@ -37,18 +37,34 @@ def build_sankey(use_cached_ssb: bool = True) -> pd.DataFrame:
     return run_fresh_pipeline()
 
 
+#: Columns of ``carbon_data.csv`` in file order: the pre-Phase-C six, then the
+#: dimensions, then the Phase G uncertainty envelope (additive, appended).
+CARBON_COLUMNS = (
+    ["source", "target", "volume", "year", "origin", "carbon"]
+    + SANKEY_COLUMNS[5:]
+    + ["carbon_low", "carbon_high"]
+)
+
+
 def build_carbon(use_cached_ssb: bool = True, write: bool = False) -> pd.DataFrame:
-    """Return the Sankey dataset with an added ``carbon`` column (kg C).
+    """Return the Sankey dataset with ``carbon``, ``carbon_low`` and ``carbon_high`` (kg C).
 
-    If ``write`` is True, also (re)generate ``data/processed/carbon_data.csv``.
+    ``carbon`` uses the central densities of ``config/carbon_densities.csv``;
+    the two bounds re-run the same conserving model with the file's low and
+    high density columns (Phase G uncertainty envelope). If ``write`` is True,
+    also (re)generate ``data/processed/carbon_data.csv``.
     """
-    from circwood.carbon import add_carbon
+    from circwood.carbon import add_carbon, load_model
 
-    df = add_carbon(build_sankey(use_cached_ssb=use_cached_ssb))
+    base = build_sankey(use_cached_ssb=use_cached_ssb)
+    df = add_carbon(base, load_model(scenario="central"))
+    df["carbon_low"] = add_carbon(base, load_model(scenario="low"))["carbon"]
+    df["carbon_high"] = add_carbon(base, load_model(scenario="high"))["carbon"]
     # Keep the file additive: the pre-Phase-C columns stay in their original
-    # positions (…origin, carbon) and the dimension columns append after.
-    legacy = ["source", "target", "volume", "year", "origin", "carbon"]
-    df = df[legacy + [c for c in df.columns if c not in legacy]]
+    # positions (…origin, carbon), the dimension columns follow, the envelope
+    # appends last.
+    df = df[[c for c in CARBON_COLUMNS if c in df.columns]
+            + [c for c in df.columns if c not in CARBON_COLUMNS]]
     if write:
         config.PROCESSED_DIR.mkdir(parents=True, exist_ok=True)
         df.to_csv(config.CARBON_CSV, index=False)
